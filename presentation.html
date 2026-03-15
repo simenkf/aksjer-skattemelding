@@ -432,6 +432,20 @@
   .sourcesPanel ul{padding-left:1.25em; color:var(--muted); line-height:1.45}
   .sourcesPanel a{color:#d7c5ff}
   .kbd{display:inline-block; border:1px solid var(--line); padding:2px 7px; border-radius:8px; background:rgba(255,255,255,.06)}
+  .shortcut-btn{
+    display:inline-flex; align-items:center; gap:6px;
+    border:1px solid var(--line); background:rgba(18,26,49,.84);
+    color:var(--muted); padding:7px 12px; border-radius:999px;
+    cursor:pointer; font-size:13px; font-weight:600; transition:.18s ease; white-space:nowrap;
+  }
+  .shortcut-btn:hover{background:rgba(26,36,69,.98); color:var(--text); transform:translateY(-1px)}
+  .shortcut-btn .key{
+    display:inline-grid; place-items:center;
+    min-width:22px; height:22px; padding:0 5px;
+    border:1px solid rgba(255,255,255,.18); border-radius:6px;
+    background:rgba(255,255,255,.08); font-size:12px; font-weight:800;
+    color:var(--text); line-height:1;
+  }
   .pager{
     display:flex; gap:8px; align-items:center; justify-content:center;
     flex-wrap:wrap;
@@ -544,7 +558,6 @@
       </div>
     </div>
     <div class="navcluster">
-      <button class="pill" id="overviewBtn">Oversikt</button>
       <button class="pill" id="sourcesBtn">Kilder</button>
       <div class="slideCount" id="slideCount">1 / 14</div>
     </div>
@@ -1809,6 +1822,8 @@
     <div class="controls">
       <button class="btn" id="prevBtn">← Forrige</button>
       <button class="btn" id="nextBtn">Neste →</button>
+      <button class="shortcut-btn" id="tocShortcutBtn"><span class="key">I</span> Innhold</button>
+      <button class="shortcut-btn" id="srcShortcutBtn"><span class="key">K</span> Kilder</button>
       <button class="btn mobileOnly" id="fsBtn">Fullskjerm</button>
     </div>
     <div class="pager" id="pager"></div>
@@ -1854,7 +1869,8 @@
   const pager = document.getElementById('pager');
   const sourcesPanel = document.getElementById('sourcesPanel');
   const sourcesBtn = document.getElementById('sourcesBtn');
-  const overviewBtn = document.getElementById('overviewBtn');
+  const tocShortcutBtn = document.getElementById('tocShortcutBtn');
+  const srcShortcutBtn = document.getElementById('srcShortcutBtn');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   const fsBtn = document.getElementById('fsBtn');
@@ -1944,10 +1960,6 @@
     tocOverlay.classList.toggle('open', open);
   }
 
-  function showOverview(){
-    toggleToc(true);
-  }
-
   buildPager();
   buildToc();
   parseHash();
@@ -1956,7 +1968,8 @@
   prevBtn.addEventListener('click', prev);
   nextBtn.addEventListener('click', next);
   sourcesBtn.addEventListener('click', () => toggleSources());
-  overviewBtn.addEventListener('click', showOverview);
+  tocShortcutBtn.addEventListener('click', () => toggleToc());
+  srcShortcutBtn.addEventListener('click', () => toggleSources());
   if (fsBtn) {
     fsBtn.addEventListener('click', async () => {
       if (!document.fullscreenElement) await document.documentElement.requestFullscreen?.();
@@ -1974,7 +1987,6 @@
     else if (k === 'End') { e.preventDefault(); go(slides.length - 1); }
     else if (k.toLowerCase() === 'k') { e.preventDefault(); toggleSources(); }
     else if (k.toLowerCase() === 'i') { e.preventDefault(); toggleToc(); }
-    else if (k.toLowerCase() === 'o') { e.preventDefault(); showOverview(); }
     else if (k === 'Escape') { toggleSources(false); toggleToc(false); }
   });
 
@@ -2004,7 +2016,8 @@
   document.addEventListener('click', (e) => {
     if (sourcesPanel.classList.contains('open') &&
         !sourcesPanel.contains(e.target) &&
-        e.target !== sourcesBtn) {
+        e.target !== sourcesBtn &&
+        !srcShortcutBtn.contains(e.target)) {
       toggleSources(false);
     }
   });
