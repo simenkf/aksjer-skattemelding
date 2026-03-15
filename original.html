@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aksjer i skattemeldingen – Accenture ESPP</title>
+<style>
+  :root{
+    --bg:#0b1020;
+    --bg2:#101935;
+    --panel:#121a31;
+    --panel2:#0f1630;
+    --soft:#1a2445;
+    --line:rgba(255,255,255,.11);
+    --text:#f5f7ff;
+    --muted:#b5bfdc;
+    --purple:#a100ff;
+    --purple2:#c864ff;
+    --cyan:#67e8f9;
+    --green:#67e8a8;
+    --amber:#f6c453;
+    --red:#ff7d7d;
+    --shadow:0 22px 60px rgba(0,0,0,.35);
+    --radius:22px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:
+    radial-gradient(1200px 700px at 80% -10%, rgba(161,0,255,.28), transparent 45%),
+    radial-gradient(1000px 700px at -10% 110%, rgba(103,232,249,.14), transparent 40%),
+    linear-gradient(180deg, #0b1020 0%, #070b18 100%);
+    color:var(--text);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    overflow:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background:
+      linear-gradient(transparent 97%, rgba(255,255,255,.02) 100%),
+      linear-gradient(90deg, transparent 97%, rgba(255,255,255,.02) 100%);
+    background-size: 100% 36px, 36px 100%;
+    pointer-events:none; opacity:.18;
+  }
+  .app{height:100%; display:grid; grid-template-rows:auto 1fr auto; position:relative; z-index:1}
+  .topbar,.bottombar{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:14px 24px;
+    background:rgba(8,12,24,.72);
+    backdrop-filter: blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .bottombar{border-top:1px solid var(--line); border-bottom:none; padding:12px 24px}
+  .brand{display:flex; align-items:center; gap:12px; min-width:0}
+  .logo{
+    width:12px; height:12px; border-radius:999px;
+    background:radial-gradient(circle at 30% 30%, #fff, #d9a0ff 15%, var(--purple) 60%, transparent 61%);
+    box-shadow:0 0 32px rgba(161,0,255,.55);
+  }
+  .brand h1{font-size:15px; margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .sub{font-size:12px; color:var(--muted)}
+  .controls,.navcluster{display:flex; align-items:center; gap:10px}
+  button{
+    appearance:none; border:none; background:none; color:inherit; font:inherit;
+  }
+  .btn,.pill{
+    border:1px solid var(--line);
+    background:rgba(18,26,49,.84);
+    color:var(--text);
+    padding:10px 14px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:.18s ease;
+  }
+  .btn:hover,.pill:hover{background:rgba(26,36,69,.98); transform:translateY(-1px)}
+  .slideCount{font-weight:700; letter-spacing:.02em; font-size:14px}
+  .progress{
+    width:min(260px, 28vw); height:7px; border-radius:999px; overflow:hidden;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.06);
+  }
+  .progress > div{
+    height:100%; width:0%;
+    background:linear-gradient(90deg,var(--purple),#d18bff 55%, var(--cyan));
+    transition:width .25s ease;
+  }
+  .stage{position:relative; overflow:hidden}
+  .deck{height:100%; position:relative}
+  .slide{
+    position:absolute; inset:0;
+    padding:34px 48px 28px;
+    opacity:0; transform:translateX(40px) scale(.985);
+    transition:opacity .32s ease, transform .32s ease;
+    pointer-events:none;
+    display:grid;
+    grid-template-rows:auto 1fr auto;
+    gap:22px;
+  }
+  .slide.active{
+    opacity:1; transform:translateX(0) scale(1); pointer-events:auto;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    color:#d9dfff; font-size:13px; letter-spacing:.08em; text-transform:uppercase;
+  }
+  .eyebrow .dot{width:8px; height:8px; border-radius:999px; background:var(--purple2); box-shadow:0 0 16px rgba(200,100,255,.7)}
+  .titleRow{display:flex; align-items:flex-end; justify-content:space-between; gap:20px}
+  .slide h2{
+    font-size:clamp(34px, 4.1vw, 58px);
+    line-height:1.04;
+    letter-spacing:-.03em;
+    margin:0;
+    max-width:980px;
+  }
+  .subtitle{
+    color:var(--muted);
+    font-size:clamp(15px, 1.35vw, 20px);
+    max-width:860px;
+    line-height:1.45;
+  }
+  .content{min-height:0}
+  .foot{
+    color:rgba(210,220,255,.62);
+    font-size:12px;
+    display:flex; justify-content:space-between; gap:12px;
+  }
+  .sourceHint{white-space:nowrap}
+  .grid-2{display:grid; grid-template-columns:1.1fr .9fr; gap:22px; height:100%}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+  .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+  .stack{display:grid; gap:18px}
+  .card{
+    background:linear-gradient(180deg, rgba(18,26,49,.92), rgba(12,18,36,.95));
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    border-radius:var(--radius);
+    padding:22px 24px;
+    min-width:0;
+  }
+  .card.soft{background:linear-gradient(180deg, rgba(22,32,60,.88), rgba(15,22,47,.92))}
+  .card h3{margin:0 0 8px; font-size:24px; line-height:1.1}
+  .card h4{margin:0 0 8px; font-size:18px; line-height:1.2}
+  .card p{margin:0; color:var(--muted); line-height:1.45}
+  ul.clean{margin:10px 0 0 0; padding-left:1.25em; color:var(--muted); line-height:1.52}
+  ul.clean li{margin:.35em 0}
+  .chips{display:flex; gap:10px; flex-wrap:wrap}
+  .chip{
+    padding:8px 12px; border-radius:999px; border:1px solid var(--line);
+    background:rgba(255,255,255,.04); color:#fff; font-size:13px; font-weight:650;
+  }
+  .chip.purple{background:rgba(161,0,255,.18)}
+  .chip.cyan{background:rgba(103,232,249,.12)}
+  .chip.green{background:rgba(103,232,168,.12)}
+  .chip.amber{background:rgba(246,196,83,.13)}
+  .coverLayout{
+    display:grid; grid-template-columns:1.08fr .92fr; gap:24px; height:100%;
+    align-items:stretch;
+  }
+  .hero{
+    display:grid; gap:16px; align-content:start;
+    padding-right:20px;
+  }
+  .hero .big{
+    font-size:clamp(42px,5.6vw,74px);
+    line-height:.98; letter-spacing:-.05em; margin:0;
+  }
+  .hero .lede{
+    max-width:760px; font-size:clamp(18px,1.6vw,24px); line-height:1.42; color:#d5ddfb;
+  }
+  .toc{
+    display:grid; grid-template-columns:1fr 1fr; gap:12px;
+  }
+  .toc .item{
+    border:1px solid var(--line); border-radius:18px; padding:14px 16px;
+    background:rgba(255,255,255,.04);
+  }
+  .toc .n{font-size:13px; color:#c8d3ff; margin-bottom:4px}
+  .toc .t{font-size:16px; font-weight:700}
+  .countryRail{
+    display:grid; gap:14px; align-content:start;
+  }
+  .countryCard{
+    padding:18px 20px; border-radius:20px;
+    border:1px solid var(--line); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    min-height:112px;
+  }
+  .countryCard .label{font-size:13px; text-transform:uppercase; letter-spacing:.09em; color:#d7ddff}
+  .countryCard .big{font-size:30px; margin:8px 0 6px; font-weight:800; letter-spacing:-.04em}
+  .countryCard p{margin:0; color:var(--muted); line-height:1.4}
+  .termTable{
+    display:grid; grid-template-columns: 1.2fr 1fr 1.6fr; gap:10px 12px;
+    align-content:start;
+  }
+  .termTable .head{
+    color:#dfe6ff; font-weight:700; font-size:14px; text-transform:uppercase; letter-spacing:.08em;
+    padding:0 4px 6px;
+  }
+  .termRow{
+    display:contents;
+  }
+  .termCell{
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--line);
+    padding:14px 16px;
+    border-radius:16px;
+    line-height:1.42;
+  }
+  .termCell strong{display:block; font-size:17px; margin-bottom:4px}
+  .termCell span{color:var(--muted)}
+  .shareVisual{
+    display:grid; grid-template-columns:1.15fr .85fr; gap:22px; height:100%;
+  }
+  .diagram{
+    background:linear-gradient(180deg, rgba(16,25,53,.92), rgba(9,14,29,.95));
+    border:1px solid var(--line); border-radius:28px; padding:28px;
+    display:grid; grid-template-rows:auto 1fr auto; gap:16px;
+    box-shadow:var(--shadow);
+  }
+  .companyBox{
+    width:100%; padding:22px; border-radius:22px; border:1px solid rgba(255,255,255,.1);
+    background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    display:flex; justify-content:space-between; align-items:center; gap:16px;
+  }
+  .companyName{font-size:28px; font-weight:800}
+  .shareCircles{display:flex; gap:10px}
+  .shareCircles span{
+    width:18px; height:18px; border-radius:999px; background:linear-gradient(180deg, var(--purple2), var(--purple)); opacity:.9;
+    box-shadow:0 0 14px rgba(161,0,255,.35);
+  }
+  .owners{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:16px; align-items:stretch;
+  }
+  .owner{
+    border:1px solid rgba(255,255,255,.09); border-radius:22px; padding:18px;
+    background:rgba(255,255,255,.035);
+    display:grid; gap:8px;
+  }
+  .avatar{
+    width:56px; height:56px; border-radius:999px;
+    background:radial-gradient(circle at 30% 30%, #fff, #cfe9ff 12%, #7c92ff 13%, #29376d 66%);
+  }
+  .owner .name{font-size:18px; font-weight:700}
+  .small{font-size:13px; color:var(--muted)}
+  .flowBand{
+    border:1px dashed rgba(255,255,255,.16); border-radius:22px; padding:14px 16px;
+    display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:10px; align-items:center;
+    color:#e7ebff;
+  }
+  .flowBand .arrow{font-size:30px; text-align:center; color:#e7cdff}
+  .cash{
+    display:grid; grid-template-columns:1fr; gap:16px;
+  }
+  .moneyCard{
+    border-radius:22px; padding:20px; border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(103,232,168,.14), rgba(103,232,168,.06));
+  }
+  .moneyCard h4{font-size:20px; margin-bottom:8px}
+  .moneyCard p{color:#dff7ea}
+  .dividendVisual{
+    display:grid; grid-template-columns:1fr 1fr; gap:12px;
+  }
+  .mini{
+    padding:16px; border-radius:18px; border:1px solid var(--line); background:rgba(255,255,255,.04);
+  }
+  .mini .bigNum{font-size:28px; font-weight:800; letter-spacing:-.03em}
+  .process{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px; height:100%;
+  }
+  .step{
+    position:relative;
+    padding:18px 18px 16px;
+    border-radius:22px; border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+    display:grid; gap:10px; align-content:start;
+  }
+  .step .nr{
+    width:34px; height:34px; display:grid; place-items:center;
+    border-radius:999px; background:rgba(161,0,255,.18); border:1px solid rgba(200,100,255,.28); font-weight:800;
+  }
+  .step h3{font-size:22px}
+  .mathBand{
+    display:grid; grid-template-columns:1.08fr .92fr; gap:18px; align-items:stretch; margin-top:16px;
+  }
+  .formula{
+    font-size:22px; line-height:1.4; color:#fff;
+  }
+  .formula strong{font-size:34px; letter-spacing:-.03em}
+  .formula .muted{color:var(--muted); font-size:16px}
+  .wideCards{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+  .wideCards .card{height:100%}
+  .metaStrip{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
+  }
+  .metaBox{
+    border-radius:18px; border:1px solid var(--line); background:rgba(255,255,255,.04); padding:14px 16px;
+  }
+  .metaBox .k{font-size:12px; color:#c9d2f2; text-transform:uppercase; letter-spacing:.08em}
+  .metaBox .v{font-size:20px; font-weight:800; margin-top:4px}
+  .special3{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px; height:100%;
+  }
+  .flagAccent{
+    position:absolute; width:74px; height:74px; border-radius:18px; right:18px; top:18px;
+    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
+    display:grid; place-items:center; font-size:32px;
+  }
+  .taxGrid{display:grid; grid-template-columns:1.1fr .9fr; gap:20px; height:100%}
+  .statList{display:grid; gap:14px}
+  .stat{
+    display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start;
+    padding:18px 18px; border-radius:18px; background:rgba(255,255,255,.04); border:1px solid var(--line);
+  }
+  .stat .bubble{
+    width:40px; height:40px; border-radius:999px; display:grid; place-items:center; font-size:20px;
+    background:rgba(161,0,255,.18); border:1px solid rgba(200,100,255,.28);
+  }
+  .stat h4{margin:0 0 4px; font-size:20px}
+  .stat p{margin:0; color:var(--muted); line-height:1.44}
+  .calcPanel{
+    display:grid; gap:14px;
+  }
+  .calcPanel .heroNum{
+    font-size:60px; font-weight:900; letter-spacing:-.05em; line-height:.95;
+  }
+  .calcPanel .equ{
+    padding:16px 18px; border-radius:18px; background:rgba(255,255,255,.05); border:1px solid var(--line); font-size:20px; line-height:1.45;
+  }
+  .compare{
+    display:grid; grid-template-columns:1fr 1fr; gap:18px; height:100%;
+  }
+  .compare .card{height:100%}
+  .labelTag{
+    display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px;
+    font-size:13px; font-weight:700; border:1px solid var(--line); margin-bottom:12px;
+  }
+  .labelTag.red{background:rgba(255,125,125,.12)}
+  .labelTag.green{background:rgba(103,232,168,.12)}
+  .arrowRow{
+    display:grid; grid-template-columns:repeat(5,1fr); gap:10px; align-items:center;
+  }
+  .arrowCard{
+    padding:14px 12px; border-radius:18px; border:1px solid var(--line); background:rgba(255,255,255,.04); text-align:center; min-height:96px;
+    display:grid; place-items:center;
+  }
+  .arrowCard strong{display:block; margin-bottom:4px}
+  .arrowSep{text-align:center; font-size:30px; color:#e7cdff}
+  .v2aNote{
+    display:grid; grid-template-columns:1fr 1fr; gap:16px;
+  }
+  .breakeven{
+    display:grid; grid-template-columns:1fr 1fr; gap:18px; height:100%;
+  }
+  .example{
+    padding:18px; border-radius:20px; border:1px solid var(--line); background:rgba(255,255,255,.04); display:grid; gap:10px;
+  }
+  .example .title{font-size:22px; font-weight:800}
+  .example .amt{font-size:42px; font-weight:900; letter-spacing:-.05em}
+  .example.good{background:linear-gradient(180deg, rgba(103,232,168,.12), rgba(255,255,255,.03))}
+  .example.meh{background:linear-gradient(180deg, rgba(246,196,83,.12), rgba(255,255,255,.03))}
+  .checklist{
+    display:grid; grid-template-columns:1fr 1fr; gap:16px 18px;
+  }
+  .check{
+    display:grid; grid-template-columns:auto 1fr; gap:14px;
+    padding:18px; border-radius:20px; border:1px solid var(--line); background:rgba(255,255,255,.04);
+    align-items:start;
+  }
+  .check .n{
+    width:34px; height:34px; border-radius:999px; display:grid; place-items:center;
+    font-weight:800; background:rgba(103,232,249,.12); border:1px solid rgba(103,232,249,.22);
+  }
+  .check strong{display:block; font-size:18px; margin-bottom:4px}
+  .check span{color:var(--muted); line-height:1.43}
+  .sourcesPanel{
+    position:fixed; right:18px; top:74px; bottom:74px; width:min(520px, calc(100vw - 36px));
+    background:rgba(10,14,26,.96); border:1px solid var(--line); border-radius:24px;
+    box-shadow:var(--shadow); padding:22px 24px; overflow:auto;
+    transform:translateX(calc(100% + 24px)); transition:transform .28s ease; z-index:5;
+  }
+  .sourcesPanel.open{transform:translateX(0)}
+  .sourcesPanel h3{margin:0 0 8px; font-size:28px}
+  .sourcesPanel p{color:var(--muted); line-height:1.48}
+  .sourcesPanel ul{padding-left:1.25em; color:var(--muted); line-height:1.45}
+  .sourcesPanel a{color:#d7c5ff}
+  .kbd{display:inline-block; border:1px solid var(--line); padding:2px 7px; border-radius:8px; background:rgba(255,255,255,.06)}
+  .pager{
+    display:flex; gap:8px; align-items:center; justify-content:center;
+    flex-wrap:wrap;
+  }
+  .dotBtn{
+    width:10px; height:10px; padding:0; border-radius:999px; border:none;
+    background:rgba(255,255,255,.22); cursor:pointer; transition:.16s ease;
+  }
+  .dotBtn.active{width:28px; background:linear-gradient(90deg,var(--purple), var(--cyan))}
+  .mobileOnly{display:none}
+  .note{
+    padding:14px 16px; border-radius:16px; border:1px dashed rgba(255,255,255,.16); color:#dce3ff; line-height:1.45
+  }
+  @media (max-width:1100px){
+    .slide{padding:24px 24px 20px}
+    .coverLayout,.grid-2,.taxGrid,.breakeven,.compare,.shareVisual,.mathBand{grid-template-columns:1fr}
+    .grid-3,.grid-4,.wideCards,.special3,.process,.metaStrip,.checklist{grid-template-columns:1fr 1fr}
+    .termTable{grid-template-columns:1fr}
+    .termTable .head{display:none}
+    .countryRail{grid-template-columns:1fr 1fr; display:grid}
+  }
+  @media (max-width:760px){
+    .topbar,.bottombar{padding:10px 12px}
+    .brand h1{font-size:13px}
+    .sub{display:none}
+    .slide{padding:18px 14px 16px; gap:14px}
+    .slide h2{font-size:30px}
+    .subtitle{font-size:14px}
+    .grid-3,.grid-4,.wideCards,.special3,.process,.metaStrip,.checklist,.countryRail,.toc,.v2aNote,.breakeven,.compare,.owners,.dividendVisual{grid-template-columns:1fr}
+    .progress{width:36vw}
+    .hero .big{font-size:38px}
+    .bottombar{flex-wrap:wrap; justify-content:center}
+    .mobileOnly{display:inline-flex}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <h1>Aksjer i skattemeldingen – Accenture ESPP</h1>
+        <div class="sub">Nettleserpresentasjon bygget i ren HTML, CSS og JavaScript</div>
+      </div>
+    </div>
+    <div class="navcluster">
+      <button class="pill" id="overviewBtn">Oversikt</button>
+      <button class="pill" id="sourcesBtn">Kilder</button>
+      <div class="slideCount" id="slideCount">1 / 12</div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <div class="deck" id="deck">
+
+      <section class="slide active" data-title="Forside">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Presentasjon for norske ansatte</div>
+        </div>
+        <div class="content coverLayout">
+          <div class="hero">
+            <h2 class="big">Hvordan fører du<br>Accenture-aksjer<br>på skattemeldingen?</h2>
+            <div class="lede">
+              ESPP-aksjer ser enkle ut i appen, men skattemessig krysser de tre land:
+              <strong>Irland</strong> som selskap, <strong>USA</strong> som børs og meglerløp, og <strong>Norge</strong> som skattemessig bosted.
+            </div>
+            <div class="toc">
+              <div class="item"><div class="n">01</div><div class="t">Begreper og grunnidé</div></div>
+              <div class="item"><div class="n">02</div><div class="t">Hva aksjer og ESPP er</div></div>
+              <div class="item"><div class="n">03</div><div class="t">Skattemeldingen steg for steg</div></div>
+              <div class="item"><div class="n">04</div><div class="t">Accenture: Irland, USA og Norge</div></div>
+              <div class="item"><div class="n">05</div><div class="t">Utbytte, salg, kildeskatt og W‑8BEN</div></div>
+              <div class="item"><div class="n">06</div><div class="t">Kredittfradrag, V2A og sjekkliste</div></div>
+            </div>
+          </div>
+          <div class="countryRail">
+            <div class="countryCard">
+              <div class="label">Selskap</div>
+              <div class="big">Irland</div>
+              <p>Accenture plc er irsk. Derfor peker utbytte- og kildeskattsiden i stor grad mot irske regler.</p>
+            </div>
+            <div class="countryCard">
+              <div class="label">Børs / broker-løp</div>
+              <div class="big">USA</div>
+              <p>Aksjen handles i USA som <strong>ACN</strong> på NYSE, og ESPP-aksjene havner normalt hos <strong>UBS</strong>.</p>
+            </div>
+            <div class="countryCard">
+              <div class="label">Din skatt</div>
+              <div class="big">Norge</div>
+              <p>Du er skattemessig bosatt i Norge, så beholdning, utbytte, kredittfradrag og eventuelt salg må inn i skattemeldingen.</p>
+            </div>
+          </div>
+        </div>
+        <div class="foot">
+          <div>Bruk piltaster, mellomrom eller knappene nederst for å gå videre.</div>
+          <div class="sourceHint">Temaet er forenklet; sjekk alltid mot årets regler og egne kontoutskrifter.</div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Begrepsoversikt">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Begreper først</div>
+          <div class="titleRow">
+            <div>
+              <h2>Begrepsoversikt</h2>
+              <div class="subtitle">Norsk begrep, engelsk ord og en kort bortforklaring i én slide.</div>
+            </div>
+          </div>
+        </div>
+        <div class="content card soft">
+          <div class="termTable">
+            <div class="head">Norsk</div><div class="head">Engelsk</div><div class="head">Kort forklart</div>
+
+            <div class="termRow">
+              <div class="termCell"><strong>Aksje</strong></div>
+              <div class="termCell"><strong>Share / Stock</strong></div>
+              <div class="termCell"><span>En liten eierandel i et selskap. Du kan tjene penger på kursoppgang og på utbytte.</span></div>
+            </div>
+            <div class="termRow">
+              <div class="termCell"><strong>Utbytte</strong></div>
+              <div class="termCell"><strong>Dividend</strong></div>
+              <div class="termCell"><span>Penger selskapet deler ut til eierne. For Accenture er dette irsk utbytte fordi selskapet er irsk.</span></div>
+            </div>
+            <div class="termRow">
+              <div class="termCell"><strong>ESPP</strong></div>
+              <div class="termCell"><strong>Employee Stock Purchase Plan</strong></div>
+              <div class="termCell"><span>Ordning der ansatte sparer via lønnstrekk og kjøper aksjer på faste datoer, ofte med rabatt.</span></div>
+            </div>
+            <div class="termRow">
+              <div class="termCell"><strong>Kildeskatt</strong></div>
+              <div class="termCell"><strong>Withholding tax</strong></div>
+              <div class="termCell"><span>Skatt som trekkes før pengene når deg. Typisk ved utbytte fra utlandet.</span></div>
+            </div>
+            <div class="termRow">
+              <div class="termCell"><strong>Kredittfradrag</strong></div>
+              <div class="termCell"><strong>Foreign tax credit</strong></div>
+              <div class="termCell"><span>Fradrag i norsk skatt for skatt som allerede er betalt i utlandet på samme inntekt.</span></div>
+            </div>
+            <div class="termRow">
+              <div class="termCell"><strong>W‑8BEN</strong></div>
+              <div class="termCell"><strong>IRS Form W‑8BEN</strong></div>
+              <div class="termCell"><span>Skjema som bekrefter at du ikke er amerikansk skattepliktig person overfor amerikansk utbetaler/broker.</span></div>
+            </div>
+            <div class="termRow">
+              <div class="termCell"><strong>V2A</strong></div>
+              <div class="termCell"><strong>Irish non‑resident Form V2A</strong></div>
+              <div class="termCell"><span>Irsk skjema for å få utbytte uten irsk trekk ved kilden for kvalifiserte ikke‑residenter.</span></div>
+            </div>
+            <div class="termRow">
+              <div class="termCell"><strong>Skjermingsfradrag</strong></div>
+              <div class="termCell"><strong>Allowance for shielding</strong></div>
+              <div class="termCell"><span>Et norsk fradrag som reduserer skattepliktig utbytte og gevinst.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="foot">
+          <div>Begrepene brukes litt ulikt i interne systemer, hos UBS og i skattemeldingen.</div>
+          <div class="sourceHint">Trykk <span class="kbd">K</span> for å åpne kildepanelet.</div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Hva er en aksje?">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Grunnidé</div>
+          <div class="titleRow">
+            <div>
+              <h2>Kort: hva er en aksje?</h2>
+              <div class="subtitle">En aksje gir deg en liten eierandel i selskapet — og to vanlige måter å tjene penger på.</div>
+            </div>
+          </div>
+        </div>
+        <div class="content shareVisual">
+          <div class="diagram">
+            <div class="companyBox">
+              <div>
+                <div class="small">Selskapet</div>
+                <div class="companyName">Accenture plc</div>
+              </div>
+              <div class="shareCircles" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="owners">
+              <div class="owner">
+                <div class="avatar"></div>
+                <div class="name">Du</div>
+                <div class="small">Eier noen av de små bitene</div>
+              </div>
+              <div class="owner">
+                <div class="avatar"></div>
+                <div class="name">Andre ansatte</div>
+                <div class="small">Eier resten av andre små biter</div>
+              </div>
+              <div class="owner">
+                <div class="avatar"></div>
+                <div class="name">Andre investorer</div>
+                <div class="small">Det samme prinsippet for alle aksjonærer</div>
+              </div>
+            </div>
+            <div class="flowBand">
+              <div><strong>Eierandel</strong><br><span class="small">du eier en del av selskapet</span></div>
+              <div class="arrow">→</div>
+              <div><strong>Kursgevinst</strong><br><span class="small">aksjen stiger i verdi</span></div>
+              <div class="arrow">→</div>
+              <div><strong>Utbytte</strong><br><span class="small">selskapet betaler kontanter til eierne</span></div>
+            </div>
+          </div>
+          <div class="cash">
+            <div class="moneyCard">
+              <h4>1. Kursgevinst</h4>
+              <p>Kjøper du en aksje for 100 og selger for 140, har du en gevinst på 40 per aksje.</p>
+            </div>
+            <div class="moneyCard">
+              <h4>2. Utbytte</h4>
+              <p>Hvis selskapet deler ut kontanter, får du din andel direkte fordi du eier aksjen på utbyttedatoen.</p>
+            </div>
+            <div class="dividendVisual">
+              <div class="mini">
+                <div class="small">Eksempel</div>
+                <div class="bigNum">$1.48</div>
+                <div class="small">utbytte per aksje</div>
+              </div>
+              <div class="mini">
+                <div class="small">Har du 20 aksjer</div>
+                <div class="bigNum">$29.60</div>
+                <div class="small">brutto før eventuelt trekk</div>
+              </div>
+            </div>
+            <div class="note">Utbytte er altså ikke salg av aksjen. Du beholder aksjen og får samtidig en kontantutbetaling.</div>
+          </div>
+        </div>
+        <div class="foot">
+          <div>For skattemeldingen er både utbytte, beholdning og eventuelt salg relevante.</div>
+          <div></div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Hva er ESPP?">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Ansattordningen</div>
+          <div class="titleRow">
+            <div>
+              <h2>Hva er ESPP?</h2>
+              <div class="subtitle">Forenklet flyt for Accentures ESPP: påmelding, oppsparing, kjøp og hvor aksjene havner.</div>
+            </div>
+            <div class="chips">
+              <div class="chip purple">15 % rabatt</div>
+              <div class="chip cyan">Kjøp 1. mai og 1. september</div>
+              <div class="chip green">UBS som broker</div>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="process">
+            <div class="step">
+              <div class="nr">1</div>
+              <h3>Påmelding</h3>
+              <p>Du velger <strong>1–10 %</strong> lønnstrekk. Dette kan normalt justeres fortløpende.</p>
+              <ul class="clean">
+                <li>Prosent av lønn</li>
+                <li>Kan endres underveis</li>
+              </ul>
+            </div>
+            <div class="step">
+              <div class="nr">2</div>
+              <h3>Oppsparing</h3>
+              <p>Beløpet samles opp frem til kjøpsdato. Pengene kan tas ut når du vil frem til kjøpet.</p>
+              <ul class="clean">
+                <li>Ikke bundet helt frem til kjøp</li>
+                <li>Du bygger opp “kjøpekraft”</li>
+              </ul>
+            </div>
+            <div class="step">
+              <div class="nr">3</div>
+              <h3>Kjøp</h3>
+              <p>Aksjer kjøpes på de faste datoene <strong>1. mai</strong> og <strong>1. september</strong>.</p>
+              <ul class="clean">
+                <li>Kjøpes til rabatt</li>
+                <li>Markedspris er referansen</li>
+              </ul>
+            </div>
+            <div class="step">
+              <div class="nr">4</div>
+              <h3>Etter kjøp</h3>
+              <p>Aksjene havner hos <strong>UBS</strong> som broker, og blir derfra utgangspunkt for utbytte, rapporter og eventuelt salg.</p>
+              <ul class="clean">
+                <li>Du får beholdning hos UBS</li>
+                <li>Disse tallene bruker du senere i skattemeldingen</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mathBand">
+            <div class="card">
+              <h3>Hva betyr 15 % rabatt i praksis?</h3>
+              <div class="formula">
+                Du kjøper til <strong>0,85 × markedspris</strong><br>
+                Dag 1 står du på <strong>1 / 0,85 = 1,17647059</strong><br>
+                <span class="muted">Det tilsvarer omtrent <strong>17,65 %</strong> opp fra innkjøpspris hvis markedsprisen ellers er uendret.</span>
+              </div>
+            </div>
+            <div class="card soft">
+              <h3>Men husk</h3>
+              <ul class="clean">
+                <li>Rabatten betyr ikke at risikoen forsvinner.</li>
+                <li>Kursen kan både stige og falle etter kjøp.</li>
+                <li>Skattemessig er dette fortsatt vanlige aksjer når du eier dem.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="foot">
+          <div>Denne sliden beskriver ordningen forenklet slik den typisk oppleves av ansatte.</div>
+          <div></div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Hvordan føres aksjer?">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> I skattemeldingen</div>
+          <div class="titleRow">
+            <div>
+              <h2>Hvordan føres aksjer generelt?</h2>
+              <div class="subtitle">Tenk på fire ting: hva du eier ved årsskiftet, hva du har fått i utbytte, om det er trukket skatt i utlandet, og om du har solgt.</div>
+            </div>
+          </div>
+        </div>
+        <div class="content stack">
+          <div class="wideCards">
+            <div class="card">
+              <h3>1. Beholdning per 31.12</h3>
+              <p>Du oppgir markedsverdi ved årsskiftet. For utenlandske aksjer er dette ofte ikke forhåndsutfylt, så du må ofte gjøre jobben selv.</p>
+            </div>
+            <div class="card">
+              <h3>2. Utbytte</h3>
+              <p>Før brutto utbytte. Hvis du har skjermingsfradrag, bruker du også dette for å redusere det som blir skattepliktig.</p>
+            </div>
+            <div class="card">
+              <h3>3. Utenlandsk skatt</h3>
+              <p>Er det trukket skatt i utlandet, kan du normalt kreve kredittfradrag i Norge for å unngå dobbelbeskatning.</p>
+            </div>
+            <div class="card">
+              <h3>4. Salg</h3>
+              <p>Har du solgt aksjer, må gevinst eller tap også inn. Da er kjøpspris, salgspris og eventuelt skjerming viktige.</p>
+            </div>
+          </div>
+
+          <div class="metaStrip">
+            <div class="metaBox">
+              <div class="k">Bevis</div>
+              <div class="v">UBS‑utskrifter</div>
+            </div>
+            <div class="metaBox">
+              <div class="k">Verdi</div>
+              <div class="v">31. desember</div>
+            </div>
+            <div class="metaBox">
+              <div class="k">Inntekt</div>
+              <div class="v">Brutto utbytte</div>
+            </div>
+            <div class="metaBox">
+              <div class="k">Ekstra</div>
+              <div class="v">Kredittfradrag / salg</div>
+            </div>
+          </div>
+
+          <div class="card soft">
+            <h3>Tommelfingerregel</h3>
+            <p>Hvis opplysningene ikke er forhåndsutfylt i skattemeldingen, er du fortsatt ansvarlig for å legge dem inn. Det gjelder særlig beholdning i utlandet og salg via utenlandsk broker.</p>
+          </div>
+        </div>
+        <div class="foot">
+          <div>Skatteetaten skiller mellom beholdning/formue, utbytte og realisasjon.</div>
+          <div></div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Det spesielle med Accenture">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Tre land på én gang</div>
+          <div class="titleRow">
+            <div>
+              <h2>Det spesielle med Accenture-aksjer</h2>
+              <div class="subtitle">Dette er kjernen i hvorfor temaet føles “mer komplisert” enn vanlige norske aksjer.</div>
+            </div>
+          </div>
+        </div>
+        <div class="content stack">
+          <div class="special3">
+            <div class="card">
+              <div class="flagAccent">🇮🇪</div>
+              <h3>Irland</h3>
+              <ul class="clean">
+                <li><strong>Accenture plc er irsk selskap</strong>.</li>
+                <li>Utbytte behandles derfor som irsk utbytte.</li>
+                <li>Irsk Dividend Withholding Tax kan bli relevant.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="flagAccent">🇺🇸</div>
+              <h3>USA</h3>
+              <ul class="clean">
+                <li><strong>Aksjen er børsnotert i USA</strong>.</li>
+                <li>Ticker: <strong>ACN</strong> på NYSE.</li>
+                <li>Broker-/skjemaløpet går ofte via amerikansk infrastruktur og UBS.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="flagAccent">🇳🇴</div>
+              <h3>Norge</h3>
+              <ul class="clean">
+                <li><strong>Du bor i Norge</strong> og rapporterer her.</li>
+                <li>Beholdning, utbytte, kredittfradrag og salg hører hjemme i norsk skattemelding.</li>
+                <li>Norske regler om skjerming og aksjebeskatning gjelder for deg som person.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="metaStrip">
+            <div class="metaBox">
+              <div class="k">Selskap</div>
+              <div class="v">Accenture plc</div>
+            </div>
+            <div class="metaBox">
+              <div class="k">Ticker</div>
+              <div class="v">ACN</div>
+            </div>
+            <div class="metaBox">
+              <div class="k">ISIN</div>
+              <div class="v">IE00B4BNMY34</div>
+            </div>
+            <div class="metaBox">
+              <div class="k">CUSIP</div>
+              <div class="v">G1151C101</div>
+            </div>
+          </div>
+        </div>
+        <div class="foot">
+          <div>Én aksje, men tre regelsett du må ha i bakhodet.</div>
+          <div class="sourceHint">ISIN/ticker og irsk selskapstilhørighet er lagt inn fra Accenture-kilder.</div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Skatt på aksjer">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Hovedbildet</div>
+          <div class="titleRow">
+            <div>
+              <h2>Generelt om skatt på aksjer</h2>
+              <div class="subtitle">For personlige skattytere i Norge er det typisk disse fem sporene som betyr mest.</div>
+            </div>
+          </div>
+        </div>
+        <div class="content taxGrid">
+          <div class="card">
+            <div class="statList">
+              <div class="stat">
+                <div class="bubble">1</div>
+                <div>
+                  <h4>Formue</h4>
+                  <p>Aksjene inngår i formuen med verdi per 31.12. Eventuell verdsettingsrabatt håndteres normalt av Skatteetaten.</p>
+                </div>
+              </div>
+              <div class="stat">
+                <div class="bubble">2</div>
+                <div>
+                  <h4>Utbytte</h4>
+                  <p>Utbytte er skattepliktig i Norge, men skjermingsfradrag kan redusere hva som faktisk beskattes.</p>
+                </div>
+              </div>
+              <div class="stat">
+                <div class="bubble">3</div>
+                <div>
+                  <h4>Gevinst og tap ved salg</h4>
+                  <p>Gevinst beskattes, tap gir fradrag. Også her kan skjermingsfradrag spille inn.</p>
+                </div>
+              </div>
+              <div class="stat">
+                <div class="bubble">4</div>
+                <div>
+                  <h4>Kildeskatt fra andre land</h4>
+                  <p>Hvis utlandet trekker skatt på utbyttet, kan du normalt kreve kredittfradrag i Norge for samme inntekt.</p>
+                </div>
+              </div>
+              <div class="stat">
+                <div class="bubble">5</div>
+                <div>
+                  <h4>Skjermingsfradrag</h4>
+                  <p>Skjerming er et norsk fradrag som først går mot utbytte og deretter kan redusere gevinst ved salg.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="calcPanel">
+            <div class="card soft">
+              <div class="small">Satser for 2026 i ett bilde</div>
+              <div class="heroNum">37,84 %</div>
+              <p>For personlige aksjonærer blir effektiv skatt på utbytte og gevinst før skjerming i praksis <strong>22 % × 1,72</strong>.</p>
+            </div>
+            <div class="equ">Skatteetaten oppjusterer eierinntekter med faktor <strong>1,72</strong> for inntektsåret 2026.</div>
+            <div class="equ">Du skal altså normalt <strong>ikke</strong> oppjustere tallene selv i skattemeldingen; Skatteetaten gjør det i beregningen.</div>
+            <div class="equ">Hvis utbytte eller gevinst reduseres av skjermingsfradrag, blir skattegrunnlaget lavere før oppjusteringen slår inn.</div>
+          </div>
+        </div>
+        <div class="foot">
+          <div>Tenk “norsk skatt minus skjerming, og så håndterer du eventuell utenlandsk kildeskatt i eget spor”.</div>
+          <div class="sourceHint">2026-faktor: Skatteetaten.</div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Salg av aksjer">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Når du realiserer</div>
+          <div class="titleRow">
+            <div>
+              <h2>Salg av aksjer: gevinst, skatt og ASK</h2>
+              <div class="subtitle">Her er forskjellen på vanlig aksjehold og aksjesparekonto, og hva du faktisk må rapportere.</div>
+            </div>
+          </div>
+        </div>
+        <div class="content compare">
+          <div class="card">
+            <h3>Vanlig beholdning hos broker</h3>
+            <div class="labelTag red">Skatt utløses ved salg</div>
+            <div class="arrowRow">
+              <div class="arrowCard"><strong>Kjøp</strong><span>100 000 kr</span></div>
+              <div class="arrowSep">→</div>
+              <div class="arrowCard"><strong>Salg</strong><span>110 000 kr</span></div>
+              <div class="arrowSep">→</div>
+              <div class="arrowCard"><strong>Gevinst</strong><span>10 000 kr</span></div>
+            </div>
+            <div class="equ" style="margin-top:14px">
+              <strong>Regnestykke:</strong><br>
+              10 000 kr gevinst × 1,72 × 22 % = <strong>3 784 kr</strong> i skatt<br>
+              <span class="small">Eventuelt skjermingsfradrag vil redusere gevinstgrunnlaget før skatten beregnes.</span>
+            </div>
+            <ul class="clean">
+              <li>Dette må rapporteres i skattemeldingen.</li>
+              <li>Du trenger kjøpspris, salgspris, antall og gjerne dokumentasjon fra UBS.</li>
+              <li>Har du tap, får du tilsvarende fradragseffekt.</li>
+            </ul>
+          </div>
+
+          <div class="card soft">
+            <h3>Aksjesparekonto (ASK)</h3>
+            <div class="labelTag green">Skatt utsettes normalt</div>
+            <p>På ASK blir ikke hver enkelt intern handel beskattet umiddelbart. Skatt utløses først når du tar ut mer enn innskutt beløp fra kontoen.</p>
+            <ul class="clean">
+              <li>Det er derfor mye mer “utsatt beskatning” inne på kontoen.</li>
+              <li>Dette er annerledes enn vanlige ESPP-aksjer hos UBS.</li>
+              <li>ESPP-beholdning ligger normalt ikke på ASK, så salg der behandles som vanlig realisasjon.</li>
+            </ul>
+            <div class="note">Kortversjon: Selger du ESPP-aksjer hos UBS, tenk <strong>skatt nå</strong>. Selger du inne på ASK, tenk oftere <strong>skatt senere</strong>.</div>
+          </div>
+        </div>
+        <div class="foot">
+          <div>Skatteetaten omtaler salg som realisasjon.</div>
+          <div></div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="W-8BEN">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> USA-sporet</div>
+          <div class="titleRow">
+            <div>
+              <h2>W‑8BEN: hva er det — og hva er det ikke?</h2>
+              <div class="subtitle">W‑8BEN er et amerikansk skjema. Det er nyttig, men det løser ikke den irske kildeskatten alene.</div>
+            </div>
+          </div>
+        </div>
+        <div class="content compare">
+          <div class="card">
+            <h3>Hva skjemaet gjør</h3>
+            <ul class="clean">
+              <li>Bekrefter at du er <strong>ikke‑amerikansk person</strong> overfor amerikansk utbetaler eller broker.</li>
+              <li>Brukes for amerikanske kildeskatte- og rapporteringsregler.</li>
+              <li>Er ofte del av onboarding eller vedlikehold hos broker som UBS.</li>
+              <li>Er vanlig å fylle ut digitalt i brokerløsningen, ikke sende til IRS direkte.</li>
+            </ul>
+            <div class="equ" style="margin-top:14px">
+              <strong>Gyldighet:</strong><br>
+              Vanligvis til og med <strong>31. desember i det tredje påfølgende kalenderåret</strong>, med mindre opplysninger endres før det.
+            </div>
+          </div>
+
+          <div class="card soft">
+            <h3>Hva skjemaet ikke gjør</h3>
+            <ul class="clean">
+              <li>Det er <strong>ikke</strong> det samme som irsk V2A.</li>
+              <li>Det er <strong>ikke</strong> norsk kredittfradrag.</li>
+              <li>Det fritar deg ikke i seg selv fra å føre beholdning, utbytte eller salg i Norge.</li>
+              <li>Det betyr heller ikke automatisk at irsk kildeskatt forsvinner.</li>
+            </ul>
+            <div class="note">Praktisk huskeregel: <strong>W‑8BEN hører hjemme i USA-sporet.</strong> <strong>V2A hører hjemme i Irland-sporet.</strong> <strong>Kredittfradrag hører hjemme i Norge-sporet.</strong></div>
+          </div>
+        </div>
+        <div class="foot">
+          <div>Hvis UBS ber om nytt W‑8BEN, er det lurt å ordne det før du trenger å handle eller motta betalinger.</div>
+          <div class="sourceHint">IRS beskriver W‑8BEN som dokumentasjon overfor withholding agent/payer.</div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Kredittfradrag vs V2A">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Irland og Norge</div>
+          <div class="titleRow">
+            <div>
+              <h2>Kredittfradrag i Norge vs. V2A mot Irland</h2>
+              <div class="subtitle">Disse to blandes ofte. Men de løser forskjellige deler av problemet.</div>
+            </div>
+          </div>
+        </div>
+        <div class="content stack">
+          <div class="card">
+            <div class="arrowRow">
+              <div class="arrowCard"><strong>Irsk selskap</strong><span>utbetaler utbytte</span></div>
+              <div class="arrowSep">→</div>
+              <div class="arrowCard"><strong>25 % trekk</strong><span>uten irsk fritak ved kilden</span></div>
+              <div class="arrowSep">→</div>
+              <div class="arrowCard"><strong>Norsk skattemelding</strong><span>kredittfradrag kan kreves</span></div>
+            </div>
+          </div>
+
+          <div class="v2aNote">
+            <div class="card">
+              <h3>Kredittfradrag</h3>
+              <ul class="clean">
+                <li>Kreves i <strong>norsk skattemelding</strong>.</li>
+                <li>Reduserer norsk skatt for skatt som allerede er betalt i utlandet.</li>
+                <li>Gjelder samme inntekt og er begrenset til norsk skatt på den samme inntekten.</li>
+                <li><strong>Stopper ikke</strong> trekket den dagen utbyttet utbetales.</li>
+              </ul>
+              <div class="note">Du har altså allerede “mistet” kontantene til kildeskatt først, og ordner opp i Norge etterpå.</div>
+            </div>
+
+            <div class="card soft">
+              <h3>V2A</h3>
+              <ul class="clean">
+                <li>Er et <strong>irsk ikke‑resident‑skjema</strong> for å få fritak ved kilden.</li>
+                <li>Har som mål at utbyttet skal komme uten irsk trekk når løsningen er satt opp.</li>
+                <li>Sendes til relevant paying company / intermediary / withholding agent — ikke til norsk skattemelding.</li>
+                <li>Er derfor et <strong>før‑utbetaling‑verktøy</strong>, ikke en etterpå-justering.</li>
+              </ul>
+              <div class="note">Kort sagt: <strong>Kredittfradrag reparerer etterpå.</strong> <strong>V2A prøver å unngå trekket på forhånd.</strong></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Hva med skatteavtalen mellom Norge og Irland?</h3>
+            <p>Skatteavtalen setter normalt en øvre sats på <strong>15 %</strong> på utbytte til personlige investorer, men Irland har samtidig et eget regime for fritak ved kilden for kvalifiserte ikke‑residenter. I praksis betyr det ofte at du enten:</p>
+            <ul class="clean">
+              <li>får trekk og håndterer dette med kredittfradrag i Norge, eller</li>
+              <li>prøver å få fritak ved kilden via V2A‑løpet.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="foot">
+          <div>Dette er den viktigste forskjellen å forstå før man bestemmer om V2A er verdt bryet.</div>
+          <div class="sourceHint">Revenue: 25 % DWT som hovedregel; Lovdata: 15 % i skatteavtalen.</div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Når lønner V2A seg?">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Beslutningsslide</div>
+          <div class="titleRow">
+            <div>
+              <h2>Når lønner det seg å sende inn V2A?</h2>
+              <div class="subtitle">V2A handler ofte mer om likviditet og friksjon enn om total skatt — hvis du uansett får fullt kredittfradrag i Norge.</div>
+            </div>
+          </div>
+        </div>
+        <div class="content breakeven">
+          <div class="card">
+            <h3>Tommelfingerregel</h3>
+            <ul class="clean">
+              <li>Hvis utbyttene er små, kan printing, attestering, post og tidsbruk være mer bry enn nytte.</li>
+              <li>Hvis utbyttene er store, blir det mer penger som ellers ville blitt trukket og “låst” frem til norsk skatteoppgjør.</li>
+              <li>Skjemaet er dessuten gyldig i flere år, så kostnaden kan fordeles over tid.</li>
+            </ul>
+            <div class="equ" style="margin-top:14px">
+              <strong>Enkel vurdering:</strong><br>
+              Midler som ellers trekkes ved kilden ≈ <strong>25 % av brutto utbytte</strong><br>
+              Praktisk gevinst med V2A ≈ <strong>bedre kontantstrøm + mindre å rydde opp i senere</strong>
+            </div>
+            <div class="note">Hvis du ikke ville fått fullt kreditfradrag i Norge, kan V2A også bli mer interessant skattemessig — men da bør du vurdere saken konkret.</div>
+          </div>
+
+          <div class="stack">
+            <div class="example meh">
+              <div class="title">Eksempel A: lite utbytte</div>
+              <div class="amt">600 kr</div>
+              <div class="small">brutto utbytte i året</div>
+              <p>Irsk trekk uten V2A: <strong>150 kr</strong> som blir bundet opp. Hvis papir/post/tidskost er ca. <strong>250 kr</strong>, er dette ofte ikke verdt bryet i første omgang.</p>
+            </div>
+            <div class="example good">
+              <div class="title">Eksempel B: større utbytte</div>
+              <div class="amt">6 000 kr</div>
+              <div class="small">brutto utbytte i året</div>
+              <p>Irsk trekk uten V2A: <strong>1 500 kr</strong> som blir bundet opp. Med samme kostnad på <strong>250 kr</strong> blir V2A ofte langt lettere å forsvare.</p>
+            </div>
+          </div>
+        </div>
+        <div class="foot">
+          <div>Ærlig versjon: for mange er V2A mest et spørsmål om “er dette nok penger til at jeg gidder?”.</div>
+          <div class="sourceHint">Revenue beskriver V2A som exemption-at-source for kvalifiserte ikke-residenter.</div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Sjekkliste">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Praktisk avslutning</div>
+          <div class="titleRow">
+            <div>
+              <h2>Sjekkliste før du sender skattemeldingen</h2>
+              <div class="subtitle">Den korte “gjør dette”-listen for Accenture ESPP-aksjer.</div>
+            </div>
+          </div>
+        </div>
+        <div class="content checklist">
+          <div class="check"><div class="n">1</div><div><strong>Fyll ut W‑8BEN</strong><span>Eller sjekk om eksisterende skjema fortsatt er gyldig.</span></div></div>
+          <div class="check"><div class="n">2</div><div><strong>Sjekk beholdning per 31. desember 2026</strong><span>Bruk UBS-data eller annen brokerdokumentasjon.</span></div></div>
+          <div class="check"><div class="n">3</div><div><strong>Legg inn beholdning og utbytte</strong><span>Før både aksjene og mottatt utbytte i skattemeldingen.</span></div></div>
+          <div class="check"><div class="n">4</div><div><strong>Legg til kredittfradrag</strong><span>Hvis det faktisk er trukket utenlandsk skatt på utbyttet.</span></div></div>
+          <div class="check"><div class="n">5</div><div><strong>Vurder V2A</strong><span>Spesielt hvis du har så mye utbytte at kontantstrømmen eller papirarbeidet blir merkbart.</span></div></div>
+          <div class="check"><div class="n">6</div><div><strong>Har du solgt aksjer?</strong><span>Da må også dette rapporteres, med gevinst eller tap.</span></div></div>
+          <div class="check"><div class="n">7</div><div><strong>Bruk skjermingsfradrag</strong><span>Dette kan redusere både skattepliktig utbytte og eventuell gevinst.</span></div></div>
+          <div class="check"><div class="n">8</div><div><strong>Ta vare på dokumentasjon</strong><span>Kontoutskrifter, transaksjonslogger og eventuelle skattetrekk fra utlandet.</span></div></div>
+        </div>
+        <div class="foot">
+          <div>Hvis du vil, kan denne listen brukes som den praktiske avslutningssliden i fremføringen.</div>
+          <div class="sourceHint">Åpne kildepanelet for lenker og kontrollpunkter.</div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="bottombar">
+    <div class="controls">
+      <button class="btn" id="prevBtn">← Forrige</button>
+      <button class="btn" id="nextBtn">Neste →</button>
+      <button class="btn mobileOnly" id="fsBtn">Fullskjerm</button>
+    </div>
+    <div class="pager" id="pager"></div>
+    <div class="progress" aria-hidden="true"><div id="progressFill"></div></div>
+  </footer>
+</div>
+
+<aside class="sourcesPanel" id="sourcesPanel" aria-hidden="true">
+  <h3>Kilder og kontrollpunkter</h3>
+  <p>Denne presentasjonen er forenklet for intern opplæring. For detaljbeslutninger bør du sjekke årets regler og dine egne kontoutskrifter.</p>
+  <ul>
+    <li><a href="https://investor.accenture.com/investor-resources/investor-faqs" target="_blank" rel="noopener">Accenture Investor FAQs</a> – ticker ACN på NYSE.</li>
+    <li><a href="https://www.accenture.com/content/dam/accenture/final/accenture-com/document-4/Annual-Report-2025.pdf" target="_blank" rel="noopener">Accenture Annual Report 2025</a> – Accenture plc er irsk selskap.</li>
+    <li><a href="https://www.accenture.com/content/dam/accenture/final/corporate/company-information/document/Accenture-CDP-2024.pdf" target="_blank" rel="noopener">Accenture CDP 2024</a> – ISIN IE00B4BNMY34 og CUSIP G1151C101.</li>
+    <li><a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/aksjer-og-verdipapirer/" target="_blank" rel="noopener">Skatteetaten – Aksjer og verdipapirer</a>.</li>
+    <li><a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/utland/inntekt-og-formue-i-utlandet/inntekt-og-formue-i-utlandet/" target="_blank" rel="noopener">Skatteetaten – Inntekt og formue i utlandet</a>.</li>
+    <li><a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/utland/dobbeltbeskatning/" target="_blank" rel="noopener">Skatteetaten – Dobbeltbeskatning / kredittfradrag</a>.</li>
+    <li><a href="https://www.skatteetaten.no/satser/faktor-for-oppjustering-av-eierinntekter/" target="_blank" rel="noopener">Skatteetaten – Faktor for oppjustering av eierinntekter</a>.</li>
+    <li><a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/aksjer-og-verdipapirer/om/skatteregler-for-gevinsttap-ved-realisasjoner-og-aksjeutbytte/skjermingsfradrag/" target="_blank" rel="noopener">Skatteetaten – Skjermingsfradrag</a>.</li>
+    <li><a href="https://www.revenue.ie/en/companies-and-charities/dividend-withholding-tax/index.aspx" target="_blank" rel="noopener">Revenue Ireland – Dividend Withholding Tax</a>.</li>
+    <li><a href="https://www.revenue.ie/en/companies-and-charities/documents/dwt/dwt-non-res-v2a.pdf" target="_blank" rel="noopener">Revenue Ireland – Form V2A</a>.</li>
+    <li><a href="https://lovdata.no/dokument/TRAKTATEN/traktat/2000-11-22-1/KAPITTEL_5" target="_blank" rel="noopener">Skatteavtalen mellom Norge og Irland</a>.</li>
+    <li><a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben" target="_blank" rel="noopener">IRS – About Form W‑8BEN</a> og <a href="https://www.irs.gov/instructions/iw8ben" target="_blank" rel="noopener">Instructions for Form W‑8BEN</a>.</li>
+  </ul>
+  <p><strong>Viktig:</strong> ESPP-regler, kjøpsdatoer, intern prosess og brokerrapporter kan endres. Bruk derfor presentasjonen sammen med gjeldende intern dokumentasjon fra Accenture/UBS.</p>
+</aside>
+
+<script>
+(() => {
+  const slides = [...document.querySelectorAll('.slide')];
+  const slideCount = document.getElementById('slideCount');
+  const progressFill = document.getElementById('progressFill');
+  const pager = document.getElementById('pager');
+  const sourcesPanel = document.getElementById('sourcesPanel');
+  const sourcesBtn = document.getElementById('sourcesBtn');
+  const overviewBtn = document.getElementById('overviewBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const fsBtn = document.getElementById('fsBtn');
+
+  let current = 0;
+
+  function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+
+  function buildPager(){
+    slides.forEach((slide, i) => {
+      const b = document.createElement('button');
+      b.className = 'dotBtn' + (i === 0 ? ' active' : '');
+      b.title = `${i+1}. ${slide.dataset.title || 'Slide'}`;
+      b.setAttribute('aria-label', b.title);
+      b.addEventListener('click', () => go(i));
+      pager.appendChild(b);
+    });
+  }
+
+  function update(){
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    [...pager.children].forEach((d, i) => d.classList.toggle('active', i === current));
+    slideCount.textContent = `${current + 1} / ${slides.length}`;
+    progressFill.style.width = `${((current + 1) / slides.length) * 100}%`;
+    const title = slides[current].dataset.title ? `${slides[current].dataset.title} – ` : '';
+    document.title = `${title}Aksjer i skattemeldingen – Accenture ESPP`;
+    const hash = '#' + (current + 1);
+    if (location.hash !== hash) history.replaceState(null, '', hash);
+  }
+
+  function go(i){ current = clamp(i, 0, slides.length - 1); update(); }
+  function next(){ go(current + 1); }
+  function prev(){ go(current - 1); }
+
+  function parseHash(){
+    const m = location.hash.match(/#(\d+)/);
+    if (m) current = clamp(parseInt(m[1], 10) - 1, 0, slides.length - 1);
+  }
+
+  function toggleSources(force){
+    const open = typeof force === 'boolean' ? force : !sourcesPanel.classList.contains('open');
+    sourcesPanel.classList.toggle('open', open);
+    sourcesPanel.setAttribute('aria-hidden', String(!open));
+  }
+
+  function showOverview(){
+    alert(
+      slides.map((s, i) => `${i + 1}. ${s.dataset.title || 'Slide'}`).join('\n')
+    );
+  }
+
+  buildPager();
+  parseHash();
+  update();
+
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+  sourcesBtn.addEventListener('click', () => toggleSources());
+  overviewBtn.addEventListener('click', showOverview);
+  if (fsBtn) {
+    fsBtn.addEventListener('click', async () => {
+      if (!document.fullscreenElement) await document.documentElement.requestFullscreen?.();
+      else await document.exitFullscreen?.();
+    });
+  }
+
+  window.addEventListener('hashchange', () => { parseHash(); update(); });
+
+  window.addEventListener('keydown', (e) => {
+    const k = e.key;
+    if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(k)) { e.preventDefault(); next(); }
+    else if (['ArrowLeft', 'PageUp', 'Backspace'].includes(k)) { e.preventDefault(); prev(); }
+    else if (k === 'Home') { e.preventDefault(); go(0); }
+    else if (k === 'End') { e.preventDefault(); go(slides.length - 1); }
+    else if (k.toLowerCase() === 'k') { e.preventDefault(); toggleSources(); }
+    else if (k.toLowerCase() === 'o') { e.preventDefault(); showOverview(); }
+    else if (k === 'Escape') { toggleSources(false); }
+  });
+
+  let touchX = null;
+  let touchY = null;
+  document.addEventListener('touchstart', (e) => {
+    touchX = e.changedTouches?.[0]?.clientX ?? null;
+    touchY = e.changedTouches?.[0]?.clientY ?? null;
+  }, { passive: true });
+  document.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches?.[0]?.clientX ?? null;
+    const endY = e.changedTouches?.[0]?.clientY ?? null;
+    if (touchX == null || touchY == null || endX == null || endY == null) return;
+    const dx = endX - touchX;
+    const dy = endY - touchY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) next(); else prev();
+    }
+    touchX = touchY = null;
+  }, { passive: true });
+
+  document.addEventListener('click', (e) => {
+    if (sourcesPanel.classList.contains('open') &&
+        !sourcesPanel.contains(e.target) &&
+        e.target !== sourcesBtn) {
+      toggleSources(false);
+    }
+  });
+})();
+</script>
+</body>
+</html>
