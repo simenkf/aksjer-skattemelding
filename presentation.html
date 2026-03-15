@@ -466,6 +466,37 @@
     .bottombar{flex-wrap:wrap; justify-content:center}
     .mobileOnly{display:inline-flex}
   }
+
+  /* Screenshot modal */
+  .screenshot-btn{
+    white-space:nowrap; padding:8px 14px; border-radius:14px; border:1px solid rgba(103,232,249,.35);
+    background:linear-gradient(135deg, rgba(103,232,249,.12), rgba(103,232,249,.06));
+    color:var(--cyan); font-size:14px; font-weight:600; cursor:pointer;
+    transition:all .2s; flex-shrink:0; align-self:center;
+  }
+  .screenshot-btn:hover{background:linear-gradient(135deg, rgba(103,232,249,.22), rgba(103,232,249,.12)); border-color:rgba(103,232,249,.55)}
+  .img-modal-overlay{
+    display:none; position:fixed; inset:0; z-index:9999;
+    background:rgba(0,0,0,.75); backdrop-filter:blur(6px);
+    align-items:center; justify-content:center; padding:24px;
+  }
+  .img-modal-overlay.open{display:flex}
+  .img-modal{
+    background:var(--bg); border:1px solid var(--card-border); border-radius:16px;
+    max-width:90vw; max-height:90vh; overflow:auto; padding:24px;
+    display:flex; flex-direction:column; gap:20px;
+  }
+  .img-modal-header{display:flex; justify-content:space-between; align-items:center}
+  .img-modal-header h3{margin:0; font-size:18px; color:var(--text)}
+  .img-modal-close{
+    background:none; border:1px solid var(--card-border); border-radius:8px;
+    color:var(--muted); font-size:22px; cursor:pointer; padding:4px 10px; line-height:1;
+  }
+  .img-modal-close:hover{color:var(--text); border-color:var(--text)}
+  .img-modal-body{display:flex; gap:24px; flex-wrap:wrap; justify-content:center}
+  .img-modal-item{display:flex; flex-direction:column; gap:8px; max-width:48%}
+  .img-modal-item img{max-width:100%; border-radius:10px; border:1px solid var(--card-border)}
+  .img-modal-item .caption{font-size:12px; color:var(--muted); text-align:center}
 </style>
 </head>
 <body>
@@ -794,6 +825,29 @@
             <div>
               <h2>Hva skal føres på skattemeldingen?</h2>
               <div class="subtitle">Skatteetaten vil vite hvor store verdier du har, hvor mye utbytte du har fått, og hvor mye du har tjent/tapt ved salg. For utbytte og salg, se mer informasjon i senere slides.</div>
+            </div>
+            <button class="screenshot-btn" onclick="document.getElementById('skattScreenshotModal').classList.add('open')"><img src="skatteetaten-logo.svg" alt="" style="height:4em; vertical-align:middle; margin-right:12px">Klikk for å se hvordan det ser ut i skattemeldingen</button>
+          </div>
+
+          <!-- Screenshot modal -->
+          <div id="skattScreenshotModal" class="img-modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+            <div class="img-modal">
+              <div class="img-modal-header">
+                <h3>Slik ser det ut i skattemeldingen</h3>
+                <button class="img-modal-close" onclick="document.getElementById('skattScreenshotModal').classList.remove('open')">&times;</button>
+              </div>
+              <div class="img-modal-body">
+                <div class="img-modal-item">
+                  <div class="caption" style="font-size:14px; font-weight:600; color:var(--text)">Dialog for å legge til utenlandske aksjer</div>
+                  <img src="legge-til-aksjer-i-skattemeldingen.png" alt="Legge til aksjer i skattemeldingen">
+                  <div class="caption">Slik ser det ut når du legger til aksjer</div>
+                </div>
+                <div class="img-modal-item">
+                  <div class="caption" style="font-size:14px; font-weight:600; color:var(--text)">Ferdig lagt til</div>
+                  <img src="aksjer-lagt-til.png" alt="Aksjer lagt til i skattemeldingen">
+                  <div class="caption">Slik ser det ut når aksjene er lagt til</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
