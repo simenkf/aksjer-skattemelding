@@ -497,6 +497,40 @@
   .img-modal-item{display:flex; flex-direction:column; gap:8px; max-width:48%}
   .img-modal-item img{max-width:100%; border-radius:10px; border:1px solid var(--card-border)}
   .img-modal-item .caption{font-size:12px; color:var(--muted); text-align:center}
+
+  /* TOC modal */
+  .toc-modal-overlay{
+    display:none; position:fixed; inset:0; z-index:9998;
+    background:rgba(0,0,0,.72); backdrop-filter:blur(8px);
+    align-items:center; justify-content:center; padding:24px;
+  }
+  .toc-modal-overlay.open{display:flex}
+  .toc-modal{
+    background:linear-gradient(180deg, rgba(18,26,49,.98), rgba(10,16,32,.99));
+    border:1px solid var(--line); border-radius:24px;
+    max-width:680px; width:100%; max-height:85vh; overflow:auto;
+    padding:32px 36px; box-shadow:var(--shadow);
+  }
+  .toc-modal-header{display:flex; justify-content:space-between; align-items:center; margin-bottom:20px}
+  .toc-modal-header h3{margin:0; font-size:24px; font-weight:800}
+  .toc-modal-close{
+    background:none; border:1px solid var(--line); border-radius:10px;
+    color:var(--muted); font-size:22px; cursor:pointer; padding:4px 12px; line-height:1;
+  }
+  .toc-modal-close:hover{color:var(--text); border-color:var(--text)}
+  .toc-list{display:grid; grid-template-columns:1fr 1fr; gap:10px; list-style:none; margin:0; padding:0}
+  .toc-list a{
+    display:block; text-decoration:none; color:var(--text);
+    border:1px solid var(--line); border-radius:18px; padding:14px 16px;
+    background:rgba(255,255,255,.04); transition:.18s ease;
+  }
+  .toc-list a:hover{background:rgba(161,0,255,.12); border-color:rgba(161,0,255,.3); transform:translateY(-1px)}
+  .toc-list a .n{font-size:13px; color:#c8d3ff; margin-bottom:4px}
+  .toc-list a .t{font-size:16px; font-weight:700}
+  @media (max-width:760px){
+    .toc-list{grid-template-columns:1fr}
+    .toc-modal{padding:20px 18px}
+  }
 </style>
 </head>
 <body>
@@ -531,14 +565,7 @@
               ESPP-aksjer kan fremstå komplekst: Hovedkontor i <strong>Irland</strong>, børsnotert i <strong>USA</strong>, og <strong>Norge</strong> som skattemessig bosted.<br><br>
               Heldigvis er det veldig enkelt når du først kan det!<br><br>
             </div>
-            <div class="toc">
-              <div class="item"><div class="n">01</div><div class="t">Begreper og grunnidé</div></div>
-              <div class="item"><div class="n">02</div><div class="t">Hva aksjer og ESPP er</div></div>
-              <div class="item"><div class="n">03</div><div class="t">Skattemeldingen steg for steg</div></div>
-              <div class="item"><div class="n">04</div><div class="t">Accenture: Irland, USA og Norge</div></div>
-              <div class="item"><div class="n">05</div><div class="t">Utbytte, salg, kildeskatt og W‑8BEN</div></div>
-              <div class="item"><div class="n">06</div><div class="t">Kredittfradrag, V2A og sjekkliste</div></div>
-            </div>
+            <div class="toc" id="frontpageToc"></div>
           </div>
 
           <!-- Floating keyword chips — scattered layout -->
@@ -564,7 +591,7 @@
 
         </div>
         <div class="foot">
-          <div>Bruk piltaster, mellomrom eller knappene nederst for å gå videre.</div>
+          <div>Bruk piltaster, mellomrom eller knappene nederst for å gå videre. Trykk <span class="kbd">I</span> for innhold.</div>
           <div class="sourceHint">Temaet er forenklet; sjekk alltid mot årets regler og egne kontoutskrifter.</div>
         </div>
       </section>
@@ -1789,6 +1816,16 @@
   </footer>
 </div>
 
+<div class="toc-modal-overlay" id="tocOverlay">
+  <div class="toc-modal">
+    <div class="toc-modal-header">
+      <h3>Innhold</h3>
+      <button class="toc-modal-close" id="tocClose" aria-label="Lukk">&times;</button>
+    </div>
+    <ol class="toc-list" id="tocModalList"></ol>
+  </div>
+</div>
+
 <aside class="sourcesPanel" id="sourcesPanel" aria-hidden="true">
   <h3>Kilder og kontrollpunkter</h3>
   <p>Denne presentasjonen er forenklet for intern opplæring. For detaljbeslutninger bør du sjekke årets regler og dine egne kontoutskrifter.</p>
@@ -1863,13 +1900,56 @@
     sourcesPanel.setAttribute('aria-hidden', String(!open));
   }
 
+  /* ---- TOC (shared between frontpage + modal) ---- */
+  const tocOverlay = document.getElementById('tocOverlay');
+  const tocModalList = document.getElementById('tocModalList');
+  const tocClose = document.getElementById('tocClose');
+  const frontpageToc = document.getElementById('frontpageToc');
+
+  function buildToc(){
+    const items = slides.map((s, i) => ({
+      idx: i,
+      num: String(i + 1).padStart(2, '0'),
+      title: s.dataset.title || `Slide ${i + 1}`
+    }));
+    // modal list
+    tocModalList.innerHTML = '';
+    items.forEach(it => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = '#' + (it.idx + 1);
+      a.innerHTML = `<div class="n">${it.num}</div><div class="t">${it.title}</div>`;
+      a.addEventListener('click', e => { e.preventDefault(); go(it.idx); toggleToc(false); });
+      li.appendChild(a);
+      tocModalList.appendChild(li);
+    });
+    // frontpage embedded toc (skip the cover slide itself)
+    if (frontpageToc) {
+      frontpageToc.innerHTML = '';
+      items.slice(1).forEach(it => {
+        const a = document.createElement('a');
+        a.href = '#' + (it.idx + 1);
+        a.className = 'item';
+        a.style.textDecoration = 'none';
+        a.style.color = 'inherit';
+        a.innerHTML = `<div class="n">${it.num}</div><div class="t">${it.title}</div>`;
+        a.addEventListener('click', e => { e.preventDefault(); go(it.idx); });
+        frontpageToc.appendChild(a);
+      });
+    }
+  }
+
+  function toggleToc(force){
+    const open = typeof force === 'boolean' ? force : !tocOverlay.classList.contains('open');
+    tocOverlay.classList.toggle('open', open);
+  }
+
   function showOverview(){
-    alert(
-      slides.map((s, i) => `${i + 1}. ${s.dataset.title || 'Slide'}`).join('\n')
-    );
+    toggleToc(true);
   }
 
   buildPager();
+  buildToc();
   parseHash();
   update();
 
@@ -1893,8 +1973,9 @@
     else if (k === 'Home') { e.preventDefault(); go(0); }
     else if (k === 'End') { e.preventDefault(); go(slides.length - 1); }
     else if (k.toLowerCase() === 'k') { e.preventDefault(); toggleSources(); }
+    else if (k.toLowerCase() === 'i') { e.preventDefault(); toggleToc(); }
     else if (k.toLowerCase() === 'o') { e.preventDefault(); showOverview(); }
-    else if (k === 'Escape') { toggleSources(false); }
+    else if (k === 'Escape') { toggleSources(false); toggleToc(false); }
   });
 
   let touchX = null;
@@ -1914,6 +1995,11 @@
     }
     touchX = touchY = null;
   }, { passive: true });
+
+  tocClose.addEventListener('click', () => toggleToc(false));
+  tocOverlay.addEventListener('click', (e) => {
+    if (e.target === tocOverlay) toggleToc(false);
+  });
 
   document.addEventListener('click', (e) => {
     if (sourcesPanel.classList.contains('open') &&
