@@ -266,13 +266,15 @@
   .termCell strong{display:block; font-size:17px; margin-bottom:4px}
   .termCell span{color:var(--muted)}
   .shareVisual{
-    display:grid; grid-template-columns:1.15fr .85fr; gap:22px;
+    display:grid; grid-template-columns:1fr 1fr; gap:22px;
+    align-items:start;
   }
   .diagram{
     background:linear-gradient(180deg, rgba(16,25,53,.92), rgba(9,14,29,.95));
     border:1px solid var(--line); border-radius:28px; padding:28px;
-    display:grid; grid-template-rows:auto 1fr auto; gap:16px;
+    display:grid; grid-template-rows:auto; gap:16px;
     box-shadow:var(--shadow);
+    align-content:start;
   }
   .companyBox{
     width:100%; padding:22px; border-radius:22px; border:1px solid rgba(255,255,255,.1);
@@ -307,12 +309,13 @@
   .flowBand .arrow{font-size:30px; text-align:center; color:#e7cdff}
   .cash{
     display:grid; grid-template-columns:1fr; gap:16px;
+    align-content:start;
   }
   .moneyCard{
     border-radius:22px; padding:20px; border:1px solid var(--line);
     background:linear-gradient(180deg, rgba(103,232,168,.14), rgba(103,232,168,.06));
   }
-  .moneyCard h4{font-size:20px; margin-bottom:8px}
+  .moneyCard h4{font-size:20px; margin:0 0 8px}
   .moneyCard p{color:#dff7ea}
   .dividendVisual{
     display:grid; grid-template-columns:1fr 1fr; gap:12px;
@@ -471,7 +474,8 @@
   @media (max-width:1100px){
     .slide{padding:24px 24px 20px}
     .coverLayout{grid-template-columns:auto 1fr}
-    .grid-2,.taxGrid,.breakeven,.compare,.shareVisual,.mathBand{grid-template-columns:1fr}
+    .grid-2,.taxGrid,.breakeven,.compare,.mathBand{grid-template-columns:1fr}
+    .shareVisual{grid-template-columns:1fr}
     .hero{max-width:min(55vw, 580px)}
     .toc{grid-template-rows:repeat(5, auto); grid-auto-flow:column; grid-auto-columns:1fr}
     .floatingChips{min-width:140px}
@@ -745,94 +749,181 @@
           <div class="titleRow">
             <div>
               <h2>Hva er en aksje?</h2>
-              <div class="subtitle">En aksje er en liten eierandel i selskapet — og det er to grunner til at det kan være verdifullt.</div>
+              <div class="subtitle">En aksje er en liten eierandel i selskapet — og det er flere grunner til at det kan være verdifullt.</div>
             </div>
           </div>
         </div>
         <div class="content shareVisual">
 
-          <!-- Left: share grid visualisation -->
-          <div class="diagram" style="display:flex; flex-direction:column; gap:14px; justify-content:center">
-            <div style="font-size:12px; text-transform:uppercase; letter-spacing:.09em; color:#d7ddff">Forenklet eierstruktur (eksempel)</div>
+          <!-- Left half: What is a share -->
+          <div class="card" style="padding:22px 24px; display:flex; flex-direction:column; gap:14px">
+            <p style="margin:0; font-size:14px; color:var(--muted); line-height:1.55">
+              En aksje er en liten eierandel i et selskap. Eier du aksjer, eier du en tilsvarende andel av selskapet. Selskapet kan være <strong style="color:var(--text)">børsnotert</strong> (som Accenture på NYSE) eller privat. Børsnotering gjør det enkelt å kjøpe og selge til markedspris.
+            </p>
 
-            <!-- Share grid: 10×6 = 60 shares, first 5 are yours (top-left, grouped) -->
-            <div style="display:grid; grid-template-columns:repeat(10,1fr); gap:4px; padding:14px; border-radius:16px; border:1px solid rgba(255,255,255,.1); background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))">
-              <!-- Row 1: first 5 = yours -->
-              <div style="aspect-ratio:1; border-radius:4px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 6px rgba(161,0,255,.45)"></div>
-              <div style="aspect-ratio:1; border-radius:4px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 6px rgba(161,0,255,.45)"></div>
-              <div style="aspect-ratio:1; border-radius:4px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 6px rgba(161,0,255,.45)"></div>
-              <div style="aspect-ratio:1; border-radius:4px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 6px rgba(161,0,255,.45)"></div>
-              <div style="aspect-ratio:1; border-radius:4px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 6px rgba(161,0,255,.45)"></div>
-              <div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div>
-              <!-- Rows 2–6: all grey -->
-              <div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div>
-              <div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div>
-              <div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div>
-              <div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div><div style="aspect-ratio:1; border-radius:4px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div>
+            <!-- Share grid figure -->
+            <div style="padding:14px 16px; border-radius:14px; border:1px solid rgba(255,255,255,.1); background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))">
+              <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--purple2); margin-bottom:4px">Eksempel</div>
+              <div style="font-size:13px; color:var(--muted); line-height:1.45; margin-bottom:10px">
+                Du eier <strong style="color:#e2c6ff">20 av 100</strong> aksjer — dvs. <strong style="color:#e2c6ff">20 %</strong> av selskapet.
+              </div>
+              <div id="shareGrid" style="display:grid; grid-template-columns:repeat(20,1fr); gap:3px; max-width:750px"></div>
+              <script>
+                (() => {
+                  const grid = document.getElementById('shareGrid');
+                  for (let i = 0; i < 100; i++) {
+                    const cell = document.createElement('div');
+                    cell.style.cssText = i < 20
+                      ? 'aspect-ratio:1; border-radius:3px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 5px rgba(161,0,255,.4)'
+                      : 'aspect-ratio:1; border-radius:3px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)';
+                    grid.appendChild(cell);
+                  }
+                })();
+              </script>
+              <div style="display:flex; gap:14px; align-items:center; font-size:12px; color:var(--muted); margin-top:8px">
+                <div style="display:flex; align-items:center; gap:5px">
+                  <div style="width:11px; height:11px; border-radius:3px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6)"></div>
+                  <span>Dine 20 aksjer</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:5px">
+                  <div style="width:11px; height:11px; border-radius:3px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div>
+                  <span>Andre eiere (80)</span>
+                </div>
+              </div>
             </div>
 
-            <!-- Legend -->
-            <div style="display:flex; gap:16px; align-items:center; font-size:12px; color:var(--muted)">
-              <div style="display:flex; align-items:center; gap:7px">
-                <div style="width:13px; height:13px; border-radius:3px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6)"></div>
-                <span>Dine 5 aksjer</span>
+            <!-- Valuation formula -->
+            <div style="padding:12px 16px; border-radius:14px; border:1px solid rgba(200,100,255,.2); background:rgba(161,0,255,.06)">
+              <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--purple2); margin-bottom:5px">Markedsverdi</div>
+              <div style="font-size:15px; font-weight:700; color:var(--text); display:flex; align-items:center; gap:7px; flex-wrap:wrap">
+                <span>Aksjekurs</span>
+                <span style="color:var(--purple2)">×</span>
+                <span>Antall aksjer</span>
+                <span style="color:var(--purple2)">=</span>
+                <span style="color:var(--cyan)">Markedsverdi</span>
               </div>
-              <div style="display:flex; align-items:center; gap:7px">
-                <div style="width:13px; height:13px; border-radius:3px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.07)"></div>
-                <span>Andre aksjonærer (45 aksjer)</span>
+              <div style="font-size:13px; color:var(--muted); margin-top:5px">
+                F.eks. $300 × 100 aksjer = <strong style="color:var(--cyan)">$30 000</strong>. Din andel (20 aksjer) = <strong style="color:var(--purple2)">$6 000</strong>.
               </div>
             </div>
 
-            <!-- Explanation text -->
-            <div style="font-size:13px; color:var(--muted); line-height:1.5; padding:12px 14px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); border-radius:14px">
-              Du eier <strong style="color:#e2c6ff">5 av 50 aksjer</strong> — dvs. 1/10 av selskapet. I dette eksempelet er alle aksjer like mye verdt og gir like rettigheter. Det er også mulig at kun noen av aksjene gir stemmerett, typisk omtalt som A- og B-aksjer.<br><br>
-              Et selskap kan være <strong>børsnotert</strong> (som Accenture på NYSE), eller <strong>ikke-notert</strong>. Børsnotering gjør det enkelt å kjøpe og selge til markedspris.
+            <!-- A/B shares note -->
+            <div style="padding:12px 16px; border-radius:14px; border:1px solid rgba(103,232,249,.14); background:rgba(103,232,249,.04)">
+              <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--cyan); margin-bottom:4px">A- og B-aksjer</div>
+              <div style="font-size:13px; color:var(--muted); line-height:1.5">
+                Noen selskaper har ulike aksjeklasser. <strong style="color:var(--text)">A-aksjer</strong> gir typisk stemmerett på generalforsamlingen, mens <strong style="color:var(--text)">B-aksjer</strong> ofte har begrenset eller ingen stemmerett — men lik rett til utbytte. Accenture har kun én aksjeklasse (Class A).
+              </div>
             </div>
           </div>
 
-          <!-- Right: why you own shares -->
-          <div class="cash">
-            <div class="moneyCard">
-              <h4>💰 Grunn 1: Utbytte</h4>
-              <p>Selskapet deler ut kontanter til alle aksjonærer. Du får din andel automatisk fordi du eier aksjen på utbyttedatoen — uten å selge noe.</p>
-              <div style="margin-top:10px; padding:10px 12px; border-radius:12px; background:rgba(103,232,168,.08); border:1px solid rgba(103,232,168,.16)">
-                <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--green); margin-bottom:6px">Eksempel:</div>
+          <!-- Right half: Three reason cards stacked -->
+          <div style="display:flex; flex-direction:column; gap:14px">
+            <!-- Grunn 1: Utbytte -->
+            <div class="moneyCard" style="padding:16px 18px">
+              <h4 style="font-size:16px; margin-bottom:5px">💰 Grunn 1: Utbytte</h4>
+              <p style="font-size:13px; line-height:1.45; margin-bottom:8px">Selskapet kan dele ut kontanter til aksjonærer. Du får din andel automatisk — uten å selge noe.</p>
+
+              <!-- Dividend visualization -->
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px">
+                <div style="display:flex; gap:6px">
+                  <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+                    <div style="width:30px; height:30px; border-radius:5px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 5px rgba(161,0,255,.4)"></div>
+                    <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M5 0v12M1 9l4 4 4-4" stroke="#67e8a8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div style="font-size:11px; font-weight:700; color:var(--green)">$1.48</div>
+                  </div>
+                  <div style="display:flex; flex-direction:column; align-items:center; gap:3px">
+                    <div style="width:30px; height:30px; border-radius:5px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 5px rgba(161,0,255,.4)"></div>
+                    <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M5 0v12M1 9l4 4 4-4" stroke="#67e8a8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div style="font-size:11px; font-weight:700; color:var(--green)">$1.48</div>
+                  </div>
+                </div>
+                <svg width="24" height="12" viewBox="0 0 24 12" fill="none"><path d="M0 6h18M15 2l4 4-4 4" stroke="#67e8a8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div style="padding:6px 10px; border-radius:10px; background:rgba(103,232,168,.12); border:1px solid rgba(103,232,168,.22)">
+                  <div style="font-size:11px; color:var(--muted)">Per kvartal</div>
+                  <div style="font-size:18px; font-weight:800; color:var(--green); letter-spacing:-.02em">$2.96</div>
+                </div>
+              </div>
+
+              <!-- Numeric example -->
+              <div style="padding:8px 12px; border-radius:10px; background:rgba(103,232,168,.08); border:1px solid rgba(103,232,168,.16)">
+                <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--green); margin-bottom:5px">Eksempel</div>
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px">
                   <div>
-                    <div class="small">Accenture betaler</div>
-                    <div style="font-size:20px; font-weight:800; letter-spacing:-.02em">$1.48</div>
-                    <div class="small">per aksje per kvartal</div>
+                    <div class="small" style="font-size:12px">Accenture betaler</div>
+                    <div style="font-size:16px; font-weight:800; letter-spacing:-.02em">$1.48</div>
+                    <div class="small" style="font-size:12px">per aksje per kvartal</div>
                   </div>
                   <div>
-                    <div class="small">Har du 20 aksjer</div>
-                    <div style="font-size:20px; font-weight:800; letter-spacing:-.02em">$29.60</div>
-                    <div class="small">brutto hvert kvartal</div>
+                    <div class="small" style="font-size:12px">Har du 20 aksjer</div>
+                    <div style="font-size:16px; font-weight:800; letter-spacing:-.02em">$29.60</div>
+                    <div class="small" style="font-size:12px">brutto hvert kvartal</div>
                   </div>
                 </div>
               </div>
-              <p style="margin-top:8px">Merk: Ikke alle selskaper betaler utbytte — det er opp til styret å beslutte det hvert år.</p>
             </div>
-            <div class="moneyCard">
-              <h4>📈 Grunn 2: Kursgevinst</h4>
-              <p>Stiger aksjeprisen mens du eier den, tjener du differansen når du selger.</p>
-              <div style="margin-top:10px; padding:10px 12px; border-radius:12px; background:rgba(103,232,168,.08); border:1px solid rgba(103,232,168,.16)">
-                <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--green); margin-bottom:6px">Eksempel:</div>
-                <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:6px; align-items:center">
+
+            <!-- Grunn 2: Kursgevinst -->
+            <div class="moneyCard" style="padding:16px 18px">
+              <h4 style="font-size:16px; margin-bottom:5px">📈 Grunn 2: Kursgevinst</h4>
+              <p style="font-size:13px; line-height:1.45; margin-bottom:8px">Stiger prisen mens du eier aksjen, tjener du differansen ved salg.</p>
+
+              <!-- Price chart visualization -->
+              <div style="display:flex; align-items:flex-end; gap:12px; margin-bottom:8px">
+                <svg viewBox="0 0 200 70" style="flex:1; max-width:200px; height:auto" fill="none">
+                  <line x1="0" y1="60" x2="200" y2="60" stroke="rgba(255,255,255,.08)" stroke-width="0.5"/>
+                  <line x1="0" y1="40" x2="200" y2="40" stroke="rgba(255,255,255,.05)" stroke-width="0.5"/>
+                  <line x1="0" y1="20" x2="200" y2="20" stroke="rgba(255,255,255,.05)" stroke-width="0.5"/>
+                  <path d="M0 55 Q30 50, 50 48 T90 38 T130 28 T170 18 T200 10 V70 H0 Z" fill="url(#priceGrad)" opacity=".35"/>
+                  <path d="M0 55 Q30 50, 50 48 T90 38 T130 28 T170 18 T200 10" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" fill="none"/>
+                  <circle cx="25" cy="52" r="4" fill="var(--purple2)" stroke="#fff" stroke-width="1"/>
+                  <text x="25" y="67" text-anchor="middle" fill="var(--muted)" font-size="7" font-family="Inter, sans-serif">Kjøp</text>
+                  <circle cx="175" cy="16" r="4" fill="var(--green)" stroke="#fff" stroke-width="1"/>
+                  <text x="175" y="9" text-anchor="middle" fill="var(--muted)" font-size="7" font-family="Inter, sans-serif">Salg</text>
+                  <defs>
+                    <linearGradient id="priceGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="var(--cyan)" stop-opacity=".3"/>
+                      <stop offset="100%" stop-color="var(--cyan)" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div style="display:flex; flex-direction:column; gap:3px; padding-bottom:10px">
+                  <div style="font-size:12px; color:var(--muted)">Kjøp <strong style="color:var(--purple2)">$300</strong></div>
+                  <div style="font-size:12px; color:var(--muted)">Salg <strong style="color:var(--green)">$360</strong></div>
+                  <div style="font-size:15px; font-weight:800; color:var(--green)">+$60</div>
+                </div>
+              </div>
+
+              <!-- Numeric example -->
+              <div style="padding:8px 12px; border-radius:10px; background:rgba(103,232,168,.08); border:1px solid rgba(103,232,168,.16)">
+                <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--green); margin-bottom:5px">Eksempel</div>
+                <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:8px; align-items:center">
                   <div>
-                    <div class="small">Kjøpspris</div>
-                    <div style="font-size:20px; font-weight:800; letter-spacing:-.02em">$300</div>
+                    <div class="small" style="font-size:12px">Kjøpspris</div>
+                    <div style="font-size:16px; font-weight:800; letter-spacing:-.02em">$300</div>
                   </div>
-                  <div style="font-size:20px; color:#e7cdff; text-align:center; padding:0 4px">→</div>
+                  <div style="font-size:16px; color:#e7cdff; text-align:center; padding:0 4px">→</div>
                   <div>
-                    <div class="small">Salgspris</div>
-                    <div style="font-size:20px; font-weight:800; letter-spacing:-.02em; color:var(--green)">$360</div>
+                    <div class="small" style="font-size:12px">Salgspris</div>
+                    <div style="font-size:16px; font-weight:800; letter-spacing:-.02em; color:var(--green)">$360</div>
                   </div>
                 </div>
-                <div class="small" style="margin-top:6px; color:var(--muted)">Gevinst: <strong style="color:var(--green)">$60 per aksje</strong> — beskattes ved salg.</div>
+                <div class="small" style="margin-top:4px; font-size:12px; color:var(--muted)">Gevinst: <strong style="color:var(--green)">$60/aksje</strong> — beskattes ved salg. Kursen kan også gå <strong style="color:var(--red)">ned</strong> (fradrag).</div>
               </div>
-              <p style="margin-top:8px">Merk: Kursen kan også gå <strong style="color:var(--red)">ned</strong> — i så fall har du et tap, som gir fradrag.</p>
             </div>
-            <div class="note" style="font-size:13px">For ESPP-aksjer er begge sporene relevante i skattemeldingen.</div>
+
+            <!-- Grunn 3: Eierskap i egen arbeidsgiver -->
+            <div style="border-radius:22px; padding:16px 18px; border:1px solid var(--line); background:linear-gradient(180deg, rgba(103,232,249,.14), rgba(103,232,249,.06))">
+              <h4 style="font-size:16px; margin:0 0 5px; color:var(--text)">🏢 Grunn 3: Eierskap i arbeidsgiveren</h4>
+              <p style="font-size:13px; line-height:1.45; margin:0 0 8px; color:#d5f7ff">Å eie aksjer i selskapet du jobber for gir en unik fordel: du får direkte del i verdiskapingen du selv bidrar til.</p>
+              <div style="padding:8px 12px; border-radius:10px; background:rgba(103,232,249,.08); border:1px solid rgba(103,232,249,.16)">
+                <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--cyan); margin-bottom:5px">Forskning viser</div>
+                <div style="font-size:13px; color:var(--muted); line-height:1.5">
+                  Studier (bl.a. fra <strong style="color:var(--text)">NCEO</strong> og <strong style="color:var(--text)">Rutgers</strong>) viser at ansatte som eier aksjer i egen arbeidsgiver har høyere jobbtilfredshet, lavere turnover, og opplever sterkere tilknytning til selskapet. Ordninger som ESPP er designet for nettopp dette.
+                </div>
+              </div>
+            </div>
+
+            <div class="note" style="font-size:13px">For ESPP-aksjer er alle tre sporene relevante i skattemeldingen.</div>
           </div>
         </div>
         <div class="foot">
