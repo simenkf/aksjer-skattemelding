@@ -201,23 +201,28 @@
   .fc16 { animation:fchip1 6.6s ease-in-out -4.5s infinite; will-change:transform }
   .fc17 { animation:fchip2 5.4s ease-in-out -3.2s infinite; will-change:transform }
   .fc18 { animation:fchip3 4.9s ease-in-out -0.7s infinite; will-change:transform }
+  .fc19 { animation:fchip4 5.6s ease-in-out -2.2s infinite; will-change:transform }
+  .fc20 { animation:fchip5 4.3s ease-in-out -3.8s infinite; will-change:transform }
+  .fc21 { animation:fchip1 6.1s ease-in-out -1.6s infinite; will-change:transform }
+  .fc22 { animation:fchip2 5.0s ease-in-out -4.2s infinite; will-change:transform }
   .coverLayout{
-    display:grid; grid-template-columns:1fr; grid-template-rows:auto 1fr; gap:16px;
+    display:grid; grid-template-columns:auto 1fr; grid-template-rows:auto 1fr; gap:16px;
     position:relative;
   }
   .hero{
     display:grid; gap:16px; align-content:start;
-    padding-right:min(520px, 46vw);
+    max-width:min(50vw, 700px); min-width:0;
   }
   .hero .big{
     font-size:clamp(42px,5.6vw,74px);
     line-height:.98; letter-spacing:-.05em; margin:0;
   }
   .hero .lede{
-    max-width:760px; font-size:clamp(18px,1.6vw,24px); line-height:1.42; color:#d5ddfb;
+    max-width:100%; font-size:clamp(18px,1.6vw,24px); line-height:1.42; color:#d5ddfb;
   }
   .toc{
     display:grid; grid-template-rows:repeat(4, auto); grid-auto-flow:column; grid-auto-columns:1fr; gap:10px;
+    grid-column:1 / -1;
   }
   .toc .item{
     border:1px solid var(--line); border-radius:14px; padding:10px 14px;
@@ -226,7 +231,8 @@
   .toc .n{font-size:12px; color:#c8d3ff; margin-bottom:2px}
   .toc .t{font-size:14px; font-weight:700}
   .floatingChips{
-    position:absolute; top:0; right:0; width:min(560px, 50vw); height:70%; pointer-events:none;
+    position:relative; overflow:hidden; pointer-events:none; min-width:200px;
+    padding:30px;
   }
   .countryRail{
     display:grid; gap:14px; align-content:start;
@@ -464,10 +470,11 @@
   }
   @media (max-width:1100px){
     .slide{padding:24px 24px 20px}
-    .coverLayout,.grid-2,.taxGrid,.breakeven,.compare,.shareVisual,.mathBand{grid-template-columns:1fr}
-    .hero{padding-right:min(320px, 28vw)}
+    .coverLayout{grid-template-columns:auto 1fr}
+    .grid-2,.taxGrid,.breakeven,.compare,.shareVisual,.mathBand{grid-template-columns:1fr}
+    .hero{max-width:min(55vw, 580px)}
     .toc{grid-template-rows:repeat(5, auto); grid-auto-flow:column; grid-auto-columns:1fr}
-    .floatingChips{width:min(440px, 40vw)}
+    .floatingChips{min-width:140px}
     .grid-3,.grid-4,.wideCards,.special3,.process,.metaStrip,.checklist{grid-template-columns:1fr 1fr}
     .termTable{grid-template-columns:1fr}
     .termTable .head{display:none}
@@ -481,8 +488,9 @@
     .slide h2{font-size:30px}
     .subtitle{font-size:14px}
     .grid-3,.grid-4,.wideCards,.special3,.process,.metaStrip,.checklist,.countryRail,.v2aNote,.breakeven,.compare,.owners,.dividendVisual{grid-template-columns:1fr}
-    .toc{grid-template-rows:none; grid-auto-flow:row; grid-template-columns:1fr}
-    .hero{padding-right:0}
+    .coverLayout{grid-template-columns:1fr}
+    .toc{grid-template-rows:none; grid-auto-flow:row; grid-template-columns:1fr; grid-column:1}
+    .hero{max-width:none}
     .floatingChips{display:none}
     .progress{width:36vw}
     .hero .big{font-size:38px}
@@ -589,25 +597,30 @@
             </div>
           </div>
 
-          <!-- Floating keyword chips — top-right corner -->
+          <!-- Floating keyword chips — right of hero -->
           <div class="floatingChips">
-            <div class="fc1"  style="position:absolute; top:0%; left:8%; padding:18px 30px; border-radius:999px; border:1px solid rgba(161,0,255,.3); background:rgba(161,0,255,.14); font-size:28px; font-weight:800; color:#e2c6ff; display:grid; place-items:center">Accenture</div>
-            <div class="fc2"  style="position:absolute; top:1%; right:4%; padding:9px 16px; border-radius:999px; border:1px solid rgba(103,232,249,.25); background:rgba(103,232,249,.1); font-size:14px; font-weight:600; color:var(--cyan); display:grid; place-items:center">Skattemelding</div>
-            <div class="fc3"  style="position:absolute; top:14%; left:62%; padding:16px 26px; border-radius:999px; border:1px solid rgba(246,196,83,.28); background:rgba(246,196,83,.1); font-size:24px; font-weight:800; color:var(--amber); display:grid; place-items:center">ESPP</div>
-            <div class="fc4"  style="position:absolute; top:16%; left:2%; padding:8px 14px; border-radius:999px; border:1px solid rgba(103,232,168,.22); background:rgba(103,232,168,.08); font-size:13px; font-weight:600; color:var(--green); display:grid; place-items:center">15% rabatt</div>
-            <div class="fc5"  style="position:absolute; top:16%; left:30%; padding:12px 20px; border-radius:999px; border:1px solid rgba(161,0,255,.22); background:rgba(161,0,255,.08); font-size:18px; font-weight:700; color:#d9b3ff; display:grid; place-items:center">ACN · NYSE</div>
-            <div class="fc6"  style="position:absolute; top:30%; right:6%; padding:8px 14px; border-radius:999px; border:1px solid rgba(255,125,125,.2); background:rgba(255,125,125,.08); font-size:13px; font-weight:600; color:var(--red); display:grid; place-items:center">Kildeskatt</div>
-            <div class="fc7"  style="position:absolute; top:32%; left:4%; padding:14px 24px; border-radius:999px; border:1px solid rgba(103,232,249,.2); background:rgba(103,232,249,.07); font-size:22px; font-weight:700; color:var(--cyan); display:grid; place-items:center">Utbytte</div>
-            <div class="fc8"  style="position:absolute; top:33%; left:40%; padding:10px 16px; border-radius:999px; border:1px solid rgba(103,232,168,.25); background:rgba(103,232,168,.1); font-size:15px; font-weight:700; color:var(--green); display:grid; place-items:center">Kredittfradrag</div>
-            <div class="fc9"  style="position:absolute; top:48%; left:22%; padding:16px 24px; border-radius:999px; border:1px solid rgba(246,196,83,.22); background:rgba(246,196,83,.08); font-size:21px; font-weight:800; color:var(--amber); display:grid; place-items:center">🇮🇪 🇺🇸 🇳🇴</div>
-            <div class="fc10" style="position:absolute; top:49%; right:8%; padding:8px 14px; border-radius:999px; border:1px solid rgba(161,0,255,.18); background:rgba(161,0,255,.06); font-size:13px; font-weight:600; color:#cba8ff; display:grid; place-items:center">W‑8BEN</div>
-            <div class="fc11" style="position:absolute; top:49%; left:0%; padding:7px 13px; border-radius:999px; border:1px solid rgba(103,232,249,.18); background:rgba(103,232,249,.06); font-size:12px; font-weight:700; color:var(--cyan); display:grid; place-items:center">Beholdning</div>
-            <div class="fc12" style="position:absolute; top:63%; left:6%; padding:12px 20px; border-radius:999px; border:1px solid rgba(255,125,125,.18); background:rgba(255,125,125,.06); font-size:17px; font-weight:700; color:var(--red); display:grid; place-items:center">Dobbeltbeskatning</div>
-            <div class="fc13" style="position:absolute; top:64%; right:2%; padding:7px 13px; border-radius:999px; border:1px solid rgba(103,232,168,.18); background:rgba(103,232,168,.06); font-size:12px; font-weight:600; color:var(--green); display:grid; place-items:center">Skjermingsfradrag</div>
-            <div class="fc14" style="position:absolute; top:63%; left:56%; padding:14px 22px; border-radius:999px; border:1px solid rgba(161,0,255,.25); background:rgba(161,0,255,.1); font-size:20px; font-weight:800; color:#e2c6ff; display:grid; place-items:center">UBS</div>
-            <div class="fc15" style="position:absolute; top:79%; left:2%; padding:9px 15px; border-radius:999px; border:1px solid rgba(246,196,83,.18); background:rgba(246,196,83,.06); font-size:14px; font-weight:600; color:var(--amber); display:grid; place-items:center">V2A</div>
-            <div class="fc16" style="position:absolute; top:79%; left:30%; padding:10px 16px; border-radius:999px; border:1px solid rgba(103,232,249,.22); background:rgba(103,232,249,.08); font-size:15px; font-weight:700; color:var(--cyan); display:grid; place-items:center">Gevinst &amp; tap</div>
-            <div class="fc17" style="position:absolute; top:80%; right:4%; padding:9px 15px; border-radius:999px; border:1px solid rgba(103,232,168,.2); background:rgba(103,232,168,.07); font-size:14px; font-weight:600; color:var(--green); display:grid; place-items:center">Formue 31.12</div>
+              <div class="fc1"  style="position:absolute; top:3%;  left:4%;  padding:18px 30px; border-radius:999px; border:1px solid rgba(161,0,255,.3);  background:rgba(161,0,255,.14);  font-size:28px; font-weight:800; color:#e2c6ff;  display:grid; place-items:center">Accenture</div>
+              <div class="fc2"  style="position:absolute; top:4%;  left:48%; padding:8px 14px;  border-radius:999px; border:1px solid rgba(255,125,125,.2);  background:rgba(255,125,125,.08); font-size:13px; font-weight:600; color:var(--red);  display:grid; place-items:center">Kildeskatt</div>
+              <div class="fc3"  style="position:absolute; top:2%;  left:78%; padding:9px 16px;  border-radius:999px; border:1px solid rgba(103,232,168,.22); background:rgba(103,232,168,.08); font-size:14px; font-weight:700; color:var(--green); display:grid; place-items:center">FIFO</div>
+              <div class="fc4"  style="position:absolute; top:12%; left:18%; padding:10px 18px; border-radius:999px; border:1px solid rgba(103,232,249,.25); background:rgba(103,232,249,.1);  font-size:15px; font-weight:600; color:var(--cyan); display:grid; place-items:center">Skattemelding</div>
+              <div class="fc5"  style="position:absolute; top:15%; left:62%; padding:16px 26px; border-radius:999px; border:1px solid rgba(246,196,83,.28); background:rgba(246,196,83,.1);  font-size:24px; font-weight:800; color:var(--amber); display:grid; place-items:center">ESPP</div>
+              <div class="fc6"  style="position:absolute; top:21%; left:3%;  padding:8px 14px;  border-radius:999px; border:1px solid rgba(255,125,125,.22); background:rgba(255,125,125,.1);  font-size:17px; font-weight:800; color:var(--red);  display:grid; place-items:center">37,84%</div>
+              <div class="fc7"  style="position:absolute; top:23%; left:30%; padding:12px 20px; border-radius:999px; border:1px solid rgba(161,0,255,.22); background:rgba(161,0,255,.08); font-size:18px; font-weight:700; color:#d9b3ff;  display:grid; place-items:center">ACN · NYSE</div>
+              <div class="fc8"  style="position:absolute; top:20%; left:80%; padding:8px 14px;  border-radius:999px; border:1px solid rgba(103,232,168,.22); background:rgba(103,232,168,.08); font-size:13px; font-weight:600; color:var(--green); display:grid; place-items:center">15% rabatt</div>
+              <div class="fc9"  style="position:absolute; top:31%; left:8%;  padding:14px 24px; border-radius:999px; border:1px solid rgba(103,232,249,.2);  background:rgba(103,232,249,.07); font-size:22px; font-weight:700; color:var(--cyan); display:grid; place-items:center">Utbytte</div>
+              <div class="fc10" style="position:absolute; top:35%; left:45%; padding:10px 16px; border-radius:999px; border:1px solid rgba(103,232,168,.25); background:rgba(103,232,168,.1);  font-size:15px; font-weight:700; color:var(--green); display:grid; place-items:center">Kredittfradrag</div>
+              <div class="fc11" style="position:absolute; top:32%; left:76%; padding:16px 24px; border-radius:999px; border:1px solid rgba(246,196,83,.22); background:rgba(246,196,83,.08); font-size:21px; font-weight:800; color:var(--amber); display:grid; place-items:center">🇮🇪 🇺🇸 🇳🇴</div>
+              <div class="fc12" style="position:absolute; top:42%; left:20%;  padding:8px 14px;  border-radius:999px; border:1px solid rgba(161,0,255,.18); background:rgba(161,0,255,.06); font-size:13px; font-weight:600; color:#cba8ff;  display:grid; place-items:center">W‑8BEN</div>
+              <div class="fc13" style="position:absolute; top:56%; left:26%; padding:12px 20px; border-radius:999px; border:1px solid rgba(255,125,125,.18); background:rgba(255,125,125,.06); font-size:17px; font-weight:700; color:var(--red);  display:grid; place-items:center">Dobbeltbeskatning</div>
+              <div class="fc14" style="position:absolute; top:43%; left:66%; padding:7px 13px;  border-radius:999px; border:1px solid rgba(103,232,249,.18); background:rgba(103,232,249,.06); font-size:12px; font-weight:700; color:var(--cyan); display:grid; place-items:center">Beholdning</div>
+              <div class="fc15" style="position:absolute; top:54%; left:10%; padding:14px 22px; border-radius:999px; border:1px solid rgba(246,196,83,.25); background:rgba(246,196,83,.1);  font-size:20px; font-weight:800; color:var(--amber); display:grid; place-items:center">UBS</div>
+              <div class="fc16" style="position:absolute; top:50%; left:50%; padding:9px 15px;  border-radius:999px; border:1px solid rgba(161,0,255,.25); background:rgba(161,0,255,.1);  font-size:14px; font-weight:600; color:#e2c6ff;  display:grid; place-items:center">V2A</div>
+              <div class="fc17" style="position:absolute; top:57%; left:78%; padding:7px 13px;  border-radius:999px; border:1px solid rgba(255,125,125,.18); background:rgba(255,125,125,.06); font-size:12px; font-weight:600; color:var(--red);  display:grid; place-items:center">Skjermingsfradrag</div>
+              <div class="fc18" style="position:absolute; top:62%; left:3%;  padding:10px 16px; border-radius:999px; border:1px solid rgba(103,232,168,.2);  background:rgba(103,232,168,.08); font-size:15px; font-weight:700; color:var(--green); display:grid; place-items:center">Kostpris</div>
+              <div class="fc19" style="position:absolute; top:66%; left:40%; padding:8px 14px;  border-radius:999px; border:1px solid rgba(103,232,249,.2);  background:rgba(103,232,249,.08); font-size:16px; font-weight:600; color:var(--cyan); display:grid; place-items:center">Skatteavtale</div>
+              <div class="fc20" style="position:absolute; top:68%; left:68%; padding:10px 16px; border-radius:999px; border:1px solid rgba(246,196,83,.2);  background:rgba(246,196,83,.07); font-size:15px; font-weight:700; color:var(--amber); display:grid; place-items:center">Gevinst &amp; tap</div>
+              <div class="fc21" style="position:absolute; top:74%; left:14%; padding:9px 15px;  border-radius:999px; border:1px solid rgba(255,125,125,.18); background:rgba(255,125,125,.07); font-size:14px; font-weight:700; color:var(--red);  display:grid; place-items:center">30. april</div>
+              <div class="fc22" style="position:absolute; top:77%; left:52%; padding:9px 15px;  border-radius:999px; border:1px solid rgba(103,232,168,.2);  background:rgba(103,232,168,.07); font-size:14px; font-weight:600; color:var(--green); display:grid; place-items:center">Formue 31.12</div>
           </div>
 
           <!-- TOC full width -->
