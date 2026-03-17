@@ -562,6 +562,30 @@
     .toc-list{grid-template-columns:1fr}
     .toc-modal{padding:20px 18px}
   }
+
+  /* Begrepsoversikt: card should not stretch to fill */
+  .content.card.autoHeight{flex:0 0 auto}
+
+  /* Terms modal */
+  .terms-modal-overlay{
+    display:none; position:fixed; inset:0; z-index:9997;
+    background:rgba(0,0,0,.72); backdrop-filter:blur(8px);
+    align-items:center; justify-content:center; padding:24px;
+  }
+  .terms-modal-overlay.open{display:flex}
+  .terms-modal{
+    background:linear-gradient(180deg, rgba(18,26,49,.98), rgba(10,16,32,.99));
+    border:1px solid var(--line); border-radius:24px;
+    max-width:92vw; width:100%; max-height:85vh; overflow:auto;
+    padding:32px 36px; box-shadow:var(--shadow);
+  }
+  .terms-modal-header{display:flex; justify-content:space-between; align-items:center; margin-bottom:20px}
+  .terms-modal-header h3{margin:0; font-size:24px; font-weight:800}
+  .terms-modal-close{
+    background:none; border:1px solid var(--line); border-radius:10px;
+    color:var(--muted); font-size:22px; cursor:pointer; padding:4px 12px; line-height:1;
+  }
+  .terms-modal-close:hover{color:var(--text); border-color:var(--text)}
 </style>
 </head>
 <body>
@@ -706,55 +730,12 @@
             </div>
           </div>
         </div>
-        <div class="content card soft">
-          <div class="termTable">
-            <div class="head">Norsk</div><div class="head">Engelsk</div><div class="head">Kort forklart</div>
-
-            <div class="termRow">
-              <div class="termCell"><strong>Aksje</strong></div>
-              <div class="termCell"><strong>Share / Stock</strong></div>
-              <div class="termCell"><span>En liten eierandel i et selskap. Du kan tjene penger på kursoppgang og på utbytte.</span></div>
-            </div>
-            <div class="termRow">
-              <div class="termCell"><strong>Utbytte</strong></div>
-              <div class="termCell"><strong>Dividend</strong></div>
-              <div class="termCell"><span>Penger selskapet deler ut til eierne. For Accenture er dette irsk utbytte fordi selskapet er irsk.</span></div>
-            </div>
-            <div class="termRow">
-              <div class="termCell"><strong>Aksjespareprogram (ESPP)</strong></div>
-              <div class="termCell"><strong>Employee Share Purchase Plan</strong></div>
-              <div class="termCell"><span>Ordning der ansatte sparer via lønnstrekk og kjøper aksjer på faste datoer, ofte med rabatt.</span></div>
-            </div>
-            <div class="termRow">
-              <div class="termCell"><strong>Kildeskatt</strong></div>
-              <div class="termCell"><strong>Withholding tax</strong></div>
-              <div class="termCell"><span>Skatt som trekkes før pengene når deg. Typisk ved utbytte fra utlandet.</span></div>
-            </div>
-            <div class="termRow">
-              <div class="termCell"><strong>Kredittfradrag</strong></div>
-              <div class="termCell"><strong>Foreign tax credit</strong></div>
-              <div class="termCell"><span>Fradrag i norsk skatt for skatt som allerede er betalt i utlandet på samme inntekt.</span></div>
-            </div>
-            <div class="termRow">
-              <div class="termCell"><strong>W‑8BEN</strong></div>
-              <div class="termCell"><strong>IRS Form W‑8BEN</strong></div>
-              <div class="termCell"><span>Skjema som bekrefter at du ikke er amerikansk skattepliktig person overfor amerikansk utbetaler/broker.</span></div>
-            </div>
-            <div class="termRow">
-              <div class="termCell"><strong>V2A</strong></div>
-              <div class="termCell"><strong>Irish non‑resident Form V2A</strong></div>
-              <div class="termCell"><span>Irsk skjema for å få utbytte uten irsk trekk ved kilden for kvalifiserte ikke‑residenter.</span></div>
-            </div>
-            <div class="termRow">
-              <div class="termCell"><strong>Skjermingsfradrag</strong></div>
-              <div class="termCell"><strong>Allowance for shielding</strong></div>
-              <div class="termCell"><span>Et norsk fradrag som reduserer skattepliktig utbytte og gevinst.</span></div>
-            </div>
-          </div>
+        <div class="content card soft autoHeight">
+          <div class="termTable" id="slideTermTable"></div>
         </div>
         <div class="foot">
           <div>Begrepene brukes litt ulikt i interne systemer, hos UBS og i skattemeldingen.</div>
-          <div class="sourceHint">Trykk <span class="kbd">K</span> for å åpne kildepanelet.</div>
+          <div class="sourceHint">Trykk <span class="kbd">B</span> for begreper som modal.</div>
         </div>
       </section>
 
@@ -1972,6 +1953,7 @@
       <button class="btn" id="nextBtn">Neste →</button>
       <button class="shortcut-btn" id="tocShortcutBtn"><span class="key">I</span> Innhold</button>
       <button class="shortcut-btn" id="srcShortcutBtn"><span class="key">K</span> Kilder</button>
+      <button class="shortcut-btn" id="termsShortcutBtn"><span class="key">B</span> Begreper</button>
       <button class="btn mobileOnly" id="fsBtn">Fullskjerm</button>
     </div>
     <div class="pager" id="pager"></div>
@@ -1986,6 +1968,16 @@
       <button class="toc-modal-close" id="tocClose" aria-label="Lukk">&times;</button>
     </div>
     <ol class="toc-list" id="tocModalList"></ol>
+  </div>
+</div>
+
+<div class="terms-modal-overlay" id="termsOverlay">
+  <div class="terms-modal">
+    <div class="terms-modal-header">
+      <h3>Begrepsoversikt</h3>
+      <button class="terms-modal-close" id="termsClose" aria-label="Lukk">&times;</button>
+    </div>
+    <div class="termTable" id="modalTermTable"></div>
   </div>
 </div>
 
@@ -2019,9 +2011,51 @@
   const sourcesBtn = document.getElementById('sourcesBtn');
   const tocShortcutBtn = document.getElementById('tocShortcutBtn');
   const srcShortcutBtn = document.getElementById('srcShortcutBtn');
+  const termsShortcutBtn = document.getElementById('termsShortcutBtn');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   const fsBtn = document.getElementById('fsBtn');
+
+  /* ---- Shared terms data ---- */
+  const TERMS = [
+    ['Aksje', 'Share / Stock', 'En liten eierandel i et selskap. Du kan tjene penger på kursoppgang og på utbytte.'],
+    ['Utbytte', 'Dividend', 'Penger selskapet deler ut til eierne. For Accenture er dette irsk utbytte fordi selskapet er irsk.'],
+    ['Aksjespareprogram (ESPP)', 'Employee Share Purchase Plan', 'Ordning der ansatte sparer via lønnstrekk og kjøper aksjer på faste datoer, ofte med rabatt.'],
+    ['Inngangsverdi (kostpris)', 'Cost basis / Acquisition cost', 'Prisen du betalte for aksjen, inkludert eventuelle kostnader. Utgangspunktet for beregning av gevinst/tap.'],
+    ['Realisasjon', 'Disposal / Sale', 'Når du selger, bytter eller på annen måte avhender en aksje — utløser gevinstberegning.'],
+    ['Gevinst / Tap', 'Capital gain / Capital loss', 'Differansen mellom salgspris og inngangsverdi, etter fradrag for skjerming.'],
+    ['Formuesverdi', 'Wealth tax value', 'Verdien aksjen settes til ved beregning av formuesskatt (typisk kursverdi 1. januar).'],
+    ['Valutakurs', 'Exchange rate', 'Norges Bank sin kurs for å omregne USD‑beløp til NOK på transaksjonstidspunktet.'],
+    ['Oppjusteringsfaktor', 'Gross‑up factor', 'Utbytte og gevinst ganges opp (f.eks. 1,72) før beskatning med alminnelig sats.'],
+    ['Kildeskatt', 'Withholding tax', 'Skatt som trekkes før pengene når deg. Typisk ved utbytte fra utlandet.'],
+    ['Kredittfradrag', 'Foreign tax credit', 'Fradrag i norsk skatt for skatt som allerede er betalt i utlandet på samme inntekt.'],
+    ['Skjermingsfradrag', 'Allowance for shielding', 'Et norsk fradrag som reduserer skattepliktig utbytte og gevinst.'],
+    ['FIFO‑prinsippet', 'First In, First Out', 'Ved salg regnes de eldste aksjene som solgt først — påvirker hvilken inngangsverdi som brukes.'],
+    ['W\u20118BEN', 'IRS Form W\u20118BEN', 'Skjema som bekrefter at du ikke er amerikansk skattepliktig person overfor amerikansk utbetaler/broker.'],
+    ['V2A', 'Irish non\u2011resident Form V2A', 'Irsk skjema for å få utbytte uten irsk trekk ved kilden for kvalifiserte ikke\u2011residenter.'],
+    ['RF\u20111159', 'Norwegian tax return attachment', 'Vedleggsskjema i skattemeldingen for utenlandske aksjer, utbytte og gevinst/tap.'],
+  ];
+
+  function renderTermTable(container){
+    container.innerHTML = '';
+    const heads = ['Norsk','Engelsk','Kort forklart'];
+    heads.forEach(h => {
+      const d = document.createElement('div');
+      d.className = 'head'; d.textContent = h;
+      container.appendChild(d);
+    });
+    TERMS.forEach(([no, en, desc]) => {
+      const row = document.createDocumentFragment();
+      const c1 = document.createElement('div'); c1.className = 'termCell'; c1.innerHTML = `<strong>${no}</strong>`;
+      const c2 = document.createElement('div'); c2.className = 'termCell'; c2.innerHTML = `<strong>${en}</strong>`;
+      const c3 = document.createElement('div'); c3.className = 'termCell'; c3.innerHTML = `<span>${desc}</span>`;
+      [c1,c2,c3].forEach(c => { const w = document.createElement('div'); w.className = 'termRow'; w.style.display = 'contents'; row.appendChild(c); });
+      container.appendChild(row);
+    });
+  }
+
+  renderTermTable(document.getElementById('slideTermTable'));
+  renderTermTable(document.getElementById('modalTermTable'));
 
   let current = 0;
 
@@ -2108,6 +2142,15 @@
     tocOverlay.classList.toggle('open', open);
   }
 
+  /* ---- Terms modal ---- */
+  const termsOverlay = document.getElementById('termsOverlay');
+  const termsClose = document.getElementById('termsClose');
+
+  function toggleTerms(force){
+    const open = typeof force === 'boolean' ? force : !termsOverlay.classList.contains('open');
+    termsOverlay.classList.toggle('open', open);
+  }
+
   buildPager();
   buildToc();
   parseHash();
@@ -2118,6 +2161,7 @@
   sourcesBtn.addEventListener('click', () => toggleSources());
   tocShortcutBtn.addEventListener('click', () => toggleToc());
   srcShortcutBtn.addEventListener('click', () => toggleSources());
+  termsShortcutBtn.addEventListener('click', () => toggleTerms());
   if (fsBtn) {
     fsBtn.addEventListener('click', async () => {
       if (!document.fullscreenElement) await document.documentElement.requestFullscreen?.();
@@ -2135,7 +2179,8 @@
     else if (k === 'End') { e.preventDefault(); go(slides.length - 1); }
     else if (k.toLowerCase() === 'k') { e.preventDefault(); toggleSources(); }
     else if (k.toLowerCase() === 'i') { e.preventDefault(); toggleToc(); }
-    else if (k === 'Escape') { toggleSources(false); toggleToc(false); }
+    else if (k.toLowerCase() === 'b') { e.preventDefault(); toggleTerms(); }
+    else if (k === 'Escape') { toggleSources(false); toggleToc(false); toggleTerms(false); }
   });
 
   let touchX = null;
@@ -2159,6 +2204,11 @@
   tocClose.addEventListener('click', () => toggleToc(false));
   tocOverlay.addEventListener('click', (e) => {
     if (e.target === tocOverlay) toggleToc(false);
+  });
+
+  termsClose.addEventListener('click', () => toggleTerms(false));
+  termsOverlay.addEventListener('click', (e) => {
+    if (e.target === termsOverlay) toggleTerms(false);
   });
 
   document.addEventListener('click', (e) => {
