@@ -88,6 +88,7 @@
   .slide{
     position:absolute; inset:0;
     padding:34px 48px 28px;
+    font-size:15px;
     opacity:0; transform:translateX(40px) scale(.985);
     transition:opacity .32s ease, transform .32s ease;
     pointer-events:none;
@@ -469,7 +470,7 @@
   .dotBtn.active{width:28px; background:linear-gradient(90deg,var(--purple), var(--cyan))}
   .mobileOnly{display:none}
   .note{
-    padding:14px 16px; border-radius:16px; border:1px dashed rgba(255,255,255,.16); color:#dce3ff; line-height:1.45
+    padding:14px 16px; border-radius:16px; border:1px dashed rgba(255,255,255,.16); color:#dce3ff; font-size:13px; line-height:1.45
   }
   @media (max-width:1100px){
     .slide{padding:24px 24px 20px}
@@ -757,7 +758,7 @@
 
           <!-- Left half: What is a share -->
           <div class="card" style="padding:22px 24px; display:flex; flex-direction:column; gap:14px">
-            <p style="margin:0; font-size:14px; color:var(--muted); line-height:1.55">
+            <p style="margin:0; color:var(--muted); line-height:1.55">
               En aksje er en liten eierandel i et selskap. Eier du aksjer, eier du en tilsvarende andel av selskapet. Selskapet kan være <strong style="color:var(--text)">børsnotert</strong> (som Accenture på NYSE) eller privat. Børsnotering gjør det enkelt å kjøpe og selge til markedspris.
             </p>
 
@@ -821,7 +822,7 @@
             <!-- Grunn 1: Utbytte -->
             <div class="moneyCard" style="padding:16px 18px">
               <h4 style="font-size:16px; margin-bottom:5px">💰 Grunn 1: Utbytte</h4>
-              <p style="font-size:13px; line-height:1.45; margin-bottom:8px">Selskapet kan dele ut kontanter til aksjonærer. Du får din andel automatisk — uten å selge noe.</p>
+              <p style="font-size:15px; line-height:1.45; margin-bottom:8px">Selskapet kan dele ut kontanter til aksjonærer. Du får din andel automatisk — uten å selge noe.</p>
 
               <!-- Dividend visualization -->
               <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px">
@@ -865,7 +866,7 @@
             <!-- Grunn 2: Kursgevinst -->
             <div class="moneyCard" style="padding:16px 18px">
               <h4 style="font-size:16px; margin-bottom:5px">📈 Grunn 2: Kursgevinst</h4>
-              <p style="font-size:13px; line-height:1.45; margin-bottom:8px">Stiger prisen mens du eier aksjen, tjener du differansen ved salg.</p>
+              <p style="font-size:15px; line-height:1.45; margin-bottom:8px">Stiger prisen mens du eier aksjen, tjener du differansen ved salg.</p>
 
               <!-- Price chart visualization -->
               <div style="display:flex; align-items:flex-end; gap:12px; margin-bottom:8px">
@@ -914,7 +915,7 @@
             <!-- Grunn 3: Eierskap i egen arbeidsgiver -->
             <div style="border-radius:22px; padding:16px 18px; border:1px solid var(--line); background:linear-gradient(180deg, rgba(103,232,249,.14), rgba(103,232,249,.06))">
               <h4 style="font-size:16px; margin:0 0 5px; color:var(--text)">🏢 Grunn 3: Eierskap i arbeidsgiveren</h4>
-              <p style="font-size:13px; line-height:1.45; margin:0 0 8px; color:#d5f7ff">Å eie aksjer i selskapet du jobber for gir en unik fordel: du får direkte del i verdiskapingen du selv bidrar til.</p>
+              <p style="font-size:15px; line-height:1.45; margin:0 0 8px; color:#d5f7ff">Å eie aksjer i selskapet du jobber for gir en unik fordel: du får direkte del i verdiskapingen du selv bidrar til.</p>
               <div style="padding:8px 12px; border-radius:10px; background:rgba(103,232,249,.08); border:1px solid rgba(103,232,249,.16)">
                 <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--cyan); margin-bottom:5px">Forskning viser</div>
                 <div style="font-size:13px; color:var(--muted); line-height:1.5">
@@ -923,7 +924,7 @@
               </div>
             </div>
 
-            <div class="note" style="font-size:13px">For ESPP-aksjer er alle tre sporene relevante i skattemeldingen.</div>
+            <div class="note">For ESPP-aksjer er alle tre sporene relevante i skattemeldingen.</div>
           </div>
         </div>
         <div class="foot">
@@ -1320,7 +1321,7 @@
               <div style="width:28px; height:28px; border-radius:999px; background:rgba(103,232,249,.15); display:flex; align-items:center; justify-content:center; font-size:15px">🟢</div>
               <h4 style="margin:0; color:var(--cyan)">Minste motstands vei</h4>
             </div>
-            <p style="margin:0 0 12px; color:var(--muted); font-size:14px">
+            <p style="margin:0 0 12px; color:var(--muted)">
               Høres komplisert ut. Kan jeg bare ignorere alt dette?
             </p>
             <div style="display:grid; gap:8px">
@@ -1364,7 +1365,7 @@
               <div style="width:28px; height:28px; border-radius:999px; background:rgba(161,0,255,.18); display:flex; align-items:center; justify-content:center; font-size:15px">⚡</div>
               <h4 style="margin:0; color:var(--purple2)">Steg mot mindre skatt</h4>
             </div>
-            <p style="margin:0 0 12px; color:var(--muted); font-size:14px">
+            <p style="margin:0 0 12px; color:var(--muted)">
               Alle tre land vil ta sin del av utbyttet ditt. For å minimere dette bør du ta opptil tre grep. Hvert pukt har egne slides.
             </p>
             <div style="display:grid; gap:8px">
@@ -1594,7 +1595,7 @@
               </div>
             </div>
 
-            <div class="note" style="font-size:12px">
+            <div class="note">
               💡 Skjermingsrenten for året som var fastsettes årlig av Skatteetaten ved starten av nytt år. For inntektsåret 2025 er den ca. 3.6%. I 2024 var den 3.9%. Har du aksjer med ulik kostpris (f.eks. kjøpt via ESPP over flere perioder), beregnes skjerming separat for hvert «erverv».
             </div>
           </div>
@@ -1727,7 +1728,7 @@
               </div>
             </div>
 
-            <div class="note" style="font-size:12px">
+            <div class="note">
               💡 <strong>Tips:</strong> Før du setter i gang med kalkulatoren bør du har klart en oversikt over når du har kjøpt aksjer og til hvilken kostpris, samt hvor mye utbytte du har fått per år per transje. Da er det bare å plotte inn i kalkultoren for hver transje og summere. Undetegnede holder oversikt over datapunktene som skal inn i kalkulatoren i et eget excelark, men all data kan når som helst hentes ut fra MyHolding eller UBS.
             </div>
           </div>
@@ -1879,7 +1880,7 @@
               <span style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</span><strong style="text-align:right; border-top:1px solid var(--line); padding-top:4px">7 784 kr</strong>
               <span style="color:var(--text)">Netto igjen</span><strong style="color:var(--amber); font-size:18px; text-align:right">2 216 kr</strong>
             </div>
-            <div class="note" style="margin-top:8px; font-size:12px">W‑8 BEN halverer USA-trekket. Irsk DWT er fortsatt fullt.</div>
+            <div class="note" style="margin-top:8px">W‑8 BEN halverer USA-trekket. Irsk DWT er fortsatt fullt.</div>
           </div>
 
           <!-- 2 — W-8 BEN + kreditfradrag -->
@@ -1893,7 +1894,7 @@
               <span style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</span><strong style="text-align:right; border-top:1px solid var(--line); padding-top:4px">6 284 kr</strong>
               <span style="color:var(--text)">Netto igjen</span><strong style="color:var(--cyan); font-size:18px; text-align:right">3 716 kr</strong>
             </div>
-            <div class="note" style="margin-top:8px; font-size:12px">Kreditfradrag nøytraliserer opp til avtaletaket (15%) for skatt som er betalt dobbelt. Du mister likevel 10% i Irland (de trekker 25%, du får tilbake 15%) som du kan få fritak for med V2A. Merk forøvrig at kredittfradrag ikke er relevant for kildeskatt til USA, da de 15% vi betaler etter W-8 BEN ikke er for mye/dobbel skatt, men korrekt skatt.</div>
+            <div class="note" style="margin-top:8px">Kreditfradrag nøytraliserer opp til avtaletaket (15%) for skatt som er betalt dobbelt. Du mister likevel 10% i Irland (de trekker 25%, du får tilbake 15%) som du kan få fritak for med V2A. Merk forøvrig at kredittfradrag ikke er relevant for kildeskatt til USA, da de 15% vi betaler etter W-8 BEN ikke er for mye/dobbel skatt, men korrekt skatt.</div>
           </div>
 
           <!-- 3 — V2A + W-8 BEN (irsk kreditfradrag overflødig) -->
@@ -1907,7 +1908,7 @@
               <span style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</span><strong style="text-align:right; border-top:1px solid var(--line); padding-top:4px">5 284 kr</strong>
               <span style="color:var(--text)">Netto igjen</span><strong style="color:var(--green); font-size:18px; text-align:right">4 716 kr</strong>
             </div>
-            <div class="note" style="margin-top:8px; font-size:12px">V2A fjerner irsk DWT ved kilden → irsk kreditfradrag overflødig. Samlet skatt = kun norsk sats.</div>
+            <div class="note" style="margin-top:8px">V2A fjerner irsk DWT ved kilden → irsk kreditfradrag overflødig. Samlet skatt = kun norsk sats.</div>
           </div>
 
         </div>
@@ -1933,7 +1934,7 @@
 
             <!-- Hvordan selge -->
             <div class="card">
-              <h3 style="font-size:20px">Hvordan selger du aksjer?</h3>
+              <h3>Hvordan selger du aksjer?</h3>
               <ul class="clean" style="margin-top:8px">
                 <li>Salg gjøres via <strong>UBS</strong> eller <strong>MyHoldings</strong>-portalen.</li>
                 <li>Når du selger, gjelder <strong>FIFO</strong> (First In, First Out) – de aksjene du kjøpte <em>først</em> regnes som solgt først.</li>
@@ -1947,7 +1948,7 @@
 
             <!-- Regnestykke-eksempel -->
             <div class="card">
-              <h3 style="font-size:20px">Eksempel: Salg med gevinst</h3>
+              <h3>Eksempel: Salg med gevinst</h3>
               <div class="arrowRow" style="margin:12px 0 8px">
                 <div class="arrowCard"><strong>Kostpris</strong><span>100 000 kr</span></div>
                 <div class="arrowSep">→</div>
@@ -1955,7 +1956,7 @@
                 <div class="arrowSep">=</div>
                 <div class="arrowCard" style="border-color:rgba(103,232,168,.35)"><strong>Gevinst</strong><span style="color:var(--green)">20 000 kr</span></div>
               </div>
-              <div class="equ" style="margin-top:10px; font-size:18px">
+              <div class="equ" style="margin-top:10px">
                 20 000 kr × 1,72 × 22 % = <strong style="color:var(--amber)">7 568 kr</strong> i skatt
               </div>
               <div style="margin-top:10px; color:var(--muted); font-size:14px; line-height:1.5">
@@ -1969,11 +1970,11 @@
 
             <!-- Hvorfor 1,72 x 22 % -->
             <div class="card">
-              <h3 style="font-size:20px">Hvorfor er skattesatsen 1,72 × 22 %?</h3>
+              <h3>Hvorfor er skattesatsen 1,72 × 22 %?</h3>
               <p style="margin-top:8px; line-height:1.55">
                 Norge har en flat skattesats på alminnelig inntekt på <strong>22 %</strong>. Men for å gjøre beskatningen av aksjegevinst og utbytte lik den effektive marginalskattesatsen på lønn, multipliseres gevinsten med en <strong>oppjusteringsfaktor</strong> på <strong>1,72</strong> før skatten beregnes.
               </p>
-              <div class="equ" style="margin-top:10px; font-size:16px">
+              <div class="equ" style="margin-top:10px">
                 Effektiv skattesats = 1,72 × 22 % = <strong>37,84 %</strong>
               </div>
               <p class="small" style="margin-top:8px">Faktoren fastsettes av Stortinget hvert år. I 2026 er den 1,72.</p>
@@ -1981,7 +1982,7 @@
 
             <!-- Skjermingsfradrag -->
             <div class="card">
-              <h3 style="font-size:20px">Skjermingsfradrag</h3>
+              <h3>Skjermingsfradrag</h3>
               <p style="margin-top:8px; line-height:1.55">
                 Skjermingsfradraget er et <strong>skattefritt bunnfradrag</strong> på avkastningen din. Det beregnes ut fra kostprisen på aksjene dine multiplisert med en <strong>skjermingsrente</strong> fastsatt av Skatteetaten (basert på renten på statskasseveksler).
               </p>
@@ -1991,14 +1992,14 @@
                 <li>Trekkes fra gevinsten <em>før</em> oppjusteringsfaktoren brukes.</li>
                 <li>Reduserer altså det beløpet du faktisk skattes av.</li>
               </ul>
-              <div class="equ" style="margin-top:10px; font-size:14px; line-height:1.5">
+              <div class="equ" style="margin-top:10px; line-height:1.5">
                 Eksempel: Kostpris 100 000 kr × skjermingsrente 3.6 % = <strong>3 600 kr</strong> skattefritt.<br>
                 Gevinst 20 000 − 3 600 = 16 400 kr som beskattes.
               </div>
             </div>
 
             <!-- ASK - liten FYI-notis -->
-            <div class="note" style="font-size:13px; line-height:1.5; background:rgba(103,232,168,.05)">
+            <div class="note" style="line-height:1.5; background:rgba(103,232,168,.05)">
               <strong>FYI – Aksjesparekonto (ASK):</strong> På ASK utsettes skatten til du tar ut mer enn du har skutt inn. ESPP-aksjer hos UBS ligger <em>ikke</em> på ASK – salg der beskattes som vanlig realisasjon.
             </div>
           </div>
