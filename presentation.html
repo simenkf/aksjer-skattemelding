@@ -1246,7 +1246,7 @@
             <div class="wideCards" style="grid-column:span 3; grid-template-columns:repeat(3,1fr); align-items:stretch">
               <div class="tintCard green">
                 <h3>1. Beholdning</h3>
-                <p>Du oppgir markedsverdi ved årsskiftet. Dette blir ikke beskattet av at du eier dem, utover evt. formueskatt. <br><br>For aksjer du har i utenlandske banker, som UBS, er dette ofte ikke forhåndsutfylt. Da må du gjøre jobben selv. <br><br> Konkret oppgir du navn på aksje, bank du har dem i, ISIN, antall aksjer, verdi per aksje per 31.12, osv.</p>
+                <p>Du oppgir markedsverdi ved årsskiftet. Du blir ikke beskattet av at du eier dem, utover evt. formueskatt. <br><br>For aksjer du har i utenlandske banker, som UBS, er dette ofte ikke forhåndsutfylt. Da må du gjøre jobben selv. <br><br> Konkret oppgir du navn på aksje, bank du har dem i, ISIN, antall aksjer, total verdi per 31.12, osv.</p>
                 <div class="tintBox grad green" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.55">
                   <h4>Eksempel</h4>
                   <div>31. desember 2025 hadde du <strong style="color:var(--text)">100 aksjer</strong> i Accenture.</div>
@@ -1263,7 +1263,7 @@
               <div class="tintCard cyan">
                 <h3>2. Utbytte</h3>
                 <p>Brutto utbytte skal føres og skal beskattes årlig som en form for inntekt. Accenture utbetaler typisk utbytte hvert kvartal. <br><br>Du får mail hver gang du mottar utbytte. Se etter mail fra "Total Rewards" med emne "Prepare for [Q1 | Q2 | Q3 | Q4] dividend". Der står det hvor mange dollar utbytte du får per aksje du har på en gitt dato.</p>
-                <div class="tintBox grad green" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.55">
+                <div class="tintBox grad cyan" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.55">
                   <h4>Eksempel</h4>
                   <div style="margin-bottom:4px">Du startet 2025 med <strong style="color:var(--text)">50 aksjer</strong>, kjøpte <strong style="color:var(--text)">20</strong> til 1. mai og <strong style="color:var(--text)">30</strong> til 1. sept. Eksempelet bruker relle utbytte-satser for Accenture i 2025.</div>
                   <div style="display:grid; grid-template-columns:auto auto auto 1fr; gap:2px 10px; margin-top:8px; font-size:12px">
@@ -1272,9 +1272,13 @@
                     <span>Q3</span><span>9. jul</span><span>70 × $1,48</span><strong style="color:var(--text); text-align:right">= $103,60</strong>
                     <span>Q4</span><span>9. okt</span><span>100 × $1,63</span><strong style="color:var(--text); text-align:right">= $163,00</strong>
                   </div>
-                  <div style="margin-top:6px; padding-top:6px; border-top:1px solid rgba(103,232,168,.2)">
-                    Totalt utbytte i 2025 = <strong style="color:var(--green)">$414,60</strong>
+                  <div style="margin-top:6px; padding-top:6px; border-top:1px solid rgba(103, 232, 230, 0.2)">
+                    Totalt utbytte i 2025 = <strong style="color:var(--cyan)">$414,60</strong>
                   </div>
+                  <div style="margin-top:4px">
+                    Skatt (37,84%) = $414,60 × 0,3784 = <strong style="color:var(--red)">$156,80</strong>
+                  </div>
+                  <div style="margin-top:4px; font-size:12px; color:var(--muted)">Du rapporterer ikke selve skatten selv, det regnes ut automatisk. Dessuten vil skatten reduseres med skjerming.</div>
                 </div>
                 <div class="tintBox grad cyan" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.45">
                   <p style="margin:0">ℹ️ Tilsvarende som for beholdning, rapporterer norske banker dette for deg. UBS gjør det derimot ikke, så dette må vi legge til selv.</p>
@@ -1283,7 +1287,7 @@
               <div class="tintCard amber">
                 <h3>3. Salg</h3>
                 <p>Har du solgt aksjer, må gevinst eller tap også inn. Da er kjøpspris, salgspris og eventuelt skjerming viktige. <br><br> Se egen slide om salg, og beskatning av akjser ved salg. Merk: Undertegned har aldri solgt Accenture-aksjen, og kjenner derfor ikke det praktiske forløpet i detalj. Hooooooold!</p>
-                <div class="tintBox grad green" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.55">
+                <div class="tintBox grad amber" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.55">
                   <h4>Eksempel</h4>
                   <div style="margin-bottom:4px">Du selger alle <strong style="color:var(--text)">100 aksjer</strong> i desember til <strong style="color:var(--text)">$250</strong> per aksje.</div>
                   <div style="display:grid; grid-template-columns:auto auto 1fr; gap:2px 10px; margin-top:8px; font-size:12px">
@@ -1291,12 +1295,13 @@
                     <span>20 stk</span><span>kjøpt @ $210</span><span style="text-align:right">gevinst 20 × $40 = <strong style="color:var(--text)">$800</strong></span>
                     <span>30 stk</span><span>kjøpt @ $230</span><span style="text-align:right">gevinst 30 × $20 = <strong style="color:var(--text)">$600</strong></span>
                   </div>
-                  <div style="margin-top:6px; padding-top:6px; border-top:1px solid rgba(103,232,168,.2)">
-                    Total gevinst = <strong style="color:var(--green)">$4 900</strong>
+                  <div style="margin-top:6px; padding-top:6px; border-top:1px solid rgba(232, 211, 103, 0.2)">
+                    Total gevinst = <strong style="color:var(--amber)">$4 900</strong>
                   </div>
                   <div style="margin-top:4px">
-                    Skatt (37,84%) = $4 900 × 0,3784 = <strong style="color:var(--amber)">$1 854</strong>
+                    Skatt (37,84%) = $4 900 × 0,3784 = <strong style="color:var(--red)">$1 854</strong>
                   </div>
+                  <div style="margin-top:4px; font-size:12px; color:var(--muted)">Du rapporterer ikke selve skatten selv, det regnes ut automatisk. Dessuten reduseres skatten med skjerming.</div>
                 </div>
                 <div class="tintBox grad cyan" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.45">
                     <p style="margin:0">ℹ️ I dette eksempelet ble alle de 100 aksjene dine solgt før 31.12., så beholdnign rapporteres da som 0 kroner. Og igjen: Norske banker gjør dette for deg.</p>
@@ -1342,8 +1347,6 @@
 
         </div>
         <div class="foot">
-          <div>Skatteetaten skiller mellom beholdning/formue, utbytte og realisasjon.</div>
-          <div></div>
         </div>
       </section>
 
