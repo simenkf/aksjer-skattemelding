@@ -130,18 +130,6 @@
   .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
   .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
   .stack{display:grid; gap:18px}
-  .card{
-    background:linear-gradient(180deg, rgba(18,26,49,.92), rgba(12,18,36,.95));
-    border:1px solid var(--line);
-    box-shadow:var(--shadow);
-    border-radius:var(--radius);
-    padding:22px 24px;
-    min-width:0;
-  }
-  .card.soft{background:linear-gradient(180deg, rgba(22,32,60,.88), rgba(15,22,47,.92))}
-  .card h3{margin:0 0 8px; font-size:24px; line-height:1.1}
-  .card h4{margin:0 0 8px; font-size:18px; line-height:1.2}
-  .card p{margin:0; color:var(--muted); line-height:1.45}
   ul.clean{margin:10px 0 0 0; padding-left:1.25em; color:var(--muted); line-height:1.52}
   ul.clean li{margin:.35em 0}
   .chips{display:flex; gap:10px; flex-wrap:wrap}
@@ -315,12 +303,43 @@
     display:grid; grid-template-columns:1fr; gap:16px;
     align-content:start;
   }
-  .moneyCard{
-    border-radius:22px; padding:20px; border:1px solid var(--line);
-    background:linear-gradient(180deg, rgba(103,232,168,.14), rgba(103,232,168,.06));
+  .tintCard{
+    border-radius:22px; padding:22px 24px; border:1px solid var(--line);
+    box-shadow:var(--shadow); min-width:0;
   }
-  .moneyCard h4{font-size:20px; margin:0 0 8px}
-  .moneyCard p{color:#dff7ea}
+  .tintCard h3{margin:0 0 8px; font-size:24px; line-height:1.1}
+  .tintCard h4{margin:0 0 8px; font-size:18px; line-height:1.2}
+  .tintCard p{margin:0; line-height:1.45}
+  .tintCard.green{background:linear-gradient(180deg, rgba(103,232,168,.14), rgba(103,232,168,.06)); border-color:rgba(103,232,168,.25)}
+  .tintCard.green h3{color:var(--green)} .tintCard.green h4{color:var(--green)} .tintCard.green p{color:#dff7ea}
+  .tintCard.cyan{background:linear-gradient(180deg, rgba(103,232,249,.14), rgba(103,232,249,.06)); border-color:rgba(103,232,249,.25)}
+  .tintCard.cyan h3{color:var(--cyan)} .tintCard.cyan h4{color:var(--cyan)} .tintCard.cyan p{color:#d5f7ff}
+  .tintCard.purple{background:linear-gradient(180deg, rgba(161,0,255,.14), rgba(161,0,255,.06)); border-color:rgba(161,0,255,.25)}
+  .tintCard.purple h3{color:var(--purple2)} .tintCard.purple h4{color:var(--purple2)} .tintCard.purple p{color:#e2c6ff}
+  .tintCard.amber{background:linear-gradient(180deg, rgba(246,196,83,.14), rgba(246,196,83,.06)); border-color:rgba(246,196,83,.25)}
+  .tintCard.amber h3{color:var(--amber)} .tintCard.amber h4{color:var(--amber)} .tintCard.amber p{color:#fef3d5}
+  .tintCard.red{background:linear-gradient(180deg, rgba(255,125,125,.14), rgba(255,125,125,.06)); border-color:rgba(255,125,125,.25)}
+  .tintCard.red h3{color:var(--red)} .tintCard.red h4{color:var(--red)} .tintCard.red p{color:#ffe0e0}
+  .tintCard.neutral{background:linear-gradient(180deg, rgba(18,26,49,.98), rgba(10,16,32,.99)); border-color:rgba(255,255,255,.14)}
+  .tintCard.neutral h3{color:#e8ecff} .tintCard.neutral h4{color:#e8ecff} .tintCard.neutral p{color:var(--muted)}
+  .tintBox{border-radius:14px; padding:12px 14px}
+  .tintBox h4{margin:0 0 6px; font-size:13px; text-transform:uppercase; letter-spacing:.08em; font-weight:700}
+  .tintBox.green{background:rgba(103,232,168,.07); border:1px solid rgba(103,232,168,.16)}
+  .tintBox.green h4{color:var(--green)} .tintBox.green p{color:#dff7ea}
+  .tintBox.cyan{background:rgba(103,232,249,.07); border:1px solid rgba(103,232,249,.16)}
+  .tintBox.cyan h4{color:var(--cyan)} .tintBox.cyan p{color:#d5f7ff}
+  .tintBox.purple{background:rgba(161,0,255,.08); border:1px solid rgba(161,0,255,.18)}
+  .tintBox.purple h4{color:var(--purple2)} .tintBox.purple p{color:#e2c6ff}
+  .tintBox.amber{background:rgba(246,196,83,.08); border:1px solid rgba(246,196,83,.18)}
+  .tintBox.amber h4{color:var(--amber)} .tintBox.amber p{color:#fef3d5}
+  .tintBox.red{background:rgba(255,125,125,.08); border:1px solid rgba(255,125,125,.18)}
+  .tintBox.red h4{color:var(--red)} .tintBox.red p{color:#ffe0e0}
+  .tintBox.grad.green{background:linear-gradient(135deg, rgba(103,232,168,.12), rgba(103,232,168,.06)); border:1px solid rgba(103,232,168,.25)}
+  .tintBox.grad.cyan{background:linear-gradient(135deg, rgba(103,232,249,.12), rgba(103,232,249,.06)); border:1px solid rgba(103,232,249,.25)}
+  .tintBox.grad.purple{background:linear-gradient(135deg, rgba(161,0,255,.2), rgba(161,0,255,.08)); border:1px solid rgba(161,0,255,.35)}
+  .tintBox.grad.amber{background:linear-gradient(135deg, rgba(246,196,83,.12), rgba(246,196,83,.06)); border:1px solid rgba(246,196,83,.25)}
+  .tintBox.grad.red{background:linear-gradient(135deg, rgba(255,125,125,.12), rgba(255,125,125,.06)); border:1px solid rgba(255,125,125,.25)}
+
   .dividendVisual{
     display:grid; grid-template-columns:1fr 1fr; gap:12px;
   }
@@ -352,7 +371,7 @@
   .formula strong{font-size:34px; letter-spacing:-.03em}
   .formula .muted{color:var(--muted); font-size:16px}
   .wideCards{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
-  .wideCards .card{}
+  .wideCards .tintCard{}
   .metaStrip{
     display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
   }
@@ -393,7 +412,7 @@
   .compare{
     display:grid; grid-template-columns:1fr 1fr; gap:18px;
   }
-  .compare .card{}
+  .compare .tintCard{}
   .labelTag{
     display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px;
     font-size:13px; font-weight:700; border:1px solid var(--line); margin-bottom:12px;
@@ -571,8 +590,8 @@
     .toc-modal{padding:20px 18px}
   }
 
-  /* Begrepsoversikt: card should not stretch to fill */
-  .content.card.autoHeight{flex:0 0 auto}
+  /* Begrepsoversikt: tintCard should not stretch to fill */
+  .content.tintCard.autoHeight{flex:0 0 auto}
 
   /* Terms modal */
   .terms-modal-overlay{
@@ -738,7 +757,7 @@
             </div>
           </div>
         </div>
-        <div class="content card soft autoHeight">
+        <div class="content tintCard neutral autoHeight">
           <div class="termTable" id="slideTermTable"></div>
         </div>
         <div class="foot">
@@ -753,16 +772,17 @@
           <div class="titleRow">
             <div>
               <h2>Hva er en aksje?</h2>
-              <div class="subtitle">En aksje er en liten eierandel i selskapet — og det er flere grunner til at det kan være verdifullt.</div>
+              <div class="subtitle">En aksje er en liten eierandel i et selskap — og det er flere grunner til at det kan være verdifullt.</div>
             </div>
           </div>
         </div>
         <div class="content shareVisual">
 
           <!-- Left half: What is a share -->
-          <div class="card" style="padding:22px 24px; display:flex; flex-direction:column; gap:14px">
-            <p style="margin:0; color:var(--muted); line-height:1.55">
-              En aksje er en liten eierandel i et selskap. Eier du aksjer, eier du en tilsvarende andel av selskapet. Selskapet kan være <strong style="color:var(--text)">børsnotert</strong> (som Accenture på NYSE) eller privat. Børsnotering gjør det enkelt å kjøpe og selge til markedspris.
+          <div class="tintCard neutral" style="display:flex; flex-direction:column; gap:14px">
+            <h3>Aksje 101</h3>
+            <p>
+              En aksje er en liten eierandel i et selskap. Eier du aksjer, eier du en tilsvarende andel av selskapet. Selskapet kan være <strong style="color:var(--text)">børsnotert</strong> (som Accenture på NYSE) eller privat. Børsnotering gjør det enkelt å kjøpe og selge aksjer til markedspris.
             </p>
 
             <!-- Share grid figure -->
@@ -796,43 +816,54 @@
               </div>
             </div>
 
+            <p>
+              <strong style="color:var(--text)">Aksjekurs</strong> er det én aksje koster på børsen i øyeblikket. Den vil typisk gå opp hvis selskapet rapporterer gode inntekter, og falle hvis det rapporterer dårligere inntekter enn markedet forventet. Til en hver tid vil, per definisjon, den totale verdien til et selskap – markedsverdien – tilsvare summen av alle aksjer.
+            </p>
+
             <!-- Valuation formula -->
-            <div style="padding:12px 16px; border-radius:14px; border:1px solid rgba(200,100,255,.2); background:rgba(161,0,255,.06)">
-              <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--purple2); margin-bottom:5px">Markedsverdi</div>
+            <div class="tintBox purple" style="padding:12px 16px">
+              <h4 style="margin-bottom:5px">Markedsverdi</h4>
               <div style="font-size:15px; font-weight:700; color:var(--text); display:flex; align-items:center; gap:7px; flex-wrap:wrap">
-                <span>Aksjekurs</span>
+                <span>aksjekurs</span>
                 <span style="color:var(--purple2)">×</span>
-                <span>Antall aksjer</span>
+                <span>antall aksjer som finnes totalt</span>
                 <span style="color:var(--purple2)">=</span>
-                <span style="color:var(--cyan)">Markedsverdi</span>
+                <span style="color:var(--cyan)">markedsverdi</span>
               </div>
-              <div style="font-size:13px; color:var(--muted); margin-top:5px">
+              <p style="font-size:13px; margin-top:5px">
                 F.eks. $300 × 100 aksjer = <strong style="color:var(--cyan)">$30 000</strong>. Din andel (20 aksjer) = <strong style="color:var(--purple2)">$6 000</strong>.
-              </div>
+              </p>
             </div>
 
             <!-- A/B shares note -->
-            <div style="padding:12px 16px; border-radius:14px; border:1px solid rgba(103,232,249,.14); background:rgba(103,232,249,.04)">
-              <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--cyan); margin-bottom:4px">A- og B-aksjer</div>
-              <div style="font-size:13px; color:var(--muted); line-height:1.5">
+            <div class="tintBox cyan" style="padding:12px 16px">
+              <h4>A- og B-aksjer</h4>
+              <p style="font-size:13px; line-height:1.5">
                 Noen selskaper har ulike aksjeklasser. <strong style="color:var(--text)">A-aksjer</strong> gir typisk stemmerett på generalforsamlingen, mens <strong style="color:var(--text)">B-aksjer</strong> ofte har begrenset eller ingen stemmerett — men lik rett til utbytte. Accenture har kun én aksjeklasse (Class A).
-              </div>
+              </p>
             </div>
           </div>
 
           <!-- Right half: Three reason cards stacked -->
           <div style="display:flex; flex-direction:column; gap:14px">
+            <div class="tintCard cyan" style="display:flex; flex-direction:column; gap:14px">
+              <h3>Hvorfor eie aksjer?</h3>
+              <p>
+                Det er i hovedsak tre grunner til at en ønsker eie aksjer i et selskap: <strong style="color:var(--text)">Utbytte</strong>, <strong style="color:var(--text)">verdiøkning</strong> og <strong style="color:var(--text)">eierskap/innflytelse</strong>. La oss se på hver av disse.
+              </p>
+            </div>
+
             <!-- Grunn 1: Utbytte -->
-            <div class="moneyCard" style="padding:16px 18px">
-              <h4 style="font-size:16px; margin-bottom:5px">💰 Grunn 1: Utbytte</h4>
-              <p style="font-size:15px; line-height:1.45; margin-bottom:8px">Selskapet kan dele ut kontanter til aksjonærer. Dette kalles utbytte ("dividens" på engelsk). Du får din andel automatisk — uten å selge noe. Noen selskaper deler ut utbytte kvartalsvis, mens andre gjør det årlig eller halvårlig. Styret i selskapet fastsetter hvor mye utbytte som utbetales per aksje. Desto flere aksjer, desto mer totalt utbytte på deg.</p>
+            <div class="tintCard green">
+              <h3>💰 Grunn 1: Utbytte</h3>
+              <p style="margin-bottom:8px">Selskapet kan dele ut kontanter til aksjonærer. Dette kalles utbytte ("dividens" på engelsk). Du får din andel automatisk — uten å selge noe. Noen selskaper deler ut utbytte kvartalsvis, mens andre gjør det årlig eller halvårlig. Styret i selskapet fastsetter hvor mye utbytte som utbetales per aksje. Desto flere aksjer, desto mer totalt utbytte på deg.</p>
 
               <!-- Numeric example with visualization -->
-              <div style="padding:8px 12px; border-radius:10px; background:rgba(103,232,168,.08); border:1px solid rgba(103,232,168,.16)">
-                <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--green); margin-bottom:8px">Eksempel</div>
-                <div style="font-size:13px; color:var(--muted); line-height:1.5">
+              <div class="tintBox green" style="padding:8px 12px; border-radius:10px">
+                <h4 style="margin-bottom:8px">Eksempel</h4>
+                <p style="font-size:13px; line-height:1.5">
                   Accenture har for vane å dele ut utbytte hvert kvartal, eksempelvis $1.48 per aksje. Hver aksje du har på en gitt dato gir deg da denne summen.
-                </div>
+                </p>
                 <!-- Dividend visualization inside example -->
                 <div style="display:flex; align-items:flex-start; gap:10px; margin-top: 10px; margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid rgba(103,232,168,.16)">
                   <div style="display:flex; align-items:flex-start; gap:10px">
@@ -884,9 +915,9 @@
             </div>
 
             <!-- Grunn 2: Kursgevinst -->
-            <div class="moneyCard" style="padding:16px 18px">
-              <h4 style="font-size:16px; margin-bottom:5px">📈 Grunn 2: Kursgevinst</h4>
-              <p style="font-size:15px; line-height:1.45; margin-bottom:8px">Stiger prisen mens du eier aksjen, tjener du differansen ved salg.</p>
+            <div class="tintCard green">
+              <h3>📈 Grunn 2: Kursgevinst</h3>
+              <p style="margin-bottom:8px">Stiger prisen mens du eier aksjen, tjener du differansen ved salg.</p>
 
               <!-- Price chart visualization -->
               <div style="display:flex; align-items:flex-end; gap:12px; margin-bottom:8px">
@@ -915,8 +946,8 @@
               </div>
 
               <!-- Numeric example -->
-              <div style="padding:8px 12px; border-radius:10px; background:rgba(103,232,168,.08); border:1px solid rgba(103,232,168,.16)">
-                <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--green); margin-bottom:8px">Eksempel</div>
+              <div class="tintBox green" style="padding:8px 12px; border-radius:10px">
+                <h4 style="margin-bottom:8px">Eksempel</h4>
                 <div style="display:grid; gap:8px">
                   <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:8px; align-items:center; padding-bottom:8px; border-bottom:1px solid rgba(103,232,168,.16)">
                     <div>
@@ -940,14 +971,14 @@
             </div>
 
             <!-- Grunn 3: Eierskap i egen arbeidsgiver -->
-            <div style="border-radius:22px; padding:16px 18px; border:1px solid var(--line); background:linear-gradient(180deg, rgba(103,232,249,.14), rgba(103,232,249,.06))">
-              <h4 style="font-size:16px; margin:0 0 5px; color:var(--text)">🏢 Grunn 3: Eierskap i arbeidsgiveren</h4>
-              <p style="font-size:15px; line-height:1.45; margin:0 0 8px; color:#d5f7ff">Å eie aksjer i selskapet du jobber for gir en unik fordel: du får direkte del i verdiskapingen du selv bidrar til.</p>
-              <div style="padding:8px 12px; border-radius:10px; background:rgba(103,232,249,.08); border:1px solid rgba(103,232,249,.16)">
-                <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--cyan); margin-bottom:5px">Forskning viser</div>
-                <div style="font-size:13px; color:var(--muted); line-height:1.5">
+            <div class="tintCard cyan">
+              <h3>🏢 Grunn 3: Eierskap i arbeidsgiveren</h3>
+              <p style="margin-bottom:8px">Å eie aksjer i selskapet du jobber for gir en unik fordel: du får direkte del i verdiskapingen du selv bidrar til.</p>
+              <div class="tintBox cyan" style="padding:8px 12px; border-radius:10px">
+                <h4 style="margin-bottom:5px">Forskning viser</h4>
+                <p style="font-size:13px; line-height:1.5">
                   Studier (bl.a. fra <strong style="color:var(--text)">NCEO</strong> og <strong style="color:var(--text)">Rutgers</strong>) viser at ansatte som eier aksjer i egen arbeidsgiver har høyere jobbtilfredshet, lavere turnover, og opplever sterkere tilknytning til selskapet. Ordninger som ESPP er designet for nettopp dette.
-                </div>
+                </p>
               </div>
             </div>
 
@@ -977,38 +1008,38 @@
           <div style="display:flex; flex-direction:column; gap:18px">
 
             <!-- Timeline / how it works -->
-            <div class="card">
-              <h4>📋 Kort forklart</h4>
+            <div class="tintCard cyan">
+              <h3>📋 Kort forklart</h3>
               <p>Skattemeldingen (het «selvangivelsen» før 2017) er et skjema du får fra Skatteetaten hvert år. Den viser hva du har tjent, hva du eier, og hva du skylder — og bestemmer om du får penger igjen eller må betale restskatt.</p>
               <p style="margin-top:10px">Det meste er <strong style="color:var(--cyan)">forhåndsutfylt</strong> med opplysninger fra arbeidsgiver, bank, NAV og Verdipapirsentralen. Din jobb er å <strong>sjekke at alt stemmer</strong> og legge til det som mangler.</p>
             </div>
 
             <!-- What the skattemelding contains -->
-            <div class="card">
-              <h4>📦 Hva inneholder den?</h4>
+            <div class="tintCard neutral">
+              <h3>📦 Hva inneholder den?</h3>
               <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:8px">
-                <div style="padding:12px; border-radius:14px; background:rgba(103,232,249,.06); border:1px solid rgba(103,232,249,.14)">
-                  <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--cyan); margin-bottom:4px">Inntekter</div>
-                  <div style="font-size:13px; color:var(--muted); line-height:1.45">Lønn, pensjon, utbytte, renteinntekter, aksjegevinster</div>
+                <div class="tintBox cyan" style="padding:12px">
+                  <h4>Inntekter</h4>
+                  <p style="font-size:13px; line-height:1.45">Lønn, pensjon, utbytte, renteinntekter, aksjegevinster</p>
                 </div>
-                <div style="padding:12px; border-radius:14px; background:rgba(103,232,168,.06); border:1px solid rgba(103,232,168,.14)">
-                  <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--green); margin-bottom:4px">Fradrag</div>
-                  <div style="font-size:13px; color:var(--muted); line-height:1.45">Reisefradrag, renteutgifter, fagforenings­kontingent, tap på aksjer</div>
+                <div class="tintBox green" style="padding:12px">
+                  <h4>Fradrag</h4>
+                  <p style="font-size:13px; line-height:1.45">Reisefradrag, renteutgifter, fagforenings­kontingent, tap på aksjer</p>
                 </div>
-                <div style="padding:12px; border-radius:14px; background:rgba(161,0,255,.08); border:1px solid rgba(161,0,255,.18)">
-                  <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--purple2); margin-bottom:4px">Formue</div>
-                  <div style="font-size:13px; color:var(--muted); line-height:1.45">Bankinnskudd, bolig, aksjer og fond, kjøretøy</div>
+                <div class="tintBox purple" style="padding:12px">
+                  <h4>Formue</h4>
+                  <p style="font-size:13px; line-height:1.45">Bankinnskudd, bolig, aksjer og fond, kjøretøy</p>
                 </div>
-                <div style="padding:12px; border-radius:14px; background:rgba(246,196,83,.07); border:1px solid rgba(246,196,83,.15)">
-                  <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--amber); margin-bottom:4px">Gjeld</div>
-                  <div style="font-size:13px; color:var(--muted); line-height:1.45">Boliglån, studielån, kredittkort­gjeld</div>
+                <div class="tintBox amber" style="padding:12px">
+                  <h4>Gjeld</h4>
+                  <p style="font-size:13px; line-height:1.45">Boliglån, studielån, kredittkort­gjeld</p>
                 </div>
               </div>
             </div>
 
             <!-- What you need to do -->
-            <div class="card">
-              <h4>✅ Hva må du gjøre?</h4>
+            <div class="tintCard green">
+              <h3>✅ Hva må du gjøre?</h3>
               <div style="display:flex; flex-direction:column; gap:8px; margin-top:8px">
                 <div style="display:flex; align-items:baseline; gap:10px">
                   <div style="min-width:24px; height:24px; border-radius:999px; background:rgba(103,232,249,.14); border:1px solid rgba(103,232,249,.25); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:var(--cyan)">1</div>
@@ -1034,8 +1065,8 @@
           <div style="display:flex; flex-direction:column; gap:18px">
 
             <!-- Key dates -->
-            <div class="card">
-              <h4>📅 Viktige datoer</h4>
+            <div class="tintCard amber">
+              <h3>📅 Viktige datoer</h3>
               <div style="display:grid; grid-template-columns:60px 1fr; gap:10px 12px; margin-top:6px; align-items:start">
                 <div style="padding:6px 0; border-radius:10px; background:rgba(161,0,255,.18); text-align:center; font-weight:700; font-size:13px; color:#e2c6ff">MAR</div>
                 <div>
@@ -1066,8 +1097,8 @@
             </div>
 
             <!-- Important for ESPP holders -->
-            <div class="card" style="border-color:rgba(161,0,255,.25); background:linear-gradient(180deg, rgba(30,20,60,.9), rgba(15,12,35,.95))">
-              <h4>⚠️ Viktig for deg med aksjer i utlandet</h4>
+            <div class="tintCard red">
+              <h3>⚠️ Viktig for deg med aksjer i utlandet</h3>
               <ul class="clean" style="margin-top:6px">
                 <li><strong style="color:#e2c6ff">Utenlandske aksjer</strong> (som Accenture-aksjer via ESPP) rapporteres <strong>ikke</strong> automatisk — du må føre dem opp selv.</li>
                 <li><strong style="color:#e2c6ff">Utbytte fra utlandet</strong> må også legges inn manuelt, med riktig valutakurs.</li>
@@ -1144,7 +1175,7 @@
           </div>
 
           <div class="mathBand">
-            <div class="card">
+            <div class="tintCard green">
               <h3>Hva betyr 15 % rabatt i praksis?</h3>
               <p style="margin:6px 0 10px">Fra dag 1 har du en effektiv avkastning på omtrent <strong style="font-size:1.3em; color:var(--green)">+17,65 %</strong> — forutsatt at kursen står uendret.</p>
               <div style="background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:14px; padding:10px 14px; font-size:14px; line-height:1.6; color:var(--muted)">
@@ -1153,7 +1184,7 @@
                 <div style="margin-top:4px; font-size:13px">Dette er med andre ord en svært god deal. Og ja, du kan selge dag 1 om du vil det.</div>
               </div>
             </div>
-            <div class="card soft">
+            <div class="tintCard amber">
               <h3>Husk</h3>
               <ul class="clean">
                 <li>Rabatten er garantert, men risikoen forsvinner ikke om du holder på aksjene.</li>
@@ -1206,11 +1237,11 @@
         <div class="content">
           <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px">
             <div class="wideCards" style="grid-column:span 3; grid-template-columns:repeat(3,1fr); align-items:stretch">
-              <div class="card">
+              <div class="tintCard green">
                 <h3>1. Beholdning</h3>
                 <p>Du oppgir markedsverdi ved årsskiftet. Dette blir ikke beskattet av at du eier dem, utover evt. formueskatt. <br><br>For aksjer du har i utenlandske banker, som UBS, er dette ofte ikke forhåndsutfylt. Da må du gjøre jobben selv. <br><br> Konkret oppgir du navn på aksje, bank du har dem i, ISIN, antall aksjer, verdi per aksje per 31.12, osv.</p>
-                <div style="margin-top:12px; padding:12px 14px; border-radius:12px; background:linear-gradient(135deg, rgba(103,232,168,.12), rgba(103,232,168,.06)); border:1px solid rgba(103,232,168,.25); font-size:13px; color:var(--muted); line-height:1.55">
-                  <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--green); margin-bottom:6px">Eksempel</div>
+                <div class="tintBox grad green" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.55">
+                  <h4>Eksempel</h4>
                   <div>31. desember 2025 hadde du <strong style="color:var(--text)">100 aksjer</strong> i Accenture.</div>
                   <div>Sluttkurs den dagen: <strong style="color:var(--text)">$268,30</strong></div>
                   <div style="margin-top:6px; padding-top:6px; border-top:1px solid rgba(103,232,168,.2)">
@@ -1218,15 +1249,15 @@
                   </div>
                   <div style="margin-top:4px; font-size:12px; color:var(--muted)">Skattemeldingen konverterer til NOK for deg hvis du oppgir valuta som dollar.</div>
                 </div>
-                <div style="margin-top:12px; padding:12px 14px; border-radius:12px; background:linear-gradient(135deg, rgba(103,232,249,.12), rgba(103,232,249,.06)); border:1px solid rgba(103,232,249,.25); font-size:13px; color:var(--cyan); line-height:1.45">
-                  ℹ️ Aksjer du har gjennom norske banker, blir rapportert automatisk og du trenger ikke foreta deg noe utover å verifisere at tallene er korrekte.
+                <div class="tintBox grad cyan" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.45">
+                  <p style="margin:0">ℹ️ Aksjer du har gjennom norske banker, blir rapportert automatisk og du trenger ikke foreta deg noe utover å verifisere at tallene er korrekte.</p>
                 </div>
               </div>
-              <div class="card">
+              <div class="tintCard cyan">
                 <h3>2. Utbytte</h3>
                 <p>Brutto utbytte skal føres og skal beskattes årlig som en form for inntekt. Accenture utbetaler typisk utbytte hvert kvartal. <br><br>Du får mail hver gang du mottar utbytte. Se etter mail fra "Total Rewards" med emne "Prepare for [Q1 | Q2 | Q3 | Q4] dividend". Der står det hvor mange dollar utbytte du får per aksje du har på en gitt dato.</p>
-                <div style="margin-top:12px; padding:12px 14px; border-radius:12px; background:linear-gradient(135deg, rgba(103,232,168,.12), rgba(103,232,168,.06)); border:1px solid rgba(103,232,168,.25); font-size:13px; color:var(--muted); line-height:1.55">
-                  <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--green); margin-bottom:6px">Eksempel</div>
+                <div class="tintBox grad green" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.55">
+                  <h4>Eksempel</h4>
                   <div style="margin-bottom:4px">Du startet 2025 med <strong style="color:var(--text)">50 aksjer</strong>, kjøpte <strong style="color:var(--text)">20</strong> til 1. mai og <strong style="color:var(--text)">30</strong> til 1. sept. Eksempelet bruker relle utbytte-satser for Accenture i 2025.</div>
                   <div style="display:grid; grid-template-columns:auto auto auto 1fr; gap:2px 10px; margin-top:8px; font-size:12px">
                     <span>Q1</span><span>15. jan</span><span>50 × $1,48</span><strong style="color:var(--text); text-align:right">= $74,00</strong>
@@ -1238,15 +1269,15 @@
                     Totalt utbytte i 2025 = <strong style="color:var(--green)">$414,60</strong>
                   </div>
                 </div>
-                <div style="margin-top:12px; padding:12px 14px; border-radius:12px; background:linear-gradient(135deg, rgba(103,232,249,.12), rgba(103,232,249,.06)); border:1px solid rgba(103,232,249,.25); font-size:13px; color:var(--cyan); line-height:1.45">
-                  ℹ️ Tilsvarende som for beholdning, rapporterer norske banker dette for deg. UBS gjør det derimot ikke, så dette må vi legge til selv.
+                <div class="tintBox grad cyan" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.45">
+                  <p style="margin:0">ℹ️ Tilsvarende som for beholdning, rapporterer norske banker dette for deg. UBS gjør det derimot ikke, så dette må vi legge til selv.</p>
                 </div>
               </div>
-              <div class="card">
+              <div class="tintCard amber">
                 <h3>3. Salg</h3>
                 <p>Har du solgt aksjer, må gevinst eller tap også inn. Da er kjøpspris, salgspris og eventuelt skjerming viktige. <br><br> Se egen slide om salg, og beskatning av akjser ved salg. Merk: Undertegned har aldri solgt Accenture-aksjen, og kjenner derfor ikke det praktiske forløpet i detalj. Hooooooold!</p>
-                <div style="margin-top:12px; padding:12px 14px; border-radius:12px; background:linear-gradient(135deg, rgba(103,232,168,.12), rgba(103,232,168,.06)); border:1px solid rgba(103,232,168,.25); font-size:13px; color:var(--muted); line-height:1.55">
-                  <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--green); margin-bottom:6px">Eksempel</div>
+                <div class="tintBox grad green" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.55">
+                  <h4>Eksempel</h4>
                   <div style="margin-bottom:4px">Du selger alle <strong style="color:var(--text)">100 aksjer</strong> i desember til <strong style="color:var(--text)">$250</strong> per aksje.</div>
                   <div style="display:grid; grid-template-columns:auto auto 1fr; gap:2px 10px; margin-top:8px; font-size:12px">
                     <span>50 stk</span><span>kjøpt @ $180</span><span style="text-align:right">gevinst 50 × $70 = <strong style="color:var(--text)">$3 500</strong></span>
@@ -1260,8 +1291,8 @@
                     Skatt (37,84%) = $4 900 × 0,3784 = <strong style="color:var(--amber)">$1 854</strong>
                   </div>
                 </div>
-                <div style="margin-top:12px; padding:12px 14px; border-radius:12px; background:linear-gradient(135deg, rgba(103,232,249,.12), rgba(103,232,249,.06)); border:1px solid rgba(103,232,249,.25); font-size:13px; color:var(--cyan); line-height:1.45">
-                    ℹ️ I dette eksempelet ble alle de 100 aksjene dine solgt før 31.12., så beholdnign rapporteres da som 0 kroner. Og igjen: Norske banker gjør dette for deg.
+                <div class="tintBox grad cyan" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.45">
+                    <p style="margin:0">ℹ️ I dette eksempelet ble alle de 100 aksjene dine solgt før 31.12., så beholdnign rapporteres da som 0 kroner. Og igjen: Norske banker gjør dette for deg.</p>
                   </div>
               </div>
             </div>
@@ -1343,31 +1374,31 @@
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
 
           <!-- Easy route -->
-          <div class="card" style="padding:18px 22px; border-color:rgba(103,232,249,.25); display:flex; flex-direction:column">
+          <div class="tintCard cyan" style="display:flex; flex-direction:column">
             <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px">
               <div style="width:28px; height:28px; border-radius:999px; background:rgba(103,232,249,.15); display:flex; align-items:center; justify-content:center; font-size:15px">🟢</div>
-              <h4 style="margin:0; color:var(--cyan)">Minste motstands vei</h4>
+              <h3 style="margin:0">Minste motstands vei</h3>
             </div>
-            <p style="margin:0 0 12px; color:var(--muted)">
+            <p style="margin-bottom:12px">
               Høres komplisert ut. Kan jeg bare ignorere alt dette?
             </p>
             <div style="display:grid; gap:8px">
               <!-- Ja, en enkle ruten -->
-              <div style="background:rgba(103,232,249,.07); border:1px solid rgba(103,232,249,.18); border-radius:10px; padding:10px 12px">
+              <div class="tintBox cyan" style="border-radius:10px; padding:10px 12px">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
                   <div style="min-width:26px; height:26px; border-radius:999px; background:rgba(103,232,249,.15); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--cyan); font-size:12px; flex-shrink:0">1</div>
                   <div style="font-weight:700; color:var(--text); font-size:14px">Ja, du kan strengt tatt det</div>
                 </div>
-                <div style="color:var(--muted); font-size:13px; margin-bottom:6px">Du kan velge å kun rapportere de essensielle dataene fra forrige slide – formue, utbytte og eventuelt salg – på skattemeldingen. Det er alt du <em>må</em> gjøre.</div>
+                <p style="font-size:13px; margin-bottom:6px">Du kan velge å kun rapportere de essensielle dataene fra forrige slide – formue, utbytte og eventuelt salg – på skattemeldingen. Det er alt du <em>må</em> gjøre.</p>
               </div>
 
               <!-- Hva går jeg glipp av? -->
-              <div style="background:rgba(103,232,168,.07); border:1px solid rgba(103,232,168,.18); border-radius:10px; padding:10px 12px">
+              <div class="tintBox green" style="border-radius:10px; padding:10px 12px">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
                   <div style="min-width:26px; height:26px; border-radius:999px; background:rgba(103,232,168,.15); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--green); font-size:12px; flex-shrink:0">2</div>
                   <div style="font-weight:700; color:var(--text); font-size:14px">Hva går jeg da glipp av?</div>
                 </div>
-                <div style="color:var(--muted); font-size:13px; margin-bottom:6px">Om du ikke foretar deg noe mer, ender du med å betale skatt på <strong>utbytte</strong> flere ganger:</div>
+                <p style="font-size:13px; margin-bottom:6px">Om du ikke foretar deg noe mer, ender du med å betale skatt på <strong>utbytte</strong> flere ganger:</p>
                 <div style="display:flex; justify-content:space-around; text-align:center; gap:10px; margin:8px 0 4px">
                   <div><div style="font-size:28px; font-weight:800; letter-spacing:-.03em; color:var(--red)">30%</div><div style="font-size:11px; color:var(--muted)">utbytteskatt til USA</div></div>
                   <div><div style="font-size:28px; font-weight:800; letter-spacing:-.03em; color:var(--amber)">25%</div><div style="font-size:11px; color:var(--muted)">utbytteskatt til Irland</div></div>
@@ -1376,33 +1407,33 @@
                 </div>
               </div>
 
-              <div style="background:rgba(246,196,83,.07); border:1px solid rgba(246,196,83,.18); border-radius:10px; padding:10px 12px">
+              <div class="tintBox amber" style="border-radius:10px; padding:10px 12px">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
                   <div style="min-width:26px; height:26px; border-radius:999px; background:rgba(246,196,83,.15); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--amber); font-size:12px; flex-shrink:0">3</div>
                   <div style="font-weight:700; color:var(--text); font-size:14px">Hvor mye utgjør dette?</div>
                 </div>
-                <div style="color:var(--muted); font-size:13px; margin-bottom:6px">Husk at vi snakker om utbytte, ikke beholdning/totalverdi. Det er utbyttet som beskattes. Har du veldig få aksjer, er altså forskjellen fort liten. Beløpene du går glipp av vokser likevel fort til størrelsesordner på noen tusen kroner. <br><br>Jeg vil anbefale minimum å fylle ut W-8 BEN-skjeamet og kreve skjerming, se neste kolonne og slide.</div>
+                <p style="font-size:13px; margin-bottom:6px">Husk at vi snakker om utbytte, ikke beholdning/totalverdi. Det er utbyttet som beskattes. Har du veldig få aksjer, er altså forskjellen fort liten. Beløpene du går glipp av vokser likevel fort til størrelsesordner på noen tusen kroner. <br><br>Jeg vil anbefale minimum å fylle ut W-8 BEN-skjeamet og kreve skjerming, se neste kolonne og slide.</p>
               </div>
             </div>
           </div>
 
           <!-- Complete route -->
-          <div class="card" style="padding:18px 22px; border-color:rgba(161,0,255,.35); display:flex; flex-direction:column">
+          <div class="tintCard neutral" style="display:flex; flex-direction:column">
             <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px">
               <div style="width:28px; height:28px; border-radius:999px; background:rgba(161,0,255,.18); display:flex; align-items:center; justify-content:center; font-size:15px">⚡</div>
-              <h4 style="margin:0; color:var(--purple2)">Steg mot mindre skatt</h4>
+              <h3 style="margin:0">Steg mot mindre skatt</h3>
             </div>
-            <p style="margin:0 0 12px; color:var(--muted)">
+            <p style="margin-bottom:12px">
               Alle tre land vil ta sin del av utbyttet ditt. For å minimere dette bør du ta opptil tre grep. Hvert pukt har egne slides.
             </p>
             <div style="display:grid; gap:8px">
               <!-- Step 1: W-8 BEN -->
-              <div style="background:rgba(103,232,249,.07); border:1px solid rgba(103,232,249,.18); border-radius:10px; padding:10px 12px">
+              <div class="tintBox cyan" style="border-radius:10px; padding:10px 12px">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
                   <div style="min-width:26px; height:26px; border-radius:999px; background:rgba(103,232,249,.15); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--cyan); font-size:12px; flex-shrink:0">1</div>
                   <div style="font-weight:700; color:var(--text); font-size:14px">W-8 BEN <span style="font-size:10px; background:rgba(103,232,249,.18); color:var(--cyan); border-radius:999px; padding:2px 7px; margin-left:5px; font-weight:600">Sterkt anbefalt</span></div>
                 </div>
-                <div style="color:var(--muted); font-size:13px; margin-bottom:6px">Digitalt skjema hos UBS – dokumenterer overfor USA at du er norsk, ikke amerikansk, skatteyter. Med W-8 BEN settes kildeskatten til USA til 0% (uten skjema trekkes normalt 30%).</div>
+                <p style="font-size:13px; margin-bottom:6px">Digitalt skjema hos UBS – dokumenterer overfor USA at du er norsk, ikke amerikansk, skatteyter. Med W-8 BEN settes kildeskatten til USA til 0% (uten skjema trekkes normalt 30%).</p>
               </div>
 
               <!-- Step 2: Skjerming -->
@@ -1415,21 +1446,21 @@
               </div>
 
               <!-- Step 2: Kredittfradrag -->
-              <div style="background:rgba(103,232,168,.07); border:1px solid rgba(103,232,168,.18); border-radius:10px; padding:10px 12px">
+              <div class="tintBox green" style="border-radius:10px; padding:10px 12px">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
                   <div style="min-width:26px; height:26px; border-radius:999px; background:rgba(103,232,168,.15); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--green); font-size:12px; flex-shrink:0">3</div>
                   <div style="font-weight:700; color:var(--text); font-size:14px">Kredittfradrag <span style="font-size:10px; background:rgba(103,232,168,.18); color:var(--green); border-radius:999px; padding:2px 7px; margin-left:5px; font-weight:600">Anbefalt</span></div>
                 </div>
-                <div style="color:var(--muted); font-size:13px; margin-bottom:6px">En post i skattemeldingen der du oppgir å ha betalt kildeskatt til utlandet. Her behandles beløpet som et fradrag i skattegrunnlaget, slik at faktisk skatteffekt blir fradragsbeløpet ganget med norsk skattesats.</div>
+                <p style="font-size:13px; margin-bottom:6px">En post i skattemeldingen der du oppgir å ha betalt kildeskatt til utlandet. Her behandles beløpet som et fradrag i skattegrunnlaget, slik at faktisk skatteffekt blir fradragsbeløpet ganget med norsk skattesats.</p>
               </div>
 
               <!-- Step 3: V2A -->
-              <div style="background:rgba(246,196,83,.07); border:1px solid rgba(246,196,83,.18); border-radius:10px; padding:10px 12px">
+              <div class="tintBox amber" style="border-radius:10px; padding:10px 12px">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
                   <div style="min-width:26px; height:26px; border-radius:999px; background:rgba(246,196,83,.15); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--amber); font-size:12px; flex-shrink:0">4</div>
                   <div style="font-weight:700; color:var(--text); font-size:14px">V2A <span style="font-size:10px; background:rgba(246,196,83,.18); color:var(--amber); border-radius:999px; padding:2px 7px; margin-left:5px; font-weight:600">Anbefalt ved mange aksjer</span></div>
                 </div>
-                <div style="color:var(--muted); font-size:13px; margin-bottom:6px">Skjema til Irland for å dokumentere at du er norsk skatteyter og dermed ikke trenger betale kildeskatt til Irland. Kutter alle 25% kildeskatt til Irland, og gjør kredittfradrag ikke lenger er relevant.</div>
+                <p style="font-size:13px; margin-bottom:6px">Skjema til Irland for å dokumentere at du er norsk skatteyter og dermed ikke trenger betale kildeskatt til Irland. Kutter alle 25% kildeskatt til Irland, og gjør kredittfradrag ikke lenger er relevant.</p>
                 <ol style="margin:0; padding-left:18px; color:var(--muted); font-size:12px; display:flex; flex-direction:column; gap:2px">
                   <div style="margin-top:8px; background:rgba(255,125,125,.08); border:1px dashed rgba(255,125,125,.35); border-radius:7px; padding:6px 10px; font-size:11px; color:var(--red)">
                   ⚠️ <strong>TODO:</strong> Koster det fremdeles penger?
@@ -1463,13 +1494,13 @@
             <embed src="assets/w-8-ben.pdf" type="application/pdf" style="width:100%; height:100%; min-height:420px; border-radius:var(--radius); border:1px solid var(--line);">
           </div>
 
-          <div class="card">
+          <div class="tintCard cyan">
             <h3>Om W‑8 BEN</h3>
-            <p style="color:var(--muted); line-height:1.6; margin:0 0 12px">
+            <p style="margin-bottom:12px">
               W‑8 BEN (<em>Certificate of Foreign Status of Beneficial Owner</em>) er et amerikansk skatteskjema fra IRS. Det bekrefter at du er en <strong>ikke‑amerikansk person</strong>, slik at riktig kildeskattesats brukes på amerikanske utbetalinger.
             </p>
 
-            <h4 style="margin:14px 0 6px; font-size:14px; color:var(--cyan)">Hva skjemaet spør om</h4>
+            <h4 style="margin:14px 0 6px">Hva skjemaet spør om</h4>
             <ul class="clean">
               <li>Fullt navn og adresse i hjemlandet</li>
               <li>Fødselsdato og statsborgerskap</li>
@@ -1477,8 +1508,8 @@
               <li>Hvilke bindinger du har til USA</li>
             </ul>
 
-            <h4 style="margin:14px 0 6px; font-size:14px; color:var(--cyan)">Hvordan fylle det ut og sende inn</h4>
-            <p style="color:var(--muted); line-height:1.6; margin:0 0 12px">
+            <h4 style="margin:14px 0 6px">Hvordan fylle det ut og sende inn</h4>
+            <p style="margin-bottom:12px">
               Skjemaet fylles ut digitalt inne i <strong>UBS‑portalen</strong> som en del av onboarding eller periodisk fornyelse. Du sender det ikke til IRS selv. Accenture har en egen guide som er fin å følge, men enkelte spørsmål kan likevel være litt forvirrende. Svar etter beste evne, og ta kontakt hvis du lurer på noe. <br><br> Skjemaet er gratis og har en varighet på tre år. Når du logger inn i UBS, vil de gi deg varsel om skjemaet er i ferd med å utløpe og instruerer deg til å fornye det. Det er derfor lurt å logge inn hos UBS i ny og ne.
             </p>
 
@@ -1511,43 +1542,43 @@
           <div style="display:grid; gap:16px;">
 
             <!-- Hva er skjerming? -->
-            <div class="card">
+            <div class="tintCard green">
               <h3 style="display:flex; align-items:center; gap:10px">
                 <span style="font-size:22px">🛡️</span> Hva er skjerming?
               </h3>
-              <p style="color:var(--muted); line-height:1.6; margin:0 0 10px">
+              <p style="margin-bottom:10px">
                 Skjerming er et skattefradrag som gjør at en del av utbyttet du mottar fra aksjer er <strong>skattefritt</strong>. Tanken bak er at aksjonærer allerede tar risiko ved å investere – de bør derfor få beholde en «risikofri avkastning» uten ekstra beskatning.
               </p>
-              <p style="color:var(--muted); line-height:1.6; margin:0">
+              <p>
                 Skjermingsfradraget beregnes ut fra <strong>aksjenes kostpris</strong> (det du betalte) multiplisert med en <strong>skjermingsrente</strong> fastsatt av Skatteetaten hvert år. Ubrukt skjerming kan overføres til neste år.
               </p>
             </div>
 
             <!-- Hvordan påvirker det skatten? -->
-            <div class="card">
+            <div class="tintCard cyan">
               <h3 style="display:flex; align-items:center; gap:10px">
                 <span style="font-size:22px">📉</span> Hvordan påvirker det skatten?
               </h3>
               <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:12px; align-items:center; margin:10px 0">
-                <div style="text-align:center; padding:14px; border-radius:16px; background:rgba(255,125,125,.1); border:1px solid rgba(255,125,125,.2)">
-                  <div style="font-size:12px; color:var(--red); text-transform:uppercase; letter-spacing:.08em; margin-bottom:4px">Uten skjerming</div>
+                <div class="tintBox red" style="text-align:center; padding:14px; border-radius:16px">
+                  <h4 style="margin-bottom:4px">Uten skjerming</h4>
                   <div style="font-size:22px; font-weight:800">37.84%</div>
                   <div style="font-size:12px; color:var(--muted)">av hele utbyttet</div>
                 </div>
                 <div style="font-size:24px; color:var(--purple2)">→</div>
-                <div style="text-align:center; padding:14px; border-radius:16px; background:rgba(103,232,168,.1); border:1px solid rgba(103,232,168,.2)">
-                  <div style="font-size:12px; color:var(--green); text-transform:uppercase; letter-spacing:.08em; margin-bottom:4px">Med skjerming</div>
+                <div class="tintBox green" style="text-align:center; padding:14px; border-radius:16px">
+                  <h4 style="margin-bottom:4px">Med skjerming</h4>
                   <div style="font-size:22px; font-weight:800">37.84%</div>
                   <div style="font-size:12px; color:var(--muted)">av utbytte <em>minus</em> skjerming</div>
                 </div>
               </div>
-              <p style="color:var(--muted); line-height:1.6; margin:0">
+              <p>
                 Utbytte beskattes med 37.84% (22% × 1.72 oppjusteringsfaktor). Skjermingen <strong>reduserer beløpet</strong> som beskattes – ikke skattesatsen. Jo høyere kostpris og skjermingsrente, desto mer slipper du å skatte på.
               </p>
             </div>
 
             <!-- Hvordan kreve skjerming? -->
-            <div class="card">
+            <div class="tintCard neutral">
               <h3 style="display:flex; align-items:center; gap:10px">
                 <span style="font-size:22px">📝</span> Hvordan kreve skjerming?
               </h3>
@@ -1561,26 +1592,26 @@
           </div>
 
           <!-- Høyre kolonne: Regneeksempel -->
-          <div class="card" style="display:grid; gap:16px; align-content:start;">
+          <div class="tintCard amber" style="display:grid; gap:16px; align-content:start;">
             <h3 style="display:flex; align-items:center; gap:10px">
               <span style="font-size:22px">🧮</span> Eksempel ved ett kjøp av aksjer i 2025
             </h3>
 
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
-              <div style="padding:12px 14px; border-radius:14px; background:rgba(161,0,255,.1); border:1px solid rgba(161,0,255,.2)">
-                <div style="font-size:11px; color:var(--purple2); text-transform:uppercase; letter-spacing:.08em">Antall aksjer</div>
+              <div class="tintBox purple">
+                <h4>Antall aksjer</h4>
                 <div style="font-size:24px; font-weight:800; margin-top:2px">50</div>
               </div>
-              <div style="padding:12px 14px; border-radius:14px; background:rgba(161,0,255,.1); border:1px solid rgba(161,0,255,.2)">
-                <div style="font-size:11px; color:var(--purple2); text-transform:uppercase; letter-spacing:.08em">Kostpris per aksje</div>
+              <div class="tintBox purple">
+                <h4>Kostpris per aksje</h4>
                 <div style="font-size:24px; font-weight:800; margin-top:2px">2 800 kr</div>
               </div>
-              <div style="padding:12px 14px; border-radius:14px; background:rgba(103,232,249,.08); border:1px solid rgba(103,232,249,.18)">
-                <div style="font-size:11px; color:var(--cyan); text-transform:uppercase; letter-spacing:.08em">Skjermingsrente (2025)</div>
+              <div class="tintBox cyan">
+                <h4>Skjermingsrente (2025)</h4>
                 <div style="font-size:24px; font-weight:800; margin-top:2px">3.6%</div>
               </div>
-              <div style="padding:12px 14px; border-radius:14px; background:rgba(246,196,83,.1); border:1px solid rgba(246,196,83,.2)">
-                <div style="font-size:11px; color:var(--amber); text-transform:uppercase; letter-spacing:.08em">Utbytte mottatt</div>
+              <div class="tintBox amber">
+                <h4>Utbytte mottatt</h4>
                 <div style="font-size:24px; font-weight:800; margin-top:2px">10 000 kr</div>
               </div>
             </div>
@@ -1606,10 +1637,10 @@
             </div>
 
             <!-- Besparelse -->
-            <div style="padding:16px 18px; border-radius:16px; background:linear-gradient(135deg, rgba(103,232,168,.12), rgba(103,232,168,.06)); border:1px solid rgba(103,232,168,.25)">
+            <div class="tintBox grad green" style="padding:16px 18px; border-radius:16px">
               <div style="display:flex; justify-content:space-between; align-items:center; gap:12px">
                 <div>
-                  <div style="font-size:12px; color:var(--green); text-transform:uppercase; letter-spacing:.08em; margin-bottom:2px">Du sparer</div>
+                  <h4 style="margin-bottom:2px">Du sparer</h4>
                   <div style="font-size:28px; font-weight:900; letter-spacing:-.03em">1 907 kr</div>
                   <div style="font-size:12px; color:var(--muted); margin-top:2px">i skatt takket være skjermingsfradraget</div>
                 </div>
@@ -1652,14 +1683,14 @@
           <div style="display:grid; gap:16px;">
 
             <!-- Hovedregel -->
-            <div class="card">
+            <div class="tintCard neutral">
               <h3 style="display:flex; align-items:center; gap:10px">
                 <span style="font-size:22px">📌</span> Hovedregel: Én beregning per kjøpstransje
               </h3>
-              <p style="color:var(--muted); line-height:1.6; margin:0 0 10px">
+              <p style="margin-bottom:10px">
                 Skjermingsfradraget beregnes <strong>per aksje</strong> – det kan ikke overføres til andre aksjer.
               </p>
-              <p style="color:var(--muted); line-height:1.6; margin:0">
+              <p>
                 I praksis betyr dette at om du har kjøpt samme selskap flere ganger, til ulike priser eller på ulike tidspunkt, må du behandle hvert kjøp som en <strong>egen transje</strong> med sin egen skjermingshistorikk. Heldigvis har Skatteetaten en kalkulator som gjør hver transjeberegning relativt enkel, men over tid blir det likevel en stadig større jobb.
               </p>
             </div>
@@ -1675,30 +1706,30 @@
             </a>
 
             <!-- Fremgangsmåte -->
-            <div class="card">
+            <div class="tintCard cyan">
               <h3 style="display:flex; align-items:center; gap:10px">
                 <span style="font-size:22px">🔄</span> Fremgangsmåte med kalkulatoren
               </h3>
               <div style="display:grid; gap:8px; margin-top:8px">
-                <div style="display:flex; gap:12px; align-items:start; padding:12px 14px; border-radius:14px; background:rgba(161,0,255,.08); border:1px solid rgba(161,0,255,.15)">
+                <div class="tintBox purple" style="display:flex; gap:12px; align-items:start">
                   <div style="min-width:32px; height:32px; border-radius:50%; background:rgba(161,0,255,.2); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; color:var(--purple2)">1</div>
                   <div>
-                    <div style="font-weight:700; font-size:14px">Del opp i transjer</div>
-                    <div style="color:var(--muted); font-size:13px; margin-top:2px">Identifiser hvert separate kjøp – dato, antall aksjer og kostpris</div>
+                    <h4 style="font-size:14px; text-transform:none; letter-spacing:0">Del opp i transjer</h4>
+                    <p style="font-size:13px; margin-top:2px">Identifiser hvert separate kjøp – dato, antall aksjer og kostpris</p>
                   </div>
                 </div>
-                <div style="display:flex; gap:12px; align-items:start; padding:12px 14px; border-radius:14px; background:rgba(103,232,249,.06); border:1px solid rgba(103,232,249,.12)">
+                <div class="tintBox cyan" style="display:flex; gap:12px; align-items:start">
                   <div style="min-width:32px; height:32px; border-radius:50%; background:rgba(103,232,249,.15); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; color:var(--cyan)">2</div>
                   <div>
-                    <div style="font-weight:700; font-size:14px">Kjør kalkulatoren for hver transje</div>
-                    <div style="color:var(--muted); font-size:13px; margin-top:2px">Oppgi kjøpsår, kostpris og mottatt utbytte per år for den transjen</div>
+                    <h4 style="font-size:14px; text-transform:none; letter-spacing:0">Kjør kalkulatoren for hver transje</h4>
+                    <p style="font-size:13px; margin-top:2px">Oppgi kjøpsår, kostpris og mottatt utbytte per år for den transjen</p>
                   </div>
                 </div>
-                <div style="display:flex; gap:12px; align-items:start; padding:12px 14px; border-radius:14px; background:rgba(103,232,168,.06); border:1px solid rgba(103,232,168,.12)">
+                <div class="tintBox green" style="display:flex; gap:12px; align-items:start">
                   <div style="min-width:32px; height:32px; border-radius:50%; background:rgba(103,232,168,.15); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; color:var(--green)">3</div>
                   <div>
-                    <div style="font-weight:700; font-size:14px">Summer resultatene</div>
-                    <div style="color:var(--muted); font-size:13px; margin-top:2px">Legg sammen skjermingsfradraget fra alle transjene du fortsatt eier</div>
+                    <h4 style="font-size:14px; text-transform:none; letter-spacing:0">Summer resultatene</h4>
+                    <p style="font-size:13px; margin-top:2px">Legg sammen skjermingsfradraget fra alle transjene du fortsatt eier</p>
                   </div>
                 </div>
               </div>
@@ -1709,14 +1740,14 @@
           <!-- Høyre kolonne: Eksempel -->
           <div style="display:grid; gap:16px; align-content:start;">
 
-            <div class="card" style="display:grid; gap:14px;">
+            <div class="tintCard amber" style="display:grid; gap:14px;">
               <h3 style="display:flex; align-items:center; gap:10px">
                 <span style="font-size:22px">🧮</span> Eksempel: ESPP-kjøp over to år
               </h3>
 
               <!-- Transje 1 -->
-              <div style="padding:14px 16px; border-radius:16px; background:rgba(161,0,255,.08); border:1px solid rgba(161,0,255,.18)">
-                <div style="font-size:12px; color:var(--purple2); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px; font-weight:700">Transje 1 – Kjøpt mai 2023</div>
+              <div class="tintBox purple" style="padding:14px 16px; border-radius:16px">
+                <h4 style="margin-bottom:8px">Transje 1 – Kjøpt mai 2023</h4>
                 <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px">
                   <div><div style="font-size:11px; color:var(--muted)">Antall</div><div style="font-weight:800">40 aksjer</div></div>
                   <div><div style="font-size:11px; color:var(--muted)">Kostpris</div><div style="font-weight:800">2 500 kr/stk</div></div>
@@ -1729,8 +1760,8 @@
               </div>
 
               <!-- Transje 2 -->
-              <div style="padding:14px 16px; border-radius:16px; background:rgba(103,232,249,.06); border:1px solid rgba(103,232,249,.15)">
-                <div style="font-size:12px; color:var(--cyan); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px; font-weight:700">Transje 2 – Kjøpt nov 2024</div>
+              <div class="tintBox cyan" style="padding:14px 16px; border-radius:16px">
+                <h4 style="margin-bottom:8px">Transje 2 – Kjøpt nov 2024</h4>
                 <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px">
                   <div><div style="font-size:11px; color:var(--muted)">Antall</div><div style="font-weight:800">30 aksjer</div></div>
                   <div><div style="font-size:11px; color:var(--muted)">Kostpris</div><div style="font-weight:800">3 100 kr/stk</div></div>
@@ -1743,10 +1774,10 @@
               </div>
 
               <!-- Summering -->
-              <div style="padding:16px 18px; border-radius:16px; background:linear-gradient(135deg, rgba(103,232,168,.12), rgba(103,232,168,.06)); border:1px solid rgba(103,232,168,.25)">
+              <div class="tintBox grad green" style="padding:16px 18px; border-radius:16px">
                 <div style="display:flex; justify-content:space-between; align-items:center;">
                   <div>
-                    <div style="font-size:12px; color:var(--green); text-transform:uppercase; letter-spacing:.08em; margin-bottom:2px; font-weight:700">Totalt skjermingsfradrag</div>
+                    <h4 style="margin-bottom:2px">Totalt skjermingsfradrag</h4>
                     <div style="font-size:28px; font-weight:900; letter-spacing:-.03em">10 550 kr</div>
                     <div style="font-size:12px; color:var(--muted); margin-top:2px">7 200 + 3 350 = summen av alle transjer</div>
                   </div>
@@ -1755,15 +1786,15 @@
               </div>
             </div>
 
-            <div class="card" style="display:grid; gap:12px; border-color:rgba(103,232,249,.25); background:linear-gradient(180deg, rgba(10,30,45,.75), rgba(12,20,38,.92));">
+            <div class="tintCard cyan" style="display:grid; gap:12px">
               <h3 style="display:flex; align-items:center; gap:10px; margin-bottom:0">
                 <span style="font-size:22px">📘</span> Flere eksempler (Skatte-ABC-inspirert)
               </h3>
 
               <div style="display:grid; gap:10px;">
-                <div style="padding:12px 14px; border-radius:12px; background:rgba(161,0,255,.08); border:1px solid rgba(161,0,255,.18)">
-                  <div style="font-size:12px; color:var(--purple2); text-transform:uppercase; letter-spacing:.08em; font-weight:700; margin-bottom:6px">Eksempel 1: Utbytte overstiger skjermingsfradraget</div>
-                  <p style="margin:0 0 8px; color:var(--muted); font-size:12px; line-height:1.45">Dette eksempelet viser et tilfelle der utbyttet er høyere enn årets skjermingsfradrag. Differansen blir skattepliktig utbytte.</p>
+                <div class="tintBox purple" style="border-radius:12px">
+                  <h4>Eksempel 1: Utbytte overstiger skjermingsfradraget</h4>
+                  <p style="margin:0 0 8px; font-size:12px; line-height:1.45">Dette eksempelet viser et tilfelle der utbyttet er høyere enn årets skjermingsfradrag. Differansen blir skattepliktig utbytte.</p>
                   <div style="display:grid; grid-template-columns:1fr auto; gap:5px 10px; font-size:12px; color:var(--muted)">
                     <div>Inngangsverdi aksje</div><strong style="color:var(--text)">10 000 kr</strong>
                     <div>Skjermingsgrunnlag år 1: 10 000 + 0</div><strong style="color:var(--text)">10 000 kr</strong>
@@ -1775,9 +1806,9 @@
                   </div>
                 </div>
 
-                <div style="padding:12px 14px; border-radius:12px; background:rgba(103,232,249,.07); border:1px solid rgba(103,232,249,.18)">
-                  <div style="font-size:12px; color:var(--cyan); text-transform:uppercase; letter-spacing:.08em; font-weight:700; margin-bottom:6px">Eksempel 2: Ubenyttet skjerming fremføres (år 2 og år 3)</div>
-                  <p style="margin:0 0 8px; color:var(--muted); font-size:12px; line-height:1.45">Dette eksempelet viser hvordan ubenyttet skjermingsfradrag fra ett år fremføres til neste år når utbyttet er lavere enn samlet skjerming.</p>
+                <div class="tintBox cyan" style="border-radius:12px">
+                  <h4>Eksempel 2: Ubenyttet skjerming fremføres (år 2 og år 3)</h4>
+                  <p style="margin:0 0 8px; font-size:12px; line-height:1.45">Dette eksempelet viser hvordan ubenyttet skjermingsfradrag fra ett år fremføres til neste år når utbyttet er lavere enn samlet skjerming.</p>
                   <div style="display:grid; gap:8px;">
                     <div style="padding:8px 10px; border-radius:10px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.1)">
                       <div style="font-size:11px; color:var(--cyan); text-transform:uppercase; letter-spacing:.08em; font-weight:700; margin-bottom:5px">År 2</div>
@@ -1804,9 +1835,9 @@
                   </div>
                 </div>
 
-                <div style="padding:12px 14px; border-radius:12px; background:rgba(246,196,83,.08); border:1px solid rgba(246,196,83,.2)">
-                  <div style="font-size:12px; color:var(--amber); text-transform:uppercase; letter-spacing:.08em; font-weight:700; margin-bottom:6px">Eksempel 3: Solgt i løpet av året (år 4)</div>
-                  <p style="margin:0 0 8px; color:var(--muted); font-size:12px; line-height:1.45">Dette eksempelet viser at du ikke får ny skjerming i salgsåret hvis aksjen ikke er i behold ved årsslutt. Fremført skjerming kan likevel brukes til å redusere gevinst, men ikke skape tap.</p>
+                <div class="tintBox amber" style="border-radius:12px">
+                  <h4>Eksempel 3: Solgt i løpet av året (år 4)</h4>
+                  <p style="margin:0 0 8px; font-size:12px; line-height:1.45">Dette eksempelet viser at du ikke får ny skjerming i salgsåret hvis aksjen ikke er i behold ved årsslutt. Fremført skjerming kan likevel brukes til å redusere gevinst, men ikke skape tap.</p>
                   <div style="display:grid; grid-template-columns:1fr auto; gap:5px 10px; font-size:12px; color:var(--muted)">
                     <div>Utbytte år 4</div><strong style="color:var(--text)">100 kr</strong>
                     <div>Ny skjerming år 4 (ikke i behold 31.12)</div><strong style="color:var(--text)">0 kr</strong>
@@ -1870,20 +1901,20 @@
             </a>
           </div>
 
-          <div class="card">
+          <div class="tintCard cyan">
             <h3>Om kredittfradrag</h3>
-            <p style="color:var(--muted); line-height:1.6; margin:0 0 12px">
+            <p style="margin-bottom:12px">
               Kredittfradrag er en metode for å unngå dobbeltbeskatning. Når du har betalt kildeskatt i utlandet (f.eks. på utbytte fra Accenture), kan du kreve fradrag i norsk skatt for den utenlandske skatten du allerede har betalt.
             </p>
 
-            <div style="background:rgba(103,232,249,.08); border:1px solid rgba(103,232,249,.18); border-radius:14px; padding:14px 16px; margin:0 0 14px">
-              <h4 style="margin:0 0 6px; font-size:14px; color:var(--cyan)">Fradrag gir delvis skatteeffekt</h4>
-              <p style="color:var(--muted); line-height:1.6; margin:0">
+            <div class="tintBox cyan" style="padding:14px 16px; margin:0 0 14px">
+              <h4 style="margin:0 0 6px; font-size:14px">Fradrag gir delvis skatteeffekt</h4>
+              <p style="line-height:1.6; margin:0">
                 Irland trekker <strong>25% kildeskatt</strong> på utbytte som standard, fordi de ikke vet hvor du bor. For kredittfradrag bruker vi her et fradragsgrunnlag på opptil <strong>15%</strong> av brutto utbytte (skatteavtale). Siden fradraget reduserer skattegrunnlaget, blir faktisk effekt i kroner <strong>fradrag × norsk skattesats</strong> (37,84%), ikke krone-for-krone tilbakebetaling.
               </p>
             </div>
 
-            <h4 style="margin:14px 0 6px; font-size:14px; color:var(--cyan)">Hvordan fungerer det?</h4>
+            <h4 style="margin:14px 0 6px">Hvordan fungerer det?</h4>
             <ul class="clean">
               <li>Du betaler kildeskatt i utlandet (f.eks. Irland)</li>
               <li>Du fører beløpet i skattemeldingen i Norge</li>
@@ -1891,8 +1922,8 @@
               <li>Faktisk skatteeffekt blir fradragsbeløpet multiplisert med norsk skattesats</li>
             </ul>
 
-            <h4 style="margin:14px 0 6px; font-size:14px; color:var(--cyan)">Hvor føres det?</h4>
-            <p style="color:var(--muted); line-height:1.6; margin:0 0 12px">
+            <h4 style="margin:14px 0 6px">Hvor føres det?</h4>
+            <p style="margin-bottom:12px">
               Kredittfradraget føres i skattemeldingen under posten for "Metode for dobbel beskatning". Her oppgir du hvor mye utbytte du har mottatt brutto, og hvor mye du har betalt i kildeskatt til andre land. Se videoen til venstre for en praktisk gjennomgang. Første del av videon tilsvarer det som for vårdel går på å rappotere beholdning av aksjer. For andre del, der du oppgir hvor mye skatt du har betalt, legger du inn 25% av brutto utbytte.
             </p>
           </div>
@@ -1917,25 +1948,25 @@
             <embed src="assets/v2a.pdf" type="application/pdf" style="width:100%; height:100%; min-height:420px; border-radius:var(--radius); border:1px solid var(--line);">
           </div>
 
-          <div class="card">
+          <div class="tintCard green">
             <h3>Om V2A-skjemaet</h3>
-            <p style="color:var(--muted); line-height:1.6; margin:0 0 12px">
+            <p style="margin-bottom:12px">
               V2A (<em>Claim for relief from Irish Income Tax on dividends</em>) er et irsk skatteskjema som bekrefter at du er <strong>bosatt i et land med skatteavtale</strong> med Irland. Når Irland mottar dette, vet de hvor du bor og ser du kvalifiserer for fritak for kildeskatt til dem (DWT – dividend witholding tax).
             </p>
 
-            <h4 style="margin:14px 0 6px; font-size:14px; color:var(--cyan)">Hvorfor er det nyttig?</h4>
-            <p style="color:var(--muted); line-height:1.6; margin:0 0 12px">
+            <h4 style="margin:14px 0 6px">Hvorfor er det nyttig?</h4>
+            <p style="margin-bottom:12px">
               Uten V2A trekker Irland 25% fordi de ikke vet hvor du bor. Med V2A reduseres trekket til 0% — du slipper altså 25 prosentpoeng i kildeskatt allerede <em>før</em> pengene når kontoen din. Det betyr mer utbytte utbetalt, uten å måtte vente på kredittfradrag i skattemeldingen. <br><br> Dessuten: Kredittfradrag behandles her som fradrag i skattegrunnlag. Med fradragsgrunnlag på 15% gir det bare 15% × 37,84% = 5,68 prosentpoeng i faktisk skatteffekt. V2A gir full reduksjon ved kilden.
             </p>
 
-            <h4 style="margin:14px 0 6px; font-size:14px; color:var(--cyan)">Hvordan sende inn?</h4>
-            <p style="color:var(--muted); line-height:1.6; margin:0 0 12px">
+            <h4 style="margin:14px 0 6px">Hvordan sende inn?</h4>
+            <p style="margin-bottom:12px">
               Fyll ut skjemaet med personalia. Skjemaet må <strong>stemples av Skatteetaten</strong> for å bekrefte at du er skattepliktig i Norge. Deretter sender du det til irske skattemyndigheter per epost (TODO: verifiser at epost går). TODO: Hvor lenge gyldig?.
             </p>
 
-            <div style="background:rgba(103,232,168,.08); border:1px solid rgba(103,232,168,.18); border-radius:14px; padding:14px 16px; margin:0">
-              <h4 style="margin:0 0 6px; font-size:14px; color:var(--green)">Gjør kredittfradrag overflødig</h4>
-              <p style="color:var(--muted); line-height:1.6; margin:0">
+            <div class="tintBox green" style="padding:14px 16px; margin:0">
+              <h4 style="margin:0 0 6px; font-size:14px">Gjør kredittfradrag overflødig</h4>
+              <p style="line-height:1.6; margin:0">
                 Når V2A er levert, trekker Irland 0%. Da har du <strong>ikke betalt for mye</strong> kildeskatt lenger, og det er ingenting å kreve tilbake via kredittfradrag. V2A løser problemet fullstendig ved kilden i stedet for delvis i etterkant.
               </p>
             </div>
@@ -1959,7 +1990,7 @@
         <div class="content" style="display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto; gap:12px; align-content:start;">
 
           <!-- 0 — Ingen skjemaer, ingen kreditfradrag -->
-          <div class="card" style="border-left:3px solid var(--red); padding:16px 18px">
+          <div class="tintCard red">
             <div class="labelTag red" style="margin-bottom:8px">0 · Ingen skjemaer, ingen kreditfradrag</div>
             <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:4px">
               <span>USA-trekk (30%)</span><strong style="color:var(--red); text-align:right">3 000 kr</strong>
@@ -1971,7 +2002,7 @@
           </div>
 
           <!-- 1 — W-8 BEN (reduserer USA fra 30 % til 0 %) -->
-          <div class="card" style="border-left:3px solid var(--amber); padding:16px 18px">
+          <div class="tintCard amber">
             <div class="labelTag" style="background:rgba(246,196,83,.12); margin-bottom:8px">1 · W‑8 BEN</div>
             <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:4px">
               <span>USA-trekk (0%)</span><strong style="color:var(--amber); text-align:right">0 kr</strong>
@@ -1984,7 +2015,7 @@
           </div>
 
           <!-- 2 — W-8 BEN + kreditfradrag -->
-          <div class="card" style="border-left:3px solid var(--cyan); padding:16px 18px">
+          <div class="tintCard cyan">
             <div class="labelTag" style="background:rgba(103,232,249,.12); margin-bottom:8px">2 · W‑8 BEN + kreditfradrag</div>
             <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:4px">
               <span>USA-trekk (0%)</span><strong style="text-align:right">0 kr</strong>
@@ -1998,7 +2029,7 @@
           </div>
 
           <!-- 3 — V2A + W-8 BEN (irsk kreditfradrag overflødig) -->
-          <div class="card" style="border-left:3px solid var(--green); padding:16px 18px">
+          <div class="tintCard green">
             <div class="labelTag green" style="margin-bottom:8px">3 · V2A + W‑8 BEN</div>
             <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:4px">
               <span>USA-trekk (0%)</span><strong style="text-align:right">0 kr</strong>
@@ -2033,7 +2064,7 @@
           <div style="display:grid; gap:16px">
 
             <!-- Hvordan selge -->
-            <div class="card">
+            <div class="tintCard neutral">
               <h3>Hvordan selger du aksjer?</h3>
               <ul class="clean" style="margin-top:8px">
                 <li>Salg gjøres via <strong>UBS</strong> eller <strong>MyHoldings</strong>-portalen.</li>
@@ -2047,7 +2078,7 @@
             </div>
 
             <!-- Regnestykke-eksempel -->
-            <div class="card">
+            <div class="tintCard green">
               <h3>Eksempel: Salg med gevinst</h3>
               <div class="arrowRow" style="margin:12px 0 8px">
                 <div class="arrowCard"><strong>Kostpris</strong><span>100 000 kr</span></div>
@@ -2069,7 +2100,7 @@
           <div style="display:grid; gap:16px">
 
             <!-- Hvorfor 1,72 x 22 % -->
-            <div class="card">
+            <div class="tintCard cyan">
               <h3>Hvorfor er skattesatsen 1,72 × 22 %?</h3>
               <p style="margin-top:8px; line-height:1.55">
                 Norge har en flat skattesats på alminnelig inntekt på <strong>22 %</strong>. Men for å gjøre beskatningen av aksjegevinst og utbytte lik den effektive marginalskattesatsen på lønn, multipliseres gevinsten med en <strong>oppjusteringsfaktor</strong> på <strong>1,72</strong> før skatten beregnes.
@@ -2081,9 +2112,9 @@
             </div>
 
             <!-- Skjermingsfradrag -->
-            <div class="card">
+            <div class="tintCard amber">
               <h3>Skjermingsfradrag</h3>
-              <p style="margin-top:8px; line-height:1.55">
+              <p style="margin-top:8px">
                 Skjermingsfradraget er et <strong>skattefritt bunnfradrag</strong> på avkastningen din. Det beregnes ut fra kostprisen på aksjene dine multiplisert med en <strong>skjermingsrente</strong> fastsatt av Skatteetaten (basert på renten på statskasseveksler).
               </p>
               <ul class="clean" style="margin-top:6px; font-size:14px">
