@@ -321,7 +321,7 @@
   .tintCard.red{background:linear-gradient(180deg, rgba(255,125,125,.14), rgba(255,125,125,.06)); border-color:rgba(255,125,125,.25)}
   .tintCard.red h3{color:var(--red)} .tintCard.red h4{color:var(--red)} .tintCard.red p{color:#ffe0e0}
   .tintCard.neutral{background:linear-gradient(180deg, rgba(18,26,49,.98), rgba(10,16,32,.99)); border-color:rgba(255,255,255,.14)}
-  .tintCard.neutral h3{color:#e8ecff} .tintCard.neutral h4{color:#e8ecff} .tintCard.neutral p{color:var(--muted)}
+  .tintCard.neutral h3{color:#ffffff} .tintCard.neutral h4{color:#c9d5ff} .tintCard.neutral p{color:#d8e0ff}
   .tintBox{border-radius:14px; padding:12px 14px}
   .tintBox h4{margin:0 0 6px; font-size:13px; text-transform:uppercase; letter-spacing:.08em; font-weight:700}
   .tintBox.green{background:rgba(103,232,168,.07); border:1px solid rgba(103,232,168,.16)}
@@ -334,6 +334,8 @@
   .tintBox.amber h4{color:var(--amber)} .tintBox.amber p{color:#fef3d5}
   .tintBox.red{background:rgba(255,125,125,.08); border:1px solid rgba(255,125,125,.18)}
   .tintBox.red h4{color:var(--red)} .tintBox.red p{color:#ffe0e0}
+  .tintBox.neutral,.tintBox.netral{background:linear-gradient(180deg, rgba(18,26,49,.98), rgba(10,16,32,.99)); border:1px solid rgba(255,255,255,.14)}
+  .tintBox.neutral h4,.tintBox.netral h4{color:#c9d5ff} .tintBox.neutral p,.tintBox.netral p{color:#d8e0ff}
   .tintBox.grad.green{background:linear-gradient(135deg, rgba(103,232,168,.12), rgba(103,232,168,.06)); border:1px solid rgba(103,232,168,.25)}
   .tintBox.grad.cyan{background:linear-gradient(135deg, rgba(103,232,249,.12), rgba(103,232,249,.06)); border:1px solid rgba(103,232,249,.25)}
   .tintBox.grad.purple{background:linear-gradient(135deg, rgba(161,0,255,.2), rgba(161,0,255,.08)); border:1px solid rgba(161,0,255,.35)}
@@ -694,11 +696,8 @@
           </div>
         </div>
         <div class="content" style="display:flex; align-items:center; justify-content:center">
-          <div style="
+          <div class="tintCard red" style="
             width:70vw;
-            background: linear-gradient(135deg, rgba(255,125,125,.06), rgba(246,196,83,.04));
-            border:1px solid rgba(255,125,125,.22);
-            border-radius:var(--radius);
             padding:clamp(28px,3vw,48px);
             display:flex; flex-direction:column; gap:20px;
           ">
@@ -782,14 +781,14 @@
           <div class="tintCard neutral" style="display:flex; flex-direction:column; gap:14px">
             <h3>Aksje 101</h3>
             <p>
-              En aksje er en liten eierandel i et selskap. Eier du aksjer, eier du en tilsvarende andel av selskapet. Selskapet kan være <strong style="color:var(--text)">børsnotert</strong> (som Accenture på NYSE) eller privat. Børsnotering gjør det enkelt å kjøpe og selge aksjer til markedspris.
+              En aksje er en liten eierandel i et selskap. Eier du aksjer, eier du en tilsvarende andel av selskapet. Selskapet kan være <strong style="color:white">børsnotert</strong> (som Accenture på NYSE) eller privat. Børsnotering gjør det enkelt å kjøpe og selge aksjer til markedspris.
             </p>
 
             <!-- Share grid figure -->
-            <div style="padding:14px 16px; border-radius:14px; border:1px solid rgba(255,255,255,.1); background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))">
-              <div style="font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--purple2); margin-bottom:4px">Eksempel</div>
+            <div class="tintBox cyan" style="padding:8px 12px; border-radius:10px">
+              <h4>Eksempel</h4>
               <div style="font-size:13px; color:var(--muted); line-height:1.45; margin-bottom:10px">
-                Du eier <strong style="color:#e2c6ff">20 av 100</strong> aksjer — dvs. <strong style="color:#e2c6ff">20 %</strong> av selskapet.
+                Du eier <strong style="color:white">20 av 100</strong> aksjer — dvs. <strong style="color:white">20 %</strong> av selskapet.
               </div>
               <div id="shareGrid" style="display:grid; grid-template-columns:repeat(20,1fr); gap:3px; max-width:750px"></div>
               <script>
@@ -817,21 +816,21 @@
             </div>
 
             <p>
-              <strong style="color:var(--text)">Aksjekurs</strong> er det én aksje koster på børsen i øyeblikket. Den vil typisk gå opp hvis selskapet rapporterer gode inntekter, og falle hvis det rapporterer dårligere inntekter enn markedet forventet. Til en hver tid vil, per definisjon, den totale verdien til et selskap – markedsverdien – tilsvare summen av alle aksjer.
+              <strong style="color:white">Aksjekurs</strong> er det én aksje koster på børsen i øyeblikket. Den vil typisk gå opp hvis selskapet rapporterer gode inntekter, og falle hvis det rapporterer dårligere inntekter enn markedet forventet. Til en hver tid vil, per definisjon, den totale verdien til et selskap – markedsverdien – tilsvare summen av alle aksjer.
             </p>
 
             <!-- Valuation formula -->
-            <div class="tintBox purple" style="padding:12px 16px">
+            <div class="tintBox cyan" style="padding:12px 16px">
               <h4 style="margin-bottom:5px">Markedsverdi</h4>
               <div style="font-size:15px; font-weight:700; color:var(--text); display:flex; align-items:center; gap:7px; flex-wrap:wrap">
-                <span>aksjekurs</span>
-                <span style="color:var(--purple2)">×</span>
-                <span>antall aksjer som finnes totalt</span>
-                <span style="color:var(--purple2)">=</span>
-                <span style="color:var(--cyan)">markedsverdi</span>
+                <p>aksjekurs</p>
+                <p style="color:var(--cyan)">×</p>
+                <p>antall aksjer som finnes totalt</p>
+                <p style="color:var(--cyan)">=</p>
+                <p>markedsverdi</p>
               </div>
               <p style="font-size:13px; margin-top:5px">
-                F.eks. $300 × 100 aksjer = <strong style="color:var(--cyan)">$30 000</strong>. Din andel (20 aksjer) = <strong style="color:var(--purple2)">$6 000</strong>.
+                F.eks. $300 × 100 aksjer = <strong style="color:var(--cyan)">$30 000</strong>. Din andel (20 aksjer) = <strong style="color:var(--cyan)">$6 000</strong>.
               </p>
             </div>
 
@@ -839,7 +838,7 @@
             <div class="tintBox cyan" style="padding:12px 16px">
               <h4>A- og B-aksjer</h4>
               <p style="font-size:13px; line-height:1.5">
-                Noen selskaper har ulike aksjeklasser. <strong style="color:var(--text)">A-aksjer</strong> gir typisk stemmerett på generalforsamlingen, mens <strong style="color:var(--text)">B-aksjer</strong> ofte har begrenset eller ingen stemmerett — men lik rett til utbytte. Accenture har kun én aksjeklasse (Class A).
+                Noen selskaper har ulike aksjeklasser. <strong style="color:white">A-aksjer</strong> gir typisk stemmerett på generalforsamlingen, mens <strong style="color:white">B-aksjer</strong> ofte har begrenset eller ingen stemmerett — men lik rett til utbytte. Accenture har kun én aksjeklasse (Class A).
               </p>
             </div>
           </div>
@@ -854,68 +853,72 @@
             </div>
 
             <!-- Grunn 1: Utbytte -->
-            <div class="tintCard green">
+            <div class="tintCard neutral" style="display:flex; flex-direction:column; gap:10px">
               <h3>💰 Grunn 1: Utbytte</h3>
               <p style="margin-bottom:8px">Selskapet kan dele ut kontanter til aksjonærer. Dette kalles utbytte ("dividens" på engelsk). Du får din andel automatisk — uten å selge noe. Noen selskaper deler ut utbytte kvartalsvis, mens andre gjør det årlig eller halvårlig. Styret i selskapet fastsetter hvor mye utbytte som utbetales per aksje. Desto flere aksjer, desto mer totalt utbytte på deg.</p>
 
               <!-- Numeric example with visualization -->
-              <div class="tintBox green" style="padding:8px 12px; border-radius:10px">
+              <div class="tintBox amber" style="padding:8px 12px; border-radius:10px">
                 <h4 style="margin-bottom:8px">Eksempel</h4>
                 <p style="font-size:13px; line-height:1.5">
                   Accenture har for vane å dele ut utbytte hvert kvartal, eksempelvis $1.48 per aksje. Hver aksje du har på en gitt dato gir deg da denne summen.
                 </p>
-                <!-- Dividend visualization inside example -->
-                <div style="display:flex; align-items:flex-start; gap:10px; margin-top: 10px; margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid rgba(103,232,168,.16)">
-                  <div style="display:flex; align-items:flex-start; gap:10px">
-                    <div style="display:flex; flex-direction:column; align-items:center; gap:2px">
-                      <div style="width:30px; height:30px; border-radius:4px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 5px rgba(161,0,255,.4)"></div>
-                      <div style="font-size:10px; font-weight:700; color:var(--green)">$1.48</div>
+                <div style="display:grid; gap:8px; margin-top:10px">
+                  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; align-items:center">
+                  <!-- Example calculations -->
+                  <div style="display:grid; gap:8px">
+                    <div>
+                      <div class="small" style="font-size:12px">Accenture betaler</div>
+                      <div style="font-size:14px; font-weight:800; letter-spacing:-.02em">$1.48</div>
+                      <div class="small" style="font-size:12px">per aksje per kvartal</div>
                     </div>
-                    <div style="display:flex; flex-direction:column; align-items:center; gap:2px">
-                      <div style="width:30px; height:30px; border-radius:4px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 5px rgba(161,0,255,.4)"></div>
-                      <div style="font-size:10px; font-weight:700; color:var(--green)">$1.48</div>
+                    <div>
+                      <div class="small" style="font-size:12px">Du har 20 aksjer</div>
+                      <div style="font-size:14px; font-weight:800; letter-spacing:-.02em">20 × $1.48 = <strong style="color:var(--amber)">$29.60</strong></div>
+                      <div class="small" style="font-size:12px">per kvartal</div>
                     </div>
-                    <div style="display:flex; flex-direction:column; align-items:center; gap:2px">
-                      <div style="width:30px; height:30px; border-radius:4px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 5px rgba(161,0,255,.4)"></div>
-                      <div style="font-size:10px; font-weight:700; color:var(--green)">$1.48</div>
-                    </div>
-                    <div style="font-size:22px; color:var(--muted); line-height:1; margin-top:3px">···</div>
-                    <div style="display:flex; flex-direction:column; align-items:center; gap:2px">
-                      <div style="width:30px; height:30px; border-radius:4px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 5px rgba(161,0,255,.4)"></div>
-                      <div style="font-size:10px; font-weight:700; color:var(--green)">$1.48</div>
-                    </div>
-                    <svg width="20" height="10" viewBox="0 0 20 10" fill="none" style="margin-top:10px"><path d="M0 5h14M11 1l4 4-4 4" stroke="#67e8a8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </div>
-                  <div style="padding:4px 8px; border-radius:8px; background:rgba(103,232,168,.15); border:1px solid rgba(103,232,168,.25)">
-                    <div style="font-size:9px; color:var(--muted)">20 aksjer</div>
-                    <div style="font-size:14px; font-weight:800; color:var(--green); letter-spacing:-.02em">$29.60</div>
-                  </div>
-                </div>
 
-                <!-- Example calculations -->
-                <div style="display:grid; gap:8px">
-                  <div>
-                    <div class="small" style="font-size:12px">Accenture betaler</div>
-                    <div style="font-size:14px; font-weight:800; letter-spacing:-.02em">$1.48</div>
-                    <div class="small" style="font-size:12px">per aksje per kvartal</div>
+                  <!-- Dividend visualization inside example -->
+                  <div style="display:flex; align-items:center; justify-content:center; gap:10px">
+                    <div style="display:flex; align-items:flex-start; gap:10px">
+                      <div style="display:flex; flex-direction:column; align-items:center; gap:2px">
+                        <div style="width:30px; height:30px; border-radius:4px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 5px rgba(161,0,255,.4)"></div>
+                        <div style="font-size:10px; font-weight:700; color:var(--amber)">$1.48</div>
+                      </div>
+                      <div style="display:flex; flex-direction:column; align-items:center; gap:2px">
+                        <div style="width:30px; height:30px; border-radius:4px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 5px rgba(161,0,255,.4)"></div>
+                        <div style="font-size:10px; font-weight:700; color:var(--amber)">$1.48</div>
+                      </div>
+                      <div style="display:flex; flex-direction:column; align-items:center; gap:2px">
+                        <div style="width:30px; height:30px; border-radius:4px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 5px rgba(161,0,255,.4)"></div>
+                        <div style="font-size:10px; font-weight:700; color:var(--amber)">$1.48</div>
+                      </div>
+                      <div style="font-size:22px; color:var(--muted); line-height:1; margin-top:3px">···</div>
+                      <div style="display:flex; flex-direction:column; align-items:center; gap:2px">
+                        <div style="width:30px; height:30px; border-radius:4px; background:rgba(161,0,255,.7); border:1px solid rgba(200,100,255,.6); box-shadow:0 0 5px rgba(161,0,255,.4)"></div>
+                        <div style="font-size:10px; font-weight:700; color:var(--amber)">$1.48</div>
+                      </div>
+                      <svg width="20" height="10" viewBox="0 0 20 10" fill="none" style="margin-top:10px"><path d="M0 5h14M11 1l4 4-4 4" stroke="var(--amber)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div style="padding:4px 8px; border-radius:8px; background:rgba(232, 219, 103, 0.15); border:1px solid rgba(232, 219, 103, 0.25)">
+                      <div style="font-size:9px; color:var(--muted)">20 aksjer</div>
+                      <div style="font-size:14px; font-weight:800; color:var(--amber); letter-spacing:-.02em">$29.60</div>
+                    </div>
                   </div>
-                  <div>
-                    <div class="small" style="font-size:12px">Du har 20 aksjer</div>
-                    <div style="font-size:14px; font-weight:800; letter-spacing:-.02em">20 × $1.48 = <strong style="color:var(--green)">$29.60</strong></div>
-                    <div class="small" style="font-size:12px">per kvartal</div>
                   </div>
-                  <div style="padding-top:8px; border-top:1px solid rgba(103,232,168,.16)">
+
+                  <div style="padding-top:8px; border-top:1px solid rgba(232, 219, 103, 0.16)">
                     <div class="small" style="font-size:12px">Det kommer 4 ganger per år</div>
-                    <div style="font-size:14px; font-weight:800; letter-spacing:-.02em">$29.60 × 4 = <strong style="color:var(--green)">$118.40</strong></div>
+                    <div style="font-size:14px; font-weight:800; letter-spacing:-.02em">$29.60 × 4 = <strong style="color:var(--amber)">$118.40</strong></div>
                     <div class="small" style="font-size:12px">brutto per år</div>
                   </div>
-                  <div class="small" style="font-size:12px; color:var(--muted)">NB: Utbyttet beskattes, det kommer vi til. Accenture kan også velge å la være utbetale utbytte et år.</div>
                 </div>
               </div>
             </div>
 
             <!-- Grunn 2: Kursgevinst -->
-            <div class="tintCard green">
+            <div class="tintCard neutral" style="display:flex; flex-direction:column; gap:10px">
               <h3>📈 Grunn 2: Kursgevinst</h3>
               <p style="margin-bottom:8px">Stiger prisen mens du eier aksjen, tjener du differansen ved salg.</p>
 
@@ -949,12 +952,12 @@
               <div class="tintBox green" style="padding:8px 12px; border-radius:10px">
                 <h4 style="margin-bottom:8px">Eksempel</h4>
                 <div style="display:grid; gap:8px">
-                  <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:8px; align-items:center; padding-bottom:8px; border-bottom:1px solid rgba(103,232,168,.16)">
+                  <div style="display:flex; align-items:center; gap:8px; padding-bottom:8px; border-bottom:1px solid rgba(103,232,168,.16)">
                     <div>
                       <div class="small" style="font-size:12px">Kjøpspris per aksje</div>
                       <div style="font-size:14px; font-weight:800; letter-spacing:-.02em">$300</div>
                     </div>
-                    <div style="font-size:14px; color:#e7cdff">→</div>
+                    <div style="font-size:14px; color:var(--green); margin-top:12px">→</div>
                     <div>
                       <div class="small" style="font-size:12px">Salgspris per aksje</div>
                       <div style="font-size:14px; font-weight:800; letter-spacing:-.02em; color:var(--green)">$360</div>
@@ -971,13 +974,13 @@
             </div>
 
             <!-- Grunn 3: Eierskap i egen arbeidsgiver -->
-            <div class="tintCard cyan">
+            <div class="tintCard neutral" style="display:flex; flex-direction:column; gap:10px">
               <h3>🏢 Grunn 3: Eierskap i arbeidsgiveren</h3>
-              <p style="margin-bottom:8px">Å eie aksjer i selskapet du jobber for gir en unik fordel: du får direkte del i verdiskapingen du selv bidrar til.</p>
+              <p style="margin-bottom:8px">Å eie aksjer i selskapet du jobber for gir en unik fordel: du får direkte del i verdiskapingen du selv bidrar til. Med store eierandeler gir det også innflytelse.</p>
               <div class="tintBox cyan" style="padding:8px 12px; border-radius:10px">
                 <h4 style="margin-bottom:5px">Forskning viser</h4>
                 <p style="font-size:13px; line-height:1.5">
-                  Studier (bl.a. fra <strong style="color:var(--text)">NCEO</strong> og <strong style="color:var(--text)">Rutgers</strong>) viser at ansatte som eier aksjer i egen arbeidsgiver har høyere jobbtilfredshet, lavere turnover, og opplever sterkere tilknytning til selskapet. Ordninger som ESPP er designet for nettopp dette.
+                  Studier (bl.a. fra <strong style="color:white">NCEO</strong> og <strong style="color:white">Rutgers</strong>) viser at ansatte som eier aksjer i egen arbeidsgiver har høyere jobbtilfredshet, lavere turnover, og opplever sterkere tilknytning til selskapet. Ordninger som ESPP er designet for nettopp dette.
                 </p>
               </div>
             </div>
@@ -1351,7 +1354,7 @@
           </div>
         </div>
 
-        <div class="content" style="display:flex; flex-direction:column; gap:14px">
+        <div class="content" style="display:flex; flex-direction:column; gap:10px">
 
           <div class="countryRail" style="grid-template-columns:repeat(3,1fr); display:grid; gap:14px;">
             <div class="countryCard">
