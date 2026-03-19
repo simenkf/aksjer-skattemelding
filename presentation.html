@@ -367,6 +367,7 @@
   .mathBand{
     display:grid; grid-template-columns:1.08fr .92fr; gap:14px; align-items:stretch; margin-top:10px;
   }
+  .mathBand.thirds{grid-template-columns:repeat(3,1fr)}
   .formula{
     font-size:22px; line-height:1.4; color:#fff;
   }
@@ -499,7 +500,7 @@
   @media (max-width:1100px){
     .slide{padding:24px 24px 20px}
     .coverLayout{grid-template-columns:auto 1fr}
-    .grid-2,.taxGrid,.breakeven,.compare,.mathBand{grid-template-columns:1fr}
+    .grid-2,.taxGrid,.breakeven,.compare,.mathBand,.mathBand.thirds{grid-template-columns:1fr}
     .shareVisual{grid-template-columns:1fr}
     .hero{max-width:min(55vw, 580px)}
     .toc{grid-template-rows:repeat(5, auto); grid-auto-flow:column; grid-auto-columns:1fr}
@@ -1182,7 +1183,7 @@
             </div>
           </div>
 
-          <div class="mathBand">
+          <div class="mathBand thirds">
             <div class="tintCard neutral">
               <h3>Hva betyr 15 % rabatt i praksis?</h3>
               <p style="margin-bottom:6px">Rabatten er 15%, men avkastningen/fortjenesten høyere. Fra dag 1 har du en effektiv avkastning på omtrent <strong style="color:var(--green)">+17,65 %</strong> — forutsatt at kursen står uendret.</p>
@@ -1198,7 +1199,19 @@
                 <li><p>Kursen kan både stige og falle etter kjøp.</p></li>
                 <li><p>Skattemessig er dette fortsatt vanlige aksjer når du eier dem.</p></li>
                 <li><p>Du må beholde aksjene for å få utbetalt utbytte.</p></li>
+                <li><p>Kun hele aksjer kan kjøpes. Den fraksjonelle delen blir tilbakebetalt på neste lønning. <strong style="color: white;">Merk:</strong> Du får likevel rabattfordel på hele det oppsparte beløpet ditt. Hvis du ender med 10.6 aksjer <i>med</i> rabatt, får du verdien av 0.6 aksjer til <i>markedspris</i> tilbakebetalt.</p></li>
               </ul>
+            </div>
+            <div class="tintCard cyan">
+              <h3>Første gang i UBS?</h3>
+              <p style="margin-bottom:8px">Første gang du skal logge inn må du registrere deg hos UBS:</p>
+              <ol class="clean" style="display:grid; gap:6px">
+                <li><p>Gå til <a href="https://onesource.ubs.com/CEFSWebApp/callpage.do?bookCode=ACN&page=login_header_new" target="_blank" rel="noopener" style="color:var(--cyan)">UBS One Source</a>.</p></li>
+                <li><p>Klikk på <strong style="color:var(--text)">First time at UBS One Source?</strong>.</p></li>
+                <li><p>Bruk ditt <strong style="color:var(--text)">8-sifrede Accenture Employee ID</strong> som brukernavn (finnes i MyHolding eller Workday).</p></li>
+                <li><p>Følg stegene for å aktivere kontoen i henhold til <strong style="color:var(--text)">UBS account activation instructions</strong> (sett inn dokumentlenke her).</p></li>
+                <li><p>Har du problemer, se <a href="https://myholdings.accenture.com/brokerspage" target="_blank" rel="noopener" style="color:var(--cyan)">UBS kontaktinformasjon på MyHoldings brokers page</a>.</p></li>
+              </ol>
             </div>
           </div>
         </div>
@@ -1384,9 +1397,8 @@
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
 
           <!-- Easy route -->
-          <div class="tintCard cyan" style="display:flex; flex-direction:column">
+          <div class="tintCard neutral" style="display:flex; flex-direction:column">
             <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px">
-              <div style="width:28px; height:28px; border-radius:999px; background:rgba(103,232,249,.15); display:flex; align-items:center; justify-content:center; font-size:15px">🟢</div>
               <h3 style="margin:0">Minste motstands vei</h3>
             </div>
             <p style="margin-bottom:12px">
@@ -1397,7 +1409,7 @@
               <div class="tintBox cyan" style="border-radius:10px; padding:10px 12px">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
                   <div style="min-width:26px; height:26px; border-radius:999px; background:rgba(103,232,249,.15); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--cyan); font-size:12px; flex-shrink:0">1</div>
-                  <div style="font-weight:700; color:var(--text); font-size:14px">Ja, du kan strengt tatt det</div>
+                  <div style="font-weight:700; color:var(--cyan); font-size:14px">Ja, du kan strengt tatt det</div>
                 </div>
                 <p style="font-size:13px; margin-bottom:6px">Du kan velge å kun rapportere de essensielle dataene fra forrige slide – formue, utbytte og eventuelt salg – på skattemeldingen. Det er alt du <em>må</em> gjøre.</p>
               </div>
@@ -1406,7 +1418,7 @@
               <div class="tintBox green" style="border-radius:10px; padding:10px 12px">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
                   <div style="min-width:26px; height:26px; border-radius:999px; background:rgba(103,232,168,.15); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--green); font-size:12px; flex-shrink:0">2</div>
-                  <div style="font-weight:700; color:var(--text); font-size:14px">Hva går jeg da glipp av?</div>
+                  <div style="font-weight:700; color:var(--green); font-size:14px">Hva går jeg da glipp av?</div>
                 </div>
                 <p style="font-size:13px; margin-bottom:6px">Om du ikke foretar deg noe mer, ender du med å betale skatt på <strong>utbytte</strong> flere ganger:</p>
                 <div style="display:flex; justify-content:space-around; text-align:center; gap:10px; margin:8px 0 4px">
@@ -1420,9 +1432,9 @@
               <div class="tintBox amber" style="border-radius:10px; padding:10px 12px">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
                   <div style="min-width:26px; height:26px; border-radius:999px; background:rgba(246,196,83,.15); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--amber); font-size:12px; flex-shrink:0">3</div>
-                  <div style="font-weight:700; color:var(--text); font-size:14px">Hvor mye utgjør dette?</div>
+                  <div style="font-weight:700; color:var(--amber); font-size:14px">Hvor mye utgjør dette?</div>
                 </div>
-                <p style="font-size:13px; margin-bottom:6px">Husk at vi snakker om utbytte, ikke beholdning/totalverdi. Det er utbyttet som beskattes. Har du veldig få aksjer, er altså forskjellen fort liten. Beløpene du går glipp av vokser likevel fort til størrelsesordner på noen tusen kroner. <br><br>Jeg vil anbefale minimum å fylle ut W-8 BEN-skjeamet og kreve skjerming, se neste kolonne og slide.</p>
+                <p style="font-size:13px; margin-bottom:6px">Husk at vi snakker om utbytte, ikke beholdning/totalverdi. Det er utbyttet som beskattes. Har du veldig få aksjer, er altså forskjellen fort liten. Beløpene du går glipp av vokser likevel fort til størrelsesordner på noen tusen kroner. <br><br>Jeg vil anbefale minimum å fylle ut W-8 BEN-skjemaet, da det også blidgjør USA ved at de vet mer om deg.</p>
               </div>
             </div>
           </div>
@@ -1430,51 +1442,47 @@
           <!-- Complete route -->
           <div class="tintCard neutral" style="display:flex; flex-direction:column">
             <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px">
-              <div style="width:28px; height:28px; border-radius:999px; background:rgba(161,0,255,.18); display:flex; align-items:center; justify-content:center; font-size:15px">⚡</div>
+
               <h3 style="margin:0">Steg mot mindre skatt</h3>
             </div>
             <p style="margin-bottom:12px">
-              Alle tre land vil ta sin del av utbyttet ditt. For å minimere dette bør du ta opptil tre grep. Hvert pukt har egne slides.
+              Alle tre land vil ta sin del av utbyttet ditt hvis de ikke vet du har rett på unntak. For å minimere skatt på utbytte bør du ta opptil fire grep. Hvert pukt har egne slides der vi går mer i dypden.
             </p>
             <div style="display:grid; gap:8px">
               <!-- Step 1: W-8 BEN -->
               <div class="tintBox cyan" style="border-radius:10px; padding:10px 12px">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
                   <div style="min-width:26px; height:26px; border-radius:999px; background:rgba(103,232,249,.15); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--cyan); font-size:12px; flex-shrink:0">1</div>
-                  <div style="font-weight:700; color:var(--text); font-size:14px">W-8 BEN <span style="font-size:10px; background:rgba(103,232,249,.18); color:var(--cyan); border-radius:999px; padding:2px 7px; margin-left:5px; font-weight:600">Sterkt anbefalt</span></div>
+                  <div style="font-weight:700; color:var(--cyan); font-size:14px">W-8 BEN <span style="font-size:10px; background:rgba(103,232,249,.18); color:var(--cyan); border-radius:999px; padding:2px 7px; margin-left:5px; font-weight:600">Sterkt anbefalt</span></div>
                 </div>
-                <p style="font-size:13px; margin-bottom:6px">Digitalt skjema hos UBS – dokumenterer overfor USA at du er norsk, ikke amerikansk, skatteyter. Med W-8 BEN settes kildeskatten til USA til 0% (uten skjema trekkes normalt 30%).</p>
+                <p style="font-size:13px; margin-bottom:6px">Digitalt skjema hos UBS – dokumenterer overfor USA at du er norsk, ikke amerikansk, skatteyter. Med W-8 BEN settes kildeskatten til USA til 0% (uten skjema trekkes normalt 30%). Reduserer også sjansen for USA er irritert på deg.</p>
               </div>
 
               <!-- Step 2: Skjerming -->
-              <div style="background:rgba(255, 92, 92, 0.07); border:1px solid rgba(249, 205, 103, 0.18); border-radius:10px; padding:10px 12px">
+              <div class="tintBox red" style="border-radius:10px; padding:10px 12px">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
                   <div style="min-width:26px; height:26px; border-radius:999px; background:rgba(238, 44, 30, 0.15); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--red); font-size:12px; flex-shrink:0">2</div>
-                  <div style="font-weight:700; color:var(--text); font-size:14px">Skjerming <span style="font-size:10px; background:rgba(237, 208, 76, 0.18); color:var(--red); border-radius:999px; padding:2px 7px; margin-left:5px; font-weight:600">Anbefalt</span></div>
+                  <div style="font-weight:700; color:var(--red); font-size:14px">Skjermingsfradrag</div>
                 </div>
-                <div style="color:var(--muted); font-size:13px; margin-bottom:6px">TODO: Beksriv skejrming her.</div>
+                <p style="font-size:13px; margin-bottom:6px">Skjerming er et fradrag som reduserer skattepliktig inntekt på aksjeutbytte. Ideen er at du ikke skal måtte beskatte av det som regnes som normal, trygg avkastning (tenk; det å ha pengene i banken). Skjerming må kreves i skattemeldingen manuelt for aksjer som ikke automatisk meldes inn av banken. Og det er dessverre en litt krevende sak.</p>
               </div>
 
               <!-- Step 2: Kredittfradrag -->
               <div class="tintBox green" style="border-radius:10px; padding:10px 12px">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
                   <div style="min-width:26px; height:26px; border-radius:999px; background:rgba(103,232,168,.15); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--green); font-size:12px; flex-shrink:0">3</div>
-                  <div style="font-weight:700; color:var(--text); font-size:14px">Kredittfradrag <span style="font-size:10px; background:rgba(103,232,168,.18); color:var(--green); border-radius:999px; padding:2px 7px; margin-left:5px; font-weight:600">Anbefalt</span></div>
+                  <div style="font-weight:700; color:var(--green); font-size:14px">Kredittfradrag </div>
                 </div>
-                <p style="font-size:13px; margin-bottom:6px">En post i skattemeldingen der du oppgir å ha betalt kildeskatt til utlandet. Her behandles beløpet som et fradrag i skattegrunnlaget, slik at faktisk skatteffekt blir fradragsbeløpet ganget med norsk skattesats.</p>
+                <p style="font-size:13px; margin-bottom:6px">En post i skattemeldingen der du oppgir å ha betalt kildeskatt til utlandet. Dette reduserer det skattepliktige utbyttet inntil satsen vi har i skatteavtale med et gitt land. Har du 0 skattepliktig utbytte etter skjerming, har dette fradraget dog ingen effekt.</p>
               </div>
 
               <!-- Step 3: V2A -->
               <div class="tintBox amber" style="border-radius:10px; padding:10px 12px">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px">
                   <div style="min-width:26px; height:26px; border-radius:999px; background:rgba(246,196,83,.15); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--amber); font-size:12px; flex-shrink:0">4</div>
-                  <div style="font-weight:700; color:var(--text); font-size:14px">V2A <span style="font-size:10px; background:rgba(246,196,83,.18); color:var(--amber); border-radius:999px; padding:2px 7px; margin-left:5px; font-weight:600">Anbefalt ved mange aksjer</span></div>
+                  <div style="font-weight:700; color:var(--amber); font-size:14px">V2A <span style="font-size:10px; background:rgba(246,196,83,.18); color:var(--amber); border-radius:999px; padding:2px 7px; margin-left:5px; font-weight:600">Anbefalt ved mange aksjer</span></div>
                 </div>
-                <p style="font-size:13px; margin-bottom:6px">Skjema til Irland for å dokumentere at du er norsk skatteyter og dermed ikke trenger betale kildeskatt til Irland. Kutter alle 25% kildeskatt til Irland, og gjør kredittfradrag ikke lenger er relevant.</p>
-                <ol style="margin:0; padding-left:18px; color:var(--muted); font-size:12px; display:flex; flex-direction:column; gap:2px">
-                  <div style="margin-top:8px; background:rgba(255,125,125,.08); border:1px dashed rgba(255,125,125,.35); border-radius:7px; padding:6px 10px; font-size:11px; color:var(--red)">
-                  ⚠️ <strong>TODO:</strong> Koster det fremdeles penger?
-                </div>
+                <p style="font-size:13px; margin-bottom:6px">Skjema til Irland for å dokumentere at du er norsk skatteyter og dermed ikke trenger betale kildeskatt til Irland. Kutter hele kildeskatten på 25% til Irland, og gjør at kredittfradrag ikke lenger er relevant, uavhengig av skjerming. Ulempen er at det koster $500 å få behandlet skjemaet, så her må du ha nok utbytte før det lønner seg.</p>
                 </ol>
               </div>
             </div>
@@ -1485,7 +1493,7 @@
         </div><!-- end flex wrapper -->
 
         <div class="foot">
-          <div>TODO: Lorem ipsum dolor sit amet.</div>
+          <div>Husk: Hvis du glemmer hva et begrep betyr, kan du klikke B for å få opp ordlisten.</div>
         </div>
       </section>
 
@@ -1507,20 +1515,20 @@
           <div class="tintCard cyan">
             <h3>Om W‑8 BEN</h3>
             <p style="margin-bottom:12px">
-              W‑8 BEN (<em>Certificate of Foreign Status of Beneficial Owner</em>) er et amerikansk skatteskjema fra IRS. Det bekrefter at du er en <strong>ikke‑amerikansk person</strong>, slik at riktig kildeskattesats brukes på amerikanske utbetalinger.
+              W‑8 BEN (<em>Certificate of Foreign Status of Beneficial Owner</em>) er et amerikansk skatteskjema fra IRS. Det bekrefter at du er en <strong style="color:white">ikke‑amerikansk person</strong>, slik at det ikke trekkes kildeskatt til USA ved utbytte.
             </p>
 
             <h4 style="margin:14px 0 6px">Hva skjemaet spør om</h4>
             <ul class="clean">
-              <li>Fullt navn og adresse i hjemlandet</li>
-              <li>Fødselsdato og statsborgerskap</li>
-              <li>Skattenummer (fødselsnummer for oss)</li>
-              <li>Hvilke bindinger du har til USA</li>
+              <li><p>Fullt navn og adresse i hjemlandet</p></li>
+              <li><p>Fødselsdato og statsborgerskap</p></li>
+              <li><p>Skattenummer (fødselsnummer for oss)</p></li>
+              <li><p>Hvilke bindinger du har til USA</p></li>
             </ul>
 
             <h4 style="margin:14px 0 6px">Hvordan fylle det ut og sende inn</h4>
             <p style="margin-bottom:12px">
-              Skjemaet fylles ut digitalt inne i <strong>UBS‑portalen</strong> som en del av onboarding eller periodisk fornyelse. Du sender det ikke til IRS selv. Accenture har en egen guide som er fin å følge, men enkelte spørsmål kan likevel være litt forvirrende. Svar etter beste evne, og ta kontakt hvis du lurer på noe. <br><br> Skjemaet er gratis og har en varighet på tre år. Når du logger inn i UBS, vil de gi deg varsel om skjemaet er i ferd med å utløpe og instruerer deg til å fornye det. Det er derfor lurt å logge inn hos UBS i ny og ne.
+              Skjemaet fylles ut digitalt inne i <strong style="color: white;">UBS‑portalen</strong> som en del av onboarding eller periodisk fornyelse. Du sender det ikke til IRS selv. Accenture har en egen guide som er fin å følge, men enkelte spørsmål kan likevel være litt forvirrende. Svar etter beste evne, og ta kontakt hvis du lurer på noe. <br><br> Skjemaet er gratis og har en varighet på tre år. Når du logger inn i UBS, vil de gi deg varsel om skjemaet er i ferd med å utløpe og instruerer deg til å fornye det. Det er derfor lurt å logge inn hos UBS i ny og ne.
             </p>
 
             <a href="https://example.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; margin-top:8px; padding:10px 18px; border-radius:999px; background:linear-gradient(135deg, var(--purple), var(--purple2)); color:#fff; text-decoration:none; font-size:14px; font-weight:600; transition:.18s ease;">
@@ -1530,8 +1538,8 @@
           </div>
         </div>
         <div class="foot">
-          <div>Hvis UBS ber om nytt W‑8BEN, er det lurt å ordne det før du trenger å handle eller motta betalinger.</div>
-          <div class="sourceHint">IRS beskriver W‑8BEN som dokumentasjon overfor withholding agent/payer.</div>
+          <div>Aldri lenge til neste utbytte. Like greit å bare fylle ut skjemaet nå med en gang!</div>
+          <div class="sourceHint">W‑8 BEN er ikke unikt for Accenture, det gjelder alle som er skattemessig bosatt utenfor USA, og mottar amerikanske utbetalinger.</div>
         </div>
       </section>
 
@@ -1540,7 +1548,7 @@
           <div class="eyebrow"><span class="dot"></span> Reduser skatt på utbytte lovlig</div>
           <div class="titleRow">
             <div>
-              <h2>Skjerming – Skattefritt utbytte</h2>
+              <h2>Skjerming – gjør utbyttet skattefritt</h2>
               <div class="subtitle">Skjermingsfradraget gir deg rett til å motta en del av utbyttet skattefritt. Her ser vi på hva skjerming er, hvordan det påvirker skatten din, og hvordan du krever det.</div>
             </div>
           </div>
@@ -1557,10 +1565,10 @@
                 <span style="font-size:22px">🛡️</span> Hva er skjerming?
               </h3>
               <p style="margin-bottom:10px">
-                Skjerming er et skattefradrag som gjør at en del av utbyttet du mottar fra aksjer er <strong>skattefritt</strong>. Tanken bak er at aksjonærer allerede tar risiko ved å investere – de bør derfor få beholde en «risikofri avkastning» uten ekstra beskatning.
+                Skjerming er et skattefradrag som gjør at en del av utbyttet du mottar fra aksjer er <strong style="color: white;">skattefritt</strong>. Tanken bak er at aksjonærer allerede tar risiko ved å investere – de bør derfor få beholde en «risikofri avkastning» uten ekstra beskatning.
               </p>
               <p>
-                Skjermingsfradraget beregnes ut fra <strong>aksjenes kostpris</strong> (det du betalte) multiplisert med en <strong>skjermingsrente</strong> fastsatt av Skatteetaten hvert år. Ubrukt skjerming kan overføres til neste år.
+                Skjermingsfradraget beregnes ut fra aksjenes <strong style="color: white;">inngangsverdi</strong> (som for ESPP-aksjer betyr markedsverdi, ikke rabattert verdi) multiplisert med en <strong style="color: white;">skjermingsrente</strong> fastsatt av Skatteetaten hvert år. Ubrukt skjerming kan overføres til neste år.
               </p>
             </div>
 
@@ -1573,17 +1581,17 @@
                 <div class="tintBox red" style="text-align:center; padding:14px; border-radius:16px">
                   <h4 style="margin-bottom:4px">Uten skjerming</h4>
                   <div style="font-size:22px; font-weight:800">37.84%</div>
-                  <div style="font-size:12px; color:var(--muted)">av hele utbyttet</div>
+                  <p>av hele utbyttet</p>
                 </div>
                 <div style="font-size:24px; color:var(--purple2)">→</div>
                 <div class="tintBox green" style="text-align:center; padding:14px; border-radius:16px">
                   <h4 style="margin-bottom:4px">Med skjerming</h4>
                   <div style="font-size:22px; font-weight:800">37.84%</div>
-                  <div style="font-size:12px; color:var(--muted)">av utbytte <em>minus</em> skjerming</div>
+                  <p>av utbytte <i>minus</i> skjerming</p>
                 </div>
               </div>
               <p>
-                Utbytte beskattes med 37.84% (22% × 1.72 oppjusteringsfaktor). Skjermingen <strong>reduserer beløpet</strong> som beskattes – ikke skattesatsen. Jo høyere kostpris og skjermingsrente, desto mer slipper du å skatte på.
+                Utbytte beskattes med 37.84% (22% × 1.72 oppjusteringsfaktor). Skjermingen <strong style="color: white;">reduserer beløpet</strong> som beskattes – ikke skattesatsen. Jo høyere kostpris og skjermingsrente, desto mer slipper du å skatte på.
               </p>
             </div>
 
@@ -1593,10 +1601,10 @@
                 <span style="font-size:22px">📝</span> Hvordan kreve skjerming?
               </h3>
               <ul class="clean" style="margin:6px 0 0">
-                <li>Du fører skjermingsfradraget <strong>selv</strong> i skattemeldingen – det forhåndsutfylles ikke for utenlandske aksjer</li>
-                <li>Oppgi <strong>kostpris per aksje</strong> (kjøpspris inkl. eventuelle kostnader) og <strong>antall aksjer</strong> du eide per 31.12</li>
-                <li>Skattemeldingen beregner skjermingen automatisk basert på gjeldende skjermingsrente</li>
-                <li>Ubrukt skjerming (mer skjerming enn utbytte) <strong>rulles videre</strong> til neste år</li>
+                <li><p>Du fører skjermingsfradraget <strong style="color: white;">selv</strong> i skattemeldingen – det forhåndsutfylles ikke for utenlandske aksjer.</p></li>
+                <li><p>Regn ut skjermingsfradraget ditt basert på <strong style="color: white;">skjermingsgrunnlaget</strong> (inngangsverdi + evt. ubenyttet skjerming fra tidligere år) og <strong style="color: white;">skjermingsrente</strong> (slå opp for gitt år).</p></li>
+                <li><p>Utregnet beløp, inntil verdien av det skattepliktige utbyttet ditt, føres så i feltet for skjermingsfradrag under aksjen den gjelder for.</p></li>
+                <li><p>Ubrukt skjerming (mer skjerming enn utbytte) <strong style="color: white;">rulles videre</strong> til neste år.</p></li>
               </ul>
             </div>
           </div>
@@ -1629,7 +1637,7 @@
             <!-- Steg-for-steg beregning -->
             <div style="display:grid; gap:10px;">
               <div style="padding:14px 16px; border-radius:14px; background:rgba(255,255,255,.04); border:1px solid var(--line)">
-                <div style="font-size:12px; color:var(--muted); margin-bottom:4px">Steg 1 – Total kostpris</div>
+                <div style="font-size:12px; color:var(--muted); margin-bottom:4px">Steg 1 – Total inngangsverdi</div>
                 <div style="font-size:16px; font-weight:700">50 aksjer × 2 800 kr = <span style="color:var(--purple2)">140 000 kr</span></div>
               </div>
               <div style="padding:14px 16px; border-radius:14px; background:rgba(255,255,255,.04); border:1px solid var(--line)">
@@ -1658,13 +1666,13 @@
                   <div style="font-size:12px; color:var(--muted); margin-bottom:2px">Uten skjerming</div>
                   <div style="font-size:18px; font-weight:700; color:var(--red); text-decoration:line-through">3 784 kr</div>
                   <div style="font-size:12px; color:var(--muted); margin-top:6px">Med skjerming</div>
-                  <div style="font-size:18px; font-weight:700; color:var(--green)">1 877 kr</div>
+                  <div style="font-size:18px; font-weight:700; color:var(--amber)">1 877 kr</div>
                 </div>
               </div>
             </div>
 
             <div class="note">
-              💡 Skjermingsrenten for året som var fastsettes årlig av Skatteetaten ved starten av nytt år. For inntektsåret 2025 er den ca. 3.6%. I 2024 var den 3.9%. Har du aksjer med ulik kostpris (f.eks. kjøpt via ESPP over flere perioder), beregnes skjerming separat for hvert «erverv».
+              💡 Skjermingsrenten for året som var fastsettes årlig av Skatteetaten ved starten av nytt år. For inntektsåret 2025 er den ca. 3.6%. I 2024 var den 3.9%. Har du aksjer med ulik kostpris (f.eks. kjøpt via ESPP over flere perioder), beregnes skjerming separat for hvert erverv, altså hver "transje".
             </div>
           </div>
 
@@ -1682,7 +1690,7 @@
           <div class="titleRow">
             <div>
               <h2>Skjerming med flere kjøpstransjer</h2>
-              <div class="subtitle">Har du kjøpt aksjer i samme selskap til ulike tidspunkt (f.eks. via ESPP hvert halvår), må du beregne skjerming <strong>separat for hver transje</strong> og summere til slutt.</div>
+              <div class="subtitle">Har du kjøpt aksjer i samme selskap til ulike tidspunkt (f.eks. via ESPP hvert halvår) of fått utbytte flere ganger, må du beregne skjerming <strong>separat for hver transje</strong> og summere til slutt.</div>
             </div>
           </div>
         </div>
