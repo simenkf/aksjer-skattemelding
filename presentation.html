@@ -1648,7 +1648,7 @@
                 <span style="font-size:22px">📝</span> Hvordan kreve skjerming?
               </h3>
               <ul class="clean" style="margin:6px 0 0">
-                <li><p>Du fører skjermingsfradraget <strong class="glow">selv</strong> i skattemeldingen – det forhåndsutfylles ikke for utenlandske aksjer.</p></li>
+                <li><p>Du fører skjermingsfradraget <strong class="glow">selv</strong> i skattemeldingen – det forhåndsutfylles ikke for aksjer i utenlandske banker.</p></li>
                 <li><p>Regn ut skjermingsfradraget ditt basert på <strong class="glow">skjermingsgrunnlaget</strong> (inngangsverdi + evt. ubenyttet skjerming fra tidligere år) og <strong class="glow">skjermingsrente</strong> (slå opp for gitt år).</p></li>
                 <li><p>Utregnet beløp, inntil verdien av det skattepliktige utbyttet ditt, føres så i feltet for skjermingsfradrag under aksjen den gjelder for.</p></li>
                 <li><p>Ubrukt skjerming (mer skjerming enn utbytte) <strong class="glow">rulles videre</strong> til neste år.</p></li>
@@ -1661,6 +1661,8 @@
             <h3 style="display:flex; align-items:center; gap:10px">
               <span style="font-size:22px">🧮</span> Eksempel ved ett kjøp av aksjer i 2025
             </h3>
+
+            <p>Følgende er et veldig enkelt eksempel med ett kjøp av aksjer og anvendt skjerming samme år, for å illustrere konseptet i utregningene. Neste slide viser mer realistiske eksempler.</p>
 
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
               <div class="tintBox purple">
@@ -1737,7 +1739,7 @@
           <div class="titleRow">
             <div>
               <h2>Skjerming med flere kjøpstransjer</h2>
-              <div class="subtitle">Har du kjøpt aksjer i samme selskap til ulike tidspunkt (f.eks. via ESPP hvert halvår) of fått utbytte flere ganger, må du beregne skjerming <strong class="glow">separat for hver transje</strong> og summere til slutt.</div>
+              <div class="subtitle">Har du kjøpt aksjer i samme selskap til ulike tidspunkt (f.eks. via ESPP hvert halvår) og fått utbytte flere ganger, må du beregne skjerming <strong class="glow">separat for hver transje</strong> og summere til slutt.</div>
             </div>
           </div>
         </div>
@@ -1756,7 +1758,7 @@
                 Skjermingsfradraget beregnes <strong class="glow">per aksje</strong> – det kan ikke overføres til andre aksjer.
               </p>
               <p>
-                I praksis betyr dette at om du har kjøpt samme selskap flere ganger, til ulike priser eller på ulike tidspunkt, må du behandle hvert kjøp som en <strong class="glow">egen transje</strong> med sin egen skjermingshistorikk. Heldigvis har Skatteetaten en kalkulator som gjør hver transjeberegning relativt enkel, men over tid blir det likevel en stadig større jobb.
+                I praksis betyr dette at om du har kjøpt samme selskap flere ganger, til ulike priser eller på ulike tidspunkt, må du behandle hvert kjøp som en <strong class="glow">egen transje</strong> med sin egen skjermingshistorikk. Heldigvis har Skatteetaten en kalkulator som gjør hver transjeberegning relativt enkel, men har du gjort mange kjøp og/eller fått mange utbytter blir det en del utregning.
               </p>
             </div>
 
@@ -1765,7 +1767,7 @@
               <span style="font-size:28px">🧮</span>
               <div>
                 <div style="font-weight:800; font-size:16px">Åpne Skatteetatens skjermingskalkulator</div>
-                <div style="font-size:12px; color:var(--muted); margin-top:2px">Beregn skjermingsfradrag for hver transje – husk å kjøre én beregning per kjøp</div>
+                <div style="font-size:12px; color:var(--muted); margin-top:2px">Beregn skjermingsfradrag for hver transje – én beregning per kjøp</div>
               </div>
               <span style="font-size:20px; margin-left:auto">→</span>
             </a>
@@ -1776,28 +1778,32 @@
                 <span style="font-size:22px">🔄</span> Fremgangsmåte med kalkulatoren
               </h3>
               <div style="display:grid; gap:8px; margin-top:8px">
-                <div class="tintBox purple" style="display:flex; gap:12px; align-items:start">
-                  <div style="min-width:32px; height:32px; border-radius:50%; background:rgba(161,0,255,.2); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; color:var(--purple2)">1</div>
+                <div class="tintBox red" style="display:flex; gap:12px; align-items:start">
+                  <div style="min-width:32px; height:32px; border-radius:50%; background:rgba(255, 0, 0, 0.2); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; color:var(--red)">1</div>
                   <div>
                     <h4 style="font-size:14px; text-transform:none; letter-spacing:0">Del opp i transjer</h4>
-                    <p style="font-size:13px; margin-top:2px">Identifiser hvert separate kjøp – dato, antall aksjer og kostpris</p>
+                    <p style="font-size:13px; margin-top:2px">Identifiser hvert separate kjøp – dato, antall aksjer og inngangsverdi (markedspris, ikke rabattert pris).</p>
                   </div>
                 </div>
                 <div class="tintBox cyan" style="display:flex; gap:12px; align-items:start">
                   <div style="min-width:32px; height:32px; border-radius:50%; background:rgba(103,232,249,.15); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; color:var(--cyan)">2</div>
                   <div>
                     <h4 style="font-size:14px; text-transform:none; letter-spacing:0">Kjør kalkulatoren for hver transje</h4>
-                    <p style="font-size:13px; margin-top:2px">Oppgi kjøpsår, kostpris og mottatt utbytte per år for den transjen</p>
+                    <p style="font-size:13px; margin-top:2px">Oppgi kjøpsår, inngangsverdi og mottatt utbytte per år for den transjen.</p>
                   </div>
                 </div>
                 <div class="tintBox green" style="display:flex; gap:12px; align-items:start">
                   <div style="min-width:32px; height:32px; border-radius:50%; background:rgba(103,232,168,.15); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; color:var(--green)">3</div>
                   <div>
                     <h4 style="font-size:14px; text-transform:none; letter-spacing:0">Summer resultatene</h4>
-                    <p style="font-size:13px; margin-top:2px">Legg sammen skjermingsfradraget fra alle transjene du fortsatt eier</p>
+                    <p style="font-size:13px; margin-top:2px">Legg sammen skjermingsfradraget fra alle transjene du fortsatt eier.</p>
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div class="note">
+              💡 <strong class="glow">Tips:</strong> Før du setter i gang med kalkulatoren bør du har klart en oversikt over når du har kjøpt aksjer og til hvilken kostpris, samt hvor mye utbytte du har fått per år per transje. Da er det bare å plotte inn i kalkultoren for hver transje og summere. Undetegnede holder oversikt over datapunktene som skal inn i kalkulatoren i et eget excelark, men all data kan når som helst hentes ut fra MyHolding eller UBS.
             </div>
 
           </div>
@@ -1810,51 +1816,64 @@
                 <span style="font-size:22px">🧮</span> Eksempel: ESPP-kjøp over to år
               </h3>
 
+              <p>Du har kjøpt Accenture-aksjer ved to anledninger, og har fremdeles alle aksjene når du skal fylle ut skattemeldingen for 2025 (den du fyller ut våren 2026).</p>
+
               <!-- Transje 1 -->
-              <div class="tintBox purple" style="padding:14px 16px; border-radius:16px">
-                <h4 style="margin-bottom:8px">Transje 1 – Kjøpt mai 2023</h4>
-                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px">
+              <div class="tintBox" style="padding:0">
+                <h4 style="margin-bottom:8px">Transje 1 – Kjøpt november 2023</h4>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 2fr; gap:8px">
                   <div><div style="font-size:11px; color:var(--muted)">Antall</div><div style="font-weight:800">40 aksjer</div></div>
-                  <div><div style="font-size:11px; color:var(--muted)">Kostpris</div><div style="font-weight:800">2 500 kr/stk</div></div>
-                  <div><div style="font-size:11px; color:var(--muted)">Totalverdi</div><div style="font-weight:800">100 000 kr</div></div>
+                  <div><div style="font-size:11px; color:var(--muted)">Markedspris</div><div style="font-weight:800">2 500 kr/stk</div></div>
+                  <div><div style="font-size:11px; color:var(--muted)">Inngangsverdi</div><div style="font-weight:800">100 000 kr</div></div>
+                  <div><div style="font-size:11px; color:var(--muted)">Utbytte 2023 | 2024 | 2025</div><div style="font-weight:800">0 kr | 2 000 kr | 2 400 kr</div></div>
                 </div>
-                <div style="margin-top:10px; padding:10px 12px; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid var(--line)">
-                  <div style="font-size:12px; color:var(--muted)">Beregn via kalkulator → Skjerming 2023 + 2024 + 2025</div>
-                  <div style="font-size:18px; font-weight:800; color:var(--cyan); margin-top:4px">= f.eks. 7 200 kr</div>
-                </div>
+                <div style="margin:10px 0 6px; border-top:1px solid var(--line)"></div>
+                <div style="font-size:12px; color:var(--muted)">Beregn via kalkulator</div>
+                <div style="font-size:18px; font-weight:800; color:var(--neutral); margin-top:4px">= 9 013 kr</div>
               </div>
 
               <!-- Transje 2 -->
-              <div class="tintBox cyan" style="padding:14px 16px; border-radius:16px">
-                <h4 style="margin-bottom:8px">Transje 2 – Kjøpt nov 2024</h4>
-                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px">
+              <div class="tintBox" style="padding:0">
+                <h4 style="margin-bottom:8px">Transje 2 – Kjøpt mai 2024</h4>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 2fr; gap:8px">
                   <div><div style="font-size:11px; color:var(--muted)">Antall</div><div style="font-weight:800">30 aksjer</div></div>
-                  <div><div style="font-size:11px; color:var(--muted)">Kostpris</div><div style="font-weight:800">3 100 kr/stk</div></div>
-                  <div><div style="font-size:11px; color:var(--muted)">Totalverdi</div><div style="font-weight:800">93 000 kr</div></div>
+                  <div><div style="font-size:11px; color:var(--muted)">Markedspris</div><div style="font-weight:800">3 100 kr/stk</div></div>
+                  <div><div style="font-size:11px; color:var(--muted)">Inngangsverdi</div><div style="font-weight:800">93 000 kr</div></div>
+                  <div><div style="font-size:11px; color:var(--muted)">Utbytte 2024 | 2025</div><div style="font-weight:800">1 500 kr | 2 000 kr</div></div>
                 </div>
-                <div style="margin-top:10px; padding:10px 12px; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid var(--line)">
-                  <div style="font-size:12px; color:var(--muted)">Beregn via kalkulator → Skjerming 2024 + 2025</div>
-                  <div style="font-size:18px; font-weight:800; color:var(--cyan); margin-top:4px">= f.eks. 3 350 kr</div>
-                </div>
+                <div style="margin:10px 0 6px; border-top:1px solid var(--line)"></div>
+                <div style="font-size:12px; color:var(--muted)">Beregn via kalkulator</div>
+                <div style="font-size:18px; font-weight:800; color:var(--neutral); margin-top:4px">= 5 552 kr</div>
               </div>
 
               <!-- Summering -->
-              <div class="tintBox grad green" style="padding:16px 18px; border-radius:16px">
+              <div class="tintBox grad red" style="padding:16px 18px; border-radius:16px">
                 <div style="display:flex; justify-content:space-between; align-items:center;">
                   <div>
-                    <h4 style="margin-bottom:2px">Totalt skjermingsfradrag</h4>
-                    <div style="font-size:28px; font-weight:900; letter-spacing:-.03em">10 550 kr</div>
-                    <div style="font-size:12px; color:var(--muted); margin-top:2px">7 200 + 3 350 = summen av alle transjer</div>
+                    <h4 style="margin-bottom:2px">Totalt skjermingsfradrag for 2025</h4>
+                    <div style="font-size:28px; font-weight:900; letter-spacing:-.03em">14 565 kr</div>
+                    <div style="font-size:12px; color:var(--muted); margin-top:2px">9 013 + 5 552 = summen av alle transjer</div>
                   </div>
-                  <div style="font-size:40px">Σ</div>
+                </div>
+                </div>
+                <div class="tintBox grad green" style="padding:16px 18px; border-radius:16px">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <div>
+                    <h4 style="margin-bottom:2px">Skattepliktig utbytte 2025</h4>
+                    <div style="font-size:28px; font-weight:900; letter-spacing:-.03em">0 kr</div>
+                    <div style="font-size:12px; color:var(--muted); margin-top:2px">2 400 + 2 000 - 14 565 = - 10 165 kr → 10 165 kr blir med til neste år som ubenyttet skjerming.</div>
+                    <div style="font-size:12px; color:var(--muted); margin-top:2px"></div>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div class="tintCard cyan" style="display:grid; gap:12px">
               <h3 style="display:flex; align-items:center; gap:10px; margin-bottom:0">
-                <span style="font-size:22px">📘</span> Flere eksempler (Skatte-ABC-inspirert)
+                <span style="font-size:22px">📘</span> Flere detaljerte eksempler
               </h3>
+
+              <p>Følgende illustrer ulike scenarier for skjermingsfradrag. Dog er også dette relativt enkle eksempler da vi kun har gjort ett kjøp. Ved flere kjøp må hver trasnje regnes ut individuelt, som vist over.</p>
 
               <div style="display:grid; gap:10px;">
                 <div class="tintBox purple" style="border-radius:12px">
@@ -1866,36 +1885,34 @@
                     <div>Skjermingsrente år 1</div><strong class="glow">2,0%</strong>
                     <div>Skjermingsfradrag år 1: 10 000 x 2,0%</div><strong style="color:var(--cyan)">200 kr</strong>
                     <div>Utbytte år 1</div><strong class="glow">500 kr</strong>
-                    <div>Skattepliktig utbytte før oppjustering: 500 - 200</div><strong style="color:var(--green)">300 kr</strong>
-                    <div>Oppjustert grunnlag (personlig aksjonær): 300 x 1,72</div><strong style="color:var(--amber)">516 kr</strong>
+                    <div>Skattepliktig utbytte: 500 - 200</div><strong style="color:var(--amber)">300 kr</strong>
+                    <div>Skatt: 300 x 37.84%</div><strong style="color:var(--red)">113,5 kr</strong>
                   </div>
                 </div>
 
-                <div class="tintBox cyan" style="border-radius:12px">
+                <div class="tintBox red" style="border-radius:12px">
                   <h4>Eksempel 2: Ubenyttet skjerming fremføres (år 2 og år 3)</h4>
                   <p style="margin:0 0 8px; font-size:12px; line-height:1.45">Dette eksempelet viser hvordan ubenyttet skjermingsfradrag fra ett år fremføres til neste år når utbyttet er lavere enn samlet skjerming.</p>
                   <div style="display:grid; gap:8px;">
-                    <div style="padding:8px 10px; border-radius:10px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.1)">
-                      <div style="font-size:11px; color:var(--cyan); text-transform:uppercase; letter-spacing:.08em; font-weight:700; margin-bottom:5px">År 2</div>
-                      <div style="display:grid; grid-template-columns:1fr auto; gap:4px 10px; font-size:12px; color:var(--muted)">
-                        <div>Skjermingsgrunnlag: 10 000 + 0</div><strong class="glow">10 000 kr</strong>
-                        <div>Utbytte år 2</div><strong class="glow">100 kr</strong>
-                        <div>Skjermingsfradrag: 10 000 x 3,3%</div><strong style="color:var(--cyan)">330 kr</strong>
-                        <div>Skattepliktig utbytte</div><strong style="color:var(--green)">0 kr</strong>
-                        <div>Ubenyttet skjerming: 330 - 100</div><strong class="glow">230 kr</strong>
-                      </div>
+
+                    <div style="font-size:11px; color:var(--red); text-transform:uppercase; letter-spacing:.08em; font-weight:700; margin-top:5px">År 2</div>
+                    <div style="display:grid; grid-template-columns:1fr auto; gap:4px 10px; font-size:12px; color:var(--muted)">
+                      <div>Skjermingsgrunnlag: 10 000 + 0</div><strong class="glow">10 000 kr</strong>
+                      <div>Utbytte år 2</div><strong class="glow">100 kr</strong>
+                      <div>Skjermingsfradrag: 10 000 x 3,3%</div><strong style="color:var(--cyan)">330 kr</strong>
+                      <div>Skattepliktig utbytte</div><strong style="color:var(--amber)">0 kr</strong>
+                      <div>Ubenyttet skjerming: 330 - 100</div><strong class="glow">230 kr</strong>
                     </div>
-                    <div style="padding:8px 10px; border-radius:10px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.1)">
-                      <div style="font-size:11px; color:var(--cyan); text-transform:uppercase; letter-spacing:.08em; font-weight:700; margin-bottom:5px">År 3</div>
-                      <div style="display:grid; grid-template-columns:1fr auto; gap:4px 10px; font-size:12px; color:var(--muted)">
-                        <div>Skjermingsgrunnlag: 10 000 + 230</div><strong class="glow">10 230 kr</strong>
-                        <div>Utbytte år 3</div><strong class="glow">400 kr</strong>
-                        <div>Skjerming år 3: 10 230 x 3,3%</div><strong style="color:var(--cyan)">337,6 kr</strong>
-                        <div>Ubenyttet skjerming fra år 2</div><strong class="glow">230 kr</strong>
-                        <div>Samlet skjerming tilgjengelig</div><strong class="glow">567,6 kr</strong>
-                        <div>Skattepliktig utbytte</div><strong style="color:var(--green)">0 kr</strong>
-                        <div>Ny fremføring: 567,6 - 400</div><strong class="glow">167,6 kr</strong>
-                      </div>
+
+                    <div style="font-size:11px; color:var(--red); text-transform:uppercase; letter-spacing:.08em; font-weight:700; margin-top:5px">År 3</div>
+                    <div style="display:grid; grid-template-columns:1fr auto; gap:4px 10px; font-size:12px; color:var(--muted)">
+                      <div>Skjermingsgrunnlag: 10 000 + 230</div><strong class="glow">10 230 kr</strong>
+                      <div>Utbytte år 3</div><strong class="glow">400 kr</strong>
+                      <div>Skjerming år 3: 10 230 x 3,3%</div><strong style="color:var(--cyan)">337,6 kr</strong>
+                      <div>Ubenyttet skjerming fra år 2</div><strong class="glow">230 kr</strong>
+                      <div>Samlet skjerming tilgjengelig</div><strong class="glow">567,6 kr</strong>
+                      <div>Skattepliktig utbytte</div><strong style="color:var(--amber)">0 kr</strong>
+                      <div>Ny fremføring: 567,6 - 400</div><strong class="glow">167,6 kr</strong>
                     </div>
                   </div>
                 </div>
@@ -1907,7 +1924,7 @@
                     <div>Utbytte år 4</div><strong class="glow">100 kr</strong>
                     <div>Ny skjerming år 4 (ikke i behold 31.12)</div><strong class="glow">0 kr</strong>
                     <div>Ubenyttet skjerming fra år 3</div><strong class="glow">167,6 kr</strong>
-                    <div>Skattepliktig utbytte år 4</div><strong style="color:var(--green)">0 kr</strong>
+                    <div>Skattepliktig utbytte år 4</div><strong style="color:var(--amber)">0 kr</strong>
                     <div>Rest skjerming etter utbytte: 167,6 - 100</div><strong class="glow">67,6 kr</strong>
                     <div>Salgsvederlag</div><strong class="glow">10 060 kr</strong>
                     <div>Inngangsverdi</div><strong class="glow">10 000 kr</strong>
@@ -1920,12 +1937,8 @@
               </div>
 
               <div style="font-size:12px; color:var(--muted); line-height:1.45; padding:10px 12px; border-radius:10px; background:rgba(255,255,255,.03); border:1px dashed rgba(255,255,255,.14)">
-                Oppsettet over speiler strukturen i Skatteetatens eksempler: først forklaring av hva eksempelet viser, deretter full beregning steg for steg med grunnlag, skjerming, utbytte og eventuell gevinstjustering.
+                Min forståelse er at skjerming må anvendes hvert år ved utbytte. Du kan ikke velge å la være å benytte skjerming, for å spare alt til salg av aksjene. Det hadde vært deilig om det var mulig, for da hadde vi kun trengt å gjøre alle disse utregningene én gang – ved salg. I stedet må vi gjøre dem hvert år. Jeg har imidlertid kontaktet Skatteetaten for å få dette bekreftet/avkreftet, og vil oppdatere presentasjonen når jeg hører fra dem..
               </div>
-            </div>
-
-            <div class="note">
-              💡 <strong class="glow">Tips:</strong> Før du setter i gang med kalkulatoren bør du har klart en oversikt over når du har kjøpt aksjer og til hvilken kostpris, samt hvor mye utbytte du har fått per år per transje. Da er det bare å plotte inn i kalkultoren for hver transje og summere. Undetegnede holder oversikt over datapunktene som skal inn i kalkulatoren i et eget excelark, men all data kan når som helst hentes ut fra MyHolding eller UBS.
             </div>
           </div>
 
