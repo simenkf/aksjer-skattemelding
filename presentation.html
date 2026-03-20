@@ -1785,8 +1785,8 @@
                     <p style="font-size:13px; margin-top:2px">Identifiser hvert separate kjøp – dato, antall aksjer og inngangsverdi (markedspris, ikke rabattert pris).</p>
                   </div>
                 </div>
-                <div class="tintBox cyan" style="display:flex; gap:12px; align-items:start">
-                  <div style="min-width:32px; height:32px; border-radius:50%; background:rgba(103,232,249,.15); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; color:var(--cyan)">2</div>
+                <div class="tintBox amber" style="display:flex; gap:12px; align-items:start">
+                  <div style="min-width:32px; height:32px; border-radius:50%; background:rgba(249, 227, 103, 0.15); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; color:var(--amber)">2</div>
                   <div>
                     <h4 style="font-size:14px; text-transform:none; letter-spacing:0">Kjør kalkulatoren for hver transje</h4>
                     <p style="font-size:13px; margin-top:2px">Oppgi kjøpsår, inngangsverdi og mottatt utbytte per år for den transjen.</p>
@@ -1937,7 +1937,7 @@
               </div>
 
               <div style="font-size:12px; color:var(--muted); line-height:1.45; padding:10px 12px; border-radius:10px; background:rgba(255,255,255,.03); border:1px dashed rgba(255,255,255,.14)">
-                Min forståelse er at skjerming må anvendes hvert år ved utbytte. Du kan ikke velge å la være å benytte skjerming, for å spare alt til salg av aksjene. Det hadde vært deilig om det var mulig, for da hadde vi kun trengt å gjøre alle disse utregningene én gang – ved salg. I stedet må vi gjøre dem hvert år. Jeg har imidlertid kontaktet Skatteetaten for å få dette bekreftet/avkreftet, og vil oppdatere presentasjonen når jeg hører fra dem..
+                Min forståelse er at skjerming må anvendes hvert år ved utbytte. Du kan ikke velge å la være å benytte skjerming, for å spare alt til salg av aksjene. Det hadde vært deilig om det var mulig, for da hadde vi kun trengt å gjøre alle disse utregningene én gang – ved salg. I stedet må vi gjøre dem hvert år. Jeg har imidlertid kontaktet Skatteetaten for å få dette bekreftet/avkreftet, og vil oppdatere presentasjonen når jeg hører fra dem. <br><br> Dersom det viser seg å <em>være lov</em> å utsette skjerming, vil dette lønne seg da du får større effekt av kredittfradrag, som diskuteres på neste slide.
               </div>
             </div>
           </div>
@@ -1945,7 +1945,7 @@
         </div>
 
         <div class="foot">
-          <div>Skjermingsgrunnlaget er knyttet til den konkrete aksjens anskaffelsesverdi – ikke gjennomsnittlig kostpris.</div>
+          <div></div>
           <div class="presentationMeta"></div>
         </div>
       </section>
@@ -1965,7 +1965,7 @@
             <div style="background:rgba(250,204,21,.08); border:1px solid rgba(250,204,21,.22); border-radius:14px; padding:14px 16px;">
               <h4 style="margin:0 0 6px; font-size:14px; color:var(--yellow, #facc15)">⚠️ Kun effekt etter skjermingsfradrag</h4>
               <p style="color:var(--muted); line-height:1.6; margin:0">
-                Kredittfradrag beregnes kun på den delen av utbyttet som faktisk beskattes i Norge – altså <strong class="glow">etter</strong> at skjermingsfradraget er trukket fra. Hvis skjermingsfradraget ditt allerede dekker hele det skattepliktige utbyttet (dvs. utbytte etter oppjustering minus skjermingsfradrag = 0), har kredittfradraget <strong class="glow">ingen effekt</strong> fordi det ikke er noen norsk skatt å redusere. <br><br> <strong class="glow">Med andre ord:</strong> Kun når total skjerming for en aksjepost ikke dekker all utbytte du får det året, vil kredittfradrag kunne bistå med reduksjon av skatt.
+                Kredittfradrag beregnes kun på den delen av utbyttet som faktisk beskattes i Norge – altså <strong class="glow">etter</strong> at skjermingsfradraget er trukket fra. Hvis skjermingsfradraget ditt allerede dekker hele det skattepliktige utbyttet, har kredittfradraget <strong class="glow">ingen effekt</strong> fordi det ikke er noen norsk skatt å redusere. <br><br> <strong class="glow">Med andre ord:</strong> Kun når total skjerming for en aksjepost ikke dekker all utbytte du får det året, og du har betalt på skatt i utlandet på samme utbytte, vil kredittfradrag kunne bistå med reduksjon av skatt.
               </p>
             </div>
             <a href="https://www.youtube.com/watch?v=VzX4a1A9XNQ" target="_blank" rel="noopener noreferrer" style="display:block; position:relative; width:100%; border-radius:var(--radius); border:1px solid var(--line); overflow:hidden; text-decoration:none;">
@@ -1985,24 +1985,31 @@
               Kredittfradrag er en metode for å unngå dobbeltbeskatning. Når du har betalt kildeskatt i utlandet (f.eks. på utbytte fra Accenture), kan du kreve fradrag i norsk skatt for den utenlandske skatten du allerede har betalt.
             </p>
 
-            <div class="tintBox cyan" style="padding:14px 16px; margin:0 0 14px">
-              <h4 style="margin:0 0 6px; font-size:14px">Fradrag gir delvis skatteeffekt</h4>
+            
+            <h4 style="margin:14px 0 6px">Hvordan fungerer det?</h4>
+            <ul class="clean">
+              <li><p>Du betaler kildeskatt i utlandet (f.eks. Irland)</p></li>
+              <li><p>Du fører beløpet i skattemeldingen i Norge</p></li>
+              <li><p>Norge gir deg fradrag i skattegrunnlaget for relevant utenlandsk skatt</p></li>
+              <li><p>Faktisk skatteeffekt blir fradragsbeløpet multiplisert med norsk skattesats</p></li>
+            </ul>
+            
+            <div class="tintBox neutral" style="padding:14px 16px; margin:10px 0 10px">
+              <h4>Skatteavtale begrenser effekten</h4>
               <p style="line-height:1.6; margin:0">
-                Irland trekker <strong class="glow">25% kildeskatt</strong> på utbytte som standard, fordi de ikke vet hvor du bor. For kredittfradrag bruker vi her et fradragsgrunnlag på opptil <strong class="glow">15%</strong> av brutto utbytte (skatteavtale). Siden fradraget reduserer skattegrunnlaget, blir faktisk effekt i kroner <strong class="glow">fradrag × norsk skattesats</strong> (37,84%), ikke krone-for-krone tilbakebetaling.
+                Irland trekker <strong class="glow">25% kildeskatt</strong> på utbytte som standard, fordi de ikke vet hvor du bor. For kredittfradrag bruker vi her et fradragsgrunnlag på opptil <strong class="glow">15%</strong> av brutto utbytte, da Norge og Irland har en skatteavtale som begrenser kildeskatt oppad til denne satsen.
+              </p>
+            </div>
+            <div class="tintBox green" style="padding:14px 16px; margin:10px 0 10px">
+              <h4>Eksempel</h4>
+              <p style="line-height:1.6; margin:0">
+                Du har gått 10 000 kr i utbytte. Du har 8 000 kr i skjerming som reduserer det skattepliktige utbytte til 2 000 kr. Selv om brutto utbytte er 10  000 kr, har du bare fått utbetalt 7 500 kr til din konto i UBS, siden Irland har trukket 25% skatt. Skatteavtalen med Irland setter dog et tak på 15% som du kan få i fradrag, så ditt skattepliktige utbytte reduseres med 1 500 kr. Endelig skatt blir da 500 x 37,84% = 196,9 kr i skatt til Norge, pluss de 2 500 kr allerede betalt til Irland. Uten kredittfradrag ville du betalt 2 000 x 37,84% = 756,8 kr i skatt til Norge, du sparer altså 559,9 kr.
               </p>
             </div>
 
-            <h4 style="margin:14px 0 6px">Hvordan fungerer det?</h4>
-            <ul class="clean">
-              <li>Du betaler kildeskatt i utlandet (f.eks. Irland)</li>
-              <li>Du fører beløpet i skattemeldingen i Norge</li>
-              <li>Norge gir deg fradrag i skattegrunnlaget for relevant utenlandsk skatt</li>
-              <li>Faktisk skatteeffekt blir fradragsbeløpet multiplisert med norsk skattesats</li>
-            </ul>
-
             <h4 style="margin:14px 0 6px">Hvor føres det?</h4>
             <p style="margin-bottom:12px">
-              Kredittfradraget føres i skattemeldingen under posten for "Metode for dobbel beskatning". Her oppgir du hvor mye utbytte du har mottatt brutto, og hvor mye du har betalt i kildeskatt til andre land. Se videoen til venstre for en praktisk gjennomgang. Første del av videon tilsvarer det som for vårdel går på å rapportere formue av aksjer. For andre del, der du oppgir hvor mye skatt du har betalt, legger du inn 25% av brutto utbytte.
+              Kredittfradraget føres i skattemeldingen under posten for "Metode for dobbel beskatning". Her oppgir du hvor mye utbytte du har mottatt brutto (før den irske kildeskatten), og hvor mye du har betalt i kildeskatt til andre land. Se videoen til venstre for en praktisk gjennomgang. Første del av videon tilsvarer det som for vår del går på å rapportere aksjeformue. For andre del, der du oppgir hvor mye skatt du har betalt, legger du inn 25% av brutto utbytte (så fremt du ikke har sendt inn V2A-skjema, se neste slide). Skattemeldingen vil automatisk begrense fradraget oppad til skatteavtalesatsen på 15%.
             </p>
           </div>
         </div>
