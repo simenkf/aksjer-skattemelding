@@ -625,6 +625,10 @@
     color:var(--muted); font-size:22px; cursor:pointer; padding:4px 12px; line-height:1;
   }
   .terms-modal-close:hover{color:var(--text); border-color:var(--text)}
+  strong.glow {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  }
 </style>
 </head>
 <body>
@@ -655,7 +659,7 @@
             <h2 class="big">Hvordan fører du<br>Accenture-aksjer<br>på skattemeldingen?</h2>
             <div class="lede" style="font-size:clamp(20px,1.8vw,28px); color:var(--purple2); font-weight:700; margin-bottom:4px">Og hvordan unngår du dobbel beskatning?</div>
             <div class="lede">
-              ESPP-aksjer kan fremstå komplekst: Hovedkontor i <strong>Irland</strong>, børsnotert i <strong>USA</strong>, og <strong>Norge</strong> som skattemessig bosted.<br><br>
+              ESPP-aksjer kan fremstå komplekst: Hovedkontor i <strong class="glow">Irland</strong>, børsnotert i <strong class="glow">USA</strong>, og <strong class="glow">Norge</strong> som skattemessig bosted.<br><br>
               Heldigvis er det veldig enkelt når du først kan det!<br><br>
             </div>
           </div>
@@ -725,27 +729,27 @@
             ">
               <li style="display:flex; gap:12px; align-items:flex-start">
                 <span style="color:var(--red); font-weight:700; flex-shrink:0">01</span>
-                <span>Denne presentasjonen er basert på <strong style="color:var(--text)">forfatterens personlige forståelse</strong> av temaet. Denne forståelsen kan være feil.</span>
+                <span>Denne presentasjonen er basert på <strong class="glow">forfatterens personlige forståelse</strong> av temaet. Denne forståelsen kan være feil.</span>
               </li>
               <li style="display:flex; gap:12px; align-items:flex-start">
                 <span style="color:var(--red); font-weight:700; flex-shrink:0">02</span>
-                <span>Dette er <strong style="color:var(--text)">ikke finansiell rådgivning</strong>. Ingenting i denne presentasjonen skal tolkes som profesjonell skatte- eller investeringsrådgivning.</span>
+                <span>Dette er <strong class="glow">ikke finansiell rådgivning</strong>. Ingenting i denne presentasjonen skal tolkes som profesjonell skatte- eller investeringsrådgivning.</span>
               </li>
               <li style="display:flex; gap:12px; align-items:flex-start">
                 <span style="color:var(--red); font-weight:700; flex-shrink:0">03</span>
-                <span>Dersom du finner informasjon her som <strong style="color:var(--text)">avviker fra det Skatteetaten oppgir</strong>, skal du alltid anta at Skatteetaten har rett og at denne presentasjonen tar feil.</span>
+                <span>Dersom du finner informasjon her som <strong class="glow">avviker fra det Skatteetaten oppgir</strong>, skal du alltid anta at Skatteetaten har rett og at denne presentasjonen tar feil.</span>
               </li>
               <li style="display:flex; gap:12px; align-items:flex-start">
                 <span style="color:var(--red); font-weight:700; flex-shrink:0">04</span>
-                <span>Forfatteren av denne presentasjonen tar <strong style="color:var(--text)">ikke ansvar for eventuelle feil du gjør</strong> basert på innholdet her — i skattemeldingen eller andre steder.</span>
+                <span>Forfatteren av denne presentasjonen tar <strong class="glow">ikke ansvar for eventuelle feil du gjør</strong> basert på innholdet her — i skattemeldingen eller andre steder.</span>
               </li>
               <li style="display:flex; gap:12px; align-items:flex-start">
                 <span style="color:var(--red); font-weight:700; flex-shrink:0">05</span>
-                <span><strong style="color:var(--text)">Ta gjerne kontakt</strong> dersom du mener noe er feil, uklart eller mangelfullt. Tilbakemeldinger er velkomne!</span>
+                <span><strong class="glow">Ta gjerne kontakt</strong> dersom du mener noe er feil, uklart eller mangelfullt. Tilbakemeldinger er velkomne!</span>
               </li>
               <li style="display:flex; gap:12px; align-items:flex-start">
                 <span style="color:var(--red); font-weight:700; flex-shrink:0">06</span>
-                <span>Har du spørsmål eller er noe uklart? <strong style="color:var(--text)">Ikke nøl med å spørre</strong> — da lærer sikkert jeg noe også.</span>
+                <span>Har du spørsmål eller er noe uklart? <strong class="glow">Ikke nøl med å spørre</strong> — da lærer sikkert jeg noe også.</span>
               </li>
             </ul>
           </div>
@@ -791,14 +795,14 @@
           <div class="tintCard neutral" style="display:flex; flex-direction:column; gap:14px">
             <h3>Aksje 101</h3>
             <p>
-              En aksje er en liten eierandel i et selskap. Eier du aksjer, eier du en tilsvarende andel av selskapet. Selskapet kan være <strong style="color:white">børsnotert</strong> (som Accenture på NYSE) eller privat. Børsnotering gjør det enkelt å kjøpe og selge aksjer til markedspris.
+              En aksje er en liten eierandel i et selskap. Eier du aksjer, eier du en tilsvarende andel av selskapet. Selskapet kan være <strong class="glow">børsnotert</strong> (som Accenture på NYSE) eller privat. Børsnotering gjør det enkelt å kjøpe og selge aksjer til markedspris.
             </p>
 
             <!-- Share grid figure -->
             <div class="tintBox cyan" style="padding:8px 12px; border-radius:10px">
               <h4>Eksempel</h4>
               <div style="font-size:13px; color:var(--muted); line-height:1.45; margin-bottom:10px">
-                Du eier <strong style="color:white">20 av 100</strong> aksjer — dvs. <strong style="color:white">20 %</strong> av selskapet.
+                Du eier <strong class="glow">20 av 100</strong> aksjer — dvs. <strong class="glow">20 %</strong> av selskapet.
               </div>
               <div id="shareGrid" style="display:grid; grid-template-columns:repeat(20,1fr); gap:3px; max-width:750px"></div>
               <script>
@@ -826,7 +830,7 @@
             </div>
 
             <p>
-              <strong style="color:white">Aksjekurs</strong> er det én aksje koster på børsen i øyeblikket. Den vil typisk gå opp hvis selskapet rapporterer gode inntekter, og falle hvis det rapporterer dårligere inntekter enn markedet forventet. Til en hver tid vil, per definisjon, den totale verdien til et selskap – markedsverdien – tilsvare summen av alle aksjer.
+              <strong class="glow">Aksjekurs</strong> er det én aksje koster på børsen i øyeblikket. Den vil typisk gå opp hvis selskapet rapporterer gode inntekter, og falle hvis det rapporterer dårligere inntekter enn markedet forventet. Til en hver tid vil, per definisjon, den totale verdien til et selskap – markedsverdien – tilsvare summen av alle aksjer.
             </p>
 
             <!-- Valuation formula -->
@@ -848,7 +852,7 @@
             <div class="tintBox cyan" style="padding:12px 16px">
               <h4>A- og B-aksjer</h4>
               <p style="font-size:13px; line-height:1.5">
-                Noen selskaper har ulike aksjeklasser. <strong style="color:white">A-aksjer</strong> gir typisk stemmerett på generalforsamlingen, mens <strong style="color:white">B-aksjer</strong> ofte har begrenset eller ingen stemmerett — men lik rett til utbytte. Accenture har kun én aksjeklasse (Class A).
+                Noen selskaper har ulike aksjeklasser. <strong class="glow">A-aksjer</strong> gir typisk stemmerett på generalforsamlingen, mens <strong class="glow">B-aksjer</strong> ofte har begrenset eller ingen stemmerett — men lik rett til utbytte. Accenture har kun én aksjeklasse (Class A).
               </p>
             </div>
           </div>
@@ -858,7 +862,7 @@
             <div class="tintCard cyan" style="display:flex; flex-direction:column; gap:14px">
               <h3>Hvorfor eie aksjer?</h3>
               <p>
-                Det er i hovedsak tre grunner til at en ønsker eie aksjer i et selskap: <strong style="color:var(--text)">Utbytte</strong>, <strong style="color:var(--text)">verdiøkning</strong> og <strong style="color:var(--text)">eierskap/innflytelse</strong>. La oss se på hver av disse.
+                Det er i hovedsak tre grunner til at en ønsker eie aksjer i et selskap: <strong class="glow">Utbytte</strong>, <strong class="glow">verdiøkning</strong> og <strong class="glow">eierskap/innflytelse</strong>. La oss se på hver av disse.
               </p>
             </div>
 
@@ -990,7 +994,7 @@
               <div class="tintBox cyan" style="padding:8px 12px; border-radius:10px">
                 <h4 style="margin-bottom:5px">Forskning viser</h4>
                 <p style="font-size:13px; line-height:1.5">
-                  Studier (bl.a. fra <strong style="color:white">NCEO</strong> og <strong style="color:white">Rutgers</strong>) viser at ansatte som eier aksjer i egen arbeidsgiver har høyere jobbtilfredshet, lavere turnover, og opplever sterkere tilknytning til selskapet. Ordninger som ESPP er designet for nettopp dette.
+                  Studier (bl.a. fra <strong class="glow">NCEO</strong> og <strong class="glow">Rutgers</strong>) viser at ansatte som eier aksjer i egen arbeidsgiver har høyere jobbtilfredshet, lavere turnover, og opplever sterkere tilknytning til selskapet. Ordninger som ESPP er designet for nettopp dette.
                 </p>
               </div>
             </div>
@@ -1024,7 +1028,7 @@
             <div class="tintCard cyan" >
               <h3>📋 Kort forklart</h3>
               <p>Skattemeldingen (het «selvangivelsen» før 2017) er et skjema du får fra Skatteetaten hvert år. Den viser hva du har tjent, hva du eier, og hva du skylder — og bestemmer om du får penger igjen eller må betale restskatt.</p>
-              <p style="margin-top:10px">Det meste er <strong style="color:var(--cyan)">forhåndsutfylt</strong> med opplysninger fra arbeidsgiver, bank, NAV og Verdipapirsentralen. Din jobb er å <strong style="color:white">sjekke at alt stemmer</strong> og legge til det som mangler.</p>
+              <p style="margin-top:10px">Det meste er <strong style="color:var(--cyan)">forhåndsutfylt</strong> med opplysninger fra arbeidsgiver, bank, NAV og Verdipapirsentralen. Din jobb er å <strong class="glow">sjekke at alt stemmer</strong> og legge til det som mangler.</p>
             </div>
 
             <!-- What the skattemelding contains -->
@@ -1056,23 +1060,23 @@
               <div style="display:flex; flex-direction:column; gap:8px; margin-top:8px">
                 <div style="display:flex; align-items:baseline; gap:10px">
                   <div style="min-width:24px; height:24px; border-radius:999px; background:rgba(103,232,249,.14); border:1px solid rgba(103,232,249,.25); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:var(--cyan)">1</div>
-                  <p><strong style="color:white">Logg inn</strong> på skatteetaten.no og åpne skattemeldingen din når den er mottatt (du får melding).</p>
+                  <p><strong class="glow">Logg inn</strong> på skatteetaten.no og åpne skattemeldingen din når den er mottatt (du får melding).</p>
                 </div>
                 <div style="display:flex; align-items:baseline; gap:10px">
                   <div style="min-width:24px; height:24px; border-radius:999px; background:rgba(103,232,249,.14); border:1px solid rgba(103,232,249,.25); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:var(--cyan)">2</div>
-                  <p><strong style="color:white">Sjekk</strong> at forhåndsutfylte opplysninger stemmer (lønn, bank, lån).</p>
+                  <p><strong class="glow">Sjekk</strong> at forhåndsutfylte opplysninger stemmer (lønn, bank, lån).</p>
                 </div>
                 <div style="display:flex; align-items:baseline; gap:10px">
                   <div style="min-width:24px; height:24px; border-radius:999px; background:rgba(103,232,249,.14); border:1px solid rgba(103,232,249,.25); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:var(--cyan)">3</div>
-                  <p><strong style="color:white">Legg til</strong> det som mangler — f.eks. utenlandske aksjer, ekstra fradrag.</p>
+                  <p><strong class="glow">Legg til</strong> det som mangler — f.eks. utenlandske aksjer, ekstra fradrag.</p>
                 </div>
                 <div style="display:flex; align-items:baseline; gap:10px">
                   <div style="min-width:24px; height:24px; border-radius:999px; background:rgba(103,232,249,.14); border:1px solid rgba(103,232,249,.25); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:var(--cyan)">4</div>
-                  <p><strong style="color:white">Lever</strong> innen 30. april — eller den godkjennes automatisk som den er.</p>
+                  <p><strong class="glow">Lever</strong> innen 30. april — eller den godkjennes automatisk som den er.</p>
                 </div>
                 <div style="display:flex; align-items:baseline; gap:10px">
                   <div style="min-width:24px; height:24px; border-radius:999px; background:rgba(103,232,249,.14); border:1px solid rgba(103,232,249,.25); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:var(--cyan)">5</div>
-                  <p><strong style="color:white">Betal</strong> eventuell restskatt innen 31. mai. Alternativt book bord på Maaemo om du får penger tilbake.</p>
+                  <p><strong class="glow">Betal</strong> eventuell restskatt innen 31. mai. Alternativt book bord på Maaemo om du får penger tilbake.</p>
                 </div>
               </div>
             </div>
@@ -1117,7 +1121,7 @@
             <div class="tintCard red">
               <h3>⚠️ Viktig for deg med aksjer i utlandet</h3>
               <ul class="clean" style="margin-top:6px">
-                <li><p><strong style="color:var(--red)">Utenlandske aksjer</strong> (som Accenture-aksjer via ESPP) rapporteres <strong style="color: white;">ikke</strong> automatisk — du må føre dem opp selv.</p></li>
+                <li><p><strong style="color:var(--red)">Utenlandske aksjer</strong> (som Accenture-aksjer via ESPP) rapporteres <strong class="glow">ikke</strong> automatisk — du må føre dem opp selv.</p></li>
                 <li><p><strong style="color:var(--red)">Utbytte fra utlandet</strong> må også legges inn manuelt.</p></li>
                 <li><p><strong style="color:var(--red)">Skjermingsfadrag</strong> skal benyttes mot skattepliktig utbytte.</p></li>
                 <li><p>Eventuell <strong style="color:var(--red)">kildeskatt</strong> trukket i USA gir rett til fradrag i norsk skatt.</p></li>
@@ -1156,12 +1160,12 @@
               <div style="display:flex; flex-direction:column; gap:8px">
                 <h3>Aksjespareprogram for ansatte i Accenture</h3>
                 <p>
-                  ESPP står for <strong style="color:var(--text)">Employee Share Purchase Plan</strong>. I Accenture betyr det at du kan spare
-                  <strong style="color:var(--text)">opptil 10 % av lønnen din</strong> for å kjøpe Accenture-aksjer til
+                  ESPP står for <strong class="glow">Employee Share Purchase Plan</strong>. I Accenture betyr det at du kan spare
+                  <strong class="glow">opptil 10 % av lønnen din</strong> for å kjøpe Accenture-aksjer til
                   <strong style="color:var(--green)">15 % rabatt</strong>.
                 </p>
                 <ul class="clean" style="margin-top:2px">
-                  <li><p>Du kan kjøpe aksjer for inntil <strong style="color:var(--text)">$7,500</strong> per 6-månedersperiode.</p></li>
+                  <li><p>Du kan kjøpe aksjer for inntil <strong class="glow">$7,500</strong> per 6-månedersperiode.</p></li>
                   <li><p>Det er ingen bindingstid eller andre restriksjoner på aksjene etter kjøp.</p></li>
                   <li><p>Programmet gjelder kun for ansatte på management nivå under managing director.</p></li>
                 </ul>
@@ -1170,11 +1174,11 @@
               <div class="tintBox amber" style="padding:12px 14px; border-radius:12px; font-size:12.5px; line-height:1.45; height:fit-content; width:100%; justify-self:stretch">
                 <h4 style="font-size:14px; margin-bottom:6px; color:var(--amber)">VEIP (for lvl 4 og oppover)</h4>
                 <p style="margin-bottom:6px">
-                  VEIP er <strong style="color:var(--text)">Voluntary Equity Investment Program</strong> for Managing Directors (lvl 4) og oppover.
+                  VEIP er <strong class="glow">Voluntary Equity Investment Program</strong> for Managing Directors (lvl 4) og oppover.
                 </p>
                 <ul class="clean" style="margin-top:2px">
                   <li><p>Ingen 15 % rabatt i VEIP.</p></li>
-                  <li><p>Aksjer kjøpes til full markedspris, og Accenture matcher kjøpet med <strong style="color:var(--text)">50 %</strong>.</p></li>
+                  <li><p>Aksjer kjøpes til full markedspris, og Accenture matcher kjøpet med <strong class="glow">50 %</strong>.</p></li>
                   <li><p>Aksjene du får ved matching er RSUer (Restricted Stock Units), altså aksjer du ikke kan selge før de er vestet, altså etter en viss periode.</p></li>
                 </ul>
                 <p>Denne presentasjonen fokuserer på ESPP, men de fleste prinsippene gjelder også for VEIP.</p>
@@ -1197,7 +1201,7 @@
               <h3 style="color: var(--red);">Oppsparing</h3>
               <p>Beløpet samles opp frem til kjøpsdato, altså fra <strong style="color: var(--red);">1. mai til 1. september</strong>, eller fra <strong style="color: var(--red);">1. september til 1. mai</strong>. <br><br> Ombestemmer du deg, eller trenger pengene til noe annet, kan de tas ut når som helst frem til kjøpsdato.</p>
               <ul class="clean">
-                <li>Kjøpsdatoer: <strong>1. mai</strong> og <strong>1. september</strong></li>
+                <li>Kjøpsdatoer: <strong class="glow">1. mai</strong> og <strong class="glow">1. september</strong></li>
                 <li>Kan endres underveis</li>
                 <li>Ikke bundet frem til kjøp</li>
               </ul>
@@ -1207,14 +1211,14 @@
               <h3 style="color: var(--green);">Kjøp</h3>
               <p>Aksjer kjøpes med <strong style="color: var(--green);">15% rabatt</strong> på fair market value på kjøpsdatoen.</p>
               <ul class="clean">
-                <li>Du betaler kun <strong>85 %</strong> av markedspris</li>
+                <li>Du betaler kun <strong class="glow">85 %</strong> av markedspris</li>
                 <li>Denne fordelen rapporterer Accenture til Skatteetaten for deg, så her trenger vi ikke tenke på noe</li>
               </ul>
             </div>
             <div class="step">
               <div class="nr">4</div>
               <h3 style="color: var(--cyan);">Etter kjøp</h3>
-              <p>Aksjene havner hos <strong>UBS</strong> som broker — derfra håndteres utbytte, rapporter og salg.<br><br> En forenklet visning er tilgjengelig på <a href="https://myholding.accenture.com" target="_blank" rel="noopener" style="color:var(--cyan); text-decoration:none; display:inline-flex; align-items:center; gap:4px">myHolding<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; opacity:.8"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>.</p>
+              <p>Aksjene havner hos <strong class="glow">UBS</strong> som broker — derfra håndteres utbytte, rapporter og salg.<br><br> En forenklet visning er tilgjengelig på <a href="https://myholding.accenture.com" target="_blank" rel="noopener" style="color:var(--cyan); text-decoration:none; display:inline-flex; align-items:center; gap:4px">myHolding<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; opacity:.8"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>.</p>
               <ul class="clean">
                 <li>Fra MyHolding-sidene er det også lenke og guide for å logge inn hos UBS</li>
                 <li>UBS-tallene bruker du i skattemeldingen</li>
@@ -1228,7 +1232,7 @@
               <p style="margin-bottom:6px">Rabatten er 15%, men avkastningen/fortjenesten høyere. Fra dag 1 har du en effektiv avkastning på omtrent <strong style="color:var(--green)">+17,65 %</strong> — forutsatt at kursen står uendret.</p>
               <div class="tintBox green">
                 <h4>Hvorfor 17,65%</h4>
-                <p>Avkastning kan regnes ut ved å se på <strong style="color:var(--text)">nåværende pris / kjøpspris</strong>. Du kjøper til <strong style="color:var(--text)">0,85 × markedspris</strong>. Effektiv oppgang fra innkjøpspris: <strong style="color:var(--text)">1 ÷ 0,85 − 1 = <strong style="color: var(--green);">17,65%</strong></strong> Dette er med andre ord en svært god deal. Og ja, du kan selge dag 1 om du vil det.</p>
+                <p>Avkastning kan regnes ut ved å se på <strong class="glow">nåværende pris / kjøpspris</strong>. Du kjøper til <strong class="glow">0,85 × markedspris</strong>. Effektiv oppgang fra innkjøpspris: <strong class="glow">1 ÷ 0,85 − 1 = <strong style="color: var(--green);">17,65%</strong></strong> Dette er med andre ord en svært god deal. Og ja, du kan selge dag 1 om du vil det.</p>
               </div>
             </div>
             <div class="tintCard amber">
@@ -1238,7 +1242,7 @@
                 <li><p>Kursen kan både stige og falle etter kjøp.</p></li>
                 <li><p>Skattemessig er dette fortsatt vanlige aksjer når du eier dem.</p></li>
                 <li><p>Du må beholde aksjene for å få utbetalt utbytte.</p></li>
-                <li><p>Kun hele aksjer kan kjøpes. Den fraksjonelle delen blir tilbakebetalt på neste lønning. <strong style="color: white;">Merk:</strong> Du får likevel rabattfordel på hele det oppsparte beløpet ditt. Hvis du ender med 10.6 aksjer <i>med</i> rabatt, får du verdien av 0.6 aksjer til <i>markedspris</i> tilbakebetalt.</p></li>
+                <li><p>Kun hele aksjer kan kjøpes. Den fraksjonelle delen blir tilbakebetalt på neste lønning. <strong class="glow">Merk:</strong> Du får likevel rabattfordel på hele det oppsparte beløpet ditt. Hvis du ender med 10.6 aksjer <i>med</i> rabatt, får du verdien av 0.6 aksjer til <i>markedspris</i> tilbakebetalt.</p></li>
               </ul>
             </div>
             <div class="tintCard cyan">
@@ -1246,9 +1250,9 @@
               <p style="margin-bottom:8px">Første gang du skal logge inn må du registrere deg hos UBS:</p>
               <ol class="clean" style="display:grid; gap:6px">
                 <li><p>Gå til <a href="https://onesource.ubs.com/CEFSWebApp/callpage.do?bookCode=ACN&page=login_header_new" target="_blank" rel="noopener" style="color:var(--cyan)">UBS One Source</a>.</p></li>
-                <li><p>Klikk på <strong style="color:var(--text)">First time at UBS One Source?</strong>.</p></li>
-                <li><p>Bruk ditt <strong style="color:var(--text)">8-sifrede Accenture Employee ID</strong> som brukernavn (finnes i MyHolding eller Workday).</p></li>
-                <li><p>Følg stegene for å aktivere kontoen i henhold til <strong style="color:var(--text)">UBS account activation instructions</strong> (sett inn dokumentlenke her).</p></li>
+                <li><p>Klikk på <strong class="glow">First time at UBS One Source?</strong>.</p></li>
+                <li><p>Bruk ditt <strong class="glow">8-sifrede Accenture Employee ID</strong> som brukernavn (finnes i MyHolding eller Workday).</p></li>
+                <li><p>Følg stegene for å aktivere kontoen i henhold til <strong class="glow">UBS account activation instructions</strong> (sett inn dokumentlenke her).</p></li>
                 <li><p>Har du problemer, se <a href="https://myholdings.accenture.com/brokerspage" target="_blank" rel="noopener" style="color:var(--cyan)">UBS kontaktinformasjon på MyHoldings brokers page</a>.</p></li>
               </ol>
             </div>
@@ -1301,8 +1305,8 @@
                 <p>Du oppgir markedsverdi ved årsskiftet. Du blir ikke beskattet av at du eier dem, utover evt. formueskatt. <br><br>For aksjer du har i utenlandske banker, som UBS, er dette ofte ikke forhåndsutfylt. Da må du gjøre jobben selv. <br><br> Konkret oppgir du navn på aksje, bank du har dem i, ISIN, antall aksjer, total verdi per 31.12, osv.</p>
                 <div class="tintBox grad green" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.55">
                   <h4>Eksempel</h4>
-                  <div>31. desember 2025 hadde du <strong style="color:var(--text)">100 aksjer</strong> i Accenture.</div>
-                  <div>Sluttkurs den dagen: <strong style="color:var(--text)">$268,30</strong></div>
+                  <div>31. desember 2025 hadde du <strong class="glow">100 aksjer</strong> i Accenture.</div>
+                  <div>Sluttkurs den dagen: <strong class="glow">$268,30</strong></div>
                   <div style="margin-top:6px; padding-top:6px; border-top:1px solid rgba(103,232,168,.2)">
                     Beholdning = 100 × $268,30 = <strong style="color:var(--green)">$26 830</strong>
                   </div>
@@ -1317,12 +1321,12 @@
                 <p>Brutto utbytte skal føres og skal beskattes årlig som en form for inntekt. Accenture utbetaler typisk utbytte hvert kvartal. <br><br>Du får mail hver gang du mottar utbytte. Se etter mail fra "Total Rewards" med emne "Prepare for [Q1 | Q2 | Q3 | Q4] dividend". Der står det hvor mange dollar utbytte du får per aksje du har på en gitt dato.</p>
                 <div class="tintBox grad cyan" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.55">
                   <h4>Eksempel</h4>
-                  <div style="margin-bottom:4px">Du startet 2025 med <strong style="color:var(--text)">50 aksjer</strong>, kjøpte <strong style="color:var(--text)">20</strong> til 1. mai og <strong style="color:var(--text)">30</strong> til 1. sept. Eksempelet bruker relle utbytte-satser for Accenture i 2025.</div>
+                  <div style="margin-bottom:4px">Du startet 2025 med <strong class="glow">50 aksjer</strong>, kjøpte <strong class="glow">20</strong> til 1. mai og <strong class="glow">30</strong> til 1. sept. Eksempelet bruker relle utbytte-satser for Accenture i 2025.</div>
                   <div style="display:grid; grid-template-columns:auto auto auto 1fr; gap:2px 10px; margin-top:8px; font-size:12px">
-                    <span>Q1</span><span>15. jan</span><span>50 × $1,48</span><strong style="color:var(--text); text-align:right">= $74,00</strong>
-                    <span>Q2</span><span>9. apr</span><span>50 × $1,48</span><strong style="color:var(--text); text-align:right">= $74,00</strong>
-                    <span>Q3</span><span>9. jul</span><span>70 × $1,48</span><strong style="color:var(--text); text-align:right">= $103,60</strong>
-                    <span>Q4</span><span>9. okt</span><span>100 × $1,63</span><strong style="color:var(--text); text-align:right">= $163,00</strong>
+                    <span>Q1</span><span>15. jan</span><span>50 × $1,48</span><strong class="glow" style="text-align:right">= $74,00</strong>
+                    <span>Q2</span><span>9. apr</span><span>50 × $1,48</span><strong class="glow" style="text-align:right">= $74,00</strong>
+                    <span>Q3</span><span>9. jul</span><span>70 × $1,48</span><strong class="glow" style="text-align:right">= $103,60</strong>
+                    <span>Q4</span><span>9. okt</span><span>100 × $1,63</span><strong class="glow" style="text-align:right">= $163,00</strong>
                   </div>
                   <div style="margin-top:6px; padding-top:6px; border-top:1px solid rgba(103, 232, 230, 0.2)">
                     Totalt utbytte i 2025 = <strong style="color:var(--cyan)">$414,60</strong>
@@ -1341,11 +1345,11 @@
                 <p>Har du solgt aksjer, må gevinst eller tap også inn. Da er kjøpspris, salgspris og eventuelt skjerming viktige. <br><br> Se egen slide om salg, og beskatning av akjser ved salg. Merk: Undertegned har aldri solgt Accenture-aksjen, og kjenner derfor ikke det praktiske forløpet i detalj. Hooooooold!</p>
                 <div class="tintBox grad amber" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.55">
                   <h4>Eksempel</h4>
-                  <div style="margin-bottom:4px">Du selger alle <strong style="color:var(--text)">100 aksjer</strong> i desember til <strong style="color:var(--text)">$250</strong> per aksje.</div>
+                  <div style="margin-bottom:4px">Du selger alle <strong class="glow">100 aksjer</strong> i desember til <strong class="glow">$250</strong> per aksje.</div>
                   <div style="display:grid; grid-template-columns:auto auto 1fr; gap:2px 10px; margin-top:8px; font-size:12px">
-                    <span>50 stk</span><span>kjøpt @ $180</span><span style="text-align:right">gevinst 50 × $70 = <strong style="color:var(--text)">$3 500</strong></span>
-                    <span>20 stk</span><span>kjøpt @ $210</span><span style="text-align:right">gevinst 20 × $40 = <strong style="color:var(--text)">$800</strong></span>
-                    <span>30 stk</span><span>kjøpt @ $230</span><span style="text-align:right">gevinst 30 × $20 = <strong style="color:var(--text)">$600</strong></span>
+                    <span>50 stk</span><span>kjøpt @ $180</span><span style="text-align:right">gevinst 50 × $70 = <strong class="glow">$3 500</strong></span>
+                    <span>20 stk</span><span>kjøpt @ $210</span><span style="text-align:right">gevinst 20 × $40 = <strong class="glow">$800</strong></span>
+                    <span>30 stk</span><span>kjøpt @ $230</span><span style="text-align:right">gevinst 30 × $20 = <strong class="glow">$600</strong></span>
                   </div>
                   <div style="margin-top:6px; padding-top:6px; border-top:1px solid rgba(232, 211, 103, 0.2)">
                     Total gevinst = <strong style="color:var(--amber)">$4 900</strong>
@@ -1426,7 +1430,7 @@
             <div class="countryCard">
               <div class="label">Børs / broker-løp</div>
               <div class="big">USA</div>
-              <p>Aksjen handles i USA som <strong>ACN</strong> på NYSE, og ESPP-aksjene ligger hos <strong>UBS</strong>.</p>
+              <p>Aksjen handles i USA som <strong class="glow">ACN</strong> på NYSE, og ESPP-aksjene ligger hos <strong class="glow">UBS</strong>.</p>
             </div>
             <div class="countryCard">
               <div class="label">Din skatt</div>
@@ -1461,7 +1465,7 @@
                   <div style="min-width:26px; height:26px; border-radius:999px; background:rgba(103,232,168,.15); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--green); font-size:12px; flex-shrink:0">2</div>
                   <div style="font-weight:700; color:var(--green); font-size:14px">Hva går jeg da glipp av?</div>
                 </div>
-                <p style="font-size:13px; margin-bottom:6px">Om du ikke foretar deg noe mer, ender du med å betale skatt på <strong>utbytte</strong> flere ganger:</p>
+                <p style="font-size:13px; margin-bottom:6px">Om du ikke foretar deg noe mer, ender du med å betale skatt på <strong class="glow">utbytte</strong> flere ganger:</p>
                 <div style="display:flex; justify-content:space-around; text-align:center; gap:10px; margin:8px 0 4px">
                   <div><div style="font-size:28px; font-weight:800; letter-spacing:-.03em; color:var(--red)">30%</div><div style="font-size:11px; color:var(--muted)">utbytteskatt til USA</div></div>
                   <div><div style="font-size:28px; font-weight:800; letter-spacing:-.03em; color:var(--amber)">25%</div><div style="font-size:11px; color:var(--muted)">utbytteskatt til Irland</div></div>
@@ -1557,7 +1561,7 @@
           <div class="tintCard cyan">
             <h3>Om W‑8 BEN</h3>
             <p style="margin-bottom:12px">
-              W‑8 BEN (<em>Certificate of Foreign Status of Beneficial Owner</em>) er et amerikansk skatteskjema fra IRS. Det bekrefter at du er en <strong style="color:white">ikke‑amerikansk person</strong>, slik at det ikke trekkes kildeskatt til USA ved utbytte.
+              W‑8 BEN (<em>Certificate of Foreign Status of Beneficial Owner</em>) er et amerikansk skatteskjema fra IRS. Det bekrefter at du er en <strong class="glow">ikke‑amerikansk person</strong>, slik at det ikke trekkes kildeskatt til USA ved utbytte.
             </p>
 
             <h4 style="margin:14px 0 6px">Hva skjemaet spør om</h4>
@@ -1570,7 +1574,7 @@
 
             <h4 style="margin:14px 0 6px">Hvordan fylle det ut og sende inn</h4>
             <p style="margin-bottom:12px">
-              Skjemaet fylles ut digitalt inne i <strong style="color: white;">UBS‑portalen</strong> som en del av onboarding eller periodisk fornyelse. Du sender det ikke til IRS selv. Accenture har en egen guide som er fin å følge, men enkelte spørsmål kan likevel være litt forvirrende. Svar etter beste evne, og ta kontakt hvis du lurer på noe. <br><br> Skjemaet er gratis og har en varighet på tre år. Når du logger inn i UBS, vil de gi deg varsel om skjemaet er i ferd med å utløpe og instruerer deg til å fornye det. Det er derfor lurt å logge inn hos UBS i ny og ne.
+              Skjemaet fylles ut digitalt inne i <strong class="glow">UBS‑portalen</strong> som en del av onboarding eller periodisk fornyelse. Du sender det ikke til IRS selv. Accenture har en egen guide som er fin å følge, men enkelte spørsmål kan likevel være litt forvirrende. Svar etter beste evne, og ta kontakt hvis du lurer på noe. <br><br> Skjemaet er gratis og har en varighet på tre år. Når du logger inn i UBS, vil de gi deg varsel om skjemaet er i ferd med å utløpe og instruerer deg til å fornye det. Det er derfor lurt å logge inn hos UBS i ny og ne.
             </p>
 
             <a href="https://example.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; margin-top:8px; padding:10px 18px; border-radius:999px; background:linear-gradient(135deg, var(--purple), var(--purple2)); color:#fff; text-decoration:none; font-size:14px; font-weight:600; transition:.18s ease;">
@@ -1607,10 +1611,10 @@
                 <span style="font-size:22px">🛡️</span> Hva er skjerming?
               </h3>
               <p style="margin-bottom:10px">
-                Skjerming er et skattefradrag som gjør at en del av utbyttet du mottar fra aksjer er <strong style="color: white;">skattefritt</strong>. Tanken bak er at aksjonærer allerede tar risiko ved å investere – de bør derfor få beholde en «risikofri avkastning» uten ekstra beskatning.
+                Skjerming er et skattefradrag som gjør at en del av utbyttet du mottar fra aksjer er <strong class="glow">skattefritt</strong>. Tanken bak er at aksjonærer allerede tar risiko ved å investere – de bør derfor få beholde en «risikofri avkastning» uten ekstra beskatning.
               </p>
               <p>
-                Skjermingsfradraget beregnes ut fra aksjenes <strong style="color: white;">inngangsverdi</strong> (som for ESPP-aksjer betyr markedsverdi, ikke rabattert verdi) multiplisert med en <strong style="color: white;">skjermingsrente</strong> fastsatt av Skatteetaten hvert år. Ubrukt skjerming kan overføres til neste år.
+                Skjermingsfradraget beregnes ut fra aksjenes <strong class="glow">inngangsverdi</strong> (som for ESPP-aksjer betyr markedsverdi, ikke rabattert verdi) multiplisert med en <strong class="glow">skjermingsrente</strong> fastsatt av Skatteetaten hvert år. Ubrukt skjerming kan overføres til neste år.
               </p>
             </div>
 
@@ -1633,7 +1637,7 @@
                 </div>
               </div>
               <p>
-                Utbytte beskattes med 37.84% (22% × 1.72 oppjusteringsfaktor). Skjermingen <strong style="color: white;">reduserer beløpet</strong> som beskattes – ikke skattesatsen. Jo høyere kostpris og skjermingsrente, desto mer slipper du å skatte på.
+                Utbytte beskattes med 37.84% (22% × 1.72 oppjusteringsfaktor). Skjermingen <strong class="glow">reduserer beløpet</strong> som beskattes – ikke skattesatsen. Jo høyere kostpris og skjermingsrente, desto mer slipper du å skatte på.
               </p>
             </div>
 
@@ -1643,10 +1647,10 @@
                 <span style="font-size:22px">📝</span> Hvordan kreve skjerming?
               </h3>
               <ul class="clean" style="margin:6px 0 0">
-                <li><p>Du fører skjermingsfradraget <strong style="color: white;">selv</strong> i skattemeldingen – det forhåndsutfylles ikke for utenlandske aksjer.</p></li>
-                <li><p>Regn ut skjermingsfradraget ditt basert på <strong style="color: white;">skjermingsgrunnlaget</strong> (inngangsverdi + evt. ubenyttet skjerming fra tidligere år) og <strong style="color: white;">skjermingsrente</strong> (slå opp for gitt år).</p></li>
+                <li><p>Du fører skjermingsfradraget <strong class="glow">selv</strong> i skattemeldingen – det forhåndsutfylles ikke for utenlandske aksjer.</p></li>
+                <li><p>Regn ut skjermingsfradraget ditt basert på <strong class="glow">skjermingsgrunnlaget</strong> (inngangsverdi + evt. ubenyttet skjerming fra tidligere år) og <strong class="glow">skjermingsrente</strong> (slå opp for gitt år).</p></li>
                 <li><p>Utregnet beløp, inntil verdien av det skattepliktige utbyttet ditt, føres så i feltet for skjermingsfradrag under aksjen den gjelder for.</p></li>
-                <li><p>Ubrukt skjerming (mer skjerming enn utbytte) <strong style="color: white;">rulles videre</strong> til neste år.</p></li>
+                <li><p>Ubrukt skjerming (mer skjerming enn utbytte) <strong class="glow">rulles videre</strong> til neste år.</p></li>
               </ul>
             </div>
           </div>
@@ -1732,7 +1736,7 @@
           <div class="titleRow">
             <div>
               <h2>Skjerming med flere kjøpstransjer</h2>
-              <div class="subtitle">Har du kjøpt aksjer i samme selskap til ulike tidspunkt (f.eks. via ESPP hvert halvår) of fått utbytte flere ganger, må du beregne skjerming <strong>separat for hver transje</strong> og summere til slutt.</div>
+              <div class="subtitle">Har du kjøpt aksjer i samme selskap til ulike tidspunkt (f.eks. via ESPP hvert halvår) of fått utbytte flere ganger, må du beregne skjerming <strong class="glow">separat for hver transje</strong> og summere til slutt.</div>
             </div>
           </div>
         </div>
@@ -1748,10 +1752,10 @@
                 <span style="font-size:22px">📌</span> Hovedregel: Én beregning per kjøpstransje
               </h3>
               <p style="margin-bottom:10px">
-                Skjermingsfradraget beregnes <strong>per aksje</strong> – det kan ikke overføres til andre aksjer.
+                Skjermingsfradraget beregnes <strong class="glow">per aksje</strong> – det kan ikke overføres til andre aksjer.
               </p>
               <p>
-                I praksis betyr dette at om du har kjøpt samme selskap flere ganger, til ulike priser eller på ulike tidspunkt, må du behandle hvert kjøp som en <strong>egen transje</strong> med sin egen skjermingshistorikk. Heldigvis har Skatteetaten en kalkulator som gjør hver transjeberegning relativt enkel, men over tid blir det likevel en stadig større jobb.
+                I praksis betyr dette at om du har kjøpt samme selskap flere ganger, til ulike priser eller på ulike tidspunkt, må du behandle hvert kjøp som en <strong class="glow">egen transje</strong> med sin egen skjermingshistorikk. Heldigvis har Skatteetaten en kalkulator som gjør hver transjeberegning relativt enkel, men over tid blir det likevel en stadig større jobb.
               </p>
             </div>
 
@@ -1856,11 +1860,11 @@
                   <h4>Eksempel 1: Utbytte overstiger skjermingsfradraget</h4>
                   <p style="margin:0 0 8px; font-size:12px; line-height:1.45">Dette eksempelet viser et tilfelle der utbyttet er høyere enn årets skjermingsfradrag. Differansen blir skattepliktig utbytte.</p>
                   <div style="display:grid; grid-template-columns:1fr auto; gap:5px 10px; font-size:12px; color:var(--muted)">
-                    <div>Inngangsverdi aksje</div><strong style="color:var(--text)">10 000 kr</strong>
-                    <div>Skjermingsgrunnlag år 1: 10 000 + 0</div><strong style="color:var(--text)">10 000 kr</strong>
-                    <div>Skjermingsrente år 1</div><strong style="color:var(--text)">2,0%</strong>
+                    <div>Inngangsverdi aksje</div><strong class="glow">10 000 kr</strong>
+                    <div>Skjermingsgrunnlag år 1: 10 000 + 0</div><strong class="glow">10 000 kr</strong>
+                    <div>Skjermingsrente år 1</div><strong class="glow">2,0%</strong>
                     <div>Skjermingsfradrag år 1: 10 000 x 2,0%</div><strong style="color:var(--cyan)">200 kr</strong>
-                    <div>Utbytte år 1</div><strong style="color:var(--text)">500 kr</strong>
+                    <div>Utbytte år 1</div><strong class="glow">500 kr</strong>
                     <div>Skattepliktig utbytte før oppjustering: 500 - 200</div><strong style="color:var(--green)">300 kr</strong>
                     <div>Oppjustert grunnlag (personlig aksjonær): 300 x 1,72</div><strong style="color:var(--amber)">516 kr</strong>
                   </div>
@@ -1873,23 +1877,23 @@
                     <div style="padding:8px 10px; border-radius:10px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.1)">
                       <div style="font-size:11px; color:var(--cyan); text-transform:uppercase; letter-spacing:.08em; font-weight:700; margin-bottom:5px">År 2</div>
                       <div style="display:grid; grid-template-columns:1fr auto; gap:4px 10px; font-size:12px; color:var(--muted)">
-                        <div>Skjermingsgrunnlag: 10 000 + 0</div><strong style="color:var(--text)">10 000 kr</strong>
-                        <div>Utbytte år 2</div><strong style="color:var(--text)">100 kr</strong>
+                        <div>Skjermingsgrunnlag: 10 000 + 0</div><strong class="glow">10 000 kr</strong>
+                        <div>Utbytte år 2</div><strong class="glow">100 kr</strong>
                         <div>Skjermingsfradrag: 10 000 x 3,3%</div><strong style="color:var(--cyan)">330 kr</strong>
                         <div>Skattepliktig utbytte</div><strong style="color:var(--green)">0 kr</strong>
-                        <div>Ubenyttet skjerming: 330 - 100</div><strong style="color:var(--text)">230 kr</strong>
+                        <div>Ubenyttet skjerming: 330 - 100</div><strong class="glow">230 kr</strong>
                       </div>
                     </div>
                     <div style="padding:8px 10px; border-radius:10px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.1)">
                       <div style="font-size:11px; color:var(--cyan); text-transform:uppercase; letter-spacing:.08em; font-weight:700; margin-bottom:5px">År 3</div>
                       <div style="display:grid; grid-template-columns:1fr auto; gap:4px 10px; font-size:12px; color:var(--muted)">
-                        <div>Skjermingsgrunnlag: 10 000 + 230</div><strong style="color:var(--text)">10 230 kr</strong>
-                        <div>Utbytte år 3</div><strong style="color:var(--text)">400 kr</strong>
+                        <div>Skjermingsgrunnlag: 10 000 + 230</div><strong class="glow">10 230 kr</strong>
+                        <div>Utbytte år 3</div><strong class="glow">400 kr</strong>
                         <div>Skjerming år 3: 10 230 x 3,3%</div><strong style="color:var(--cyan)">337,6 kr</strong>
-                        <div>Ubenyttet skjerming fra år 2</div><strong style="color:var(--text)">230 kr</strong>
-                        <div>Samlet skjerming tilgjengelig</div><strong style="color:var(--text)">567,6 kr</strong>
+                        <div>Ubenyttet skjerming fra år 2</div><strong class="glow">230 kr</strong>
+                        <div>Samlet skjerming tilgjengelig</div><strong class="glow">567,6 kr</strong>
                         <div>Skattepliktig utbytte</div><strong style="color:var(--green)">0 kr</strong>
-                        <div>Ny fremføring: 567,6 - 400</div><strong style="color:var(--text)">167,6 kr</strong>
+                        <div>Ny fremføring: 567,6 - 400</div><strong class="glow">167,6 kr</strong>
                       </div>
                     </div>
                   </div>
@@ -1899,14 +1903,14 @@
                   <h4>Eksempel 3: Solgt i løpet av året (år 4)</h4>
                   <p style="margin:0 0 8px; font-size:12px; line-height:1.45">Dette eksempelet viser at du ikke får ny skjerming i salgsåret hvis aksjen ikke er i behold ved årsslutt. Fremført skjerming kan likevel brukes til å redusere gevinst, men ikke skape tap.</p>
                   <div style="display:grid; grid-template-columns:1fr auto; gap:5px 10px; font-size:12px; color:var(--muted)">
-                    <div>Utbytte år 4</div><strong style="color:var(--text)">100 kr</strong>
-                    <div>Ny skjerming år 4 (ikke i behold 31.12)</div><strong style="color:var(--text)">0 kr</strong>
-                    <div>Ubenyttet skjerming fra år 3</div><strong style="color:var(--text)">167,6 kr</strong>
+                    <div>Utbytte år 4</div><strong class="glow">100 kr</strong>
+                    <div>Ny skjerming år 4 (ikke i behold 31.12)</div><strong class="glow">0 kr</strong>
+                    <div>Ubenyttet skjerming fra år 3</div><strong class="glow">167,6 kr</strong>
                     <div>Skattepliktig utbytte år 4</div><strong style="color:var(--green)">0 kr</strong>
-                    <div>Rest skjerming etter utbytte: 167,6 - 100</div><strong style="color:var(--text)">67,6 kr</strong>
-                    <div>Salgsvederlag</div><strong style="color:var(--text)">10 060 kr</strong>
-                    <div>Inngangsverdi</div><strong style="color:var(--text)">10 000 kr</strong>
-                    <div>Gevinst før skjerming: 10 060 - 10 000</div><strong style="color:var(--text)">60 kr</strong>
+                    <div>Rest skjerming etter utbytte: 167,6 - 100</div><strong class="glow">67,6 kr</strong>
+                    <div>Salgsvederlag</div><strong class="glow">10 060 kr</strong>
+                    <div>Inngangsverdi</div><strong class="glow">10 000 kr</strong>
+                    <div>Gevinst før skjerming: 10 060 - 10 000</div><strong class="glow">60 kr</strong>
                     <div>Skjerming brukt mot gevinst (maks til 0)</div><strong style="color:var(--cyan)">60 kr</strong>
                     <div>Skattepliktig gevinst</div><strong style="color:var(--green)">0 kr</strong>
                     <div>Overskytende skjerming som bortfaller: 67,6 - 60</div><strong style="color:var(--red)">7,6 kr</strong>
@@ -1920,7 +1924,7 @@
             </div>
 
             <div class="note">
-              💡 <strong>Tips:</strong> Før du setter i gang med kalkulatoren bør du har klart en oversikt over når du har kjøpt aksjer og til hvilken kostpris, samt hvor mye utbytte du har fått per år per transje. Da er det bare å plotte inn i kalkultoren for hver transje og summere. Undetegnede holder oversikt over datapunktene som skal inn i kalkulatoren i et eget excelark, men all data kan når som helst hentes ut fra MyHolding eller UBS.
+              💡 <strong class="glow">Tips:</strong> Før du setter i gang med kalkulatoren bør du har klart en oversikt over når du har kjøpt aksjer og til hvilken kostpris, samt hvor mye utbytte du har fått per år per transje. Da er det bare å plotte inn i kalkultoren for hver transje og summere. Undetegnede holder oversikt over datapunktene som skal inn i kalkulatoren i et eget excelark, men all data kan når som helst hentes ut fra MyHolding eller UBS.
             </div>
           </div>
 
@@ -1947,7 +1951,7 @@
             <div style="background:rgba(250,204,21,.08); border:1px solid rgba(250,204,21,.22); border-radius:14px; padding:14px 16px;">
               <h4 style="margin:0 0 6px; font-size:14px; color:var(--yellow, #facc15)">⚠️ Kun effekt etter skjermingsfradrag</h4>
               <p style="color:var(--muted); line-height:1.6; margin:0">
-                Kredittfradrag beregnes kun på den delen av utbyttet som faktisk beskattes i Norge – altså <strong>etter</strong> at skjermingsfradraget er trukket fra. Hvis skjermingsfradraget ditt allerede dekker hele det skattepliktige utbyttet (dvs. utbytte etter oppjustering minus skjermingsfradrag = 0), har kredittfradraget <strong>ingen effekt</strong> fordi det ikke er noen norsk skatt å redusere. <br><br> <strong>Med andre ord:</strong> Kun når total skjerming for en aksjepost ikke dekker all utbytte du får det året, vil kredittfradrag kunne bistå med reduksjon av skatt.
+                Kredittfradrag beregnes kun på den delen av utbyttet som faktisk beskattes i Norge – altså <strong class="glow">etter</strong> at skjermingsfradraget er trukket fra. Hvis skjermingsfradraget ditt allerede dekker hele det skattepliktige utbyttet (dvs. utbytte etter oppjustering minus skjermingsfradrag = 0), har kredittfradraget <strong class="glow">ingen effekt</strong> fordi det ikke er noen norsk skatt å redusere. <br><br> <strong class="glow">Med andre ord:</strong> Kun når total skjerming for en aksjepost ikke dekker all utbytte du får det året, vil kredittfradrag kunne bistå med reduksjon av skatt.
               </p>
             </div>
             <a href="https://www.youtube.com/watch?v=VzX4a1A9XNQ" target="_blank" rel="noopener noreferrer" style="display:block; position:relative; width:100%; border-radius:var(--radius); border:1px solid var(--line); overflow:hidden; text-decoration:none;">
@@ -1970,7 +1974,7 @@
             <div class="tintBox cyan" style="padding:14px 16px; margin:0 0 14px">
               <h4 style="margin:0 0 6px; font-size:14px">Fradrag gir delvis skatteeffekt</h4>
               <p style="line-height:1.6; margin:0">
-                Irland trekker <strong>25% kildeskatt</strong> på utbytte som standard, fordi de ikke vet hvor du bor. For kredittfradrag bruker vi her et fradragsgrunnlag på opptil <strong>15%</strong> av brutto utbytte (skatteavtale). Siden fradraget reduserer skattegrunnlaget, blir faktisk effekt i kroner <strong>fradrag × norsk skattesats</strong> (37,84%), ikke krone-for-krone tilbakebetaling.
+                Irland trekker <strong class="glow">25% kildeskatt</strong> på utbytte som standard, fordi de ikke vet hvor du bor. For kredittfradrag bruker vi her et fradragsgrunnlag på opptil <strong class="glow">15%</strong> av brutto utbytte (skatteavtale). Siden fradraget reduserer skattegrunnlaget, blir faktisk effekt i kroner <strong class="glow">fradrag × norsk skattesats</strong> (37,84%), ikke krone-for-krone tilbakebetaling.
               </p>
             </div>
 
@@ -2012,7 +2016,7 @@
           <div class="tintCard green">
             <h3>Om V2A-skjemaet</h3>
             <p style="margin-bottom:12px">
-              V2A (<em>Claim for relief from Irish Income Tax on dividends</em>) er et irsk skatteskjema som bekrefter at du er <strong>bosatt i et land med skatteavtale</strong> med Irland. Når Irland mottar dette, vet de hvor du bor og ser du kvalifiserer for fritak for kildeskatt til dem (DWT – dividend witholding tax).
+              V2A (<em>Claim for relief from Irish Income Tax on dividends</em>) er et irsk skatteskjema som bekrefter at du er <strong class="glow">bosatt i et land med skatteavtale</strong> med Irland. Når Irland mottar dette, vet de hvor du bor og ser du kvalifiserer for fritak for kildeskatt til dem (DWT – dividend witholding tax).
             </p>
 
             <h4 style="margin:14px 0 6px">Hvorfor er det nyttig?</h4>
@@ -2022,13 +2026,13 @@
 
             <h4 style="margin:14px 0 6px">Hvordan sende inn?</h4>
             <p style="margin-bottom:12px">
-              Fyll ut skjemaet med personalia. Skjemaet må <strong>stemples av Skatteetaten</strong> for å bekrefte at du er skattepliktig i Norge. Deretter sender du det til irske skattemyndigheter per epost (TODO: verifiser at epost går). TODO: Hvor lenge gyldig?.
+              Fyll ut skjemaet med personalia. Skjemaet må <strong class="glow">stemples av Skatteetaten</strong> for å bekrefte at du er skattepliktig i Norge. Deretter sender du det til irske skattemyndigheter per epost (TODO: verifiser at epost går). TODO: Hvor lenge gyldig?.
             </p>
 
             <div class="tintBox green" style="padding:14px 16px; margin:0">
               <h4 style="margin:0 0 6px; font-size:14px">Gjør kredittfradrag overflødig</h4>
               <p style="line-height:1.6; margin:0">
-                Når V2A er levert, trekker Irland 0%. Da har du <strong>ikke betalt for mye</strong> kildeskatt lenger, og det er ingenting å kreve tilbake via kredittfradrag. V2A løser problemet fullstendig ved kilden i stedet for delvis i etterkant.
+                Når V2A er levert, trekker Irland 0%. Da har du <strong class="glow">ikke betalt for mye</strong> kildeskatt lenger, og det er ingenting å kreve tilbake via kredittfradrag. V2A løser problemet fullstendig ved kilden i stedet for delvis i etterkant.
               </p>
             </div>
           </div>
@@ -2057,9 +2061,9 @@
             <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:4px">
               <span>USA-trekk (30%)</span><strong style="color:var(--red); text-align:right">3 000 kr</strong>
               <span>Irsk DWT (25%)</span><strong style="color:var(--red); text-align:right">2 500 kr</strong>
-              <span>Norsk skatt</span><strong style="text-align:right">3 784 kr</strong>
-              <span style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</span><strong style="text-align:right; border-top:1px solid var(--line); padding-top:4px">9 284 kr</strong>
-              <span style="color:var(--text)">Netto igjen</span><strong style="color:var(--red); font-size:18px; text-align:right">716 kr</strong>
+              <span>Norsk skatt</span><strong class="glow" style="text-align:right">3 784 kr</strong>
+              <span style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</span><strong class="glow" style="text-align:right; border-top:1px solid var(--line); padding-top:4px">9 284 kr</strong>
+              <span>Netto igjen</span><strong style="color:var(--red); font-size:18px; text-align:right">716 kr</strong>
             </div>
           </div>
 
@@ -2068,10 +2072,10 @@
             <div class="labelTag" style="background:rgba(246,196,83,.12); margin-bottom:8px">1 · W‑8 BEN</div>
             <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:4px">
               <span>USA-trekk (0%)</span><strong style="color:var(--amber); text-align:right">0 kr</strong>
-              <span>Irsk DWT (25%)</span><strong style="text-align:right">2 500 kr</strong>
-              <span>Norsk skatt</span><strong style="text-align:right">3 784 kr</strong>
-              <span style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</span><strong style="text-align:right; border-top:1px solid var(--line); padding-top:4px">6 284 kr</strong>
-              <span style="color:var(--text)">Netto igjen</span><strong style="color:var(--amber); font-size:18px; text-align:right">3 716 kr</strong>
+              <span>Irsk DWT (25%)</span><strong class="glow" style="text-align:right">2 500 kr</strong>
+              <span>Norsk skatt</span><strong class="glow" style="text-align:right">3 784 kr</strong>
+              <span style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</span><strong class="glow" style="text-align:right; border-top:1px solid var(--line); padding-top:4px">6 284 kr</strong>
+              <span>Netto igjen</span><strong style="color:var(--amber); font-size:18px; text-align:right">3 716 kr</strong>
             </div>
             <div class="note" style="margin-top:8px">W‑8 BEN fjerner USA-trekket i dette eksemplet. Irsk DWT er fortsatt fullt.</div>
           </div>
@@ -2080,12 +2084,12 @@
           <div class="tintCard cyan">
             <div class="labelTag" style="background:rgba(103,232,249,.12); margin-bottom:8px">2 · W‑8 BEN + kreditfradrag</div>
             <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:4px">
-              <span>USA-trekk (0%)</span><strong style="text-align:right">0 kr</strong>
-              <span>Irsk DWT (25%)</span><strong style="text-align:right">2 500 kr</strong>
-              <span>Norsk skatt (før fradragseffekt)</span><strong style="text-align:right">3 784 kr</strong>
+              <span>USA-trekk (0%)</span><strong class="glow" style="text-align:right">0 kr</strong>
+              <span>Irsk DWT (25%)</span><strong class="glow" style="text-align:right">2 500 kr</strong>
+              <span>Norsk skatt (før fradragseffekt)</span><strong class="glow" style="text-align:right">3 784 kr</strong>
               <span>Fradragseffekt (1 500 × 37,84%)</span><strong style="color:var(--cyan); text-align:right">−568 kr</strong>
-              <span style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</span><strong style="text-align:right; border-top:1px solid var(--line); padding-top:4px">5 716 kr</strong>
-              <span style="color:var(--text)">Netto igjen</span><strong style="color:var(--cyan); font-size:18px; text-align:right">4 284 kr</strong>
+              <span style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</span><strong class="glow" style="text-align:right; border-top:1px solid var(--line); padding-top:4px">5 716 kr</strong>
+              <span>Netto igjen</span><strong style="color:var(--cyan); font-size:18px; text-align:right">4 284 kr</strong>
             </div>
             <div class="note" style="margin-top:8px">Kredittfradrag er her modellert som fradrag i skattegrunnlaget. Derfor blir kontant effekt 15% × norsk sats, ikke full 15% tilbakebetaling. V2A er fortsatt mest effektivt for å fjerne irsk trekk.</div>
           </div>
@@ -2094,12 +2098,12 @@
           <div class="tintCard green">
             <div class="labelTag green" style="margin-bottom:8px">3 · V2A + W‑8 BEN</div>
             <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:4px">
-              <span>USA-trekk (0%)</span><strong style="text-align:right">0 kr</strong>
+              <span>USA-trekk (0%)</span><strong class="glow" style="text-align:right">0 kr</strong>
               <span>Irsk DWT (0% — V2A)</span><strong style="color:var(--green); text-align:right">0 kr</strong>
-              <span>Norsk skatt</span><strong style="text-align:right">3 784 kr</strong>
-              <span>Kredittfradrag (ikke lenger relevant)</span><strong style="text-align:right">-0 kr</strong>
-              <span style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</span><strong style="text-align:right; border-top:1px solid var(--line); padding-top:4px">3 784 kr</strong>
-              <span style="color:var(--text)">Netto igjen</span><strong style="color:var(--green); font-size:18px; text-align:right">6 216 kr</strong>
+              <span>Norsk skatt</span><strong class="glow" style="text-align:right">3 784 kr</strong>
+              <span>Kredittfradrag (ikke lenger relevant)</span><strong class="glow" style="text-align:right">-0 kr</strong>
+              <span style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</span><strong class="glow" style="text-align:right; border-top:1px solid var(--line); padding-top:4px">3 784 kr</strong>
+              <span>Netto igjen</span><strong style="color:var(--green); font-size:18px; text-align:right">6 216 kr</strong>
             </div>
             <div class="note" style="margin-top:8px">V2A fjerner irsk DWT ved kilden → irsk kreditfradrag overflødig. Samlet skatt = kun norsk sats.</div>
           </div>
@@ -2130,13 +2134,13 @@
             <div class="tintCard neutral">
               <h3>Hvordan selger du aksjer?</h3>
               <ul class="clean" style="margin-top:8px">
-                <li>Salg gjøres via <strong>UBS</strong> eller <strong>MyHoldings</strong>-portalen.</li>
-                <li>Når du selger, gjelder <strong>FIFO</strong> (First In, First Out) – de aksjene du kjøpte <em>først</em> regnes som solgt først.</li>
+                <li>Salg gjøres via <strong class="glow">UBS</strong> eller <strong class="glow">MyHoldings</strong>-portalen.</li>
+                <li>Når du selger, gjelder <strong class="glow">FIFO</strong> (First In, First Out) – de aksjene du kjøpte <em>først</em> regnes som solgt først.</li>
                 <li>Gevinst eller tap beregnes ut fra differansen mellom salgspris og kostpris (inngangsverdi) for de aksjene som faktisk selges.</li>
-                <li>Gevinsten er <strong>skattepliktig</strong>, og tap gir tilsvarende <strong>fradrag</strong>.</li>
+                <li>Gevinsten er <strong class="glow">skattepliktig</strong>, og tap gir tilsvarende <strong class="glow">fradrag</strong>.</li>
               </ul>
               <div class="note" style="margin-top:12px">
-                ⚠️ <strong>Husk å sette av penger til skatten!</strong> Skatten forfaller først ved neste skattemelding, men alle pengene før skatt mottas omgående.
+                ⚠️ <strong class="glow">Husk å sette av penger til skatten!</strong> Skatten forfaller først ved neste skattemelding, men alle pengene før skatt mottas omgående.
               </div>
             </div>
 
@@ -2144,17 +2148,17 @@
             <div class="tintCard green">
               <h3>Eksempel: Salg med gevinst</h3>
               <div class="arrowRow" style="margin:12px 0 8px">
-                <div class="arrowCard"><strong>Kostpris</strong><span>100 000 kr</span></div>
+                <div class="arrowCard"><strong class="glow">Kostpris</strong><span>100 000 kr</span></div>
                 <div class="arrowSep">→</div>
-                <div class="arrowCard"><strong>Salg</strong><span>120 000 kr</span></div>
+                <div class="arrowCard"><strong class="glow">Salg</strong><span>120 000 kr</span></div>
                 <div class="arrowSep">=</div>
-                <div class="arrowCard" style="border-color:rgba(103,232,168,.35)"><strong>Gevinst</strong><span style="color:var(--green)">20 000 kr</span></div>
+                <div class="arrowCard" style="border-color:rgba(103,232,168,.35)"><strong class="glow">Gevinst</strong><span style="color:var(--green)">20 000 kr</span></div>
               </div>
               <div class="equ" style="margin-top:10px">
                 20 000 kr × 1,72 × 22 % = <strong style="color:var(--amber)">7 568 kr</strong> i skatt
               </div>
               <div style="margin-top:10px; color:var(--muted); font-size:14px; line-height:1.5">
-                Du sitter igjen med <strong style="color:var(--text)">120 000 − 7 568 = 112 432 kr</strong> etter skatt.
+                Du sitter igjen med <strong class="glow">120 000 − 7 568 = 112 432 kr</strong> etter skatt.
               </div>
             </div>
           </div>
@@ -2166,10 +2170,10 @@
             <div class="tintCard cyan">
               <h3>Hvorfor er skattesatsen 1,72 × 22 %?</h3>
               <p style="margin-top:8px; line-height:1.55">
-                Norge har en flat skattesats på alminnelig inntekt på <strong>22 %</strong>. Men for å gjøre beskatningen av aksjegevinst og utbytte lik den effektive marginalskattesatsen på lønn, multipliseres gevinsten med en <strong>oppjusteringsfaktor</strong> på <strong>1,72</strong> før skatten beregnes.
+                Norge har en flat skattesats på alminnelig inntekt på <strong class="glow">22 %</strong>. Men for å gjøre beskatningen av aksjegevinst og utbytte lik den effektive marginalskattesatsen på lønn, multipliseres gevinsten med en <strong class="glow">oppjusteringsfaktor</strong> på <strong class="glow">1,72</strong> før skatten beregnes.
               </p>
               <div class="equ" style="margin-top:10px">
-                Effektiv skattesats = 1,72 × 22 % = <strong>37,84 %</strong>
+                Effektiv skattesats = 1,72 × 22 % = <strong class="glow">37,84 %</strong>
               </div>
               <p class="small" style="margin-top:8px">Faktoren fastsettes av Stortinget hvert år. I 2026 er den 1,72.</p>
             </div>
@@ -2178,7 +2182,7 @@
             <div class="tintCard amber">
               <h3>Skjermingsfradrag</h3>
               <p style="margin-top:8px">
-                Skjermingsfradraget er et <strong>skattefritt bunnfradrag</strong> på avkastningen din. Det beregnes ut fra kostprisen på aksjene dine multiplisert med en <strong>skjermingsrente</strong> fastsatt av Skatteetaten (basert på renten på statskasseveksler).
+                Skjermingsfradraget er et <strong class="glow">skattefritt bunnfradrag</strong> på avkastningen din. Det beregnes ut fra kostprisen på aksjene dine multiplisert med en <strong class="glow">skjermingsrente</strong> fastsatt av Skatteetaten (basert på renten på statskasseveksler).
               </p>
               <ul class="clean" style="margin-top:6px; font-size:14px">
                 <li>Beregnes per aksje du eier per 31. desember.</li>
@@ -2187,14 +2191,14 @@
                 <li>Reduserer altså det beløpet du faktisk skattes av.</li>
               </ul>
               <div class="equ" style="margin-top:10px; line-height:1.5">
-                Eksempel: Kostpris 100 000 kr × skjermingsrente 3.6 % = <strong>3 600 kr</strong> skattefritt.<br>
+                Eksempel: Kostpris 100 000 kr × skjermingsrente 3.6 % = <strong class="glow">3 600 kr</strong> skattefritt.<br>
                 Gevinst 20 000 − 3 600 = 16 400 kr som beskattes.
               </div>
             </div>
 
             <!-- ASK - liten FYI-notis -->
             <div class="note" style="line-height:1.5; background:rgba(103,232,168,.05)">
-              <strong>FYI – Aksjesparekonto (ASK):</strong> På ASK utsettes skatten til du tar ut mer enn du har skutt inn. ESPP-aksjer hos UBS ligger <em>ikke</em> på ASK – salg der beskattes som vanlig realisasjon.
+              <strong class="glow">FYI – Aksjesparekonto (ASK):</strong> På ASK utsettes skatten til du tar ut mer enn du har skutt inn. ESPP-aksjer hos UBS ligger <em>ikke</em> på ASK – salg der beskattes som vanlig realisasjon.
             </div>
           </div>
 
@@ -2216,14 +2220,14 @@
           </div>
         </div>
         <div class="content checklist">
-          <div class="check"><div class="n">1</div><div><strong>Fyll ut W‑8BEN</strong><span>Eller sjekk om eksisterende skjema fortsatt er gyldig.</span></div></div>
-          <div class="check"><div class="n">2</div><div><strong>Sjekk beholdning per 31. desember 2026</strong><span>Bruk UBS-data eller annen brokerdokumentasjon.</span></div></div>
-          <div class="check"><div class="n">3</div><div><strong>Legg inn beholdning og utbytte</strong><span>Før både aksjene og mottatt utbytte i skattemeldingen.</span></div></div>
-          <div class="check"><div class="n">4</div><div><strong>Legg til kredittfradrag</strong><span>Hvis det faktisk er trukket utenlandsk skatt på utbyttet.</span></div></div>
-          <div class="check"><div class="n">5</div><div><strong>Vurder V2A</strong><span>Spesielt hvis du har så mye utbytte at kontantstrømmen eller papirarbeidet blir merkbart.</span></div></div>
-          <div class="check"><div class="n">6</div><div><strong>Har du solgt aksjer?</strong><span>Da må også dette rapporteres, med gevinst eller tap.</span></div></div>
-          <div class="check"><div class="n">7</div><div><strong>Bruk skjermingsfradrag</strong><span>Dette kan redusere både skattepliktig utbytte og eventuell gevinst.</span></div></div>
-          <div class="check"><div class="n">8</div><div><strong>Ta vare på dokumentasjon</strong><span>Kontoutskrifter, transaksjonslogger og eventuelle skattetrekk fra utlandet.</span></div></div>
+          <div class="check"><div class="n">1</div><div><strong class="glow">Fyll ut W‑8BEN</strong><span>Eller sjekk om eksisterende skjema fortsatt er gyldig.</span></div></div>
+          <div class="check"><div class="n">2</div><div><strong class="glow">Sjekk beholdning per 31. desember 2026</strong><span>Bruk UBS-data eller annen brokerdokumentasjon.</span></div></div>
+          <div class="check"><div class="n">3</div><div><strong class="glow">Legg inn beholdning og utbytte</strong><span>Før både aksjene og mottatt utbytte i skattemeldingen.</span></div></div>
+          <div class="check"><div class="n">4</div><div><strong class="glow">Legg til kredittfradrag</strong><span>Hvis det faktisk er trukket utenlandsk skatt på utbyttet.</span></div></div>
+          <div class="check"><div class="n">5</div><div><strong class="glow">Vurder V2A</strong><span>Spesielt hvis du har så mye utbytte at kontantstrømmen eller papirarbeidet blir merkbart.</span></div></div>
+          <div class="check"><div class="n">6</div><div><strong class="glow">Har du solgt aksjer?</strong><span>Da må også dette rapporteres, med gevinst eller tap.</span></div></div>
+          <div class="check"><div class="n">7</div><div><strong class="glow">Bruk skjermingsfradrag</strong><span>Dette kan redusere både skattepliktig utbytte og eventuell gevinst.</span></div></div>
+          <div class="check"><div class="n">8</div><div><strong class="glow">Ta vare på dokumentasjon</strong><span>Kontoutskrifter, transaksjonslogger og eventuelle skattetrekk fra utlandet.</span></div></div>
         </div>
         <div class="foot">
           <div>Hvis du vil, kan denne listen brukes som den praktiske avslutningssliden i fremføringen.</div>
@@ -2285,7 +2289,7 @@
     <li><a href="https://lovdata.no/dokument/TRAKTATEN/traktat/2000-11-22-1/KAPITTEL_5" target="_blank" rel="noopener">Skatteavtalen mellom Norge og Irland</a>.</li>
     <li><a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben" target="_blank" rel="noopener">IRS – About Form W‑8BEN</a> og <a href="https://www.irs.gov/instructions/iw8ben" target="_blank" rel="noopener">Instructions for Form W‑8BEN</a>.</li>
   </ul>
-  <p><strong>Viktig:</strong> ESPP-regler, kjøpsdatoer, intern prosess og brokerrapporter kan endres. Bruk derfor presentasjonen sammen med gjeldende intern dokumentasjon fra Accenture/UBS.</p>
+  <p><strong class="glow">Viktig:</strong> ESPP-regler, kjøpsdatoer, intern prosess og brokerrapporter kan endres. Bruk derfor presentasjonen sammen med gjeldende intern dokumentasjon fra Accenture/UBS.</p>
 </aside>
 
 <script>
