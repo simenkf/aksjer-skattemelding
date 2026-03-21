@@ -4,4 +4,4 @@ An app-like presentation covering my understanding of the subject of Accenture s
 
 ## Live presentation
 
-👉 [https://simenkf.github.io/aksjer-skattemelding/](https://simenkf.github.io/aksjer-skattemelding/)
+👉 [https://simenkf.github.io/aksjer-skattemelding/presentation.html](https://simenkf.github.io/aksjer-skattemelding/presentation.html)
