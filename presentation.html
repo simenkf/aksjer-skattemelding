@@ -363,16 +363,16 @@
   }
   .step{
     position:relative;
-    padding:12px 14px 10px;
-    border-radius:18px; border:1px solid var(--line);
+    padding:22px 24px;
+    border-radius:22px; border:1px solid var(--line);
     background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-    display:grid; gap:6px; align-content:start;
+    box-shadow:var(--shadow);
+    display:grid; gap:10px; align-content:start;
   }
   .step .nr{
-    width:30px; height:30px; display:grid; place-items:center;
-    border-radius:999px; background:rgba(161,0,255,.18); border:1px solid rgba(200,100,255,.28); font-weight:800;
+    font-weight:900; font-size:26px;
   }
-  .step h3{font-size:18px}
+  .step h3{font-size:20px; margin:0}
   .mathBand{
     display:grid; grid-template-columns:1.08fr .92fr; gap:14px; align-items:stretch; margin-top:10px;
   }
@@ -1244,7 +1244,8 @@
           </div>
           <div class="process">
             <div class="step">
-              <div class="nr">1</div>
+              <div class="nr" style="color:var(--amber)">1</div>
+              <div style="height:1px; width:100%; border-radius:999px; background:color-mix(in srgb, var(--amber) 85%, white)"></div>
               <h3 style="color: var(--amber);">Påmelding</h3>
               <p>Se etter en mail fra "Total Rewards" om våren eller høsten for påmelding, og følg instruksjonene der.<br><br> Du velger <strong style="color: var(--amber);">1–10 %</strong> lønnstrekk som spares opp over et halvår. Du kan justere beløpet fortløpende.</p>
               <ul class="clean">
@@ -1254,7 +1255,8 @@
               </ul>
             </div>
             <div class="step">
-              <div class="nr">2</div>
+              <div class="nr" style="color:var(--red)">2</div>
+              <div style="height:1px; width:100%; border-radius:999px; background:color-mix(in srgb, var(--red) 85%, white)"></div>
               <h3 style="color: var(--red);">Oppsparing</h3>
               <p>Beløpet samles opp frem til kjøpsdato, altså fra <strong style="color: var(--red);">1. mai til 1. september</strong>, eller fra <strong style="color: var(--red);">1. september til 1. mai</strong>. <br><br> Ombestemmer du deg, eller trenger pengene til noe annet, kan de tas ut når som helst frem til kjøpsdato.</p>
               <ul class="clean">
@@ -1264,7 +1266,8 @@
               </ul>
             </div>
             <div class="step">
-              <div class="nr">3</div>
+              <div class="nr" style="color:var(--green)">3</div>
+              <div style="height:1px; width:100%; border-radius:999px; background:color-mix(in srgb, var(--green) 85%, white)"></div>
               <h3 style="color: var(--green);">Kjøp</h3>
               <p>Aksjer kjøpes med <strong style="color: var(--green);">15% rabatt</strong> på fair market value på kjøpsdatoen.</p>
               <ul class="clean">
@@ -1273,7 +1276,8 @@
               </ul>
             </div>
             <div class="step">
-              <div class="nr">4</div>
+              <div class="nr" style="color:var(--cyan)">4</div>
+              <div style="height:1px; width:100%; border-radius:999px; background:color-mix(in srgb, var(--cyan) 85%, white)"></div>
               <h3 style="color: var(--cyan);">Etter kjøp</h3>
               <p>Aksjene havner hos <strong class="glow">UBS</strong> som broker — derfra håndteres utbytte, rapporter og salg.<br><br> En forenklet visning er tilgjengelig på <a href="https://myholding.accenture.com" target="_blank" rel="noopener" style="color:var(--cyan); text-decoration:none; display:inline-flex; align-items:center; gap:4px">myHolding<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; opacity:.8"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>.</p>
               <ul class="clean">
