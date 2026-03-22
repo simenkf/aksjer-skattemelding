@@ -657,7 +657,7 @@
     .progress{width:36vw}
     .hero .big{font-size:38px}
     .bottombar{flex-wrap:wrap; justify-content:center}
-    .mobileOnly{display:inline-flex}
+    .mobileOnly{display:flex}
     .sourcesPanel{
       top:12px;
       right:12px;
@@ -894,7 +894,7 @@
           <div class="toc" id="frontpageToc"></div>
         </div>
         <div class="foot">
-          <div>Bruk piltaster, mellomrom eller knappene nederst for å gå videre. Trykk <span class="kbd">I</span> for å åpne innholdsfortegnelsen.</div>
+          <div>Glem å bruke mobil, denne presentasjonen krever desktop. Bruk piltaster, mellomrom eller knappene nederst for å gå videre. Trykk <span class="kbd">I</span> for å åpne innholdsfortegnelsen.</div>
           <div class="presentationMeta"></div>
         </div>
       </section>
@@ -2723,7 +2723,6 @@
       <button class="shortcut-btn" id="tocShortcutBtn"><span class="key">I</span> Innhold</button>
       <button class="shortcut-btn" id="srcShortcutBtn"><span class="key">K</span> Kilder</button>
       <button class="shortcut-btn" id="termsShortcutBtn"><span class="key">B</span> Begreper</button>
-      <button class="btn mobileOnly" id="fsBtn">Fullskjerm</button>
     </div>
     <div class="pager" id="pager"></div>
     <div class="progress" aria-hidden="true"><div id="progressFill"></div></div>
@@ -2793,7 +2792,6 @@
   const termsShortcutBtn = document.getElementById('termsShortcutBtn');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
-  const fsBtn = document.getElementById('fsBtn');
 
   /* ---- Shared terms data ---- */
   const TERMS = [
@@ -2979,12 +2977,6 @@
   tocShortcutBtn.addEventListener('click', () => toggleToc());
   srcShortcutBtn.addEventListener('click', () => toggleSources());
   termsShortcutBtn.addEventListener('click', () => toggleTerms());
-  if (fsBtn) {
-    fsBtn.addEventListener('click', async () => {
-      if (!document.fullscreenElement) await document.documentElement.requestFullscreen?.();
-      else await document.exitFullscreen?.();
-    });
-  }
 
   window.addEventListener('hashchange', () => { parseHash(); update(); });
 
