@@ -135,10 +135,7 @@
     display:flex; justify-content:space-between; gap:12px;
   }
   .presentationMeta{white-space:nowrap}
-  .grid-2{display:grid; grid-template-columns:1.1fr .9fr; gap:22px}
-  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-  .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
-  .stack{display:grid; gap:18px}
+
   ul.clean{margin:10px 0 0 0; padding-left:1.25em; color:var(--muted); line-height:1.52}
   ul.clean li{margin:.35em 0}
   .chips{display:flex; gap:10px; flex-wrap:wrap}
@@ -270,48 +267,7 @@
     display:grid; grid-template-columns:1fr 1fr; gap:22px;
     align-items:start;
   }
-  .diagram{
-    background:linear-gradient(180deg, rgba(16,25,53,.92), rgba(9,14,29,.95));
-    border:1px solid var(--line); border-radius:28px; padding:28px;
-    display:grid; grid-template-rows:auto; gap:16px;
-    box-shadow:var(--shadow);
-    align-content:start;
-  }
-  .companyBox{
-    width:100%; padding:22px; border-radius:22px; border:1px solid rgba(255,255,255,.1);
-    background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-    display:flex; justify-content:space-between; align-items:center; gap:16px;
-  }
-  .companyName{font-size:28px; font-weight:800}
-  .shareCircles{display:flex; gap:10px}
-  .shareCircles span{
-    width:18px; height:18px; border-radius:999px; background:linear-gradient(180deg, var(--purple2), var(--purple)); opacity:.9;
-    box-shadow:0 0 14px rgba(161,0,255,.35);
-  }
-  .owners{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:16px; align-items:stretch;
-  }
-  .owner{
-    border:1px solid rgba(255,255,255,.09); border-radius:22px; padding:18px;
-    background:rgba(255,255,255,.035);
-    display:grid; gap:8px;
-  }
-  .avatar{
-    width:56px; height:56px; border-radius:999px;
-    background:radial-gradient(circle at 30% 30%, #fff, #cfe9ff 12%, #7c92ff 13%, #29376d 66%);
-  }
-  .owner .name{font-size:18px; font-weight:700}
   .small{font-size:13px; color:var(--muted)}
-  .flowBand{
-    border:1px dashed rgba(255,255,255,.16); border-radius:22px; padding:14px 16px;
-    display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:10px; align-items:center;
-    color:#e7ebff;
-  }
-  .flowBand .arrow{font-size:30px; text-align:center; color:#e7cdff}
-  .cash{
-    display:grid; grid-template-columns:1fr; gap:16px;
-    align-content:start;
-  }
   .tintCard{
     border-radius:22px; padding:22px 24px; border:1px solid var(--line);
     box-shadow:var(--shadow); min-width:0;
@@ -343,21 +299,14 @@
   .tintBox.amber h4{color:var(--amber)} .tintBox.amber p{color:#fef3d5}
   .tintBox.red{background:rgba(255,125,125,.08); border:1px solid rgba(255,125,125,.18)}
   .tintBox.red h4{color:var(--red)} .tintBox.red p{color:#ffe0e0}
-  .tintBox.neutral,.tintBox.netral{background:linear-gradient(180deg, rgba(18,26,49,.98), rgba(10,16,32,.99)); border:1px solid rgba(255,255,255,.14)}
-  .tintBox.neutral h4,.tintBox.netral h4{color:#c9d5ff} .tintBox.neutral p,.tintBox.netral p{color:#d8e0ff}
+  .tintBox.neutral{background:linear-gradient(180deg, rgba(18,26,49,.98), rgba(10,16,32,.99)); border:1px solid rgba(255,255,255,.14)}
+  .tintBox.neutral h4{color:#c9d5ff} .tintBox.neutral p{color:#d8e0ff}
   .tintBox.grad.green{background:linear-gradient(135deg, rgba(103,232,168,.12), rgba(103,232,168,.06)); border:1px solid rgba(103,232,168,.25)}
   .tintBox.grad.cyan{background:linear-gradient(135deg, rgba(103,232,249,.12), rgba(103,232,249,.06)); border:1px solid rgba(103,232,249,.25)}
   .tintBox.grad.purple{background:linear-gradient(135deg, rgba(161,0,255,.2), rgba(161,0,255,.08)); border:1px solid rgba(161,0,255,.35)}
   .tintBox.grad.amber{background:linear-gradient(135deg, rgba(246,196,83,.12), rgba(246,196,83,.06)); border:1px solid rgba(246,196,83,.25)}
   .tintBox.grad.red{background:linear-gradient(135deg, rgba(255,125,125,.12), rgba(255,125,125,.06)); border:1px solid rgba(255,125,125,.25)}
 
-  .dividendVisual{
-    display:grid; grid-template-columns:1fr 1fr; gap:12px;
-  }
-  .mini{
-    padding:16px; border-radius:18px; border:1px solid var(--line); background:rgba(255,255,255,.04);
-  }
-  .mini .bigNum{font-size:28px; font-weight:800; letter-spacing:-.03em}
   .process{
     display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
   }
@@ -377,11 +326,6 @@
     display:grid; grid-template-columns:1.08fr .92fr; gap:14px; align-items:stretch; margin-top:10px;
   }
   .mathBand.thirds{grid-template-columns:repeat(3,1fr)}
-  .formula{
-    font-size:22px; line-height:1.4; color:#fff;
-  }
-  .formula strong{font-size:34px; letter-spacing:-.03em}
-  .formula .muted{color:var(--muted); font-size:16px}
   .wideCards{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
   .metaStrip{
     display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
@@ -391,44 +335,15 @@
   }
   .metaBox .k{font-size:12px; color:#c9d2f2; text-transform:uppercase; letter-spacing:.08em}
   .metaBox .v{font-size:20px; font-weight:800; margin-top:4px}
-  .special3{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
-  }
-  .flagAccent{
-    position:absolute; width:74px; height:74px; border-radius:18px; right:18px; top:18px;
-    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
-    display:grid; place-items:center; font-size:32px;
-  }
-  .taxGrid{display:grid; grid-template-columns:1.1fr .9fr; gap:20px}
-  .statList{display:grid; gap:14px}
-  .stat{
-    display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start;
-    padding:18px 18px; border-radius:18px; background:rgba(255,255,255,.04); border:1px solid var(--line);
-  }
-  .stat .bubble{
-    width:40px; height:40px; border-radius:999px; display:grid; place-items:center; font-size:20px;
-    background:rgba(161,0,255,.18); border:1px solid rgba(200,100,255,.28);
-  }
-  .stat h4{margin:0 0 4px; font-size:20px}
-  .stat p{margin:0; color:var(--muted); line-height:1.44}
-  .calcPanel{
-    display:grid; gap:14px;
-  }
-  .calcPanel .heroNum{
-    font-size:60px; font-weight:900; letter-spacing:-.05em; line-height:.95;
-  }
-  .calcPanel .equ{
+
+  .equ{
     padding:16px 18px; border-radius:18px; background:rgba(255,255,255,.05); border:1px solid var(--line); font-size:20px; line-height:1.45;
-  }
-  .compare{
-    display:grid; grid-template-columns:1fr 1fr; gap:18px;
   }
   .labelTag{
     display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px;
     font-size:13px; font-weight:700; border:1px solid var(--line); margin-bottom:12px;
   }
   .labelTag.red{background:rgba(255,125,125,.12)}
-  .labelTag.green{background:rgba(103,232,168,.12)}
   .arrowRow{
     display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:10px; align-items:center;
   }
@@ -439,19 +354,7 @@
   .arrowCard strong{display:block; margin-bottom:4px}
   .arrowCard span{white-space:nowrap}
   .arrowSep{text-align:center; font-size:30px; color:#e7cdff}
-  .v2aNote{
-    display:grid; grid-template-columns:1fr 1fr; gap:16px;
-  }
-  .breakeven{
-    display:grid; grid-template-columns:1fr 1fr; gap:18px;
-  }
-  .example{
-    padding:18px; border-radius:20px; border:1px solid var(--line); background:rgba(255,255,255,.04); display:grid; gap:10px;
-  }
-  .example .title{font-size:22px; font-weight:800}
-  .example .amt{font-size:42px; font-weight:900; letter-spacing:-.05em}
-  .example.good{background:linear-gradient(180deg, rgba(103,232,168,.12), rgba(255,255,255,.03))}
-  .example.meh{background:linear-gradient(180deg, rgba(246,196,83,.12), rgba(255,255,255,.03))}
+
   .checklistLayout{
     display:grid;
     grid-template-columns:minmax(0,1.03fr) minmax(0,.65fr);
@@ -728,12 +631,12 @@
   @media (max-width:1100px){
     .slide{padding:24px 24px 20px}
     .coverLayout{grid-template-columns:auto 1fr}
-    .grid-2,.taxGrid,.breakeven,.compare,.mathBand,.mathBand.thirds{grid-template-columns:1fr}
+    .mathBand,.mathBand.thirds{grid-template-columns:1fr}
     .shareVisual{grid-template-columns:1fr}
     .hero{max-width:min(55vw, 580px)}
     .toc{grid-template-rows:repeat(5, auto); grid-auto-flow:column; grid-auto-columns:1fr}
     .floatingChips{min-width:140px}
-    .grid-3,.grid-4,.wideCards,.special3,.process,.metaStrip,.checklist{grid-template-columns:1fr 1fr}
+    .wideCards,.process,.metaStrip{grid-template-columns:1fr 1fr}
     .checklistLayout{grid-template-columns:1fr}
     .termTable{grid-template-columns:1fr}
     .termTable .head{display:none}
@@ -746,7 +649,7 @@
     .slide{padding:18px 14px 16px; gap:14px}
     .slide h2{font-size:30px}
     .subtitle{font-size:14px}
-    .grid-3,.grid-4,.wideCards,.special3,.process,.metaStrip,.checklist,.countryRail,.v2aNote,.breakeven,.compare,.owners,.dividendVisual,.checklistLayout{grid-template-columns:1fr}
+    .wideCards,.process,.metaStrip,.countryRail,.checklistLayout{grid-template-columns:1fr}
     .coverLayout{grid-template-columns:1fr}
     .toc{grid-template-rows:none; grid-auto-flow:row; grid-template-columns:1fr; grid-column:1}
     .hero{max-width:none}
@@ -842,7 +745,7 @@
     height:auto;
     max-height:min(62vh, 720px);
     border-radius:10px;
-    border:1px solid var(--card-border);
+    border:1px solid var(--line);
     object-fit:contain;
   }
   .img-modal-item .caption{font-size:12px; color:var(--muted); text-align:center}
@@ -857,25 +760,11 @@
   .calc-modal .img-modal-header{padding:22px 24px 12px}
   .calc-modal .img-modal-body{padding:18px 24px 24px; overflow:auto}
   .calc-modal-body{display:grid; gap:16px; justify-content:stretch}
-  .calc-grid{display:grid; grid-template-columns:minmax(0, 1.1fr) minmax(320px, .9fr); gap:16px; align-items:start}
-  .calc-split{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:16px; align-items:start}
-  .assumption-scenario-split{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:16px; align-items:start}
   .formula-block{
     margin-top:10px; padding:14px 16px; border-radius:14px;
     background:rgba(255,255,255,.04); border:1px solid var(--line);
     font-size:14px; line-height:1.65; color:var(--text);
   }
-  .scenario-expl-title{
-    font-size:13px;
-    font-weight:800;
-    letter-spacing:.03em;
-    text-transform:uppercase;
-    color:#dfe6ff;
-    margin-bottom:8px;
-    padding-bottom:8px;
-    border-bottom:1px solid var(--line);
-  }
-  .scenario-expl-body{color:var(--text)}
   .formula-block strong{color:var(--green)}
   .assumption-list{display:grid; gap:8px; margin-top:10px}
   .assumption-row{
@@ -885,9 +774,6 @@
   }
   .assumption-row span:last-child{font-weight:800; color:var(--text)}
   @media (max-width:860px){
-    .calc-grid{grid-template-columns:1fr}
-    .calc-split{grid-template-columns:1fr}
-    .assumption-scenario-split{grid-template-columns:1fr}
     .img-modal-body{flex-direction:column; flex-wrap:nowrap; align-items:stretch}
     .img-modal-item{max-width:100%}
     .img-modal-item img{max-height:42vh}
@@ -1907,7 +1793,6 @@
                   <div style="font-weight:700; color:var(--amber); font-size:14px">V2A <span style="font-size:10px; background:rgba(246,196,83,.18); color:var(--amber); border-radius:999px; padding:2px 7px; margin-left:5px; font-weight:600">Anbefalt ved mange aksjer</span></div>
                 </div>
                 <p style="font-size:13px; margin-bottom:6px">Skjema til Irland for å dokumentere at du er norsk skatteyter og dermed ikke trenger betale kildeskatt til Irland. Kutter hele kildeskatten på 25% til Irland, og gjør at kredittfradrag ikke lenger er relevant, uavhengig av skjerming. Ulempen er at det koster $500 å få behandlet skjemaet, så her må du ha nok utbytte før det lønner seg.</p>
-                </ol>
               </div>
             </div>
           </div>
@@ -1927,7 +1812,7 @@
           <div class="eyebrow"><span class="dot"></span> Unngå dobbel beskatning til USA</div>
           <div class="titleRow">
             <div>
-              <h2>W‑8 BEN – Hva, hvor og hvordan? TOODO: Fikse det om kredittfrradrag og pris</h2>
+              <h2>W‑8 BEN – Hva, hvor og hvordan?</h2>
               <div class="subtitle">Dette skjemaet setter kildeskatt til USA til 0% (uten skjema er den normalt 30%).</div>
             </div>
           </div>
