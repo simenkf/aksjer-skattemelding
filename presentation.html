@@ -1401,7 +1401,7 @@
           <div class="titleRow">
             <div>
               <h2>Hva skal føres på skattemeldingen?</h2>
-              <div class="subtitle">Skatteetaten vil vite hvor store verdier du har, hvor mye utbytte du har fått, og hvor mye du har tjent/tapt ved salg. For utbytte og salg, se mer informasjon i senere slides.</div>
+              <div class="subtitle">Skatteetaten vil vite hvor stor formue du har, hvor mye utbytte du har fått, og hvor mye du har tjent/tapt ved salg. Norske banker raporterer dette for deg, men med ESPP må vi gjøre det selv.</div>
             </div>
             <button class="screenshot-btn" onclick="document.getElementById('skattScreenshotModal').classList.add('open')"><img src="assets/skatteetaten-logo.svg" alt="" style="height:4em; vertical-align:middle; margin-right:12px">Klikk for å se hvordan det ser ut i skattemeldingen</button>
           </div>
@@ -1443,8 +1443,8 @@
                   </div>
                   <div style="margin-top:4px; font-size:12px; color:var(--muted)">Skattemeldingen konverterer til NOK for deg hvis du oppgir valuta som dollar.</div>
                 </div>
-                <div class="tintBox grad cyan" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.45">
-                  <p style="margin:0">ℹ️ Aksjer du har gjennom norske banker, blir rapportert automatisk og du trenger ikke foreta deg noe utover å verifisere at tallene er korrekte.</p>
+                <div class="tintBox grad green" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.45">
+                  <p style="margin:0">Aksjer du har gjennom norske banker, blir rapportert automatisk og du trenger ikke foreta deg noe utover å verifisere at tallene er korrekte (både for formue, utbytte og gevinst).</p>
                 </div>
               </div>
               <div class="tintCard cyan">
@@ -1468,7 +1468,7 @@
                   <div style="margin-top:4px; font-size:12px; color:var(--muted)">Du rapporterer ikke selve skatten selv, det regnes ut automatisk. Dessuten vil skatten reduseres med skjerming.</div>
                 </div>
                 <div class="tintBox grad cyan" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.45">
-                  <p style="margin:0">ℹ️ Tilsvarende som for formue, rapporterer norske banker dette for deg. UBS gjør det derimot ikke, så dette må vi legge til selv.</p>
+                  <p style="margin:0">Norge har en flat skattesats på alminnelig inntekt (før trinnskatten og trygdeavgiften) på 22%. Aksjegevinst og utbytte skaleres opp for å reflektere den effektive skattesatsen på lønn. Denne <strong class="glow">oppjusteringsfaktoren</strong> er <strong class="glow">1,72</strong> for 2026. Derfor er skattesatsen 22% × 1,72 = <strong class="glow">37,84%</strong>.</p>
                 </div>
               </div>
               <div class="tintCard amber">
@@ -1490,8 +1490,8 @@
                   </div>
                   <div style="margin-top:4px; font-size:12px; color:var(--muted)">Du rapporterer ikke selve skatten selv, det regnes ut automatisk. Dessuten reduseres skatten med skjerming.</div>
                 </div>
-                <div class="tintBox grad cyan" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.45">
-                    <p style="margin:0">ℹ️ I dette eksempelet ble alle de 100 aksjene dine solgt før 31.12., så beholdnign rapporteres da som 0 kroner. Og igjen: Norske banker gjør dette for deg.</p>
+                <div class="tintBox grad amber" style="margin-top:12px; border-radius:12px; font-size:13px; line-height:1.45">
+                    <p style="margin:0">I dette eksempelet ble alle de 100 aksjene dine solgt før 31.12., så formue rapporteres da som 0 kroner.</p>
                   </div>
               </div>
             </div>
@@ -1679,7 +1679,7 @@
           <div class="eyebrow"><span class="dot"></span> Unngå dobbel beskatning til USA</div>
           <div class="titleRow">
             <div>
-              <h2>W‑8 BEN – Hva, hvor og hvordan?</h2>
+              <h2>W‑8 BEN – Hva, hvor og hvordan? TOODO: Fikse det om kredittfrradrag og pris</h2>
               <div class="subtitle">Dette skjemaet setter kildeskatt til USA til 0% (uten skjema er den normalt 30%).</div>
             </div>
           </div>
