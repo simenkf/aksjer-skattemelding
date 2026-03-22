@@ -432,13 +432,14 @@
   .labelTag.red{background:rgba(255,125,125,.12)}
   .labelTag.green{background:rgba(103,232,168,.12)}
   .arrowRow{
-    display:grid; grid-template-columns:repeat(5,1fr); gap:10px; align-items:center;
+    display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:10px; align-items:center;
   }
   .arrowCard{
     padding:14px 12px; border-radius:18px; border:1px solid var(--line); background:rgba(255,255,255,.04); text-align:center; min-height:96px;
     display:grid; place-items:center;
   }
   .arrowCard strong{display:block; margin-bottom:4px}
+  .arrowCard span{white-space:nowrap}
   .arrowSep{text-align:center; font-size:30px; color:#e7cdff}
   .v2aNote{
     display:grid; grid-template-columns:1fr 1fr; gap:16px;
@@ -2346,95 +2347,132 @@
           <div class="titleRow">
             <div>
               <h2>Salg av aksjer</h2>
-              <div class="subtitle">Hvordan du selger, hva som skjer skattemessig, og et konkret regnestykke.</div>
+              <div class="subtitle">Hvordan du selger, hva som skjer skattemessig, og to konkrete regneeksempler.</div>
             </div>
           </div>
+          <div style="margin-top:10px; padding:10px 16px; border-radius:10px; background:rgba(250,204,21,.07); border:1px solid rgba(250,204,21,.22); color:var(--muted); font-size:13px; line-height:1.55">
+            ⚠️ <strong style="color:var(--yellow, #facc15)">NB:</strong> Jeg har aldri solgt aksjer, verken Accenture eller andre. Hoooold! Jeg har derfor ikke praktisk erfaring med salgsflyt hos UBS.
+          </div>
         </div>
-        <div class="content" style="display:grid; grid-template-columns:1.15fr .85fr; gap:18px; align-items:start">
 
-          <!-- Venstre kolonne -->
-          <div style="display:grid; gap:16px">
+        <div class="content" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; align-items:start">
 
-            <!-- Hvordan selge -->
+          <!-- Kolonne 1: Praktisk info -->
+          <div style="display:grid; gap:14px">
+
             <div class="tintCard neutral">
               <h3>Hvordan selger du aksjer?</h3>
               <ul class="clean" style="margin-top:8px">
                 <li>Salg gjøres via <strong class="glow">UBS</strong> eller <strong class="glow">MyHoldings</strong>-portalen.</li>
-                <li>Når du selger, gjelder <strong class="glow">FIFO</strong> (First In, First Out) – de aksjene du kjøpte <em>først</em> regnes som solgt først.</li>
-                <li>Gevinst eller tap beregnes ut fra differansen mellom salgspris og kostpris (inngangsverdi) for de aksjene som faktisk selges.</li>
+                <li><strong class="glow">FIFO</strong> (First In, First Out) gjelder – aksjer kjøpt <em>først</em> regnes som solgt først.</li>
+                <li>Gevinst = salgspris − inngangsverdi for de aksjene som faktisk selges.</li>
                 <li>Gevinsten er <strong class="glow">skattepliktig</strong>, og tap gir tilsvarende <strong class="glow">fradrag</strong>.</li>
               </ul>
               <div class="note" style="margin-top:12px">
-                ⚠️ <strong class="glow">Husk å sette av penger til skatten!</strong> Skatten forfaller først ved neste skattemelding, men alle pengene før skatt mottas omgående.
+                ⚠️ <strong class="glow">Husk å sette av penger til skatten!</strong> Skatten forfaller først ved neste skattemelding, men salgsinntekten mottas omgående.
               </div>
             </div>
 
-            <!-- Regnestykke-eksempel -->
-            <div class="tintCard green">
-              <h3>Eksempel: Salg med gevinst</h3>
-              <div class="arrowRow" style="margin:12px 0 8px">
-                <div class="arrowCard"><strong class="glow">Kostpris</strong><span>100 000 kr</span></div>
-                <div class="arrowSep">→</div>
-                <div class="arrowCard"><strong class="glow">Salg</strong><span>120 000 kr</span></div>
-                <div class="arrowSep">=</div>
-                <div class="arrowCard" style="border-color:rgba(103,232,168,.35)"><strong class="glow">Gevinst</strong><span style="color:var(--green)">20 000 kr</span></div>
-              </div>
-              <div class="equ" style="margin-top:10px">
-                20 000 kr × 1,72 × 22 % = <strong style="color:var(--amber)">7 568 kr</strong> i skatt
-              </div>
-              <div style="margin-top:10px; color:var(--muted); font-size:14px; line-height:1.5">
-                Du sitter igjen med <strong class="glow">120 000 − 7 568 = 112 432 kr</strong> etter skatt.
-              </div>
-            </div>
-          </div>
-
-          <!-- Høyre kolonne -->
-          <div style="display:grid; gap:16px">
-
-            <!-- Hvorfor 1,72 x 22 % -->
-            <div class="tintCard cyan">
-              <h3>Hvorfor er skattesatsen 1,72 × 22 %?</h3>
-              <p style="margin-top:8px; line-height:1.55">
-                Norge har en flat skattesats på alminnelig inntekt på <strong class="glow">22 %</strong>. Men for å gjøre beskatningen av aksjegevinst og utbytte lik den effektive marginalskattesatsen på lønn, multipliseres gevinsten med en <strong class="glow">oppjusteringsfaktor</strong> på <strong class="glow">1,72</strong> før skatten beregnes.
-              </p>
-              <div class="equ" style="margin-top:10px">
-                Effektiv skattesats = 1,72 × 22 % = <strong class="glow">37,84 %</strong>
-              </div>
-              <p class="small" style="margin-top:8px">Faktoren fastsettes av Stortinget hvert år. I 2026 er den 1,72.</p>
-            </div>
-
-            <!-- Skjermingsfradrag -->
             <div class="tintCard amber">
-              <h3>Skjermingsfradrag</h3>
-              <p style="margin-top:8px">
-                Skjermingsfradraget er et <strong class="glow">skattefritt bunnfradrag</strong> på avkastningen din. Det beregnes ut fra kostprisen på aksjene dine multiplisert med en <strong class="glow">skjermingsrente</strong> fastsatt av Skatteetaten (basert på renten på statskasseveksler).
-              </p>
-              <ul class="clean" style="margin-top:6px; font-size:14px">
-                <li>Beregnes per aksje du eier per 31. desember.</li>
-                <li>Ubrukt skjerming akkumuleres og kan brukes i senere år.</li>
-                <li>Trekkes fra gevinsten <em>før</em> oppjusteringsfaktoren brukes.</li>
-                <li>Reduserer altså det beløpet du faktisk skattes av.</li>
+              <h3>Skjermingsfradrag ved salg</h3>
+              <ul class="clean" style="margin-top:8px;">
+                <li><p>Akkumulert ubrukt skjerming trekkes fra gevinsten <em>før</em> skatten beregnes.</p></li>
+                <li><p>Kun skjerming knyttet til de <strong class="glow">solgte aksjene</strong> kan brukes (følger FIFO). Selger du alt, kan all tilgjengelig skjerming benyttes.</p></li>
+                <li><p>Gevinst − skjerming = skattepliktig gevinst. Dette beskattes med 37,84%.</p></li>
               </ul>
-              <div class="equ" style="margin-top:10px; line-height:1.5">
-                Eksempel: Kostpris 100 000 kr × skjermingsrente 3.6 % = <strong class="glow">3 600 kr</strong> skattefritt.<br>
-                Gevinst 20 000 − 3 600 = 16 400 kr som beskattes.
+              <div class="equ" style="margin-top:10px; font-size:13px">
+                Eksempel: Gevinst 4 000 kr − skjerming 500 kr = <strong class="glow">3 500 kr</strong> som beskattes. Skatten blir da 3 500 × 37,84% = <strong style="color:var(--amber)">1 324 kr</strong>.
               </div>
             </div>
 
-            <!-- ASK - liten FYI-notis -->
             <div class="note" style="line-height:1.5; background:rgba(103,232,168,.05)">
               <strong class="glow">FYI – Aksjesparekonto (ASK):</strong> På ASK utsettes skatten til du tar ut mer enn du har skutt inn. ESPP-aksjer hos UBS ligger <em>ikke</em> på ASK – salg der beskattes som vanlig realisasjon.
             </div>
           </div>
 
+          <!-- Kolonne 2: Eksempel 1 – selg alle aksjer -->
+          <div class="tintCard green" style="display:grid; gap:12px; align-content:start">
+            <h3>Eksempel 1: Du selger alle aksjene</h3>
+            <p>Du har kjøpt Accenture-aksjer i to omganger og selger alle nå til 1 200 kr/aksje. Du har 1 000 kr i tilgjengelig skjerming.</p>
+
+            <div style="display:grid; gap:6px; font-size:13px">
+              <div style="padding:10px 12px; border-radius:10px; background:rgba(255,255,255,.04); border:1px solid var(--line)">
+                <strong>Transje 1</strong> (kjøpt først): 10 aksjer × 800 kr = <strong class="glow">8 000 kr</strong>
+              </div>
+              <div style="padding:10px 12px; border-radius:10px; background:rgba(255,255,255,.04); border:1px solid var(--line)">
+                <strong>Transje 2</strong> (kjøpt senere): 10 aksjer × 1 000 kr = <strong class="glow">10 000 kr</strong>
+              </div>
+              <div style="padding:10px 12px; border-radius:10px; background:rgba(255,255,255,.06); border:1px solid var(--line)">
+                <strong>Total inngangsverdi:</strong> 18 000 kr<br><br> <strong>Salgspris:</strong> 20 × 1 200 = 24 000 kr
+              </div>
+            </div>
+
+            <div class="arrowRow" style="margin:2px 0">
+              <div class="arrowCard"><strong>Kostpris</strong><span>18 000 kr</span></div>
+              <div class="arrowSep">→</div>
+              <div class="arrowCard"><strong>Salgspris</strong><span>24 000 kr</span></div>
+              <div class="arrowSep">=</div>
+              <div class="arrowCard" style="border-color:rgba(103,232,168,.35)"><strong>Gevinst</strong><strong style="color:var(--green)">6 000 kr</strong></div>
+            </div>
+
+            <div style="padding:10px 12px; border-radius:10px; background:rgba(103,232,168,.07); border:1px solid rgba(103,232,168,.2); font-size:13px">
+              <strong class="glow">Har du akkumulert skjerming?</strong> Trekk det fra gevinsten her.<br>
+              <span style="color:var(--muted)">Med 1 000 kr i skjerming → skattepliktig gevinst = 5 000 kr.</span>
+            </div>
+
+            <div class="equ">
+              5 000 kr × 37,84% = <strong style="color:var(--amber)">1 892 kr</strong> i skatt
+            </div>
+            <div style="color:var(--muted); font-size:13px; line-height:1.5">
+              Du sitter igjen med <strong class="glow">24 000 − 1 892 = 22 108 kr</strong> etter skatt.
+            </div>
+          </div>
+
+          <!-- Kolonne 3: Eksempel 2 – selg 3/4 (FIFO) -->
+          <div class="tintCard cyan" style="display:grid; gap:12px; align-content:start">
+            <h3>Eksempel 2: Du selger 3/4 av aksjene (FIFO)</h3>
+            <p>Samme utgangspunkt – men du selger 15 av 20 aksjer til 1 200 kr/aksje. Du har 1 000 kr i <em>total</em> tilgjengelig skjerming.</p>
+
+            <div style="display:grid; gap:6px; font-size:13px">
+              <div style="padding:10px 12px; border-radius:10px; background:rgba(103,232,249,.08); border:1px solid rgba(103,232,249,.25)">
+                <strong>Transje 1</strong> (kjøpt først): 10 aksjer × 800 kr = <strong class="glow">8 000 kr</strong><br>
+                <span style="color:var(--cyan)">↑ Alle disse 10 selges først ifølge FIFO</span>
+              </div>
+              <div style="padding:10px 12px; border-radius:10px; background:rgba(255,255,255,.04); border:1px solid var(--line)">
+                <strong>Transje 2</strong> (kjøpt senere): 10 aksjer × 1 000 kr = <strong class="glow">10 000 kr</strong><br>
+                <span style="color:var(--muted)">FIFO tar deretter 5 av disse 10. De siste 5 beholdes videre med inngangspris 1 000 kr/aksje</span>
+              </div>
+            </div>
+
+            <div class="arrowRow" style="margin:2px 0">
+              <div class="arrowCard"><strong>Kostpris solgte aksjer</strong><span>13 000 kr</span></div>
+              <div class="arrowSep">→</div>
+              <div class="arrowCard"><strong>Salgspris</strong><span>18 000 kr</span></div>
+              <div class="arrowSep">=</div>
+              <div class="arrowCard" style="border-color:rgba(103,232,249,.35)"><strong class="glow">Gevinst</strong><strong style="color:var(--cyan)">5 000 kr</strong></div>
+            </div>
+
+            <div style="padding:10px 12px; border-radius:10px; background:rgba(103,232,249,.07); border:1px solid rgba(103,232,249,.2); font-size:13px">
+              <strong class="glow">Skjerming følger transjen</strong> Husk at du kun kan anvende skjerming knyttet aksjene som selges. Skjerming fra de ikke-solgte 5 aksjene kan ikke anvendes ved dette salget.<br>
+              <span style="color:var(--muted)">La oss anta vi har 850 kr i skjerming tilgjengelig for aksjene som selges slik at skattepliktig utbytte reduseres til 4 150 kr.</span>
+            </div>
+
+            <div class="equ">
+              4 150 kr × 37,84% = <strong style="color:var(--amber)">1 570 kr</strong> i skatt
+            </div>
+            <div style="color:var(--muted); font-size:13px; line-height:1.5">
+              Du sitter igjen med <strong class="glow">18 000 − 1 570 = 16 430 kr</strong>. De 5 gjenværende aksjene fra transje 2 (inngangspris 1 000 kr/aksje) er fremdeles i beholdningen din.
+            </div>
+          </div>
+
         </div>
         <div class="foot">
-          <div>Skatteetaten omtaler salg som «realisasjon» · FIFO = First In, First Out · Oppjusteringsfaktor 2025: 1,72</div>
+          <div></div>
           <div class="presentationMeta"></div>
         </div>
       </section>
 
-      <section class="slide" data-title="Sjekkliste">
+            <section class="slide" data-title="Sjekkliste">
         <div>
           <div class="eyebrow"><span class="dot"></span> Praktisk avslutning</div>
           <div class="titleRow">
