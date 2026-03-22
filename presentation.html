@@ -567,6 +567,34 @@
     outline:2px solid rgba(200,100,255,.9);
     outline-offset:2px;
   }
+  .download-template-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    width:fit-content;
+    padding:16px 24px;
+    border-radius:16px;
+    border:1px solid rgba(103,232,168,.42);
+    background:linear-gradient(135deg, rgba(103,232,168,.24), rgba(103,232,168,.1));
+    color:#ddffe9;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:800;
+    letter-spacing:.01em;
+    box-shadow:0 10px 26px rgba(103,232,168,.2);
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+  }
+  .download-template-btn:hover{
+    transform:translateY(-2px);
+    border-color:rgba(103,232,168,.75);
+    background:linear-gradient(135deg, rgba(103,232,168,.34), rgba(103,232,168,.16));
+    box-shadow:0 14px 30px rgba(103,232,168,.3);
+  }
+  .download-template-btn:focus-visible{
+    outline:2px solid rgba(103,232,168,.95);
+    outline-offset:2px;
+  }
   .img-modal-overlay{
     display:none; position:fixed; inset:0; z-index:9999;
     background:rgba(0,0,0,.75); backdrop-filter:blur(6px);
@@ -2147,6 +2175,65 @@
 
         <div class="foot">
           <div></div>
+          <div class="presentationMeta"></div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Skjerming-mal">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> God nyhet: automatisk beregning</div>
+          <div class="titleRow">
+            <div>
+              <h2>Good news: Skjerming kan automatiseres med Excel!</h2>
+              <div class="subtitle">Beregninger for år N er bare noen ekstra beregninger på toppen av år N-1. Jeg har derfor laget et excel-skjema som gjør alle beregningene for deg.</div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="content" style="display:grid; grid-template-columns:1.05fr .95fr; gap:18px; align-items:start;">
+          <div style="display:grid; gap:16px; align-content:start;">
+            <div class="tintCard red" style="display:grid; gap:10px; align-content:start;">
+              <h3 style="margin:0">Dette må du legge inn i Excel-filen</h3>
+              <p>Skjemaet må oppdateres årlig ifbm. ny Skattemelding. Du kan selvsagt oppdatere fortløpende gjennom året, en det er ingen poeng. Når Skattemeldingen ahr kommet, må du legge in:</p>
+              <ul class="clean" style="margin:0">
+                <li><p>Snittkurs USD/NOK for året Skattemeldingen gjelder. Denne finer du hos Norges bank, se link i Excelfilen.</p></li>
+                <li><p>Skjermingsrenten for året som var. Denne slippes på Skatteetaten sine sider hver januar, se link i Excel-filen.</p></li>
+                <li><p>Eventuelle nye aksjekjøp – trolig 2 nye rtansjer om du har vørt påmeldt hele året.</p></li>
+                <li><p>Eventuelle nye utbytteutbetalinger – trolig 4 ny utbytteutbetalinger om du hadde aksjer hele året.</p></li>
+              </ul>
+            </div>
+
+            <div class="tintCard amber" style="display:grid; gap:14px; align-content:start;">
+              <h3 style="margin:0">Dette gjør skjemaet for deg</h3>
+              <ul class="clean" style="margin:0">
+                <li><p>Beregner hvor mange aksjer du hadde ved hver ex-dato.</p></li>
+                <li><p>Konverterer utbytte fra USD/aksje til NOK/aksje.</p></li>
+                <li><p>Beregner skjermingsfradrag automatisk basert på tallene du legger inn, inkludert ubenyttet skjerming fra tidligere år.</p></li>
+                <li><p>Støtter flere ulike aksjer, selv om det for de fleste bare er relevant med Accenture-aksjer.</p></li>
+                <li><p>Viser detaljerte utregninger hvis du vil gå i detaljene, og oversikt over talene du skal legge inn i skattemeldingen.</p></li>
+              </ul>
+              <div class="note" style="margin-top:2px">
+                Tips: Last ned filen og legg den der du oppbevarer viktige dokumenter over tid. Oppdater den ved hver Skattemelding.
+              </div>
+            </div>
+          </div>
+
+          <div class="tintCard neutral" style="display:grid; gap:16px; align-content:start;">
+            <div style="display:grid; gap:8px">
+              <h3 style="margin:0">Last ned template</h3>
+              <p style="margin:0; color:var(--muted)">Se 'Start'-siden i skjemaet for instrukser.</p>
+            </div>
+
+            <a class="download-template-btn" href="skjermingfradrag-kalkulator.xlsx" download>
+              <span style="font-size:40px">⬇</span>
+              <span>Last ned skjermingskalkulator<br><p>skjermingfradrag-kalkulator.xlsx</p></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="foot">
+          <div>Rop ut om du mener excel-skjemaet gjør noen feilaktige beregninger!</div>
           <div class="presentationMeta"></div>
         </div>
       </section>
