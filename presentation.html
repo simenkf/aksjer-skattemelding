@@ -383,7 +383,6 @@
   .formula strong{font-size:34px; letter-spacing:-.03em}
   .formula .muted{color:var(--muted); font-size:16px}
   .wideCards{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
-  .wideCards .tintCard{}
   .metaStrip{
     display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
   }
@@ -424,7 +423,6 @@
   .compare{
     display:grid; grid-template-columns:1fr 1fr; gap:18px;
   }
-  .compare .tintCard{}
   .labelTag{
     display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px;
     font-size:13px; font-weight:700; border:1px solid var(--line); margin-bottom:12px;
@@ -468,14 +466,75 @@
   }
   .check strong{display:block; font-size:18px; margin-bottom:4px}
   .check span{color:var(--muted); line-height:1.43}
-  .sourcesPanel{
-    position:fixed; right:18px; top:74px; bottom:74px; width:min(520px, calc(100vw - 36px));
-    background:rgba(10,14,26,.96); border:1px solid var(--line); border-radius:24px;
-    box-shadow:var(--shadow); padding:22px 24px; overflow:auto;
-    transform:translateX(calc(100% + 24px)); transition:transform .28s ease; z-index:5;
+  .modal-overlay{
+    display:none; position:fixed; inset:0; z-index:9997;
+    background:rgba(0,0,0,.74); backdrop-filter:blur(8px);
+    align-items:center; justify-content:center;
+    padding:clamp(18px, 3vw, 32px);
   }
-  .sourcesPanel.open{transform:translateX(0)}
-  .sourcesPanel h3{margin:0 0 8px; font-size:28px}
+  .modal-overlay.open{display:flex}
+  .modal-panel{
+    width:min(var(--modal-width, 920px), calc(100vw - (2 * clamp(18px, 3vw, 32px))));
+    max-width:calc(100vw - (2 * clamp(18px, 3vw, 32px)));
+    max-height:calc(100vh - (2 * clamp(18px, 3vw, 32px)));
+    background:linear-gradient(180deg, rgba(18,26,49,.98), rgba(10,16,32,.99));
+    border:1px solid var(--line);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    overflow:auto;
+  }
+  .modal-header{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--line);
+  }
+  .modal-header h3{margin:0; font-size:clamp(20px, 2vw, 28px); font-weight:800; color:var(--text)}
+  .modal-close{
+    flex:0 0 auto;
+    display:grid;
+    place-items:center;
+    width:40px;
+    height:40px;
+    background:none; border:1px solid var(--line); border-radius:10px;
+    color:var(--muted); font-size:22px; cursor:pointer; padding:0; line-height:1;
+    transition:border-color .18s ease, color .18s ease, transform .18s ease;
+  }
+  .modal-close:hover{color:var(--text); border-color:var(--text); transform:translateY(-1px)}
+  .modal-close:focus-visible{
+    outline:2px solid rgba(255,255,255,.75);
+    outline-offset:2px;
+  }
+  .sources-modal-overlay{
+    display:block;
+    z-index:9996;
+    padding:0;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .24s ease;
+  }
+  .sources-modal-overlay.open{
+    display:block;
+    opacity:1;
+    pointer-events:auto;
+  }
+  .sourcesPanel{
+    position:absolute;
+    top:74px;
+    right:18px;
+    bottom:74px;
+    width:min(520px, calc(100vw - 36px));
+    max-width:calc(100vw - 36px);
+    max-height:none;
+    display:grid;
+    grid-template-rows:auto minmax(0, 1fr);
+    gap:0;
+    overflow:hidden;
+    transform:translateX(calc(100% + 24px));
+    transition:transform .28s ease;
+  }
+  .sources-modal-overlay.open .sourcesPanel{transform:translateX(0)}
+  .sources-modal-header{padding:22px 24px 12px}
+  .sources-modal-body{padding:18px 24px 24px; overflow:auto}
   .sourcesPanel p{color:var(--muted); line-height:1.48}
   .sourcesPanel ul{padding-left:1.25em; color:var(--muted); line-height:1.45}
   .sourcesPanel a{color:#d7c5ff}
@@ -536,6 +595,13 @@
     .hero .big{font-size:38px}
     .bottombar{flex-wrap:wrap; justify-content:center}
     .mobileOnly{display:inline-flex}
+    .sourcesPanel{
+      top:12px;
+      right:12px;
+      bottom:12px;
+      width:min(520px, calc(100vw - 24px));
+      max-width:calc(100vw - 24px);
+    }
   }
 
   /* Screenshot modal */
@@ -595,44 +661,41 @@
     outline:2px solid rgba(103,232,168,.95);
     outline-offset:2px;
   }
-  .img-modal-overlay{
-    display:none; position:fixed; inset:0; z-index:9999;
-    background:rgba(0,0,0,.75); backdrop-filter:blur(6px);
-    align-items:center; justify-content:center; padding:24px;
-  }
-  .img-modal-overlay.open{display:flex}
+  .img-modal-overlay{z-index:9999}
   .img-modal{
-    background:var(--bg); border:1px solid var(--card-border); border-radius:16px;
-    max-width:90vw; max-height:90vh; overflow:auto; padding:24px;
-    display:flex; flex-direction:column; gap:20px;
+    --modal-width: 1120px;
+    display:grid;
+    grid-template-rows:auto minmax(0, 1fr);
+    gap:0;
+    padding:0;
+    overflow:hidden;
   }
-  .img-modal-header{display:flex; justify-content:space-between; align-items:center}
-  .img-modal-header h3{margin:0; font-size:18px; color:var(--text)}
-  .img-modal-close{
-    background:none; border:1px solid var(--card-border); border-radius:8px;
-    color:var(--muted); font-size:22px; cursor:pointer; padding:4px 10px; line-height:1;
+  .img-modal-header{
+    align-items:center;
+    padding:22px 24px 12px;
   }
-  .img-modal-close:hover{color:var(--text); border-color:var(--text)}
-  .img-modal-body{display:flex; gap:24px; flex-wrap:wrap; justify-content:center}
-  .img-modal-item{display:flex; flex-direction:column; gap:8px; max-width:48%}
-  .img-modal-item img{max-width:100%; border-radius:10px; border:1px solid var(--card-border)}
+  .img-modal-body{padding:18px 24px 24px; display:flex; gap:24px; flex-wrap:wrap; justify-content:center; align-items:flex-start; overflow:auto}
+  .img-modal-item{display:flex; flex:1 1 320px; flex-direction:column; gap:8px; min-width:0; max-width:min(48%, 520px)}
+  .img-modal-item img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:min(62vh, 720px);
+    border-radius:10px;
+    border:1px solid var(--card-border);
+    object-fit:contain;
+  }
   .img-modal-item .caption{font-size:12px; color:var(--muted); text-align:center}
   .calc-modal{
-    width:min(1040px, 92vw);
-    max-width:1040px;
-    max-height:85vh;
-    background:linear-gradient(180deg, rgba(18,26,49,.98), rgba(10,16,32,.99));
-    border:1px solid var(--line);
-    border-radius:22px;
-    box-shadow:var(--shadow);
+    --modal-width: 1040px;
     overflow:hidden;
     display:grid;
     grid-template-rows:auto 1fr;
     gap:0;
     padding:0;
   }
-  .calc-modal .img-modal-header{padding:18px 22px; border-bottom:1px solid var(--line)}
-  .calc-modal .img-modal-body{padding:18px 22px 22px; overflow:auto}
+  .calc-modal .img-modal-header{padding:22px 24px 12px}
+  .calc-modal .img-modal-body{padding:18px 24px 24px; overflow:auto}
   .calc-modal-body{display:grid; gap:16px; justify-content:stretch}
   .calc-grid{display:grid; grid-template-columns:minmax(0, 1.1fr) minmax(320px, .9fr); gap:16px; align-items:start}
   .calc-split{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:16px; align-items:start}
@@ -665,29 +728,26 @@
     .calc-grid{grid-template-columns:1fr}
     .calc-split{grid-template-columns:1fr}
     .assumption-scenario-split{grid-template-columns:1fr}
+    .img-modal-body{flex-direction:column; flex-wrap:nowrap; align-items:stretch}
+    .img-modal-item{max-width:100%}
+    .img-modal-item img{max-height:42vh}
   }
 
   /* TOC modal */
-  .toc-modal-overlay{
-    display:none; position:fixed; inset:0; z-index:9998;
-    background:rgba(0,0,0,.72); backdrop-filter:blur(8px);
-    align-items:center; justify-content:center; padding:24px;
-  }
-  .toc-modal-overlay.open{display:flex}
+  .toc-modal-overlay{z-index:9998}
   .toc-modal{
-    background:linear-gradient(180deg, rgba(18,26,49,.98), rgba(10,16,32,.99));
-    border:1px solid var(--line); border-radius:24px;
-    max-width:680px; width:100%; max-height:85vh; overflow:auto;
-    padding:32px 36px; box-shadow:var(--shadow);
+    --modal-width: 680px;
+    padding:0;
+    display:grid;
+    grid-template-rows:auto minmax(0, 1fr);
+    gap:0;
+    overflow:hidden;
   }
-  .toc-modal-header{display:flex; justify-content:space-between; align-items:center; margin-bottom:20px}
-  .toc-modal-header h3{margin:0; font-size:24px; font-weight:800}
-  .toc-modal-close{
-    background:none; border:1px solid var(--line); border-radius:10px;
-    color:var(--muted); font-size:22px; cursor:pointer; padding:4px 12px; line-height:1;
+  .toc-modal-header{
+    align-items:center;
+    padding:22px 24px 12px;
   }
-  .toc-modal-close:hover{color:var(--text); border-color:var(--text)}
-  .toc-list{display:grid; grid-template-columns:1fr 1fr; gap:10px; list-style:none; margin:0; padding:0}
+  .toc-list{display:grid; grid-template-columns:1fr 1fr; gap:10px; list-style:none; margin:0; padding:18px 24px 24px; overflow:auto}
   .toc-list a{
     display:block; text-decoration:none; color:var(--text);
     border:1px solid var(--line); border-radius:18px; padding:14px 16px;
@@ -698,32 +758,27 @@
   .toc-list a .t{font-size:16px; font-weight:700}
   @media (max-width:760px){
     .toc-list{grid-template-columns:1fr}
-    .toc-modal{padding:20px 18px}
   }
 
   /* Begrepsoversikt: tintCard should not stretch to fill */
   .content.tintCard.autoHeight{flex:0 0 auto}
 
   /* Terms modal */
-  .terms-modal-overlay{
-    display:none; position:fixed; inset:0; z-index:9997;
-    background:rgba(0,0,0,.72); backdrop-filter:blur(8px);
-    align-items:center; justify-content:center; padding:24px;
-  }
-  .terms-modal-overlay.open{display:flex}
+  .terms-modal-overlay{z-index:9997}
   .terms-modal{
-    background:linear-gradient(180deg, rgba(18,26,49,.98), rgba(10,16,32,.99));
-    border:1px solid var(--line); border-radius:24px;
-    max-width:92vw; width:100%; max-height:85vh; overflow:auto;
-    padding:32px 36px; box-shadow:var(--shadow);
+    --modal-width: 1180px;
+    padding:0;
+    box-shadow:var(--shadow);
+    display:grid;
+    grid-template-rows:auto minmax(0, 1fr);
+    gap:0;
+    overflow:hidden;
   }
-  .terms-modal-header{display:flex; justify-content:space-between; align-items:center; margin-bottom:20px}
-  .terms-modal-header h3{margin:0; font-size:24px; font-weight:800}
-  .terms-modal-close{
-    background:none; border:1px solid var(--line); border-radius:10px;
-    color:var(--muted); font-size:22px; cursor:pointer; padding:4px 12px; line-height:1;
+  .terms-modal-header{
+    align-items:center;
+    padding:22px 24px 12px;
   }
-  .terms-modal-close:hover{color:var(--text); border-color:var(--text)}
+  .terms-modal .termTable{padding:18px 24px 24px; overflow:auto}
   strong.glow {
     color: #fff;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
@@ -1432,26 +1487,26 @@
               <h2>Hva skal føres på skattemeldingen?</h2>
               <div class="subtitle">Skatteetaten vil vite hvor stor formue du har, hvor mye utbytte du har fått, og hvor mye du har tjent/tapt ved salg. Norske banker raporterer dette for deg, men med ESPP må vi gjøre det selv.</div>
             </div>
-            <button class="screenshot-btn" onclick="document.getElementById('skattScreenshotModal').classList.add('open')"><img src="assets/skatteetaten-logo.svg" alt="" style="height:4em; vertical-align:middle; margin-right:12px">Klikk for å se hvordan det ser ut i skattemeldingen</button>
+            <button class="screenshot-btn" onclick="openModal('skattScreenshotModal')"><img src="assets/skatteetaten-logo.svg" alt="" style="height:4em; vertical-align:middle; margin-right:12px">Klikk for å se hvordan det ser ut i skattemeldingen</button>
           </div>
 
           <!-- Screenshot modal -->
-          <div id="skattScreenshotModal" class="img-modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
-            <div class="img-modal">
-              <div class="img-modal-header">
-                <h3>Slik ser det ut i skattemeldingen</h3>
-                <button class="img-modal-close" onclick="document.getElementById('skattScreenshotModal').classList.remove('open')">&times;</button>
+          <div id="skattScreenshotModal" class="img-modal-overlay modal-overlay" role="dialog" aria-modal="true" aria-labelledby="skattScreenshotModalTitle">
+            <div class="img-modal modal-panel">
+              <div class="img-modal-header modal-header">
+                <h3 id="skattScreenshotModalTitle">Slik ser det ut i skattemeldingen</h3>
+                <button class="img-modal-close modal-close" onclick="closeModal('skattScreenshotModal')" aria-label="Lukk">&times;</button>
               </div>
               <div class="img-modal-body">
                 <div class="img-modal-item">
                   <div class="caption" style="font-size:14px; font-weight:600; color:var(--text)">Dialog for å legge til utenlandske aksjer</div>
                   <img src="assets/legge-til-aksjer-i-skattemeldingen.png" alt="Legge til aksjer i skattemeldingen">
-                  <div class="caption">Slik ser det ut når du legger til aksjer</div>
+                  <div class="caption">Under 'Metode ved dobbeltbeskatning' legger du inn kredittfradrag dersom du ikke har V2A-skjema sendt inn. Mer om alt dette senere i presentasjonen.</div>
                 </div>
                 <div class="img-modal-item">
                   <div class="caption" style="font-size:14px; font-weight:600; color:var(--text)">Ferdig lagt til</div>
                   <img src="assets/aksjer-lagt-til.png" alt="Aksjer lagt til i skattemeldingen">
-                  <div class="caption">Slik ser det ut når aksjene er lagt til</div>
+                  <div class="caption">Da dette skjermbildet ble tatt, var ikke skjerming lagt inn enda for ACN. Se derfor på de andre aksjene en Acenture for hvordan det ser ut.</div>
                 </div>
               </div>
             </div>
@@ -2305,14 +2360,14 @@
               <h2>Lønner alle disse greiene seg?</h2>
               <div class="subtitle">Så til de grader! La oss se på noen ulike scenarioer. Anta et brutto utbytte på 10 000 kr.</div>
             </div>
-            <button class="screenshot-btn v2a-trigger-btn" onclick="document.getElementById('v2aWorthModal').classList.add('open')">🤓️ V2A: Når lønner $500-gebyret seg?</button>
+            <button class="screenshot-btn v2a-trigger-btn" onclick="openModal('v2aWorthModal')">🤓️ V2A: Når lønner $500-gebyret seg?</button>
           </div>
 
-          <div id="v2aWorthModal" class="img-modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
-            <div class="img-modal calc-modal">
-              <div class="img-modal-header">
-                <h3>Er V2A verdt $500? Slik regner du break-even</h3>
-                <button class="img-modal-close" onclick="document.getElementById('v2aWorthModal').classList.remove('open')">&times;</button>
+          <div id="v2aWorthModal" class="img-modal-overlay modal-overlay" role="dialog" aria-modal="true" aria-labelledby="v2aWorthModalTitle">
+            <div class="img-modal calc-modal modal-panel">
+              <div class="img-modal-header modal-header">
+                <h3 id="v2aWorthModalTitle">Er V2A verdt $500? Slik regner du break-even</h3>
+                <button class="img-modal-close modal-close" onclick="closeModal('v2aWorthModal')" aria-label="Lukk">&times;</button>
               </div>
               <div class="img-modal-body calc-modal-body">
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start">
@@ -2616,45 +2671,52 @@
   </footer>
 </div>
 
-<div class="toc-modal-overlay" id="tocOverlay">
-  <div class="toc-modal">
-    <div class="toc-modal-header">
-      <h3>Innhold</h3>
-      <button class="toc-modal-close" id="tocClose" aria-label="Lukk">&times;</button>
+<div class="toc-modal-overlay modal-overlay" id="tocOverlay" role="dialog" aria-modal="true" aria-labelledby="tocModalTitle">
+  <div class="toc-modal modal-panel">
+    <div class="toc-modal-header modal-header">
+      <h3 id="tocModalTitle">Innhold</h3>
+      <button class="toc-modal-close modal-close" id="tocClose" aria-label="Lukk">&times;</button>
     </div>
     <ol class="toc-list" id="tocModalList"></ol>
   </div>
 </div>
 
-<div class="terms-modal-overlay" id="termsOverlay">
-  <div class="terms-modal">
-    <div class="terms-modal-header">
-      <h3>Begrepsoversikt</h3>
-      <button class="terms-modal-close" id="termsClose" aria-label="Lukk">&times;</button>
+<div class="terms-modal-overlay modal-overlay" id="termsOverlay" role="dialog" aria-modal="true" aria-labelledby="termsModalTitle">
+  <div class="terms-modal modal-panel">
+    <div class="terms-modal-header modal-header">
+      <h3 id="termsModalTitle">Begrepsoversikt</h3>
+      <button class="terms-modal-close modal-close" id="termsClose" aria-label="Lukk">&times;</button>
     </div>
     <div class="termTable" id="modalTermTable"></div>
   </div>
 </div>
 
-<aside class="sourcesPanel" id="sourcesPanel" aria-hidden="true">
-  <h3>Kilder og kontrollpunkter</h3>
-  <p>Denne presentasjonen er forenklet for intern opplæring. For detaljbeslutninger bør du sjekke årets regler og dine egne kontoutskrifter.</p>
-  <ul>
-    <li><a href="https://investor.accenture.com/investor-resources/investor-faqs" target="_blank" rel="noopener">Accenture Investor FAQs</a> – ticker ACN på NYSE.</li>
-    <li><a href="https://www.accenture.com/content/dam/accenture/final/accenture-com/document-4/Annual-Report-2025.pdf" target="_blank" rel="noopener">Accenture Annual Report 2025</a> – Accenture plc er irsk selskap.</li>
-    <li><a href="https://www.accenture.com/content/dam/accenture/final/corporate/company-information/document/Accenture-CDP-2024.pdf" target="_blank" rel="noopener">Accenture CDP 2024</a> – ISIN IE00B4BNMY34 og CUSIP G1151C101.</li>
-    <li><a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/aksjer-og-verdipapirer/" target="_blank" rel="noopener">Skatteetaten – Aksjer og verdipapirer</a>.</li>
-    <li><a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/utland/inntekt-og-formue-i-utlandet/inntekt-og-formue-i-utlandet/" target="_blank" rel="noopener">Skatteetaten – Inntekt og formue i utlandet</a>.</li>
-    <li><a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/utland/dobbeltbeskatning/" target="_blank" rel="noopener">Skatteetaten – Dobbeltbeskatning / kredittfradrag</a>.</li>
-    <li><a href="https://www.skatteetaten.no/satser/faktor-for-oppjustering-av-eierinntekter/" target="_blank" rel="noopener">Skatteetaten – Faktor for oppjustering av eierinntekter</a>.</li>
-    <li><a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/aksjer-og-verdipapirer/om/skatteregler-for-gevinsttap-ved-realisasjoner-og-aksjeutbytte/skjermingsfradrag/" target="_blank" rel="noopener">Skatteetaten – Skjermingsfradrag</a>.</li>
-    <li><a href="https://www.revenue.ie/en/companies-and-charities/dividend-withholding-tax/index.aspx" target="_blank" rel="noopener">Revenue Ireland – Dividend Withholding Tax</a>.</li>
-    <li><a href="https://www.revenue.ie/en/companies-and-charities/documents/dwt/dwt-non-res-v2a.pdf" target="_blank" rel="noopener">Revenue Ireland – Form V2A</a>.</li>
-    <li><a href="https://lovdata.no/dokument/TRAKTATEN/traktat/2000-11-22-1/KAPITTEL_5" target="_blank" rel="noopener">Skatteavtalen mellom Norge og Irland</a>.</li>
-    <li><a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben" target="_blank" rel="noopener">IRS – About Form W‑8BEN</a> og <a href="https://www.irs.gov/instructions/iw8ben" target="_blank" rel="noopener">Instructions for Form W‑8BEN</a>.</li>
-  </ul>
-  <p><strong class="glow">Viktig:</strong> ESPP-regler, kjøpsdatoer, intern prosess og brokerrapporter kan endres. Bruk derfor presentasjonen sammen med gjeldende intern dokumentasjon fra Accenture/UBS.</p>
-</aside>
+<div class="sources-modal-overlay modal-overlay" id="sourcesOverlay" role="dialog" aria-modal="true" aria-labelledby="sourcesModalTitle" aria-hidden="true">
+  <aside class="sourcesPanel modal-panel" id="sourcesPanel" aria-hidden="true">
+    <div class="sources-modal-header modal-header">
+      <h3 id="sourcesModalTitle">Kilder og kontrollpunkter</h3>
+      <button class="modal-close" id="sourcesClose" aria-label="Lukk">&times;</button>
+    </div>
+    <div class="sources-modal-body">
+      <p>Denne presentasjonen er forenklet for intern opplæring. For detaljbeslutninger bør du sjekke årets regler og dine egne kontoutskrifter.</p>
+      <ul>
+        <li><a href="https://investor.accenture.com/investor-resources/investor-faqs" target="_blank" rel="noopener">Accenture Investor FAQs</a> – ticker ACN på NYSE.</li>
+        <li><a href="https://www.accenture.com/content/dam/accenture/final/accenture-com/document-4/Annual-Report-2025.pdf" target="_blank" rel="noopener">Accenture Annual Report 2025</a> – Accenture plc er irsk selskap.</li>
+        <li><a href="https://www.accenture.com/content/dam/accenture/final/corporate/company-information/document/Accenture-CDP-2024.pdf" target="_blank" rel="noopener">Accenture CDP 2024</a> – ISIN IE00B4BNMY34 og CUSIP G1151C101.</li>
+        <li><a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/aksjer-og-verdipapirer/" target="_blank" rel="noopener">Skatteetaten – Aksjer og verdipapirer</a>.</li>
+        <li><a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/utland/inntekt-og-formue-i-utlandet/inntekt-og-formue-i-utlandet/" target="_blank" rel="noopener">Skatteetaten – Inntekt og formue i utlandet</a>.</li>
+        <li><a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/utland/dobbeltbeskatning/" target="_blank" rel="noopener">Skatteetaten – Dobbeltbeskatning / kredittfradrag</a>.</li>
+        <li><a href="https://www.skatteetaten.no/satser/faktor-for-oppjustering-av-eierinntekter/" target="_blank" rel="noopener">Skatteetaten – Faktor for oppjustering av eierinntekter</a>.</li>
+        <li><a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/aksjer-og-verdipapirer/om/skatteregler-for-gevinsttap-ved-realisasjoner-og-aksjeutbytte/skjermingsfradrag/" target="_blank" rel="noopener">Skatteetaten – Skjermingsfradrag</a>.</li>
+        <li><a href="https://www.revenue.ie/en/companies-and-charities/dividend-withholding-tax/index.aspx" target="_blank" rel="noopener">Revenue Ireland – Dividend Withholding Tax</a>.</li>
+        <li><a href="https://www.revenue.ie/en/companies-and-charities/documents/dwt/dwt-non-res-v2a.pdf" target="_blank" rel="noopener">Revenue Ireland – Form V2A</a>.</li>
+        <li><a href="https://lovdata.no/dokument/TRAKTATEN/traktat/2000-11-22-1/KAPITTEL_5" target="_blank" rel="noopener">Skatteavtalen mellom Norge og Irland</a>.</li>
+        <li><a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben" target="_blank" rel="noopener">IRS – About Form W‑8BEN</a> og <a href="https://www.irs.gov/instructions/iw8ben" target="_blank" rel="noopener">Instructions for Form W‑8BEN</a>.</li>
+      </ul>
+      <p><strong class="glow">Viktig:</strong> ESPP-regler, kjøpsdatoer, intern prosess og brokerrapporter kan endres. Bruk derfor presentasjonen sammen med gjeldende intern dokumentasjon fra Accenture/UBS.</p>
+    </div>
+  </aside>
+</div>
 
 <script>
 (() => {
@@ -2663,7 +2725,9 @@
   const slideCount = document.getElementById('slideCount');
   const progressFill = document.getElementById('progressFill');
   const pager = document.getElementById('pager');
+  const sourcesOverlay = document.getElementById('sourcesOverlay');
   const sourcesPanel = document.getElementById('sourcesPanel');
+  const sourcesClose = document.getElementById('sourcesClose');
   const sourcesBtn = document.getElementById('sourcesBtn');
   const tocShortcutBtn = document.getElementById('tocShortcutBtn');
   const srcShortcutBtn = document.getElementById('srcShortcutBtn');
@@ -2724,6 +2788,41 @@
 
   function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
 
+  function setOverlayOpen(overlay, force){
+    if (!overlay) return false;
+    const open = typeof force === 'boolean' ? force : !overlay.classList.contains('open');
+    overlay.classList.toggle('open', open);
+    overlay.setAttribute('aria-hidden', String(!open));
+    return open;
+  }
+
+  function getOpenOverlays(){
+    return [...document.querySelectorAll('.modal-overlay.open')];
+  }
+
+  function hasOpenOverlay(){
+    return getOpenOverlays().length > 0;
+  }
+
+  function closeAllOverlays(){
+    getOpenOverlays().forEach((overlay) => {
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+    });
+    sourcesPanel.setAttribute('aria-hidden', 'true');
+  }
+
+  function openModal(id){
+    setOverlayOpen(document.getElementById(id), true);
+  }
+
+  function closeModal(id){
+    setOverlayOpen(document.getElementById(id), false);
+  }
+
+  window.openModal = openModal;
+  window.closeModal = closeModal;
+
   function buildPager(){
     slides.forEach((slide, i) => {
       const b = document.createElement('button');
@@ -2756,8 +2855,7 @@
   }
 
   function toggleSources(force){
-    const open = typeof force === 'boolean' ? force : !sourcesPanel.classList.contains('open');
-    sourcesPanel.classList.toggle('open', open);
+    const open = setOverlayOpen(sourcesOverlay, force);
     sourcesPanel.setAttribute('aria-hidden', String(!open));
   }
 
@@ -2801,8 +2899,7 @@
   }
 
   function toggleToc(force){
-    const open = typeof force === 'boolean' ? force : !tocOverlay.classList.contains('open');
-    tocOverlay.classList.toggle('open', open);
+    setOverlayOpen(tocOverlay, force);
   }
 
   /* ---- Terms modal ---- */
@@ -2810,8 +2907,7 @@
   const termsClose = document.getElementById('termsClose');
 
   function toggleTerms(force){
-    const open = typeof force === 'boolean' ? force : !termsOverlay.classList.contains('open');
-    termsOverlay.classList.toggle('open', open);
+    setOverlayOpen(termsOverlay, force);
   }
 
   buildPager();
@@ -2836,6 +2932,12 @@
 
   window.addEventListener('keydown', (e) => {
     const k = e.key;
+    if (k === 'Escape') {
+      if (hasOpenOverlay()) e.preventDefault();
+      closeAllOverlays();
+      return;
+    }
+    if (hasOpenOverlay()) return;
     if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(k)) { e.preventDefault(); next(); }
     else if (['ArrowLeft', 'PageUp', 'Backspace'].includes(k)) { e.preventDefault(); prev(); }
     else if (k === 'Home') { e.preventDefault(); go(0); }
@@ -2843,7 +2945,6 @@
     else if (k.toLowerCase() === 'k') { e.preventDefault(); toggleSources(); }
     else if (k.toLowerCase() === 'i') { e.preventDefault(); toggleToc(); }
     else if (k.toLowerCase() === 'b') { e.preventDefault(); toggleTerms(); }
-    else if (k === 'Escape') { toggleSources(false); toggleToc(false); toggleTerms(false); }
   });
 
   let touchX = null;
@@ -2864,6 +2965,11 @@
     touchX = touchY = null;
   }, { passive: true });
 
+  sourcesClose.addEventListener('click', () => toggleSources(false));
+  sourcesOverlay.addEventListener('click', (e) => {
+    if (e.target === sourcesOverlay) toggleSources(false);
+  });
+
   tocClose.addEventListener('click', () => toggleToc(false));
   tocOverlay.addEventListener('click', (e) => {
     if (e.target === tocOverlay) toggleToc(false);
@@ -2874,13 +2980,10 @@
     if (e.target === termsOverlay) toggleTerms(false);
   });
 
-  document.addEventListener('click', (e) => {
-    if (sourcesPanel.classList.contains('open') &&
-        !sourcesPanel.contains(e.target) &&
-        e.target !== sourcesBtn &&
-        !srcShortcutBtn.contains(e.target)) {
-      toggleSources(false);
-    }
+  document.querySelectorAll('.img-modal-overlay').forEach((overlay) => {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) setOverlayOpen(overlay, false);
+    });
   });
 })();
 </script>
