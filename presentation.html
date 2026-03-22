@@ -323,7 +323,7 @@
   .tintCard.green h3{color:var(--green)} .tintCard.green h4{color:var(--green)} .tintCard.green p{color:#dff7ea}
   .tintCard.cyan{background:linear-gradient(180deg, rgba(103,232,249,.14), rgba(103,232,249,.06)); border-color:rgba(103,232,249,.25)}
   .tintCard.cyan h3{color:var(--cyan)} .tintCard.cyan h4{color:var(--cyan)} .tintCard.cyan p{color:#d5f7ff}
-  .tintCard.purple{background:linear-gradient(180deg, rgba(161,0,255,.14), rgba(161,0,255,.06)); border-color:rgba(161,0,255,.25)}
+  .tintCard.purple{background:linear-gradient(180deg, rgba(175, 80, 230, 0.14), rgba(161,0,255,.06)); border-color:rgba(161,0,255,.25)}
   .tintCard.purple h3{color:var(--purple2)} .tintCard.purple h4{color:var(--purple2)} .tintCard.purple p{color:#e2c6ff}
   .tintCard.amber{background:linear-gradient(180deg, rgba(246,196,83,.14), rgba(246,196,83,.06)); border-color:rgba(246,196,83,.25)}
   .tintCard.amber h3{color:var(--amber)} .tintCard.amber h4{color:var(--amber)} .tintCard.amber p{color:#fef3d5}
@@ -2201,7 +2201,7 @@
           <div class="titleRow">
             <div>
               <h2>Lønner alle disse greiene seg?</h2>
-              <div class="subtitle">Ja! La oss se på noen ulike scenarioer. Anta et brutto utbytte på 10 000 kr. Vi ser her vekk fra kostnaden på $500 for å få prosessert V2A-skjemaet.</div>
+              <div class="subtitle">Så til de grader! La oss se på noen ulike scenarioer. Anta et brutto utbytte på 10 000 kr.</div>
             </div>
             <button class="screenshot-btn v2a-trigger-btn" onclick="document.getElementById('v2aWorthModal').classList.add('open')">🤓️ V2A: Når lønner $500-gebyret seg?</button>
           </div>
@@ -2213,64 +2213,35 @@
                 <button class="img-modal-close" onclick="document.getElementById('v2aWorthModal').classList.remove('open')">&times;</button>
               </div>
               <div class="img-modal-body calc-modal-body">
-                <div style="display:grid; gap:16px">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start">
                   <div class="tintCard neutral">
-                    <h3>Forutsetninger og to realistiske scenarioer</h3>
-                    <div class="assumption-scenario-split">
-                      <div>
-                        <div class="assumption-list" style="margin-top:0">
-                          <div class="assumption-row"><span>Gebyr for V2A</span><span>$500</span></div>
-                          <div class="assumption-row"><span>Gyldighet</span><span>5 år</span></div>
-                          <div class="assumption-row"><span>Utbytte per aksje per kvartal</span><span>$1.63</span></div>
-                          <div class="assumption-row"><span>Årlig utbytte per aksje</span><span>$1.63 × 4 = $6.52</span></div>
-                          <div class="assumption-row"><span>Utbytte per aksje over 5 år</span><span>$6.52 × 5 = $32.60</span></div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="formula-block" style="margin-top:0">
-                          <div class="scenario-expl-title">1) Skjerming dekker alt</div>
-                          <div class="scenario-expl-body">Kredittfradrag blir ikke brukt.<br>V2A-effekt per utbytte-dollar = <strong>25%</strong>.</div>
-                        </div>
-                        <div class="formula-block">
-                          <div class="scenario-expl-title">2) Skjerming = 0</div>
-                          <div class="scenario-expl-body">Kredittfradrag brukes maksimalt.<br>Kredittfradragseffekt = 15% × 37,84% = <strong>5,676%</strong>.<br>Netto V2A-effekt = 25% − 5,676% = <strong>19,324%</strong>.</div>
-                        </div>
-                      </div>
+                    <h3>Forutsetninger</h3>
+                    <div class="assumption-list" style="margin-top:8px">
+                      <div class="assumption-row"><span>Du benytter deg av skjerming til vanlig</span><span></span></div>
+                      <div class="assumption-row"><span>Du betaler DWT kun for Accenture-aksjer</span><span></span></div>
+                      <div class="assumption-row"><span>Gebyr for V2A</span><span>$500</span></div>
+                      <div class="assumption-row"><span>Gyldighet</span><span>5 år</span></div>
+                      <div class="assumption-row"><span>Utbytte per aksje per kvartal (FY26)</span><span>$1.63</span></div>
+                      <div class="assumption-row"><span>Årlig utbytte per aksje</span><span>$1.63 × 4 = $6.52</span></div>
+                      <div class="assumption-row"><span>Utbytte per aksje over 5 år</span><span>$6.52 × 5 = $32.60</span></div>
                     </div>
-                    <div class="note" style="margin-top:12px">Vi antar konstant utbytte og bruker gjennomsnittlig antall aksjer gjennom femårsperioden. Begge scenarioene bruker samme utbytteforutsetning: $1.63 per aksje per kvartal, fire utbetalinger i året, i fem år.</div>
+                    <div class="note" style="margin-top:12px">Uten V2A får du 15% skattelette med kredittfradrag, som er taket for refusjon gitt skatteavtalen med Irland. Netto V2A-effekt er dermed 25% − 15% = <strong>10%</strong>.</div>
                   </div>
 
-                  <div class="calc-split">
-                    <div class="tintCard green">
-                      <h3>Scenario 1: Skjerming dekker alt</h3>
-                      <p style="margin-bottom:8px">La <strong class="glow">n</strong> være gjennomsnittlig antall aksjer du eier over de 5 årene.</p>
-                      <div class="formula-block">
-                        Brutto utbytte over 5 år <br>=n × 1.63 × 4 × 5
-                      </div>
-                      <div class="formula-block">
-                        Besparelse med V2A <br>= n × 32.60 × 0.25 <strong>= n × $8.15</strong>
-                      </div>
-                      <div class="formula-block">
-                        Break-even når n × 8.15 ≥ 500<br>
-                        n ≥ 500 / 8.15 = <strong>61.35</strong>
-                      </div>
-                      <div class="note" style="margin-top:12px"><strong class="glow">Break-even:</strong> minst <strong class="glow">62 aksjer i snitt</strong>.</div>
+                  <div class="tintCard green">
+                    <h3>Break-even beregning</h3>
+                    <p style="margin-bottom:8px">La <strong class="glow">n</strong> være gjennomsnittlig antall aksjer du eier over de 5 årene.</p>
+                    <div class="formula-block">
+                      Brutto utbytte over 5 år <br> = n × 32,60
                     </div>
-
-                    <div class="tintCard amber">
-                      <h3>Scenario 2: Skjerming = 0 (maks kredittfradrag)</h3>
-                      <div class="formula-block">
-                        Brutto utbytte over 5 år <br>=n × 1.63 × 4 × 5
-                      </div>
-                      <div class="formula-block">
-                        Besparelse med V2A <br>= n × 32.60 × (0.25 − 0.15 × 0.3784) <strong>= n × $6.299624</strong>
-                      </div>
-                      <div class="formula-block">
-                        Break-even når n × 6.299624 ≥ 500<br>
-                        n ≥ 500 / 6.299624 = <strong>79.37</strong>
-                      </div>
-                      <div class="note" style="margin-top:12px"><strong class="glow">Break-even:</strong> minst <strong class="glow">80 aksjer i snitt</strong>.</div>
+                    <div class="formula-block">
+                      Besparelse med V2A <br>= n × 32.60 × (0.25 − 0.15) <strong>= n × $3.26</strong>
                     </div>
+                    <div class="formula-block">
+                      Break-even når n × 3.26 ≥ 500<br>
+                      n ≥ 500 / 3.26 = <strong>153.37</strong>
+                    </div>
+                    <div class="note" style="margin-top:12px"><strong style="color:var(--green)">Break-even:</strong> minst <strong class="glow">154 aksjer i snitt</strong> over 5 år. <br><br> Husk at du du kjøper aksjer verdt år, så for å oppnå et 5-års snitt på 154 aksjer, må du sende inn V2A lenge før du når 154 aksjer. Kjøper du 20 aksjer per år, 100 totalt over 5 år, blir snittet 154 fra det året du har 104 aksjer: (104 + 204) / 2 = 154.</div>
                   </div>
                 </div>
               </div>
@@ -2282,10 +2253,10 @@
           <!-- 1 — Ingen skjemaer, ingen fradrag -->
           <div class="tintCard red" style="display:flex; flex-direction:column;">
             <div class="labelTag red" style="margin-bottom:8px; align-self:flex-start">1 · Ingen skjemaer, ingen fradrag</div>
-            <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:4px">
+            <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:5px; margin-bottom: 5px;">
               <p>USA-trekk (30%)</p><strong style="color:var(--red); text-align:right">3 000 kr</strong>
               <p>Irsk DWT (25%)</p><strong style="color:var(--red); text-align:right">2 500 kr</strong>
-              <p>Norsk skatt (37,84%)</p><strong class="glow" style="text-align:right">3 784 kr</strong>
+              <p>Norsk skatt (37,84% av 10 000)</p><strong class="glow" style="text-align:right">3 784 kr</strong>
               <p style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</p><strong class="glow" style="text-align:right; border-top:1px solid var(--line); padding-top:4px">9 284 kr</strong>
               <p>Netto igjen</p><strong style="color:var(--red); font-size:18px; text-align:right">716 kr</strong>
             </div>
@@ -2295,75 +2266,70 @@
           <!-- 2 — W-8 BEN (reduserer USA fra 30 % til 0 %) -->
           <div class="tintCard amber" style="display:flex; flex-direction:column;">
             <div class="labelTag" style="background:rgba(246,196,83,.12); margin-bottom:8px; align-self:flex-start">2 · W‑8 BEN</div>
-            <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:4px">
+            <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:5px; margin-bottom: 5px;">
               <p>USA-trekk (0%)</p><strong style="color:var(--amber); text-align:right">0 kr</strong>
               <p>Irsk DWT (25%)</p><strong class="glow" style="text-align:right">2 500 kr</strong>
-              <p>Norsk skatt (37,84%)</p><strong class="glow" style="text-align:right">3 784 kr</strong>
+              <p>Norsk skatt (37,84% av 10 000)</p><strong class="glow" style="text-align:right">3 784 kr</strong>
               <p style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</p><strong class="glow" style="text-align:right; border-top:1px solid var(--line); padding-top:4px">6 284 kr</strong>
               <p>Netto igjen</p><strong style="color:var(--amber); font-size:18px; text-align:right">3 716 kr</strong>
             </div>
             <div class="note" style="margin-top:auto">W‑8 BEN fjerner USA-trekket. Irsk DWT er fortsatt fullt.</div>
           </div>
 
-          <!-- 3 — W-8 BEN + V2A (uten skjerming) -->
-          <div class="tintCard green" style="display:flex; flex-direction:column;">
-            <div class="labelTag green" style="margin-bottom:8px; align-self:flex-start">3 · W‑8 BEN + V2A</div>
-            <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:4px">
-              <p>USA-trekk (0%)</p><strong class="glow" style="text-align:right">0 kr</strong>
-              <p>Irsk DWT (0% — V2A)</p><strong style="color:var(--green); text-align:right">0 kr</strong>
-              <p>Skattepliktig utbytte</p><strong class="glow" style="text-align:right">10 000 kr</strong>
-              <p>Norsk skatt (37,84%)</p><strong class="glow" style="text-align:right">3 784 kr</strong>
-              <p>Kredittfradrag (ikke relevant)</p><strong class="glow" style="text-align:right">0 kr</strong>
-              <p style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</p><strong class="glow" style="text-align:right; border-top:1px solid var(--line); padding-top:4px">3 784 kr</strong>
-              <p>Netto igjen</p><strong style="color:var(--green); font-size:18px; text-align:right">6 216 kr</strong>
-            </div>
-            <div class="note" style="margin-top:auto">V2A fjerner irsk DWT. Du betaler kun norsk skatt på utbyttet.</div>
-          </div>
-          
-          <!-- 4 — W-8 BEN + Skjerming (80%) + Kredittfradrag -->
+          <!-- 3 — W-8 BEN + Kredittfradrag -->
           <div class="tintCard cyan" style="display:flex; flex-direction:column;">
-            <div class="labelTag" style="background:rgba(103,232,249,.12); margin-bottom:8px; align-self:flex-start">4 · W‑8 BEN + Skjerming (80%) + Kredittfradrag</div>
-            <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:4px">
+            <div class="labelTag" style="background:rgba(103,232,249,.12); margin-bottom:8px; align-self:flex-start">3 · W‑8 BEN + Kredittfradrag</div>
+            <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:5px; margin-bottom: 5px;">
               <p>USA-trekk (0%)</p><strong class="glow" style="text-align:right">0 kr</strong>
               <p>Irsk DWT (25%)</p><strong class="glow" style="text-align:right">2 500 kr</strong>
-              <p>Skjermingsfradrag (8 000 kr)</p><strong style="color:var(--cyan); text-align:right">−8 000 kr</strong>
               <p>Kredittfradrag (15%)</p><strong style="color:var(--cyan); text-align:right">−1 500 kr</strong>
-              <p>Skattepliktig utbytte</p><strong style="color:var(--cyan); text-align:right">500 kr</strong>
-              <p>Norsk (37,84% av 500)</p><strong class="glow" style="text-align:right">189 kr</strong>
-              <p style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</p><strong class="glow" style="text-align:right; border-top:1px solid var(--line); padding-top:4px">2 689 kr</strong>
-              <p>Netto igjen</p><strong style="color:var(--cyan); font-size:18px; text-align:right">7 311 kr</strong>
+              <p>Norsk skatt (37,84% av 10 000)</p><strong class="glow" style="text-align:right">3 784 kr</strong>
+              <p style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</p><strong class="glow" style="text-align:right; border-top:1px solid var(--line); padding-top:4px">4 784 kr</strong>
+              <p>Netto igjen</p><strong style="color:var(--cyan); font-size:18px; text-align:right">5 216 kr</strong>
             </div>
-            <div class="note" style="margin-top:auto">Kombinasjonen av skjerming og kredittfradrag reduserer skatten betydelig. Kredittfradraget er basert på skatteavtalesatsen på 15%.</div>
+            <div class="note" style="margin-top:auto">Merk at kredittfradrag ikke reduserer beløpet som skal beskattes med nrosk sats, men reduserer selve skatten.</div>
           </div>
           
-          <!-- 5 — W-8 BEN + Skjerming (100% dekning) -->
-          <div class="tintCard" style="border-color:rgba(59,130,246,.35); background:rgba(59,130,246,.05); display:flex; flex-direction:column;">
-            <div class="labelTag" style="background:rgba(59,130,246,.12); margin-bottom:8px; align-self:flex-start">5 · W‑8 BEN + Skjerming (100%)</div>
-            <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:4px">
+          <!-- 4 — W-8 BEN + Kredittfradrag + Skjerming (80%) -->
+          <div class="tintCard cyan" style="display:flex; flex-direction:column;">
+            <div class="labelTag" style="background:rgba(103,232,249,.12); margin-bottom:8px; align-self:flex-start">4 · W‑8 BEN + Kredittfradrag + Skjerming (80%)</div>
+            <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:5px; margin-bottom: 5px;">
+              <p>USA-trekk (0%)</p><strong class="glow" style="text-align:right">0 kr</strong>
+              <p>Irsk DWT (25%)</p><strong class="glow" style="text-align:right">2 500 kr</strong>
+              <p>Kredittfradrag (15%)</p><strong class="glow" style="text-align:right">−1 500 kr</strong>
+              <p>Norsk skatt (37,84% av <strong style="color:var(--cyan)">2 000</strong>)</p><strong class="glow" style="text-align:right; color:var(--cyan)">757 kr</strong>
+              <p style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</p><strong class="glow" style="text-align:right; border-top:1px solid var(--line); padding-top:4px">1 757 kr</strong>
+              <p>Netto igjen</p><strong style="color:var(--cyan); font-size:18px; text-align:right">8 243 kr</strong>
+            </div>
+            <div class="note" style="margin-top:auto">Skjermingen reduserer skattepliktig utbytte fra 10 000 kr til 2 000 kr fordi vi har 8 000 kr i skjermingsfradrag (80% dekket).</div>
+          </div>
+          
+          <!-- 5 — W-8 BEN + Kredittfradrag + Skjerming (100%) -->
+          <div class="tintCard neutral" style="display:flex; flex-direction:column;">
+            <div class="labelTag" style="background:rgba(59,130,246,.12); margin-bottom:8px; align-self:flex-start">5 · W‑8 BEN + Kredittfradrag + Skjerming (100%)</div>
+            <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:5px; margin-bottom: 5px;">
               <p>USA-trekk (0%)</p><strong style="color:#3b82f6; text-align:right">0 kr</strong>
               <p>Irsk DWT (25%)</p><strong class="glow" style="text-align:right">2 500 kr</strong>
-              <p>Skjermingsfradrag</p><strong style="color:#3b82f6; text-align:right">−10 000 kr</strong>
-              <p>Skattepliktig utbytte</p><strong style="color:#3b82f6; text-align:right">0 kr</strong>
-              <p>Norsk skatt (37,84% av 0)</p><strong style="color:#3b82f6; text-align:right">0 kr</strong>
-              <p style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</p><strong class="glow" style="text-align:right; border-top:1px solid var(--line); padding-top:4px">2 500 kr</strong>
-              <p>Netto igjen</p><strong style="color:#3b82f6; font-size:18px; text-align:right">7 500 kr</strong>
+              <p>Kredittfradrag (15%)</p><strong class="glow" style="text-align:right">−1 500 kr</strong>
+              <p>Norsk skatt (0% på <strong style="color:#3b82f6">0</strong>)</p><strong style="color:#3b82f6; text-align:right">0 kr</strong>
+              <p style="border-top:1px solid var(--line); padding-top:4px">Netto skattekostnad</p><strong class="glow" style="text-align:right; border-top:1px solid var(--line); padding-top:4px">1 000 kr</strong>
+              <p>Netto igjen</p><strong style="color:#3b82f6; font-size:18px; text-align:right">9 000 kr</strong>
             </div>
-            <div class="note" style="margin-top:auto">Ingen norsk skatt når skjermingen er stor nok – kun irsk DWT.</div>
+            <div class="note" style="margin-top:auto">Her har vi nok skjerming til å dekke hele utbyttet. Da er eneste skatten vi betaler gapet mellom DWT og det kredittfradrag gir oss tilbake.</div>
           </div>
 
-          <!-- 6 — W-8 BEN + V2A + Skjerming -->
-          <div class="tintCard" style="border-color:rgba(200,100,255,.42); background:rgba(200,100,255,.10); display:flex; flex-direction:column;">
-            <div class="labelTag" style="background:rgba(200,100,255,.2); margin-bottom:8px; align-self:flex-start">6 · W‑8 BEN + V2A + Skjerming (100%)</div>
-            <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:4px">
+          <!-- 6 — W-8 BEN + Skjerming (100%) + V2A -->
+          <div class="tintCard purple" style="display:flex; flex-direction:column;">
+            <div class="labelTag" style="background:rgba(200,100,255,.2); margin-bottom:8px; align-self:flex-start">6 · W‑8 BEN + Skjerming (100%) + V2A</div>
+            <div style="display:grid; grid-template-columns:1fr auto; gap:3px 14px; font-size:13px; line-height:1.5; color:var(--muted); margin-top:5px; margin-bottom: 5px;">
               <p>USA-trekk (0%)</p><strong style="color:var(--purple2); text-align:right">0 kr</strong>
-              <p>Irsk DWT (0% — V2A)</p><strong style="color:var(--purple2); text-align:right">0 kr</strong>
-              <p>Skjermingsfradrag</p><strong style="color:var(--purple2); text-align:right">−10 000 kr</strong>
-              <p>Skattepliktig utbytte</p><strong style="color:var(--purple2); text-align:right">0 kr</strong>
+              <p>Irsk DWT (<strong style="color:var(--purple)">0%</strong>)</p><strong style="color:var(--purple2); text-align:right">0 kr</strong>
+              <p>Kredittfradrag (<strong style="color:var(--purple)">0%</strong>)</p><strong class="glow" style="text-align:right">−0 kr</strong>
               <p>Norsk skatt (37,84% av 0)</p><strong style="color:var(--purple2); text-align:right">0 kr</strong>
               <p style="border-top:1px solid var(--line); padding-top:4px">Samlet skatt</p><strong class="glow" style="text-align:right; border-top:1px solid var(--line); padding-top:4px">0 kr</strong>
               <p>Netto igjen</p><strong style="color:var(--purple2); font-size:18px; text-align:right">10 000 kr</strong>
             </div>
-            <div class="note" style="margin-top:auto;"><strong class="glow">Best case scenario!</strong> Null skatt, du beholder hele utbyttet. Dog har du betalt $500 for V2A-skjema over 5 år, som må tas med i bergningene.</div>
+            <div class="note" style="margin-top:auto;"><strong class="glow">Null skatt,</strong> du beholder hele utbyttet. Merk at kredittfradraget ikke lenger har effekt, da du ikke har betalt skatt i utlandet. Dog har du betalt $500 for V2A-skjema over 5 år, som må tas med i bergningene.</div>
           </div>
 
 
