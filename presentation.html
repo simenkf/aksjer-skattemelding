@@ -2528,6 +2528,69 @@
         </div>
       </section>
 
+      <section class="slide" data-title="Hvor havner utbyttet mitt?">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Utbytte mottatt – hva nå?</div>
+          <div class="titleRow">
+            <div>
+              <h2>Hvor havner utbyttet mitt?</h2>
+              <div class="subtitle">Utbyttet lander som kontanter på din UBS-konto, eller reinvesteres i flere aksjer. Du kan altså velge hvilket alternativ du foretrekker.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content" style="display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:start;">
+
+          <!-- Alternativ 1: Ta ut som cash -->
+          <div class="tintCard green" style="display:grid; gap:14px; align-content:start;">
+            <div class="labelTag green" style="align-self:flex-start">Alternativ 1</div>
+            <h3 style="display:flex; align-items:center; gap:10px; margin:0">
+              <span style="font-size:28px">🏦</span> Ta ut pengene
+            </h3>
+            <p>Utbyttet settes inn som <strong class="glow">kontanter</strong> på bankkontoen din hos UBS. Du kan overføre beløpet til din vanlige norske bankkonto.</p>
+
+            <div style="display:grid; gap:8px;">
+              <div style="padding:10px 14px; border-radius:10px; background:rgba(103,232,168,.07); border:1px solid rgba(103,232,168,.2); font-size:13px; line-height:1.55">
+                <strong class="glow">Slik gjør du:</strong> Logg inn på UBS-kontoen din og følg instruksjonene for uttak/overføring. Pengene sendes til den bankkontoen du registrerer. Antar jeg, har ikke prøvd selv.
+              </div>
+            </div>
+
+            <div class="note" style="margin-top:auto">
+              💡 Dette er standardvalget – utbyttet blir liggende på UBS-kontoen din til du overfører det. Med mye utbytte blir dette litt som å ha penger i madressen. Ta dem ut og bruk dem til noe fornuftig, eller vurder alternativ 2.
+            </div>
+          </div>
+
+          <!-- Alternativ 2: Reinvester -->
+          <div class="tintCard cyan" style="display:grid; gap:14px; align-content:start;">
+            <div class="labelTag" style="background:rgba(103,232,249,.12); align-self:flex-start">Alternativ 2</div>
+            <h3 style="display:flex; align-items:center; gap:10px; margin:0">
+              <span style="font-size:28px">📈</span> Reinvester i aksjer
+            </h3>
+            <p>Du kan bruke utbyttet til å <strong class="glow">kjøpe nye aksjer</strong> i stedet for å ta det ut. Da reinvesteres pengene i flere Accenture-aksjer. Det som er til overs etter kjøp av heltall aksjer kommer som kontanter tilsvarende alternativ 1. Du må altså ha litt utbytte før dette har noe for seg.</p>
+
+            <div style="display:grid; gap:8px;">
+              <div style="padding:10px 14px; border-radius:10px; background:rgba(103,232,249,.07); border:1px solid rgba(103,232,249,.2); font-size:13px; line-height:1.55">
+                <strong class="glow">Slik gjør du:</strong> Du må <strong>ringe UBS</strong> og be dem om å sette opp reinvestering av utbytte. Dette kan ikke gjøres via nettportalen alene. Telefonnumeret står i et av dokumentene på MyHolding.
+              </div>
+            </div>
+
+            <div style="padding:10px 14px; border-radius:10px; background:rgba(250,204,21,.07); border:1px solid rgba(250,204,21,.22); font-size:13px; line-height:1.55; color:var(--muted)">
+              ⚠️ <strong style="color:var(--yellow, #facc15)">NB:</strong> Undertegnede har ikke gjort dette ennå. Denne sliden oppdateres når jeg vet mer om den praktiske prosessen med å ringe UBS.
+            </div>
+
+            <div class="note" style="margin-top:auto">
+              💡 Reinvestering kan lønne seg langsiktig gjennom <em>rentes rente</em>-effekten – utbyttet genererer nytt og større utbytte.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="foot">
+          <div></div>
+          <div class="presentationMeta"></div>
+        </div>
+      </section>
+
       <section class="slide" data-title="Salg av aksjer">
         <div>
           <div class="eyebrow"><span class="dot"></span> Når du realiserer</div>
@@ -2775,7 +2838,7 @@
 <script>
 (() => {
   const slides = [...document.querySelectorAll('.slide')];
-  const FOOTER_PRESENTATION_META = 'Simen Keiland Fondevik | Accenture | mars 2026';
+  const FOOTER_PRESENTATION_META = 'Simen Keiland Fondevik | Accenture | oppdatert mars 2026';
   const slideCount = document.getElementById('slideCount');
   const progressFill = document.getElementById('progressFill');
   const pager = document.getElementById('pager');
