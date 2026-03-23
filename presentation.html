@@ -726,7 +726,7 @@
   }
   .img-modal-overlay{z-index:9999}
   .img-modal{
-    --modal-width: 1120px;
+    --modal-width: min(1920px, 96vw);
     display:grid;
     grid-template-rows:auto minmax(0, 1fr);
     gap:0;
@@ -1256,7 +1256,7 @@
               </div>
             </div>
 
-            <div class="note">For ESPP-aksjer er alle tre sporene relevante i skattemeldingen.</div>
+            <div class="note"></div>
           </div>
         </div>
         <div class="foot">
@@ -1361,7 +1361,7 @@
                   <p><strong style="color:var(--green)">Skatteoppgjør</strong></p>
                   <div style="font-size:12px; color:var(--muted)">Du får vite om du skylder eller har penger til gode mellom juni og oktober.<br>Dette er altså fasit, det du fikk i mars/april var bare estimater.</div>
                 </div>
-                <div style="padding:6px 0; border-radius:10px; background:rgba(246,196,83,.16); text-align:center; font-weight:700; font-size:13px; color:var(--amber)">31. MAI</div>
+                <div style="padding:6px 0; border-radius:10px; background:rgba(246,196,83,.16); text-align:center; font-weight:700; font-size:13px; color:var(--cyan)">31. MAI</div>
                 <div>
                   <p><strong style="color:var(--cyan)">Betal for å unngå renter</strong></p>
                   <div style="font-size:12px; color:var(--muted)">Betaler du restskatt innen 31. mai slipper du rentetillegg.<br>Her er det fort mange kroner i spill, så betal for all del før 31. mai.</div>
@@ -1540,27 +1540,6 @@
             <button class="screenshot-btn" onclick="openModal('skattScreenshotModal')"><img src="assets/skatteetaten-logo.svg" alt="" style="height:4em; vertical-align:middle; margin-right:12px">Klikk for å se hvordan det ser ut i skattemeldingen</button>
           </div>
 
-          <!-- Screenshot modal -->
-          <div id="skattScreenshotModal" class="img-modal-overlay modal-overlay" role="dialog" aria-modal="true" aria-labelledby="skattScreenshotModalTitle">
-            <div class="img-modal modal-panel">
-              <div class="img-modal-header modal-header">
-                <h3 id="skattScreenshotModalTitle">Slik ser det ut i skattemeldingen</h3>
-                <button class="img-modal-close modal-close" onclick="closeModal('skattScreenshotModal')" aria-label="Lukk">&times;</button>
-              </div>
-              <div class="img-modal-body">
-                <div class="img-modal-item">
-                  <div class="caption" style="font-size:14px; font-weight:600; color:var(--text)">Dialog for å legge til utenlandske aksjer</div>
-                  <img src="assets/legge-til-aksjer-i-skattemeldingen.png" alt="Legge til aksjer i skattemeldingen">
-                  <div class="caption">Under 'Metode ved dobbeltbeskatning' legger du inn kredittfradrag dersom du ikke har V2A-skjema sendt inn. Mer om alt dette senere i presentasjonen.</div>
-                </div>
-                <div class="img-modal-item">
-                  <div class="caption" style="font-size:14px; font-weight:600; color:var(--text)">Ferdig lagt til</div>
-                  <img src="assets/aksjer-lagt-til.png" alt="Aksjer lagt til i skattemeldingen">
-                  <div class="caption">Da dette skjermbildet ble tatt, var ikke skjerming lagt inn enda for ACN. Se derfor på de andre aksjene en Acenture for hvordan det ser ut.</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="content">
           <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px">
@@ -2321,7 +2300,7 @@
                 <li><p>Viser detaljerte utregninger hvis du vil gå i detaljene, og oversikt over talene du skal legge inn i skattemeldingen.</p></li>
               </ul>
               <div class="note" style="margin-top:2px">
-                  NB: Ikke endre på grønne/hvite celler. Det du skal rapportere i Skattemeldingen er du i arket 'Oversikt'.
+                  NB: Ikke endre på grønne/hvite celler. Det du skal rapportere i Skattemeldingen ser du i arket 'Oversikt'.
               </div>
             </div>
           </div>
@@ -2727,6 +2706,20 @@
     <div class="pager" id="pager"></div>
     <div class="progress" aria-hidden="true"><div id="progressFill"></div></div>
   </footer>
+</div>
+
+<div id="skattScreenshotModal" class="img-modal-overlay modal-overlay" role="dialog" aria-modal="true" aria-labelledby="skattScreenshotModalTitle">
+  <div class="img-modal modal-panel">
+    <div class="img-modal-header modal-header">
+      <h3 id="skattScreenshotModalTitle">Slik ser det ut i skattemeldingen</h3>
+      <button class="img-modal-close modal-close" onclick="closeModal('skattScreenshotModal')" aria-label="Lukk">&times;</button>
+    </div>
+    <div class="img-modal-body" style="padding:12px">
+      <div class="img-modal-item" style="flex:1 1 100%; max-width:100%">
+        <img src="assets/aksjer-i-skattemeldingen.png" alt="Aksjer i skattemeldingen" style="max-height:calc(92vh - 100px)">
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="toc-modal-overlay modal-overlay" id="tocOverlay" role="dialog" aria-modal="true" aria-labelledby="tocModalTitle">
