@@ -2283,7 +2283,6 @@
               <h3 style="margin:0">Dette må du legge inn i Excel-skjemaet</h3>
               <p>Skjemaet må oppdateres årlig ifbm. ny Skattemelding. Du kan selvsagt oppdatere fortløpende gjennom året, en det er ingen poeng. Når Skattemeldingen ahr kommet, må du legge in:</p>
               <ul class="clean" style="margin:0">
-                <li><p>Snittkurs USD/NOK for året Skattemeldingen gjelder. Denne finer du hos Norges bank, se link i Excelfilen.</p></li>
                 <li><p>Skjermingsrenten for året som var. Denne slippes på Skatteetaten sine sider hver januar, se link i Excel-filen.</p></li>
                 <li><p>Eventuelle nye aksjekjøp – trolig 2 nye rtansjer om du har vørt påmeldt hele året.</p></li>
                 <li><p>Eventuelle nye utbytteutbetalinger – trolig 4 ny utbytteutbetalinger om du hadde aksjer hele året.</p></li>
@@ -2296,8 +2295,9 @@
             <div class="tintCard amber" style="display:grid; gap:14px; align-content:start;">
               <h3 style="margin:0">Dette gjør skjemaet for deg</h3>
               <ul class="clean" style="margin:0">
+                <li><p>Henter aksjekurs på relevante datoer dynamisk.</p></li>
                 <li><p>Beregner hvor mange aksjer du hadde ved hver ex-dato.</p></li>
-                <li><p>Konverterer utbytte fra USD/aksje til NOK/aksje.</p></li>
+                <li><p>Konverterer utbytte dynamisk fra USD/aksje til NOK/aksje.</p></li>
                 <li><p>Beregner skjermingsfradrag automatisk basert på tallene du legger inn, inkludert ubenyttet skjerming fra tidligere år.</p></li>
                 <li><p>Støtter flere ulike aksjer, selv om det for de fleste bare er relevant med Accenture-aksjer.</p></li>
                 <li><p>Viser detaljerte utregninger hvis du vil gå i detaljene, og oversikt over talene du skal legge inn i skattemeldingen.</p></li>
@@ -2316,10 +2316,40 @@
               </div>
             </div>
 
-            <a class="download-template-btn" href="skjermingsfradrag-kalkulator.xlsx" download="skjermingsfradrag-kalkulator.xlsx">
+            <a class="download-template-btn" href="skjermingsfradrag-kalkulator/skjermingsfradrag-kalkulator-v2.xlsx" download="skjermingsfradrag-kalkulator-v2.xlsx">
               <span style="font-size:40px">⬇</span>
-              <span>Last ned skjermingskalkulator<br><p>skjermingsfradrag-kalkulator.xlsx</p></span>
+              <span>Last ned skjermingskalkulator<br><p>skjermingsfradrag-kalkulator-v2.xlsx</p></span>
             </a>
+
+            <div style="margin-top:12px; font-size:13px; line-height:1.6;">
+              <p style="margin:0 0 10px; color:var(--muted)">Alle versjoner er tilgjengelige i git-repoet: <a href="https://github.com/simenkf/aksjer-skattemelding" target="_blank" rel="noopener noreferrer" style="color:var(--cyan); text-decoration:underline">github.com/simenkf/aksjer-skattemelding</a></p>
+              <table style="width:100%; border-collapse:collapse; font-size:12px; text-align:left;">
+                <thead>
+                  <tr style="border-bottom:1px solid var(--line);">
+                    <th style="padding:6px 8px; color:var(--muted); font-weight:600;">Versjon</th>
+                    <th style="padding:6px 8px; color:var(--muted); font-weight:600;">Beskrivelse</th>
+                    <th style="padding:6px 8px; color:var(--muted); font-weight:600; text-align:center;">Last ned</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid var(--line);">
+                    <td style="padding:6px 8px; white-space:nowrap; color:var(--text); font-weight:600;">v1</td>
+                    <td style="padding:6px 8px; color:var(--text);">Originalversjonen presentert mars 2026. Denne krever ikke internett (du legger inn valutakurser og slik selv)</td>
+                    <td style="padding:6px 8px; text-align:center;"><a href="skjermingsfradrag-kalkulator/skjermingsfradrag-kalkulator-v1.xlsx" download="skjermingsfradrag-kalkulator-v1.xlsx" style="display:inline-block; padding:4px 12px; border-radius:8px; background:rgba(161,0,255,.12); border:1px solid rgba(161,0,255,.3); color:var(--purple); text-decoration:none; font-weight:600; font-size:11px; transition:.2s ease;" onmouseover="this.style.background='rgba(161,0,255,.22)'" onmouseout="this.style.background='rgba(161,0,255,.12)'">⬇ .xlsx</a></td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--line);">
+                    <td style="padding:6px 8px; white-space:nowrap; color:var(--text); font-weight:600;">v2</td>
+                    <td style="padding:6px 8px; color:var(--text);">Oppdatert april 2026. Inkluderer utbyttesatser tilbake til 2005, skjermingsrente tilbake til 2007, henter automatisk aksjekurs og valutakurs ved relevante datoer, utvider antall tillatte transjer, og legger til Accenture-spesifikk oppsummering inkl. nåværende totalverdi og verdi ved årsslutt for tidligere år.</td>
+                    <td style="padding:6px 8px; text-align:center;"><a href="skjermingsfradrag-kalkulator/skjermingsfradrag-kalkulator-v2.xlsx" download="skjermingsfradrag-kalkulator-v2.xlsx" style="display:inline-block; padding:4px 12px; border-radius:8px; background:rgba(161,0,255,.12); border:1px solid rgba(161,0,255,.3); color:var(--purple); text-decoration:none; font-weight:600; font-size:11px; transition:.2s ease;" onmouseover="this.style.background='rgba(161,0,255,.22)'" onmouseout="this.style.background='rgba(161,0,255,.12)'">⬇ .xlsx</a></td>
+                  </tr>
+                  <tr>
+                    <td style="padding:6px 8px; white-space:nowrap; color:var(--text); font-weight:600;">eksempel</td>
+                    <td style="padding:6px 8px; color:var(--text);">Eksempel med noen eksempeltransjer fylt inn for å illustrere output av kalkulatoren.</td>
+                    <td style="padding:6px 8px; text-align:center;"><a href="skjermingsfradrag-kalkulator/skjermingsfradrag-kalkulator-v2-eksempel.xlsx" download="skjermingsfradrag-kalkulator-v2-eksempel.xlsx" style="display:inline-block; padding:4px 12px; border-radius:8px; background:rgba(161,0,255,.12); border:1px solid rgba(161,0,255,.3); color:var(--purple); text-decoration:none; font-weight:600; font-size:11px; transition:.2s ease;" onmouseover="this.style.background='rgba(161,0,255,.22)'" onmouseout="this.style.background='rgba(161,0,255,.12)'">⬇ .xlsx</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
 
