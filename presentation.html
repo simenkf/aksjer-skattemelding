@@ -960,6 +960,82 @@
         </div>
       </section>
 
+      <section class="slide" data-title="Endringshistorikk">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Hva er nytt?</div>
+          <div class="titleRow">
+            <div>
+              <h2>Endringshistorikk</h2>
+              <div class="subtitle">Velkommen tilbake! Her er en oversikt over innholdsendringer i presentasjonen.</div>
+            </div>
+          </div>
+        </div>
+        <div class="content" style="display:flex; align-items:flex-start; justify-content:flex-start">
+          <div style="width:100%; display:flex; flex-direction:column; gap:20px">
+            <div class="tintCard neutral" style="padding:clamp(24px,2.5vw,40px); display:flex; flex-direction:column; gap:20px">
+
+              <p style="color:var(--muted); font-size:clamp(13px,1.1vw,15px); line-height:1.6">
+                Kun vesentlige endringer listes opp — nye emner, rettelser av feil og nye funksjoner. Kosmetiske justeringer og mindre forbedringer loggføres ikke her; sjekk <strong class="glow">git log</strong> for den fulle historikken.
+              </p>
+
+              <table style="width:100%; border-collapse:collapse; font-size:clamp(13px,1.15vw,16px); line-height:1.55">
+                <thead>
+                  <tr style="border-bottom:2px solid rgba(255,255,255,.12)">
+                    <th style="text-align:left; padding:10px 14px; color:var(--cyan); font-weight:700; white-space:nowrap; width:130px">Dato</th>
+                    <th style="text-align:left; padding:10px 14px; color:var(--cyan); font-weight:700">Endring</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid rgba(255,255,255,.06)">
+                    <td style="padding:12px 14px; color:var(--amber); font-weight:700; white-space:nowrap; vertical-align:top">31. mars 2025</td>
+                    <td style="padding:12px 14px; color:var(--text)">
+                      <strong class="glow">Forbedret skjermingsfradrag-kalkulator</strong> — v2 av Excelskjemaet har en rekke forbedringer. Mye mer er automatisert, slik at du nå i praksis bare trenger legge inn antall aksjer kjøpt på hvilke datoer – resten ligger enten allerede inne eller hentes dynamisk fra internett. Du må selv også legge inn fremtidige nye skjermingsrenter og utbytter. Spesifikt inkluderer endringene i v2
+                      <ul class="clean" style="margin-top:6px">
+                        <li>
+                          allerede utfylte skjermingsrenter så langt tilbake som tilgjengelig
+                        </li>
+                        <li>
+                          allerede utfylte utbyttesatser for Accenture så langt tilbake som tilgjengelig
+                        </li>
+                        <li>
+                          automatisk henter aksjekurs (fra Internett) på relevante datoer
+                        </li>
+                        <li>
+                          automatisk henter vekslingskurser USD/NOK på relevante datoer (ikke noe mer års-snitt-kurs som måtte legges inn manuelt)
+                        </li>
+                        <li>
+                          viser nå kun utregningene relevant for deg (fra ditt første kjøp, og ikke fra eldste sjermingsrente/utbytte-dato oppgitt)
+                        </li>
+                        <li>
+                          Accenture-spesifikk oppsummering, som viser alt fra nåværende formue og og total inngangsverdi, til formue ved årsslutt de siste årene (som skal rapporteres i Skattemeldingen)
+                        </li>
+                        <li>
+                          utvider antall tillatte transjer – nå bør du ikke hindres med mindre du bruker skjemaet for mange ulike aksjer samtidig og day trader som Sindre Finnes
+                        </li>
+                    </ul>
+                    Er du allerede i gang med v1-skjemet, er det bare å kopiere over dato og antall for transjene dine – det tar deg 10 sekunder. v1 av Excelskjemaet ligger fremdeles tilgjengelig for nedlasting dersom du foretrekker en litt mer manuell versjon som ikke krever internett-tilgang for å hente aksje- og valutakurser dynamisk.
+                    <br><br>Jeg har videre lagt ved en <strong class="glow">eksempelfil</strong> som har noen preutfylte transjer (kjøp), for å illsutrere hvordan skjemaet ser ut med data utfylt.
+                    <br><br>Dessuten har jeg laget en slide med <strong class="glow">endringshistorikk</strong> (denne siden) slik at det er enkelt å komme tilbake for å få med seg nye lover/regler eller innhold.
+                    </td>
+                  </tr>
+                  <tr style="border-bottom:1px solid rgba(255,255,255,.06)">
+                    <td style="padding:12px 14px; color:var(--amber); font-weight:700; white-space:nowrap; vertical-align:top">23. mars 2025</td>
+                    <td style="padding:12px 14px; color:var(--text)">
+                      <strong class="glow">Første versjon</strong> — presentasjonen ble presentert og delt internt i Accenture for første gang.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+        <div class="foot">
+          <div></div>
+          <div class="presentationMeta"></div>
+        </div>
+      </section>
+
       <section class="slide" data-title="Begrepsoversikt">
         <div>
           <div class="eyebrow"><span class="dot"></span> Begreper først</div>
