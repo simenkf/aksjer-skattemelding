@@ -991,6 +991,7 @@
                     <td style="padding:12px 14px; color:var(--amber); font-weight:700; white-space:nowrap; vertical-align:top">30. mai 2026</td>
                     <td style="padding:12px 14px; color:var(--text)">
                       <strong class="glow">Svar fra Skatteetaten</strong> — Skjermingsfradrag kan ikke spares og utsettes til salg, det har Skatteetaten bekrefetet i formelt svar. Egen slide med deres fulle svar er lagt til.
+                      <br><br>Noen tips knyttet til skjermingsfradragskalkulatoren er også lagt til, samt flere detaljer rundt prosessen med W 8-BEN og V2A.
                     </td>
                   </tr>
 
@@ -1911,10 +1912,12 @@
             <h4 style="margin:14px 0 6px">Hva skjemaet spør om</h4>
             <ul class="clean">
               <li><p>Fullt navn og adresse i hjemlandet</p></li>
+              <li><p>Hvilke bindinger du har til USA</p></li>
               <li><p>Fødselsdato og statsborgerskap</p></li>
+              <li><p>"US tax payer ID" har vi ikke, så svar nei/blankt hvis mulig</p></li>
               <li><p>SSN har vi ikke (linje 5), så den hoppes over</p></li>
               <li><p>Skattenummer (FTIN, linje 6) er i Norge fødselsnummer</p></li>
-              <li><p>Hvilke bindinger du har til USA</p></li>
+              <li><p>"Would you like to claim a tax treaty" – her svarer du ja, Norge og USA har en skatteavtale</p></li>
             </ul>
 
             <h4 style="margin:14px 0 6px">Hvordan fylle det ut og sende inn</h4>
@@ -2286,7 +2289,7 @@
                 <span style="font-size:22px">📘</span> Flere detaljerte eksempler
               </h3>
 
-              <p>Følgende illustrer ulike scenarier for skjermingsfradrag. Dog er også dette relativt enkle eksempler da vi kun har gjort ett kjøp. Ved flere kjøp må hver trasnje regnes ut individuelt, som vist over.</p>
+              <p>Følgende illustrerer ulike scenarier for skjermingsfradrag. Dog er også dette relativt enkle eksempler da vi kun har gjort ett kjøp. Ved flere kjøp må hver trasnje regnes ut individuelt, som vist over.</p>
 
               <div style="display:grid; gap:10px;">
                 <div class="tintBox purple" style="border-radius:12px">
@@ -2350,7 +2353,7 @@
               </div>
 
               <div style="font-size:12px; color:var(--muted); line-height:1.45; padding:10px 12px; border-radius:10px; background:rgba(255,255,255,.03); border:1px dashed rgba(255,255,255,.14)">
-                Min forståelse er at skjerming må anvendes hvert år ved utbytte. Du kan ikke velge å la være å benytte skjerming, for å spare alt til salg av aksjene. Det hadde vært deilig om det var mulig, for da hadde vi kun trengt å gjøre alle disse utregningene én gang – ved salg. I stedet må vi gjøre dem hvert år. Jeg har imidlertid kontaktet Skatteetaten for å få dette bekreftet/avkreftet, og vil oppdatere presentasjonen når jeg hører fra dem.
+                Det essensielle er at skjerming følger en aksje. Gamle aksjer ervervet til lav inngangsverdi vil ha lavere skjerming enn aksjer ervervet til høyere inngangsverdi. Samtidig får du like mye utbytte per aksje, uavhengig av inngangsverdi. Dette gjør at du kan ha skjerming til overs for noen aksjer, samtidig som du mangler skjerming for å dekke utbytte på andre aksjer. Dessverre kan du ikke dele på skjermingen, og må da akspetere at du har både skattepliktig utbyte og ubenyttet skjerming samtidig.
               </div>
             </div>
           </div>
@@ -2481,6 +2484,14 @@
               <span>Last ned skjermingskalkulator<br><p>skjermingsfradrag-kalkulator-v2.xlsx</p></span>
             </a>
 
+            <div class="note" style="margin-top:8px; border-color:rgba(255,200,0,.35); background:rgba(255,200,0,.06);">
+              <strong style="color:var(--yellow);">⚠️ NB:</strong> En bruker har rapportert at Excel-arket kan bli tungt hvis du har veldig mange transjer. Excel kan gi en feilmelding om at den går tom for ressurser. Hvis dette skjer deg, bytt til manuell beregning under <strong>Formler</strong> &gt; <strong>Beregningsalternativer</strong> &gt; <strong>Manuell</strong>, og klikk deretter «Beregn ark» hver gang du har gjort endringer i et ark.
+            </div>
+
+            <div class="note" style="margin-top:8px;">
+              <strong>💡 Husk:</strong> Det er helt normalt å ha både «Skattepliktig utbytte» og "Ubrukt skjerming" for samme år – se nederst på sliden "Skjerming med flere kjøpstransjer".
+            </div>
+
             <div style="margin-top:12px; font-size:13px; line-height:1.6;">
               <p style="margin:0 0 10px; color:var(--muted)">Alle versjoner er tilgjengelige i git-repoet: <a href="https://github.com/simenkf/aksjer-skattemelding" target="_blank" rel="noopener noreferrer" style="color:var(--cyan); text-decoration:underline">github.com/simenkf/aksjer-skattemelding</a></p>
               <table style="width:100%; border-collapse:collapse; font-size:12px; text-align:left;">
@@ -2557,9 +2568,9 @@
               <ol class="clean" style="margin-top:8px">
                 <li><p>Fullfør eCerts-registreringen hos <a href="https://ecerts.globetax.com/" target="_blank" style="color:#67e8f9">eCerts</a>. <strong class="glow">Access Code er</strong> "Accenture".</p></li>
                 <li><p>Du må oppgi blant annet adresse, fødselsnummer, og kontonummer hos UBS. Sistnevnte finner du på UBS under "Statements and resources" -> "Statements".</p></li>
-                <li><p>Når betalt, mottar du en passordbeskyttet PDF med skjemaet. Fyll ut som mangler (part 1); navn, dato og signatur.</p></li>
-                <li><p>Skjemaet (part 2) må nå fullføres av Skatteetaten. Send det derfor til int@skatteetaten.no. Oppgi hvilken adresse du vil ha det sendt fysisk i retur. De kan bruke flere uker på å svare.</p></li>
-                <li><p>Send skjemaet til eCerts som beskrevet på deres sider (skal sendes til New York, fysisk)</p></li>
+                <li><p>Når betalt, mottar du en passordbeskyttet PDF med skjemaet. Fyll ut det som mangler (part 1); navn, dato og signatur.</p></li>
+                <li><p>Skjemaet (part 2) må nå fullføres av Skatteetaten. Send det derfor til int@skatteetaten.no. Oppgi hvilken adresse du vil ha det sendt fysisk i retur. De kan bruke flere uker på å svare – selv sendte jeg mail 3. april, og fikk signert og stemplet skjema fysisk i retur i postkassen 28. mai.</p></li>
+                <li><p>Send skjemaet til eCerts som beskrevet på deres sider (skal sendes til New York, fysisk – dette er mitt neste punkt, oppdaterer her videre når jeg har mer erfaring med resten av prosessen)</p></li>
                 <li><p>eCerts tar seg av siste etappe med å få dokumentasjonen behandlet hos irske skattemyndigheter</p></li>
               </ol>
 
